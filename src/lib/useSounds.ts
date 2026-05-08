@@ -76,15 +76,15 @@ export function useSounds() {
   );
 
   const playMenuOpen = useCallback(() => {
-    playTone(400, 0.1, 0.08, "sine");
+    playTone(400, 0.1, 0.096, "sine");
   }, [playTone]);
 
   const playMenuClose = useCallback(() => {
-    playTone(300, 0.08, 0.06, "sine");
+    playTone(300, 0.08, 0.072, "sine");
   }, [playTone]);
 
   const playRouteChange = useCallback(() => {
-    playNoise(0.06, 0.04);
+    playNoise(0.06, 0.048);
   }, [playNoise]);
 
   const toggleSounds = useCallback(() => {
@@ -100,7 +100,7 @@ export function useSounds() {
           const gain = ctx.createGain();
           osc.type = "sine";
           osc.frequency.value = 600;
-          gain.gain.setValueAtTime(0.06, ctx.currentTime);
+          gain.gain.setValueAtTime(0.072, ctx.currentTime);
           gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
           osc.connect(gain);
           gain.connect(ctx.destination);

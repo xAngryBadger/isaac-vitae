@@ -1,8 +1,9 @@
 import { personal, experiences, education, skillGroups, courses, projects } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import type { Bilingual } from "../lib/LanguageContext";
-import { FileDown, ArrowLeft } from "lucide-react";
+import { ArrowLeft, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAtsPdf } from "../lib/useAtsPdf";
 
 const cvContent = {
   summary: {
@@ -30,7 +31,7 @@ const cvContent = {
     },
     {
       name: "Fennec Excel",
-      pt: "Assistente de IA local para Excel via Ollama/qwen2.5 com agente ReAct. Comando de voz em linguagem natural para filtrar, ordenar e manipular planilhas. Checkpoint automático antes de cada alteração.",
+      pt: "Assistente de IA local para Excel via Ollama/qwen2.5 com agente ReAct. Comando em linguagem natural para filtrar, ordenar e manipular planilhas. Checkpoint automático antes de cada alteração.",
       en: "Local AI assistant for Excel via Ollama/qwen2.5 with ReAct agent. Natural language commands to filter, sort, and manipulate spreadsheets. Auto-checkpoint before every change.",
       tech: ["Python", "Ollama", "CustomTkinter", "xlwings", "PyInstaller"],
     },
@@ -40,22 +41,29 @@ const cvContent = {
 export default function CV() {
   const { t, lang } = useLang();
   const tB = (b: Bilingual | string) => t(b);
-
+  const downloadAtsPdf = useAtsPdf(lang);
   const featuredProjects = projects.filter((p) => p.featured);
 
   return (
     <div className="cv-page">
       <div className="cv-sheet">
-        <div className="cv-actions print:hidden">
+        <div className="cv-actions">
           <Link to="/contact" className="cv-btn">
             <ArrowLeft className="w-4 h-4" />
             {t({ pt: "Voltar", en: "Back" })}
           </Link>
-          <button onClick={() => window.print()} className="cv-btn cv-btn-filled">
-            <FileDown className="w-4 h-4" />
-            {t({ pt: "Salvar PDF", en: "Save PDF" })}
+          <button onClick={downloadAtsPdf} className="cv-btn cv-btn-filled">
+            <FileText className="w-4 h-4" />
+            {t({ pt: "Baixar ATS PDF", en: "Download ATS PDF" })}
           </button>
         </div>
+
+        <p className="cv-ats-note">
+          {t({
+            pt: "O download gera um arquivo .txt puro, otimizado para sistemas ATS. Sem formatação, sem tabelas — texto limpo.",
+            en: "The download generates a plain .txt file, optimized for ATS systems. No formatting, no tables — clean text.",
+          })}
+        </p>
 
         <h1 className="cv-name">{personal.fullName}</h1>
         <p className="cv-title">{t(personal.title)} — {t(personal.subtitle)}</p>
@@ -181,7 +189,18 @@ export default function CV() {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          margin-bottom: 0.75rem;
+        }
+        .cv-ats-note {
+          font-family: var(--font-mono);
+          font-size: 0.65rem;
+          letter-spacing: 0.05em;
+          color: var(--color-text-3);
           margin-bottom: 2rem;
+          padding: 0.6rem 1rem;
+          border: 1px dashed var(--color-border);
+          background: var(--color-bg);
+          line-height: 1.5;
         }
         .cv-btn {
           display: inline-flex;
@@ -251,7 +270,6 @@ export default function CV() {
         }
         .cv-section {
           margin-bottom: 1.5rem;
-          page-break-inside: avoid;
         }
         .cv-heading {
           font-family: var(--font-serif);
@@ -360,16 +378,6 @@ export default function CV() {
         }
         .cv-skill-items {
           color: var(--color-text-2);
-        }
-
-        @media print {
-          body { background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-          .cv-page { padding: 0 !important; background: #fff !important; }
-          .cv-sheet { border: none !important; padding: 0 !important; max-width: 100% !important; background: #fff !important; }
-          .cv-actions { display: none !important; }
-          .cv-name { font-size: 1.5rem; }
-          .cv-contact a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.6rem; color: #8a9b8e; }
-          @page { size: A4; margin: 1.5cm; }
         }
 
         @media (max-width: 640px) {

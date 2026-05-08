@@ -129,97 +129,81 @@ textTransform: "uppercase" as const,
 })}
 </div>
 
-<div className="edu-timeline">
-<span className="section-label mb-12 block">{t({ pt: "Formação Acadêmica", en: "Academic Education" })}</span>
+  <div className="edu-timeline">
+    <span className="section-label mb-8 block">{t({ pt: "Formação Acadêmica", en: "Academic Education" })}</span>
 
-<div className="relative" style={{ paddingLeft: "2rem" }}>
-<div
-className="absolute top-0 bottom-0"
-style={{
-left: "7px",
-width: "1.34px",
-background: "var(--color-border)",
-}}
-/>
-
-{education.map((edu, i) => (
-<div
-key={i}
-className="edu-item relative mb-8 last:mb-0"
-style={{ paddingLeft: "2rem" }}
->
-<div
-className="absolute"
-style={{
-left: "-2rem",
-top: "0.5rem",
-width: "16px",
-height: "16px",
-borderRadius: "50%",
-background: edu.statusActive ? "var(--color-accent)" : "var(--color-border)",
-border: "3px solid var(--color-bg-card)",
-boxShadow: edu.statusActive ? "0 0 0 2px var(--color-accent-20)" : "none",
-}}
-/>
-
-<div
-className="p-6 border card-hover"
-style={{
-borderColor: "var(--color-border)",
-borderWidth: "1.34px",
-backgroundColor: "var(--color-bg-card)",
-borderRadius: "var(--radius-lg)",
-}}
->
-<div className="flex items-start gap-4">
-<div className="flex-1">
-<div className="flex justify-between items-start mb-2 gap-2 flex-wrap">
-<h3 className="font-serif font-semibold" style={{ color: "var(--color-text)" }}>
-{t(edu.degree)}
-</h3>
-<span
-className="font-mono text-xs shrink-0 px-2 py-0.5"
-style={{
-color: "var(--color-text-3)",
-border: "1.34px solid var(--color-border)",
-borderRadius: "4px",
-}}
->
-{edu.period}
-</span>
-</div>
-<p className="text-secondary text-sm mb-3">
-{edu.institution}
-</p>
-<span
-className="inline-block px-3 py-1 text-xs font-mono"
-style={{
-color: edu.statusActive ? "var(--color-accent)" : "var(--color-text-3)",
-border: "1.34px solid",
-borderColor: edu.statusActive ? "var(--color-accent-30)" : "var(--color-border)",
-borderRadius: "9999px",
-}}
->
-{t(edu.status)}
-</span>
-</div>
-</div>
-</div>
-</div>
-))}
-</div>
-</div>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(2, 1fr)",
+        gap: "0.75rem",
+      }}
+    >
+      {education.map((edu, i) => (
+        <div
+          key={i}
+          className="edu-item card-hover"
+          style={{
+            padding: "2rem",
+            border: "1.34px solid var(--color-border)",
+            borderRadius: "var(--radius-lg)",
+            backgroundColor: "var(--color-bg-card)",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex-1 min-w-0">
+              <div className="flex justify-between items-start mb-2 gap-2 flex-wrap">
+                <h3 className="font-serif font-semibold" style={{ color: "var(--color-text)", fontSize: "1.25rem", lineHeight: 1.3 }}>
+                  {t(edu.degree)}
+                </h3>
+                <span
+                  className="font-mono shrink-0 px-2 py-0.5"
+                  style={{
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.15em",
+                    color: "var(--color-text-3)",
+                    opacity: 0.5,
+                    border: "1.34px solid var(--color-border)",
+                    borderRadius: "4px",
+                  }}
+                >
+                  {edu.period}
+                </span>
+              </div>
+              <p className="text-secondary text-sm mb-3" style={{ opacity: 0.7 }}>
+                {edu.institution}
+              </p>
+              <span
+                className="inline-block px-3 py-1 text-xs font-mono"
+                style={{
+                  color: edu.statusActive ? "var(--color-accent)" : "var(--color-text-3)",
+                  border: "1.34px solid",
+                  borderColor: edu.statusActive ? "var(--color-accent-30)" : "var(--color-border)",
+                  borderRadius: "9999px",
+                }}
+              >
+                {t(edu.status)}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 </div>
 
-<style>{`
-@media (max-width: 768px) {
-.cred-wall { grid-template-columns: 1fr !important; }
-.cred-frame { grid-column: span 1 !important; }
-}
-@media (max-width: 1024px) and (min-width: 769px) {
-.cred-wall { grid-template-columns: repeat(2, 1fr) !important; }
-}
-`}</style>
+      <style>{`
+        @media (max-width: 768px) {
+          .cred-wall { grid-template-columns: 1fr !important; }
+          .cred-frame { grid-column: span 1 !important; }
+          .edu-timeline > div { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 1024px) and (min-width: 769px) {
+          .cred-wall { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+      `}</style>
 </div>
 );
 }

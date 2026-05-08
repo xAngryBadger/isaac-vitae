@@ -145,16 +145,7 @@ function Tier2Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
         }}
       />
 
-      {proj.icon && (
-        <div
-          className="absolute top-6 right-8 w-32 h-8 opacity-[0.12]"
-          style={{ transition: "opacity 0.4s", opacity: hovered ? 0.2 : 0.12 }}
-        >
-          <img src={proj.icon} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
-        </div>
-      )}
-
-      <div className="relative z-10 p-8 flex flex-col">
+  <div className="relative z-10 p-8 flex flex-col">
         <div className="flex items-center gap-2 flex-wrap mb-2">
       <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "var(--color-sage)" }}>
         {proj.year}

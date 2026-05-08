@@ -317,9 +317,15 @@ scrollTrigger: { trigger: ".gallery-header", start: SCROLL_START, once: true },
             {t({ pt: "projetos.", en: "gallery." })}
           </span>
         </h2>
-        <p className="text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
+      <p className="text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
         {t({ pt: "Clique para expandir. Role para navegar.", en: "Click to expand. Scroll to navigate." })}
-        </p>
+      </p>
+      <p
+        className="font-mono mt-2"
+        style={{ fontSize: "0.65rem", letterSpacing: "0.1em", color: "var(--color-accent)", opacity: 0.7 }}
+      >
+        {t({ pt: "Em progresso — imagens reais em breve.", en: "In progress — real images coming soon." })}
+      </p>
       </div>
 
       <div
