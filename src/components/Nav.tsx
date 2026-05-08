@@ -1,26 +1,37 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useLang } from "../lib/LanguageContext";
 import { personal } from "../data/content";
 import { scrambleText } from "../lib/scramble";
+import { useSounds } from "../lib/useSounds";
+import { Link, useLocation } from "react-router-dom";
+import { Globe, Volume2, VolumeX } from "lucide-react";
 
-const navLinks = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Experiência", href: "#experiencia" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Skills", href: "#skills" },
+const menuLinks = [
+  { label: { pt: "Início", en: "Home" }, href: "/", num: "01" },
+  { label: { pt: "Sobre", en: "About" }, href: "/about", num: "02" },
+  { label: { pt: "Experiência", en: "Experience" }, href: "/experience", num: "03" },
+  { label: { pt: "Projetos", en: "Projects" }, href: "/projects", num: "04" },
+  { label: { pt: "Habilidades", en: "Skills" }, href: "/skills", num: "05" },
+  { label: { pt: "Galeria", en: "Gallery" }, href: "/gallery", num: "06" },
+  { label: { pt: "Certificações", en: "Certificates" }, href: "/certificates", num: "07" },
+  { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "08" },
 ];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const progressRef = useRef<HTMLDivElement>(null);
+  const { lang, toggle, t } = useLang();
+  const location = useLocation();
+  const { enabled: soundsEnabled, playMenuOpen, playMenuClose, toggleSounds } = useSounds();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
-      // Scroll progress bar
       if (progressRef.current) {
-        const h = document.documentElement;
-        const pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      const h = document.documentElement;
+      const scrollable = h.scrollHeight - h.clientHeight;
+      const pct = scrollable > 0 ? h.scrollTop / scrollable : 0;
         progressRef.current.style.transform = `scaleX(${pct})`;
       }
     };
@@ -28,153 +39,188 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = (href: string) => {
+  useEffect(() => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      playMenuOpen();
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
+      lenis?.stop();
+    } else {
+      playMenuClose();
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
+      lenis?.start();
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [menuOpen, playMenuOpen, playMenuClose]);
 
   const handleScramble = (e: React.MouseEvent<HTMLElement>) => {
     const el = e.currentTarget;
     const text = el.getAttribute("data-scramble") || el.textContent || "";
     scrambleText({ el, text, duration: 380, scramblePct: 0.45 });
-  };
-
-  return (
+  };  return (
     <>
-      {/* Scroll progress */}
-      <div
-        ref={progressRef}
-        className="scroll-progress"
-        style={{ transform: "scaleX(0)" }}
-      />
+      <div ref={progressRef} className="scroll-progress" style={{ transform: "scaleX(0)" }} />
 
       <header
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-          scrolled
-            ? "bg-bg/90 backdrop-blur-md border-b border-border"
-            : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500`}
         style={{
-          backgroundColor: scrolled ? "rgba(8,11,9,0.9)" : "transparent",
-          borderBottomColor: scrolled ? "var(--color-border)" : "transparent",
+          backgroundColor: scrolled ? "rgba(239,234,230,0.92)" : "transparent",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          borderBottom: scrolled ? "1px solid var(--color-border)" : "1px solid transparent",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
-            <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-              className="font-mono text-sm tracking-[0.2em] uppercase"
-              style={{ color: "var(--color-gold)" }}
+            <Link
+              to="/"
+              className="font-mono text-sm tracking-[0.2em] uppercase custom-cursor-target"
+              style={{ color: "var(--color-accent)", textDecoration: "none" }}
             >
               {personal.name.split(" ")[0]}
               <span style={{ color: "var(--color-text-3)" }}>.</span>
-            </a>
+            </Link>
 
-            {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-10">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => handleLinkClick(link.href)}
-                  onMouseEnter={handleScramble}
-                  data-scramble={link.label}
-                  className="font-mono text-xs tracking-[0.15em] uppercase gold-underline transition-colors duration-300 cursor-none"
-                  style={{ color: "var(--color-text-2)", background: "none", border: "none" }}
-                >
-                  {link.label}
-                </button>
-              ))}
-            </nav>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={toggle}
+            className="hidden lg:flex items-center gap-1.5 font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target"
+            style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
+          >
+            <Globe className="w-3.5 h-3.5" />
+            {lang.toUpperCase()}
+          </button>
 
-            {/* CTA Desktop */}
-            <a
-              href={`mailto:${personal.email}`}
-              className="hidden lg:flex items-center gap-2 px-5 py-2 border text-xs font-mono uppercase tracking-wider transition-all duration-300 cursor-none"
-              style={{
-                borderColor: "var(--color-border-2)",
-                color: "var(--color-gold)",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--color-gold)";
-                (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(196,165,116,0.05)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--color-border-2)";
-                (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-              }}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            className="flex items-center gap-3 p-2 custom-cursor-target"
+            style={{ background: "none", border: "none" }}
+          >
+            <span
+              className="hidden lg:inline font-mono text-xs tracking-[0.15em] uppercase"
+              style={{ color: "var(--color-text-3)", transition: "opacity 0.3s", opacity: menuOpen ? 0 : 1 }}
             >
-              Contato
-            </a>
-
-            {/* Mobile toggle */}
-            <button
-              onClick={() => setMenuOpen((v) => !v)}
-              className="lg:hidden flex flex-col gap-1.5 p-2 cursor-none"
-            >
-              <span
-                className="block w-6 h-px transition-all duration-300"
-                style={{
-                  backgroundColor: "var(--color-text)",
-                  transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none",
-                }}
-              />
-              <span
-                className="block w-4 h-px transition-all duration-300"
-                style={{
-                  backgroundColor: "var(--color-text)",
-                  opacity: menuOpen ? 0 : 1,
-                }}
-              />
-              <span
-                className="block w-6 h-px transition-all duration-300"
-                style={{
-                  backgroundColor: "var(--color-text)",
-                  transform: menuOpen ? "translateY(-6px) rotate(-45deg)" : "none",
-                }}
-              />
-            </button>
+              Menu
+            </span>
+                <span
+                  className="block w-6 h-px transition-all duration-300"
+                  style={{
+                    backgroundColor: "var(--color-text)",
+                    transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none",
+                  }}
+                />
+                <span
+                  className="block w-4 h-px transition-all duration-300"
+                  style={{
+                    backgroundColor: "var(--color-text)",
+                    opacity: menuOpen ? 0 : 1,
+                  }}
+                />
+                <span
+                  className="block w-6 h-px transition-all duration-300"
+                  style={{
+                    backgroundColor: "var(--color-text)",
+                    transform: menuOpen ? "translateY(-6px) rotate(-45deg)" : "none",
+                  }}
+                />
+              </button>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile fullscreen menu */}
       <div
-        className="fixed inset-0 z-[99] flex flex-col justify-center px-10 transition-all duration-500"
+        className="fixed inset-0 z-[99] flex flex-col justify-center px-10 lg:px-20"
         style={{
-          backgroundColor: "var(--color-bg-100)",
-          clipPath: menuOpen ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
-          transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+          visibility: menuOpen ? "visible" : "hidden",
+          pointerEvents: menuOpen ? "auto" : "none",
+          transition: "visibility 0s " + (menuOpen ? "0s" : "0.8s"),
         }}
       >
-        <nav className="flex flex-col gap-6">
-          {navLinks.map((link, i) => (
-            <button
-              key={link.href}
-              onClick={() => handleLinkClick(link.href)}
-              className="text-left cursor-none"
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundColor: "var(--color-bg-deep)",
+            opacity: menuOpen ? 1 : 0,
+            transition: "opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundColor: "var(--color-bg)",
+            clipPath: menuOpen ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
+            transition: "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+          }}
+        />
+        <nav className="relative z-10 flex flex-col gap-4 lg:gap-6">
+          {menuLinks.map((link, i) => (
+          <Link
+            key={link.href}
+            to={link.href}
+            onMouseEnter={handleScramble}
+            data-scramble={t(link.label)}
+            className="text-left custom-cursor-target group"
               style={{
                 fontFamily: "var(--font-serif)",
-                fontSize: "2.5rem",
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
                 color: "var(--color-text)",
                 background: "none",
                 border: "none",
+                textDecoration: "none",
+                display: "block",
                 opacity: menuOpen ? 1 : 0,
-                transform: menuOpen ? "translateY(0)" : "translateY(20px)",
-                transition: `opacity 0.4s ease ${0.05 * i + 0.15}s, transform 0.4s ease ${0.05 * i + 0.15}s`,
+                transform: menuOpen ? "translateY(0)" : "translateY(100%)",
+                transition: `opacity 0.5s ease ${0.05 * i + 0.2}s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${0.05 * i + 0.2}s`,
               }}
             >
-              {link.label}
-            </button>
+              <span
+                className="font-mono text-xs tracking-[0.15em] mr-4"
+                style={{ color: "var(--color-text-3)", fontVariantNumeric: "tabular-nums" }}
+              >
+                {link.num} —
+              </span>
+              {t(link.label)}
+            </Link>
           ))}
         </nav>
-        <div
-          className="absolute bottom-10 left-10 font-mono text-xs"
-          style={{ color: "var(--color-text-3)", letterSpacing: "0.2em" }}
+        <div className="absolute bottom-10 left-10 lg:left-20 flex items-center gap-6">
+          <span
+            className="font-mono text-xs"
+            style={{ color: "var(--color-text-3)", letterSpacing: "0.15em" }}
+            data-selectable
+          >
+            {personal.email}
+          </span>
+          <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
+        <button
+          onClick={() => { toggle(); }}
+          className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target"
+          style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
         >
-          {personal.email}
+          <Globe className="w-3 h-3 inline mr-1" />
+          {lang === "pt" ? "EN" : "PT"}
+        </button>
+        <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
+        <button
+          onClick={toggleSounds}
+          className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target"
+          style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
+        >
+          {soundsEnabled ? <Volume2 className="w-3 h-3 inline mr-1" /> : <VolumeX className="w-3 h-3 inline mr-1" />}
+          {soundsEnabled ? "ON" : "OFF"}
+        </button>
         </div>
       </div>
     </>

@@ -1,15 +1,14 @@
-// Scramble Text — inspirado no efeito OSE Engineering
-// Revela texto caractere-a-caractere com aleatorização antes de fixar
-
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
 
 interface ScrambleOptions {
   el: HTMLElement;
   text: string;
-  duration?: number;      // total ms
-  scramblePct?: number;   // 0–1, quanto do tempo fica aleatório
+  duration?: number;
+  scramblePct?: number;
   onComplete?: () => void;
 }
+
+const activeAnimations = new WeakMap<HTMLElement, number>();
 
 export function scrambleText({
   el,
@@ -18,6 +17,9 @@ export function scrambleText({
   scramblePct = 0.5,
   onComplete,
 }: ScrambleOptions) {
+  const prev = activeAnimations.get(el);
+  if (prev) cancelAnimationFrame(prev);
+
   let frame = 0;
   const totalFrames = Math.round((duration / 1000) * 60);
   const scrambleFrames = Math.round(totalFrames * scramblePct);
@@ -41,17 +43,19 @@ export function scrambleText({
     el.textContent = result;
     frame++;
     if (frame <= totalFrames) {
-      requestAnimationFrame(tick);
+      const id = requestAnimationFrame(tick);
+      activeAnimations.set(el, id);
     } else {
       el.textContent = text;
+      activeAnimations.delete(el);
       onComplete?.();
     }
   };
 
-  requestAnimationFrame(tick);
+  const id = requestAnimationFrame(tick);
+  activeAnimations.set(el, id);
 }
 
-// Hook para usar com evento de hover em elementos React
 export function useScrambleHover() {
   const onMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
     const el = e.currentTarget;
