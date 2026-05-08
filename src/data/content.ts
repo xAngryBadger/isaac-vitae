@@ -31,7 +31,7 @@ export type Education = {
 export const personal = {
   name: "Isaac Nathan",
   fullName: "Isaac Nathan da Silva Barbosa",
-  title: b("Desenvolvedor Full-Stack", "Full-Stack Developer"),
+  title: b("Desenvolvedor Full-Stack com IA", "Full-Stack AI Engineer"),
   subtitle: b(
     "Engenharia de Computação · IA · Cloud · IoT",
     "Computer Engineering · AI · Cloud · IoT"
@@ -469,8 +469,8 @@ export const courses: Course[] = [
   { name: b("Data Analytics Essentials", "Data Analytics Essentials"), issuer: "Cisco Networking Academy", hours: "", category: "data", prominent: true, context: b("Ferramentas essenciais de analytics reconhecidas pelo mercado.", "Essential analytics tools recognized by the industry.") },
   { name: b("IA para Otimização de Processos e Tomada de Decisão", "AI for Process Optimization & Decision-Making"), issuer: b("Escola Virtual Gov · Enap · Serpro", "Escola Virtual Gov · Enap · Serpro"), hours: "71h", category: "ai", prominent: true, context: b("Programa do Núcleo de IA do Governo (PBIA) — uso estratégico de IA na gestão pública, análise de dados e segurança da informação.", "Program by the Gov AI Nucleus (PBIA) — strategic use of AI in public management, data analysis, and information security.") },
   { name: "Networking Basics", issuer: "Cisco Networking Academy", hours: "120h", category: "networking", prominent: true, context: b("Concluído durante Engenharia de Computação na Cruzeiro do Sul", "Completed during Computer Engineering at Cruzeiro do Sul") },
-  { name: b("Introdução à Cibersegurança", "Intro to Cybersecurity"), issuer: "Cisco Networking Academy", hours: "", category: "security", prominent: false, context: b("Base em segurança de redes e ameaças cibernéticas", "Foundation in network security and cyber threats") },
-  { name: b("Segurança em TI", "IT Security"), issuer: b("Fundação Bradesco", "Bradesco Foundation"), hours: "", category: "security", prominent: false, context: b("Complemento em proteção de infraestrutura e dados corporativos", "Complement in corporate infrastructure and data protection") },
+  { name: b("Introdução à Cibersegurança", "Intro to Cybersecurity"), issuer: "Cisco Networking Academy", hours: "", category: "security", prominent: true, context: b("Base em segurança de redes e ameaças cibernéticas", "Foundation in network security and cyber threats") },
+  { name: b("Segurança em TI", "IT Security"), issuer: b("Fundação Bradesco", "Bradesco Foundation"), hours: "", category: "security", prominent: true, context: b("Complemento em proteção de infraestrutura e dados corporativos", "Complement in corporate infrastructure and data protection") },
   { name: b("Inglês Fluente", "Fluent English"), issuer: "KUMON", hours: b("3 anos", "3 years"), category: "languages", prominent: true, context: b("Habilitação para documentação técnica e reuniões com equipes internacionais", "Enables technical documentation and meetings with international teams") },
 ];
 
@@ -498,7 +498,6 @@ export const caseStudies: Record<string, {
   keyFeatures: Bilingual[];
   codeSnippets?: CodeSnippet[];
   gallery?: GalleryImage[];
-  livePreview?: string;
 }> = {
   harpia: {
     challenge: b(
@@ -863,7 +862,6 @@ export const variants = {
 }`,
       },
 ],
-livePreview: "/inovesa-preview/index.html",
-},
+  },
 };
 

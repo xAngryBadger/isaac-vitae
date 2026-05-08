@@ -101,6 +101,15 @@ export default function Nav() {
           </button>
 
           <button
+            onClick={toggleSounds}
+            className="hidden lg:flex items-center gap-1.5 font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target"
+            style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
+          >
+            {soundsEnabled ? <Volume2 className="w-3.5 h-3.5" /> : <VolumeX className="w-3.5 h-3.5" />}
+            {soundsEnabled ? "ON" : "OFF"}
+          </button>
+
+          <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-expanded={menuOpen}
             aria-label={menuOpen ? "Close menu" : "Open menu"}

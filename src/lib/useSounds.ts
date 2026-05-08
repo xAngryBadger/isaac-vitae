@@ -4,9 +4,10 @@ const STORAGE_KEY = "isaac-portfolio-sounds";
 
 function getStored(): boolean {
   try {
-    return localStorage.getItem(STORAGE_KEY) === "on";
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored === null ? true : stored === "on";
   } catch {
-    return false;
+    return true;
   }
 }
 

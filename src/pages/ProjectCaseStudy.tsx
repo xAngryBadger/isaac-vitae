@@ -6,8 +6,6 @@ import { projects, caseStudies } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
 import { ArrowLeft, ArrowUpRight, Copy, Check, ChevronDown } from "lucide-react";
-import SitePreview from "../components/SitePreview";
-
 gsap.registerPlugin(ScrollTrigger);
 
 function CodeBlock({ language, title, code }: { language: string; title: string; code: string }) {
@@ -170,10 +168,7 @@ export default function ProjectCaseStudy() {
   scrollTrigger: { trigger: ".cs-gallery-img", start: SCROLL_START, once: true },
   });
 
-  gsap.from(".cs-preview", {
-  y: 40, opacity: 0, duration: 1, ease: EASE_SECONDARY,
-  scrollTrigger: { trigger: ".cs-preview", start: SCROLL_START, once: true },
-  });
+
   }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -244,19 +239,7 @@ export default function ProjectCaseStudy() {
           </p>
         </div>
 
-        {cs.livePreview && (
-          <div className="cs-preview mb-20">
-            <span className="section-label mb-6 block">
-              {t({ pt: "Preview ao Vivo", en: "Live Preview" })}
-            </span>
-            <SitePreview
-              src={cs.livePreview}
-              title={project.title}
-            />
-          </div>
-        )}
-
-        <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 mb-20">
+      <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 mb-20">
           <div className="cs-section">
             <span className="section-label">{t({ pt: "O Desafio", en: "The Challenge" })}</span>
             <p className="text-lg leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>

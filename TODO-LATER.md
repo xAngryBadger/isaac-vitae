@@ -20,3 +20,5 @@ Deferred improvements from the portfolio overhaul (May 2026).
 - [ ] **KUMON English cert** — Show the 3-year duration more prominently, link to verification URL if available.
 - [ ] **Wire up MaineCoon screenshots** — Add `gallery` array to `caseStudies.mainecoon` in `content.ts` pointing to existing `cli.png` and `chat.png`.
 - [ ] **README update** — Current README references "React 18", "tsParticles", "dark theme" but actual codebase uses React 19, no particles, warm earthy color scheme.
+- [ ] **Review accuracy of project descriptions** — Audit all project descriptions in `content.ts` against actual codebase capabilities and READMEs. Ensure metrics (LOC, feature counts) are current.
+- [ ] **Create image/icon generation prompts** — Design fast, reusable prompts for Midjourney/DALL-E/Flux to generate project thumbnails, hero images, and section icons that match the warm earthy design system.
