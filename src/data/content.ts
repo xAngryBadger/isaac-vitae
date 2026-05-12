@@ -41,8 +41,8 @@ export const personal = {
     "Tech enthusiast who believes Artificial Intelligence should be, above all, a practical tool for solving real problems."
   ),
   bioExtended: b(
-    `Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco meu trabalho na intersecção entre IA Generativa, Dados e Infraestrutura Cloud.`,
-    `Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus my work at the intersection of Generative AI, Data, and Cloud Infrastructure.`
+    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT, aulas extras à tarde só para continuar aprendendo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero usando Stack Overflow e Thonny, anotando manualmente centenas de imagens de drone da Fundação Renova. Hoje no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco meu trabalho na intersecção entre IA Generativa, Dados e Infraestrutura Cloud.`,
+    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT, extra afternoon classes just to keep learning. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch using Stack Overflow and Thonny, manually annotating hundreds of drone images from Fundação Renova. Now in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus my work at the intersection of Generative AI, Data, and Cloud Infrastructure.`
   ),
   bioHighlights: [
     b(
@@ -81,16 +81,16 @@ export const experiences: Experience[] = [
     current: true,
     highlights: [
       b(
-        "Migração de bases de dados complexas para Azure Cloud (Meritage Homes, EUA), assegurando integridade e segurança de dados em ambiente de produção.",
-        "Complex database migration to Azure Cloud for Meritage Homes (USA), ensuring data integrity and security in production."
+        "Scripts de extração automatizada (auth por cookies) para puxar datasets legados do Google Drive para a Meritage Homes (EUA) — trabalho direto com Luciano Amado (Orlando, FL). Compressão, renomeação e injeção em painéis de apresentação prontos para embedding via agente WhatsApp (com limites rígidos de tamanho de arquivo).",
+        "Automated extraction scripts (cookie-based auth) to pull legacy datasets from Google Drive for Meritage Homes (USA) — working directly with Luciano Amado (Orlando, FL). Compression, renaming, and injection into presentation panels ready for WhatsApp agent embedding (with strict file size limits)."
+      ),
+      b(
+        "Resolução cross-platform de MIME types: Android exibia arquivos nativamente, mas iPhone exigia headers application/octet-stream para forçar abertura de ZIPs no Firefox. Camada de validação + Docker para ambientes reproduzíveis → migração final para Azure Cosmos DB.",
+        "Cross-platform MIME type resolution: Android displayed files natively, but iPhone required application/octet-stream headers to force ZIPs to open in Firefox. Validation layer + Docker for reproducible environments → final migration to Azure Cosmos DB."
       ),
       b(
         "Desenvolvimento e evolução de agentes de IA para o HelloSocial — pipeline de geração de imagens com Flux, DALL-E 3 e APIs Placid/Canva.",
         "Development and evolution of AI agents for HelloSocial — image generation pipeline with Flux, DALL-E 3, and Placid/Canva APIs."
-      ),
-      b(
-        "Implementação de ambientes Docker para testes de funcionalidade e consistência em agentes de IA conversacionais.",
-        "Docker environment implementation for functionality testing and consistency in conversational AI agents."
       ),
     ],
   },
@@ -101,12 +101,12 @@ export const experiences: Experience[] = [
     current: false,
     highlights: [
       b(
-        "Ensino de lógica de programação e robótica para crianças e adolescentes usando Arduino e plataformas visuais.",
-        "Teaching programming logic and robotics to children and teens using Arduino and visual platforms."
+        "Ensino de lógica de programação e robótica para crianças e adolescentes usando Arduino e plataformas LEGO.",
+        "Teaching programming logic and robotics to children and teens using Arduino and LEGO platforms."
       ),
       b(
-        "Desenvolvimento de material didático e projetos práticos que conectam conceitos teóricos a aplicações reais.",
-        "Development of teaching materials and hands-on projects connecting theoretical concepts to real applications."
+        "Aprendi Arduino e LEGO em menos de duas semanas a partir da minha base em programação, depois desenvolvi projetos práticos conectando teoria a aplicações reais. Manhãs aqui, Paware à noite.",
+        "Learned Arduino and LEGO in under two weeks from my coding background, then developed hands-on projects connecting theory to real applications. Mornings here, Paware at night."
       ),
     ],
   },
@@ -114,18 +114,25 @@ export const experiences: Experience[] = [
 
 export const education: Education[] = [
   {
+    degree: b("Química Industrial", "Industrial Chemistry"),
+    institution: "UFOP",
+    period: "2022",
+    status: b("Primeiro contato com Python", "First Python contact"),
+    statusActive: false,
+  },
+  {
+    degree: b("Engenharia Química", "Chemical Engineering"),
+    institution: "UFSJ — Campus Alto Paraopeba",
+    period: "2022 — 2024",
+    status: b("Período de transição", "Pivot period"),
+    statusActive: false,
+  },
+  {
     degree: b("Engenharia de Computação", "Computer Engineering"),
     institution: "Cruzeiro do Sul",
     period: "2024 — 2029",
     status: getCurrentSemesterPeriod(),
     statusActive: true,
-  },
-  {
-    degree: b("Técnico em ADS", "Technical Degree in ADS"),
-    institution: "Senac EAD",
-    period: "2023",
-    status: b("Trancado", "Suspended"),
-    statusActive: false,
   },
 ];
 

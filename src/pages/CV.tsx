@@ -7,8 +7,8 @@ import { useAtsPdf } from "../lib/useAtsPdf";
 
 const cvContent = {
   summary: {
-    pt: "Engenheiro de Computação em formação com experiência prática em IA Generativa, Cloud Azure e desenvolvimento Full-Stack. Construiu pipelines agentic com 7+ modelos de IA, migrou bancos de dados em larga escala para Azure Cosmos DB e entregou aplicações offline-first para campo. Foco em automação inteligente e integração de LLMs em fluxos de trabalho reais.",
-    en: "Computer Engineering student with hands-on experience in Generative AI, Azure Cloud, and Full-Stack development. Built agentic pipelines with 7+ AI models, migrated large-scale databases to Azure Cosmos DB, and delivered offline-first field applications. Focused on intelligent automation and integrating LLMs into real-world workflows.",
+    pt: "Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT. Após 2 anos em Engenharia Química na UFSJ, pivotei para Computação e construí o ForestAI do zero (Stack Overflow + Thonny, anotação manual de imagens de drone). Hoje na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e orquestro agentes de IA para o HelloSocial. Aprendo resolvendo problemas reais.",
+    en: "First Python contact in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT. After 2 years in Chemical Engineering at UFSJ, I pivoted to Computer Engineering and built ForestAI from scratch (Stack Overflow + Thonny, manual annotation of drone images). Now at Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and orchestrate AI agents for HelloSocial. I learn by solving real problems.",
   },
   projects: [
     {
@@ -34,6 +34,12 @@ const cvContent = {
       pt: "Assistente de IA local para Excel via Ollama/qwen2.5 com agente ReAct. Comando em linguagem natural para filtrar, ordenar e manipular planilhas. Checkpoint automático antes de cada alteração.",
       en: "Local AI assistant for Excel via Ollama/qwen2.5 with ReAct agent. Natural language commands to filter, sort, and manipulate spreadsheets. Auto-checkpoint before every change.",
       tech: ["Python", "Ollama", "CustomTkinter", "xlwings", "PyInstaller"],
+    },
+    {
+      name: "ForestAI",
+      pt: "Detecção e classificação de espécies florestais com Deep Learning — construído do zero sem IA-assisted coding. Anotação manual de imagens de drone da Fundação Renova, treinamento DeepForest/YOLO, splits estratificadas, interpretação de curvas no TensorBoard. GPU local, PyTorch.",
+      en: "Forest species detection and classification with Deep Learning — built from scratch without AI-assisted coding. Manual annotation of drone images from Fundação Renova, DeepForest/YOLO training, stratified splits, TensorBoard curve interpretation. Local GPU, PyTorch.",
+      tech: ["PyTorch", "DeepForest", "OpenCV", "scikit-learn", "TensorBoard"],
     },
   ],
 };
