@@ -13,14 +13,14 @@ const cvContent = {
   projects: [
     {
       name: "HarpIA",
-      pt: "Motor de automação criativa com 7+ modelos de IA. Pipeline agentic autônomo com GPT-4.1 tool calling, geração de imagens (DALL-E 3, Flux), vídeo (Sora, Veo) e composição PIL zero-cost. 6.900+ LOC Python async com testes de segurança.",
-      en: "Creative automation engine with 7+ AI models. Autonomous agentic pipeline with GPT-4.1 tool calling, image generation (DALL-E 3, Flux), video (Sora, Veo), and zero-cost PIL compositing. 6,900+ LOC async Python with security tests.",
+      pt: "Motor de automação criativa com 7+ modelos de IA. Pipeline agentic autônomo com GPT-4.1 tool calling, geração de imagens (DALL-E 3, Flux), vídeo (Sora, Veo) e stack leve PIL/SQLite com fallback para APIs pagas. 6.900+ LOC Python async com testes de segurança.",
+      en: "Creative automation engine with 7+ AI models. Autonomous agentic pipeline with GPT-4.1 tool calling, image generation (DALL-E 3, Flux), video (Sora, Veo), and lightweight PIL/SQLite stack with fallback to paid APIs. 6,900+ LOC async Python with security tests.",
       tech: ["Python", "GPT-4.1", "DALL-E 3", "Flux 2.0 Pro", "Sora", "Veo 3.1", "Azure Cosmos DB", "SQLite"],
     },
     {
       name: "Flora Sensus",
-      pt: "App Flutter offline-first para inventário florestal com motor de sincronização custom, UUID remapping, rollback atômico e painel admin React. 24.659+ LOC em 4 subsistemas.",
-      en: "Flutter offline-first app for forest inventory with custom sync engine, UUID remapping, atomic rollback, and React admin panel. 24,659+ LOC across 4 subsystems.",
+      pt: "App Flutter offline-first para inventário florestal com motor de sincronização custom, UUID remapping, rollback atômico e painel admin React. ~24K LOC — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente.",
+      en: "Flutter offline-first app for forest inventory with custom sync engine, UUID remapping, atomic rollback, and React admin panel. ~24K LOC — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed.",
       tech: ["Flutter", "Dart", "Drift/SQLite", "React", "PocketBase", "TypeScript"],
     },
     {

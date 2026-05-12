@@ -287,8 +287,8 @@ export const projects: Project[] = [
     year: "2026",
     category: b("IA Criativa · Automação · Multi-Modelo", "Creative AI · Automation · Multi-Model"),
     description: b(
-      "Motor de automação criativa com 7+ modelos de IA (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext, Gemini, Sora, Veo 3.1). Pipeline agentic autônomo: copywriting, busca de imagens, composição de designs e geração de vídeo. Zero-cost por padrão com SQLite + PIL local.",
-      "Creative automation engine with 7+ AI models (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext, Gemini, Sora, Veo 3.1). Autonomous agentic pipeline: copywriting, image search, design compositing, and video generation. Zero-cost by default with SQLite + local PIL."
+      "Motor de automação criativa com 7+ modelos de IA (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext, Gemini, Sora, Veo 3.1). Pipeline agentic autônomo: copywriting, busca de imagens, composição de designs e geração de vídeo. Stack leve por padrão (SQLite + PIL local), com fallback para APIs pagas quando necessário.",
+      "Creative automation engine with 7+ AI models (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext, Gemini, Sora, Veo 3.1). Autonomous agentic pipeline: copywriting, image search, design compositing, and video generation. Lightweight stack by default (SQLite + local PIL), with fallback to paid APIs when needed."
     ),
     tech: ["Python", "GPT-4.1", "DALL-E 3", "Flux 2.0 Pro", "Sora", "Veo 3.1", "Pillow", "aiohttp", "SQLite", "Azure Cosmos DB"],
     color: "#FFB800",
@@ -323,8 +323,8 @@ export const projects: Project[] = [
     year: "2026",
     category: b("Mobile · Offline-First · Flutter + React", "Mobile · Offline-First · Flutter + React"),
     description: b(
-      "App mobile para inventário florestal offline-first com motor de sincronização completo (detecção de conflitos, rollback atômico, UUID remapping). Painel admin React com exportação XLSX/PDF/CSV. 24K+ LOC feitos à mão, 30+ funcionalidades.",
-      "Offline-first forest inventory mobile app with a full sync engine (conflict detection, atomic rollback, UUID remapping). React admin panel with XLSX/PDF/CSV export. 24K+ hand-crafted LOC, 30+ features."
+      "App mobile para inventário florestal offline-first com motor de sincronização completo (detecção de conflitos, rollback atômico, UUID remapping). Painel admin React com exportação XLSX/PDF/CSV. ~24K LOC — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente.",
+      "Offline-first forest inventory mobile app with a full sync engine (conflict detection, atomic rollback, UUID remapping). React admin panel with XLSX/PDF/CSV export. ~24K LOC — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed."
     ),
     tech: ["Flutter", "Dart", "Drift / SQLite", "PocketBase", "React", "Vite", "Provider", "Workmanager"],
     color: "#2d6b3f",
@@ -507,7 +507,7 @@ export const caseStudies: Record<string, {
     results: [
       b("7+ modelos de IA integrados (imagem + vídeo + copy)", "7+ AI models integrated (image + video + copy)"),
       b("Pipeline agentic autônomo com até 10 iterações de raciocínio", "Autonomous agentic pipeline with up to 10 reasoning iterations"),
-      b("Zero-cost por padrão (SQLite + PIL local)", "Zero-cost by default (SQLite + local PIL)"),
+      b("Stack leve por padrão (SQLite + PIL local), fallback para APIs pagas", "Lightweight stack by default (SQLite + local PIL), fallback to paid APIs"),
       b("Backend swap: local para Azure Cosmos DB + Blob Storage", "Backend swap: local to Azure Cosmos DB + Blob Storage"),
       b("Pronto para cron com file-locking e recuperação de lotes travados", "Cron-ready with file-locking and stuck batch recovery"),
     ],
@@ -633,7 +633,7 @@ def plan(input_path: str, output_dir: str = "./output"):
       "Flutter offline-first app with local Drift/SQLite database and custom sync engine. UUID remapping to reconcile client-server IDs. Atomic rollback on partial failures. React admin panel for centralized management."
     ),
     results: [
-      b("24,659+ LOC feitos à mão (Flutter + React + Backend + Deploy)", "24,659+ hand-crafted LOC (Flutter + React + Backend + Deploy)"),
+      b("~24K LOC — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente", "~24K LOC — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed"),
       b("30+ funcionalidades distintas em 4 subsistemas", "30+ distinct features across 4 subsystems"),
       b("Motor de sync com detecção de conflitos e rollback atômico", "Sync engine with conflict detection and atomic rollback"),
       b("Exportação XLSX/PDF com filtragem por usuário e data", "XLSX/PDF export with user and date filtering"),
@@ -643,7 +643,7 @@ def plan(input_path: str, output_dir: str = "./output"):
     keyFeatures: [
       b("4-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto", "4-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto"),
       b("Sync: exponential backoff with jitter, auth retry wrapper, ngrok bypass", "Sync: exponential backoff with jitter, auth retry wrapper, ngrok bypass"),
-      b("Design system 'Deep Forest Industrial' feito à mão (332 LOC)", "Hand-crafted 'Deep Forest Industrial' design system (332 LOC)"),
+      b("Design system 'Deep Forest Industrial' (332 LOC)", "'Deep Forest Industrial' design system (332 LOC)"),
       b("Backup/restore SQLite com padrão pending-restore-on-next-boot", "SQLite backup/restore with pending-restore-on-next-boot pattern"),
       b("Species lookup com busca accent-normalized a partir de XLSX", "Species lookup with accent-normalized search from XLSX"),
       b("Deploy scripts para Windows (PowerShell + BAT)", "Windows deployment scripts (PowerShell + BAT)"),
