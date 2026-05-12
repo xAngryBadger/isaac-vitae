@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLang } from "../lib/LanguageContext";
@@ -14,12 +14,12 @@ const galleryImages = [
   { src: "https://picsum.photos/seed/fennec-desert/1200/750", caption: { pt: "Fennec Excel — IA Local & Planilhas", en: "Fennec Excel — Local AI & Spreadsheets" }, project: "fennec" },
   { src: "https://picsum.photos/seed/inovesa-web/1200/750", caption: { pt: "Inovesa — Site Institucional", en: "Inovesa — Institutional Website" }, project: "inovesa" },
   { src: "https://picsum.photos/seed/agua-station/1200/750", caption: { pt: "AguaQuality — Gestão IoT", en: "AguaQuality — IoT Management" }, project: "aguaquality" },
-  { src: "https://picsum.photos/seed/social-media/1200/750", caption: { pt: "Hello Social — Conteúdo com IA", en: "Hello Social — AI Content" }, project: "hellosocial" },
+  { src: "https://picsum.photos/seed/social-media/1200/750", caption: { pt: "HelloSocial — Conteúdo com IA", en: "HelloSocial — AI Content" }, project: "hellosocial" },
   { src: "https://picsum.photos/seed/minecraft-bot/1200/750", caption: { pt: "MaineCoon — LLM no Minecraft", en: "MaineCoon — LLM in Minecraft" }, project: "mainecoon" },
-  { src: "https://picsum.photos/seed/finance-dash/1200/750", caption: { pt: "Finance Tracker — Análise Visual", en: "Finance Tracker — Visual Analytics" }, project: "finance" },
+  { src: "https://picsum.photos/seed/finance-dash/1200/750", caption: { pt: "Finance Tracker — Análise Visual", en: "Finance Tracker — Visual Analytics" }, project: "finance-tracker" },
   { src: "https://picsum.photos/seed/forest-vision/1200/750", caption: { pt: "ForestAI — Detecção de Espécies", en: "ForestAI — Species Detection" }, project: "forestai" },
-  { src: "https://picsum.photos/seed/dev-setup1/1200/750", caption: { pt: "CachyOS + Hyprland — Rice", en: "CachyOS + Hyprland — Rice" }, project: "setup" },
-  { src: "https://picsum.photos/seed/dev-terminal/1200/750", caption: { pt: "Terminal & Tooling — Workflow", en: "Terminal & Tooling — Workflow" }, project: "setup" },
+  { src: "https://picsum.photos/seed/dev-setup1/1200/750", caption: { pt: "CachyOS + Hyprland — Rice", en: "CachyOS + Hyprland — Rice" }, project: "rice" },
+  { src: "https://picsum.photos/seed/dev-terminal/1200/750", caption: { pt: "Terminal & Tooling — Workflow", en: "Terminal & Tooling — Workflow" }, project: "rice" },
 ];
 
 function Lightbox({
@@ -167,6 +167,7 @@ export default function Gallery() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { t } = useLang();
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const closeLightbox = useCallback(() => setLightbox(null), []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -416,11 +417,11 @@ scrollTrigger: { trigger: ".gallery-header", start: SCROLL_START, once: true },
       </div>
 
       {lightbox !== null && (
-        <Lightbox
-          images={galleryImages}
-          startIndex={lightbox}
-          onClose={() => setLightbox(null)}
-        />
+      <Lightbox
+        images={galleryImages}
+        startIndex={lightbox}
+        onClose={closeLightbox}
+      />
       )}
 
       <style>{`

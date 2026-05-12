@@ -112,7 +112,7 @@ export default function Nav() {
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-expanded={menuOpen}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-label={menuOpen ? t({ pt: "Fechar menu", en: "Close menu" }) : t({ pt: "Abrir menu", en: "Open menu" })}
             className="flex items-center gap-3 p-2 custom-cursor-target"
             style={{ background: "none", border: "none" }}
           >

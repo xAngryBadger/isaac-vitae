@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from "react";
 
 type Lang = "pt" | "en";
 
@@ -40,6 +40,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     (b: BilingualOrString) => (typeof b === "string" ? b : b[lang]),
     [lang],
   );
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   return (
     <LanguageContext.Provider value={{ lang, toggle, t }}>

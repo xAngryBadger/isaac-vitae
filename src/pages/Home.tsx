@@ -170,28 +170,30 @@ export default function Home() {
         </div>
 
         <div className="flex items-center justify-center gap-6">
-          <a
-            href={personal.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero-social custom-cursor-target transition-colors duration-300"
-            style={{ color: "var(--color-text-3)" }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-accent)"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text-3)"; }}
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
-          <a
-            href={personal.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero-social custom-cursor-target transition-colors duration-300"
-            style={{ color: "var(--color-text-3)" }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-accent)"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text-3)"; }}
-          >
-            <Github className="w-5 h-5" />
-          </a>
+        <a
+          href={personal.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="hero-social custom-cursor-target transition-colors duration-300"
+          style={{ color: "var(--color-text-3)" }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-accent)"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text-3)"; }}
+        >
+          <Linkedin className="w-5 h-5" />
+        </a>
+        <a
+          href={personal.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          className="hero-social custom-cursor-target transition-colors duration-300"
+          style={{ color: "var(--color-text-3)" }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-accent)"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text-3)"; }}
+        >
+          <Github className="w-5 h-5" />
+        </a>
           <span className="w-px h-4" style={{ backgroundColor: "var(--color-border-2)" }} />
           <span className="font-mono text-xs tracking-[0.1em]" style={{ color: "var(--color-text-3)" }}>
             {t(personal.location)}

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
@@ -6,9 +6,13 @@ export default function CustomCursor() {
   const svgRef = useRef<SVGSVGElement>(null);
   const posRef = useRef({ x: 0, y: 0 });
   const ringPos = useRef({ x: 0, y: 0 });
+  const [isFinePointer, setIsFinePointer] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    const fine = !window.matchMedia("(pointer: coarse)").matches;
+    if (!fine) return;
+    setIsFinePointer(true);
 
     const handleMove = (e: MouseEvent) => {
       posRef.current = { x: e.clientX, y: e.clientY };
@@ -71,9 +75,7 @@ export default function CustomCursor() {
     };
   }, []);
 
-  if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
-    return null;
-  }
+  if (!isFinePointer) return null;
 
   const circumference = 2 * Math.PI * 14;
 

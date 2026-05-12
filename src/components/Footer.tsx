@@ -6,6 +6,7 @@ export default function Footer() {
 
   return (
     <footer
+      aria-label={t({ pt: "Rodapé do site", en: "Site footer" })}
       className="py-12 border-t"
       style={{ borderColor: "var(--color-border)", backgroundColor: "var(--color-bg-deep)" }}
     >

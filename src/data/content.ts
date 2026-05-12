@@ -41,7 +41,7 @@ export const personal = {
     "From Chemistry to Computer Engineering. I build AI systems that actually work — from agentic pipelines to deploy. CachyOS/Hyprland, two dogs, and way too many ReAct agents."
   ),
   bioExtended: b(
-    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT, aulas extras à tarde só para continuar aprendendo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero usando Stack Overflow e Thonny, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitectei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, SRF System e em breve ForestAI de novo.`,
+    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT, aulas extras à tarde só para continuar aprendendo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero usando Stack Overflow e Thonny, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, SRF System e em breve ForestAI de novo.`,
     `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT, extra afternoon classes just to keep learning. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch using Stack Overflow and Thonny, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, SRF System, and soon ForestAI again.`
   ),
   bioHighlights: [
@@ -170,8 +170,8 @@ export const skillGroups: SkillGroup[] = [
     skills: ["Python", "FastAPI", "Node.js", "Express", "Java", "SQL"],
     color: "#456A4B",
     storyProof: b(
-      "FastAPI + Azure Cosmos DB → HarpIA pipeline, AguaQuality IoT backend, Hello Social (Paware). Python async como linguagem de produção.",
-      "FastAPI + Azure Cosmos DB → HarpIA pipeline, AguaQuality IoT backend, Hello Social (Paware). Python async as production language."
+"FastAPI + Azure Cosmos DB → HarpIA pipeline, AguaQuality IoT backend, HelloSocial (Paware). Python async como linguagem de produção.",
+"FastAPI + Azure Cosmos DB → HarpIA pipeline, AguaQuality IoT backend, HelloSocial (Paware). Python async as production language."
     ),
     storySnippet: {
       language: "python",
@@ -243,8 +243,8 @@ code: `class OllamaClient:
     ],
     color: "#4A6741",
     storyProof: b(
-      "PIX via Mercado Pago para AguaQuality. Canva Connect + Placid para Hello Social (Paware). Pexels API para busca automática de imagens no HarpIA.",
-      "PIX via Mercado Pago for AguaQuality. Canva Connect + Placid for Hello Social (Paware). Pexels API for automatic image search in HarpIA."
+"PIX via Mercado Pago para AguaQuality. Canva Connect + Placid para HelloSocial (Paware). Pexels API para busca automática de imagens no HarpIA.",
+"PIX via Mercado Pago for AguaQuality. Canva Connect + Placid for HelloSocial (Paware). Pexels API for automatic image search in HarpIA."
     ),
     storyProjectIds: ["aguaquality", "hellosocial", "harpia"],
   },
@@ -287,8 +287,8 @@ export const projects: Project[] = [
     year: "2026",
     category: b("IA Criativa · Automação · Multi-Modelo", "Creative AI · Automation · Multi-Model"),
     description: b(
-      "Motor de automação criativa com 7+ modelos de IA (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext, Gemini, Sora, Veo 3.1). Pipeline agentic autônomo: copywriting, busca de imagens, composição de designs e geração de vídeo. Stack leve por padrão (SQLite + PIL local), com fallback para APIs pagas quando necessário.",
-      "Creative automation engine with 7+ AI models (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext, Gemini, Sora, Veo 3.1). Autonomous agentic pipeline: copywriting, image search, design compositing, and video generation. Lightweight stack by default (SQLite + local PIL), with fallback to paid APIs when needed."
+"Motor de automação criativa com 7+ modelos de IA (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext Pro, Nano Banana (Gemini), Sora, Veo 3.1). Pipeline agentic autônomo: copywriting, busca de imagens, composição de designs e geração de vídeo. Stack leve por padrão (SQLite + PIL local), com fallback para APIs pagas quando necessário.",
+"Creative automation engine with 7+ AI models (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext Pro, Nano Banana (Gemini), Sora, Veo 3.1). Autonomous agentic pipeline: copywriting, image search, design compositing, and video generation. Lightweight stack by default (SQLite + local PIL), with fallback to paid APIs when needed."
     ),
     tech: ["Python", "GPT-4.1", "DALL-E 3", "Flux 2.0 Pro", "Sora", "Veo 3.1", "Pillow", "aiohttp", "SQLite", "Azure Cosmos DB"],
     color: "#FFB800",
@@ -390,7 +390,7 @@ export const projects: Project[] = [
 },
 {
   id: "hellosocial",
-  title: "Hello Social",
+  title: "HelloSocial",
   year: "2026",
   category: b("IA · Social Media · Full-Stack", "AI · Social Media · Full-Stack"),
     description: b(
@@ -472,8 +472,59 @@ export const courses: Course[] = [
 
 export const stats = [
   { value: 10, suffix: "+", label: b("Projetos", "Projects") },
-  { value: 8, suffix: "mo+", label: b("Experiência Profissional", "Professional Experience") },
+  { value: 10, suffix: "mo+", label: b("Experiência Profissional", "Professional Experience") },
   { value: 7, suffix: "+", label: b("Modelos de IA", "AI Models") },
+];
+
+export const cvSummary: Bilingual = b(
+  "Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT. Após 2 anos em Engenharia Química na UFSJ, pivotei para Computação e construí o ForestAI do zero (Stack Overflow + Thonny, anotação manual de imagens de drone). Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Aprendo resolvendo problemas reais.",
+  "First Python contact in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT. After 2 years in Chemical Engineering at UFSJ, I pivoted to Computer Engineering and built ForestAI from scratch (Stack Overflow + Thonny, manual annotation of drone images). At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. I learn by solving real problems."
+);
+
+export type CvProject = {
+  id: string;
+  name: string;
+  pt: string;
+  en: string;
+  tech: string[];
+};
+
+export const cvProjects: CvProject[] = [
+  {
+    id: "harpia",
+    name: "HarpIA",
+    pt: "Motor de automação criativa com 7+ modelos de IA. Pipeline agentic autônomo com GPT-4.1 tool calling, geração de imagens (DALL-E 3, Flux), vídeo (Sora, Veo) e stack leve PIL/SQLite com fallback para APIs pagas. 6.900+ LOC Python async com testes de segurança.",
+    en: "Creative automation engine with 7+ AI models. Autonomous agentic pipeline with GPT-4.1 tool calling, image generation (DALL-E 3, Flux), video (Sora, Veo), and lightweight PIL/SQLite stack with fallback to paid APIs. 6,900+ LOC async Python with security tests.",
+    tech: ["Python", "GPT-4.1", "DALL-E 3", "Flux 2.0 Pro", "Sora", "Veo 3.1", "Azure Cosmos DB", "SQLite"],
+  },
+  {
+    id: "florasensus",
+    name: "Flora Sensus",
+    pt: "App Flutter offline-first para inventário florestal com motor de sincronização custom, UUID remapping, rollback atômico e painel admin React. ~24K LOC — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente.",
+    en: "Flutter offline-first app for forest inventory with custom sync engine, UUID remapping, atomic rollback, and React admin panel. ~24K LOC — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed.",
+    tech: ["Flutter", "Dart", "Drift/SQLite", "React", "PocketBase", "TypeScript"],
+  },
+  {
+    id: "srf-system",
+    name: "SRF System",
+    pt: "Motor de planejamento operacional para restauração florestal. Geração automática de dossiês executivos com alocação de equipes, territórios e cronogramas. Interface NiceGUI + CLI Rich.",
+    en: "Operational planning engine for forest restoration. Automatic generation of executive dossiers with crew allocation, territory mapping, and schedules. NiceGUI + Rich CLI interface.",
+    tech: ["Python", "NiceGUI", "Rich CLI", "openpyxl", "Pandas"],
+  },
+  {
+    id: "fennec",
+    name: "Fennec Excel",
+    pt: "Assistente de IA local para Excel via Ollama/qwen2.5 com agente ReAct. Comando em linguagem natural para filtrar, ordenar e manipular planilhas. Checkpoint automático antes de cada alteração.",
+    en: "Local AI assistant for Excel via Ollama/qwen2.5 with ReAct agent. Natural language commands to filter, sort, and manipulate spreadsheets. Auto-checkpoint before every change.",
+    tech: ["Python", "Ollama", "CustomTkinter", "xlwings", "PyInstaller"],
+  },
+  {
+    id: "forestai",
+    name: "ForestAI",
+    pt: "Detecção e classificação de espécies florestais com Deep Learning — construído do zero sem IA-assisted coding. Anotação manual de imagens de drone da Fundação Renova, treinamento DeepForest/YOLO, splits estratificadas, interpretação de curvas no TensorBoard. GPU local, PyTorch.",
+    en: "Forest species detection and classification with Deep Learning — built from scratch without AI-assisted coding. Manual annotation of drone images from Fundação Renova, DeepForest/YOLO training, stratified splits, TensorBoard curve interpretation. Local GPU, PyTorch.",
+    tech: ["PyTorch", "DeepForest", "OpenCV", "scikit-learn", "TensorBoard"],
+  },
 ];
 
 export type CodeSnippet = {
@@ -640,7 +691,7 @@ def plan(input_path: str, output_dir: str = "./output"):
       b("Painel admin React com auth, fotos, relatórios e exportação", "React admin panel with auth, photos, reports, and export"),
     ],
     keyFeatures: [
-      b("4-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto", "4-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto"),
+      b("5-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto", "5-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto"),
       b("Sync: exponential backoff with jitter, auth retry wrapper, ngrok bypass", "Sync: exponential backoff with jitter, auth retry wrapper, ngrok bypass"),
       b("Design system 'Deep Forest Industrial' (332 LOC)", "'Deep Forest Industrial' design system (332 LOC)"),
       b("Backup/restore SQLite com padrão pending-restore-on-next-boot", "SQLite backup/restore with pending-restore-on-next-boot pattern"),

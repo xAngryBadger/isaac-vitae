@@ -137,7 +137,7 @@ return () => ctx.revert();
                   </div>
                 );
                 return item.href ? (
-                  <a key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                  <a key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" aria-label={item.label} style={{ textDecoration: "none" }}>
                     {content}
                   </a>
                 ) : (
@@ -178,11 +178,12 @@ return () => ctx.revert();
             />
           </div>
           <div>
-                <label className="font-mono text-xs tracking-[0.15em] uppercase block mb-2" style={{ color: "var(--color-text-3)" }}>
-                  {t({ pt: "Nome", en: "Name" })}
-                </label>
-                <input
-                  name="name"
+          <label htmlFor="contact-name" className="font-mono text-xs tracking-[0.15em] uppercase block mb-2" style={{ color: "var(--color-text-3)" }}>
+            {t({ pt: "Nome", en: "Name" })}
+          </label>
+          <input
+            id="contact-name"
+            name="name"
                   type="text"
                   required
                   disabled={formState === "sending"}
@@ -193,11 +194,12 @@ return () => ctx.revert();
                 />
               </div>
               <div>
-                <label className="font-mono text-xs tracking-[0.15em] uppercase block mb-2" style={{ color: "var(--color-text-3)" }}>
-                  {t({ pt: "E-mail", en: "Email" })}
-                </label>
-                <input
-                  name="email"
+          <label htmlFor="contact-email" className="font-mono text-xs tracking-[0.15em] uppercase block mb-2" style={{ color: "var(--color-text-3)" }}>
+            {t({ pt: "E-mail", en: "Email" })}
+          </label>
+          <input
+            id="contact-email"
+            name="email"
                   type="email"
                   required
                   disabled={formState === "sending"}
@@ -208,11 +210,12 @@ return () => ctx.revert();
                 />
               </div>
               <div>
-                <label className="font-mono text-xs tracking-[0.15em] uppercase block mb-2" style={{ color: "var(--color-text-3)" }}>
-                  {t({ pt: "Mensagem", en: "Message" })}
-                </label>
-                <textarea
-                  name="message"
+          <label htmlFor="contact-message" className="font-mono text-xs tracking-[0.15em] uppercase block mb-2" style={{ color: "var(--color-text-3)" }}>
+            {t({ pt: "Mensagem", en: "Message" })}
+          </label>
+          <textarea
+            id="contact-message"
+            name="message"
                   required
                   rows={5}
                   disabled={formState === "sending"}
