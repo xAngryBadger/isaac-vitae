@@ -501,8 +501,8 @@ export const caseStudies: Record<string, {
       "Automate visual content creation for marketing without relying on human designers or paid APIs for every output."
     ),
     approach: b(
-      "Arquitetura de pipeline com 7+ modelos de IA acessíveis por interface unificada. Agente GPT-4.1 com tool calling seleciona templates, busca imagens no Pexels e escreve copy automaticamente. Compositor local PIL para modo zero-cost.",
-      "Pipeline architecture with 7+ AI models accessible through a unified interface. GPT-4.1 agent with tool calling selects templates, searches Pexels images, and writes copy automatically. Local PIL compositor for zero-cost mode."
+      "Arquitetura de pipeline com 7+ modelos de IA acessíveis por interface unificada. Agente GPT-4.1 com tool calling seleciona templates, busca imagens no Pexels e escreve copy automaticamente. Compositor local PIL para stack leve (sem APIs pagas quando não precisa).",
+      "Pipeline architecture with 7+ AI models accessible through a unified interface. GPT-4.1 agent with tool calling selects templates, searches Pexels images, and writes copy automatically. Local PIL compositor for lightweight stack (no paid APIs when not needed)."
     ),
     results: [
       b("7+ modelos de IA integrados (imagem + vídeo + copy)", "7+ AI models integrated (image + video + copy)"),
@@ -547,7 +547,7 @@ export const caseStudies: Record<string, {
       },
       {
         language: "python",
-        title: b("Compositor PIL Zero-Cost", "Zero-Cost PIL Compositor"),
+        title: b("Compositor PIL Local", "Local PIL Compositor"),
         code: `class PILCompositor:
     TEMPLATES = {
         "modern_split": ModernSplitTemplate,
