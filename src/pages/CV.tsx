@@ -1,15 +1,16 @@
-import { personal, experiences, education, skillGroups, courses, projects, cvSummary, cvProjects } from "../data/content";
+import { personal, experiences, education, skillGroups, courses, cvSummary, cvProjects } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import type { Bilingual } from "../lib/LanguageContext";
-import { ArrowLeft, FileText } from "lucide-react";
+import { ArrowLeft, FileText, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAtsPdf } from "../lib/useAtsPdf";
+
+const PDF_URLS = { pt: "/cv/Isaac-Nathan-CV-PT.pdf", en: "/cv/Isaac-Nathan-CV-EN.pdf" };
 
 export default function CV() {
   const { t, lang } = useLang();
   const tB = (b: Bilingual | string) => t(b);
   const downloadAtsPdf = useAtsPdf(lang);
-  const featuredProjects = projects.filter((p) => p.featured);
 
   return (
     <div className="cv-page">
@@ -19,21 +20,28 @@ export default function CV() {
             <ArrowLeft className="w-4 h-4" />
             {t({ pt: "Voltar", en: "Back" })}
           </Link>
-          <button onClick={downloadAtsPdf} className="cv-btn cv-btn-filled">
-            <FileText className="w-4 h-4" />
-            {t({ pt: "Baixar CV ATS (.txt)", en: "Download ATS Resume (.txt)" })}
-          </button>
+          <div className="cv-actions-right">
+            <a href={PDF_URLS[lang]} download className="cv-btn cv-btn-filled">
+              <Download className="w-4 h-4" />
+              {t({ pt: "Baixar CV (.pdf)", en: "Download CV (.pdf)" })}
+            </a>
+            <button onClick={downloadAtsPdf} className="cv-btn">
+              <FileText className="w-4 h-4" />
+              {t({ pt: "ATS (.txt)", en: "ATS (.txt)" })}
+            </button>
+          </div>
         </div>
 
         <p className="cv-ats-note">
           {t({
-            pt: "O download gera um arquivo .txt puro, otimizado para sistemas ATS. Sem formatação, sem tabelas — texto limpo.",
-            en: "The download generates a plain .txt file, optimized for ATS systems. No formatting, no tables — clean text.",
+            pt: "O PDF contém o currículo formatado para leitura humana. O .txt é otimizado para sistemas ATS — sem formatação, sem tabelas, texto limpo.",
+            en: "The PDF contains the formatted resume for human reading. The .txt is optimized for ATS systems — no formatting, no tables, clean text.",
           })}
         </p>
 
         <h1 className="cv-name">{personal.fullName}</h1>
         <p className="cv-title">{t(personal.title)} — {t(personal.subtitle)}</p>
+        <p className="cv-pcd">{t(personal.pcd)}</p>
 
         <div className="cv-contact">
           <span>{personal.email}</span>
@@ -41,6 +49,7 @@ export default function CV() {
           <span>{t(personal.location)}</span>
           <a href={personal.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/isaac-nathan</a>
           <a href={personal.github} target="_blank" rel="noopener noreferrer">github.com/xAngryBadger</a>
+          <a href={personal.portfolio} target="_blank" rel="noopener noreferrer">xangrybadger.github.io/isaac-vitae</a>
         </div>
 
         <hr className="cv-rule" />
@@ -70,25 +79,31 @@ export default function CV() {
           ))}
         </section>
 
-        <section className="cv-section">
-          <h2 className="cv-heading">{t({ pt: "Projetos de Destaque", en: "Key Projects" })}</h2>
-{cvProjects.map((proj, i) => (
-        <div key={i} className="cv-entry">
-          <div className="cv-entry-header">
-            <div>
-              <h3 className="cv-entry-title">{proj.name}</h3>
-            </div>
-            {featuredProjects.find((p) => p.id === proj.id) && (
-              <span className="cv-entry-date">
-                {featuredProjects.find((p) => p.id === proj.id)?.year}
-              </span>
-            )}
+      <section className="cv-section">
+        <h2 className="cv-heading">{t({ pt: "Projetos de Engenharia", en: "Engineering Projects" })}</h2>
+        {cvProjects.map((proj, i) => (
+          <div key={i} className="cv-entry">
+            <div className="cv-entry-header">
+              <div>
+                <h3 className="cv-entry-title">
+                  {proj.name}
+                  {proj.url && (
+                    <a href={`https://${proj.url}`} target="_blank" rel="noopener noreferrer" className="cv-project-url">
+                      {proj.url}
+                    </a>
+                  )}
+                </h3>
               </div>
-              <p className="cv-body" style={{ marginBottom: "0.25rem" }}>{proj[lang]}</p>
-              <p className="cv-tech">{proj.tech.join(" · ")}</p>
             </div>
-          ))}
-        </section>
+            <ul className="cv-list">
+              {proj.bullets.map((b, bi) => (
+                <li key={bi}>{tB(b)}</li>
+              ))}
+            </ul>
+            <p className="cv-tech">{proj.tech.join(" · ")}</p>
+          </div>
+        ))}
+      </section>
 
         <section className="cv-section">
           <h2 className="cv-heading">{t({ pt: "Educação", en: "Education" })}</h2>
@@ -109,34 +124,38 @@ export default function CV() {
           ))}
         </section>
 
-        <section className="cv-section">
-          <h2 className="cv-heading">{t({ pt: "Habilidades", en: "Skills" })}</h2>
-          {skillGroups.map((g, i) => (
-            <div key={i} className="cv-skill-group">
-              <span className="cv-skill-label">{typeof g.label === "string" ? g.label : tB(g.label)}</span>
+      <section className="cv-section">
+        <h2 className="cv-heading">{t({ pt: "Stack Principal", en: "Core Stack" })}</h2>
+        {skillGroups.map((g, i) => (
+          <div key={i} className="cv-skill-group">
+            <span className="cv-skill-label">{typeof g.label === "string" ? g.label : tB(g.label)}</span>
+            <div className="cv-skill-content">
               <span className="cv-skill-items">{g.skills.map((s) => (typeof s === "string" ? s : tB(s))).join(" · ")}</span>
+              <span className="cv-skill-proof">{tB(g.storyProof)}</span>
             </div>
+          </div>
+        ))}
+      </section>
+
+      <section className="cv-section">
+        <h2 className="cv-heading">{t({ pt: "Certificações", en: "Certifications" })}</h2>
+        <ul className="cv-list">
+          {courses.map((c, i) => (
+            <li key={i}>
+              <strong>{tB(c.name)}</strong> — {tB(c.issuer)}{c.hours ? ` (${typeof c.hours === "string" ? c.hours : tB(c.hours)})` : ""}
+              {c.context && <em className="cv-cert-context"> {tB(c.context)}</em>}
+            </li>
           ))}
-        </section>
+        </ul>
+      </section>
 
-        <section className="cv-section">
-          <h2 className="cv-heading">{t({ pt: "Certificações", en: "Certifications" })}</h2>
-          <ul className="cv-list">
-            {courses.map((c, i) => (
-              <li key={i}>
-                <strong>{tB(c.name)}</strong> — {tB(c.issuer)}{c.hours ? ` (${typeof c.hours === "string" ? c.hours : tB(c.hours)})` : ""}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="cv-section">
-          <h2 className="cv-heading">{t({ pt: "Idiomas", en: "Languages" })}</h2>
-          <ul className="cv-list">
-            <li>{t({ pt: "Português — Nativo", en: "Portuguese — Native" })}</li>
-            <li>{t({ pt: "Inglês — Fluente (KUMON, 3 anos)", en: "English — Fluent (KUMON, 3 years)" })}</li>
-          </ul>
-        </section>
+      <section className="cv-section">
+        <h2 className="cv-heading">{t({ pt: "Idiomas", en: "Languages" })}</h2>
+        <ul className="cv-list">
+          <li>{t({ pt: "Português — Nativo", en: "Portuguese — Native" })}</li>
+          <li>{t({ pt: "Inglês — Fluente (KUMON, 3 anos)", en: "English — Fluent (KUMON, 3 years)" })}</li>
+        </ul>
+      </section>
       </div>
 
       <style>{`
@@ -152,12 +171,19 @@ export default function CV() {
           padding: 3rem;
           border: 1px solid var(--color-border);
         }
-        .cv-actions {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 0.75rem;
-        }
+  .cv-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .cv-actions-right {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
         .cv-ats-note {
           font-family: var(--font-mono);
           font-size: 0.65rem;
@@ -206,14 +232,20 @@ export default function CV() {
           margin: 0 0 0.25rem;
           line-height: 1.2;
         }
-        .cv-title {
-          font-family: var(--font-mono);
-          font-size: 0.8rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--color-accent);
-          margin: 0 0 1rem;
-        }
+  .cv-title {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 0.25rem;
+  }
+  .cv-pcd {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-text-3);
+    margin: 0 0 1rem;
+  }
         .cv-contact {
           display: flex;
           flex-wrap: wrap;
@@ -318,41 +350,67 @@ export default function CV() {
           color: var(--color-text);
           font-weight: 600;
         }
-        .cv-tech {
-          font-family: var(--font-mono);
-          font-size: 0.7rem;
-          color: var(--color-text-3);
-          letter-spacing: 0.02em;
-          margin: 0;
-        }
-        .cv-skill-group {
-          display: flex;
-          gap: 0.75rem;
-          margin-bottom: 0.4rem;
-          font-size: 0.85rem;
-          line-height: 1.5;
-        }
-        .cv-skill-label {
-          font-family: var(--font-mono);
-          font-size: 0.7rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: var(--color-accent);
-          white-space: nowrap;
-          min-width: 6rem;
-          padding-top: 0.1rem;
-        }
-        .cv-skill-items {
-          color: var(--color-text-2);
-        }
+  .cv-tech {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-text-3);
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+  .cv-project-url {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-left: 0.5rem;
+  }
+  .cv-project-url:hover {
+    text-decoration: underline;
+  }
+  .cv-skill-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .cv-skill-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    white-space: nowrap;
+    min-width: 6rem;
+    padding-top: 0.1rem;
+  }
+  .cv-skill-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .cv-skill-items {
+    color: var(--color-text-2);
+  }
+  .cv-skill-proof {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--color-text-3);
+  }
+  .cv-cert-context {
+    color: var(--color-text-3);
+    font-size: 0.8rem;
+  }
 
         @media (max-width: 640px) {
           .cv-sheet { padding: 1.5rem; }
           .cv-contact { flex-direction: column; gap: 0.35rem; }
           .cv-entry-header { flex-direction: column; gap: 0.15rem; }
-          .cv-skill-group { flex-direction: column; gap: 0.1rem; }
-          .cv-skill-label { min-width: unset; }
+    .cv-skill-group { flex-direction: column; gap: 0.1rem; }
+    .cv-skill-label { min-width: unset; }
+    .cv-actions-right { flex-direction: column; }
         }
       `}</style>
     </div>

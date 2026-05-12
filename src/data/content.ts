@@ -71,26 +71,28 @@ export const personal = {
   location: b("Mariana, MG — Brasil", "Mariana, MG — Brazil"),
   linkedin: "https://www.linkedin.com/in/isaac-nathan-da-silva-barbosa-815b212ab/",
   github: "https://github.com/xAngryBadger",
+  portfolio: "https://xangrybadger.github.io/isaac-vitae/",
+  pcd: b("PCD — TEA (CID-11: 6A02.2) + TDAH (CID-11: 6A05.2)", "PWD — ASD (ICD-11: 6A02.2) + ADHD (ICD-11: 6A05.2)"),
 };
 
 export const experiences: Experience[] = [
   {
     company: "Paware Softwares",
-    role: b("Desenvolvedor Full-Stack", "Full-Stack Developer"),
+    role: b("Desenvolvedor Full-Stack com foco em IA", "Full-Stack Developer with AI focus"),
     period: b("Out 2025 — Mai 2026", "Oct 2025 — May 2026"),
     current: false,
     highlights: [
       b(
-        "Scripts de extração automatizada (auth por cookies) para puxar datasets legados do Google Drive para a Meritage Homes (EUA) — trabalho direto com Luciano Amado (Orlando, FL). Compressão, renomeação e injeção em painéis de apresentação prontos para embedding via agente WhatsApp (com limites rígidos de tamanho de arquivo).",
-        "Automated extraction scripts (cookie-based auth) to pull legacy datasets from Google Drive for Meritage Homes (USA) — working directly with Luciano Amado (Orlando, FL). Compression, renaming, and injection into presentation panels ready for WhatsApp agent embedding (with strict file size limits)."
+        "Migrei datasets legados do Google Drive para Azure Cosmos DB destinados à Meritage Homes (EUA) — pipeline com extração automatizada por cookies, compressão, renomeação e injeção em painéis para embedding via agente WhatsApp com limites rígidos de tamanho de arquivo. Containerizei com Docker para ambientes reproduzíveis e escrevi camada de validação de schema com rollback automático.",
+        "Migrated legacy datasets from Google Drive to Azure Cosmos DB for Meritage Homes (USA) — pipeline with automated cookie-based extraction, compression, renaming, and injection into panels for WhatsApp agent embedding with strict file size limits. Containerized with Docker for reproducible environments and wrote schema validation layer with automated rollback."
       ),
       b(
-        "Resolução cross-platform de MIME types: Android exibia arquivos nativamente, mas iPhone exigia headers application/octet-stream para forçar abertura de ZIPs no Firefox. Camada de validação + Docker para ambientes reproduzíveis → migração final para Azure Cosmos DB.",
-        "Cross-platform MIME type resolution: Android displayed files natively, but iPhone required application/octet-stream headers to force ZIPs to open in Firefox. Validation layer + Docker for reproducible environments → final migration to Azure Cosmos DB."
+        "Resolvi problema cross-platform de MIME types (Android nativo vs iPhone exigindo octet-stream — testei no iPhone dos meus pais, sem Macbook). Essa validação virou o backbone da migração final para Azure Cosmos DB.",
+        "Resolved cross-platform MIME type issue (Android native vs iPhone requiring octet-stream — tested on my parents' iPhone, no Macbook). This validation layer became the backbone of the final Azure Cosmos DB migration."
       ),
       b(
-        "Desenvolvimento e arquitetura de agentes de IA para o HelloSocial — pipeline de geração de imagens com Flux, DALL-E 3 e APIs Placid/Canva.",
-        "Development and architecture of AI agents for HelloSocial — image generation pipeline with Flux, DALL-E 3, and Placid/Canva APIs."
+        "Arquitetei pipeline agentic de geração de imagens para o HelloSocial — agente GPT-4.1 com tool calling, até 10 iterações de raciocínio, integração Flux Kontext Pro + DALL-E 3 + Placid/Canva. Fallback SQLite/PIL local quando API paga não era necessária.",
+        "Architected agentic image-generation pipeline for HelloSocial — GPT-4.1 agent with tool calling, up to 10 reasoning iterations, integrating Flux Kontext Pro + DALL-E 3 + Placid/Canva APIs. Fallback to SQLite/local PIL when paid APIs weren't needed."
       ),
     ],
   },
@@ -101,12 +103,12 @@ export const experiences: Experience[] = [
     current: false,
     highlights: [
       b(
-        "Ensino de lógica de programação e robótica para crianças e adolescentes usando Arduino e plataformas LEGO.",
-        "Teaching programming logic and robotics to children and teens using Arduino and LEGO platforms."
+        "Aprendi Arduino e LEGO em <2 semanas e ministrei aulas de robótica para crianças/adolescentes, conectando teoria a aplicações reais.",
+        "Learned Arduino and LEGO in under 2 weeks and taught robotics to children/teens, connecting theory to real applications."
       ),
       b(
-        "Aprendi Arduino e LEGO em menos de duas semanas a partir da minha base em programação, depois desenvolvi projetos práticos conectando teoria a aplicações reais. Manhãs aqui, Paware à noite.",
-        "Learned Arduino and LEGO in under two weeks from my coding background, then developed hands-on projects connecting theory to real applications. Mornings here, Paware at night."
+        "Conciliei manhãs aqui com trabalho noturno na Paware.",
+        "Balanced mornings here with evening work at Paware."
       ),
     ],
   },
@@ -117,14 +119,14 @@ export const education: Education[] = [
     degree: b("Química Industrial", "Industrial Chemistry"),
     institution: "UFOP",
     period: "2022",
-    status: b("Primeiro contato com Python", "First Python contact"),
+    status: b("Onde Python começou — Thonny IDE, sem GPT", "Where Python began — Thonny IDE, no GPT"),
     statusActive: false,
   },
   {
     degree: b("Engenharia Química", "Chemical Engineering"),
     institution: "UFSJ — Campus Alto Paraopeba",
     period: "2022 — 2024",
-    status: b("Período de transição", "Pivot period"),
+    status: b("Período de transição — longe do código, acompanhando IA de perto", "Pivot period — away from code, watching AI closely"),
     statusActive: false,
   },
   {
@@ -477,15 +479,16 @@ export const stats = [
 ];
 
 export const cvSummary: Bilingual = b(
-  "Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT. Após 2 anos em Engenharia Química na UFSJ, pivotei para Computação e construí o ForestAI do zero (Stack Overflow + Thonny, anotação manual de imagens de drone). Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Aprendo resolvendo problemas reais.",
-  "First Python contact in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT. After 2 years in Chemical Engineering at UFSJ, I pivoted to Computer Engineering and built ForestAI from scratch (Stack Overflow + Thonny, manual annotation of drone images). At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. I learn by solving real problems."
+  "Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 meses de experiência profissional. De Química Industrial para Computação: construí o ForestAI do zero (Stack Overflow + Thonny, sem IA-assisted coding). Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines agentic de IA para o HelloSocial (GPT-4.1 tool calling, DALL-E 3, Flux). Aprendo resolvendo problemas reais — de MIME type cross-platform a agentes ReAct com schema enforcement.",
+  "Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 months of professional experience. From Industrial Chemistry to Computer Engineering: built ForestAI from scratch (Stack Overflow + Thonny, no AI-assisted coding). At Paware, migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected agentic AI pipelines for HelloSocial (GPT-4.1 tool calling, DALL-E 3, Flux). I learn by solving real problems — from cross-platform MIME types to ReAct agents with schema enforcement."
 );
 
 export type CvProject = {
   id: string;
   name: string;
-  pt: string;
-  en: string;
+  url: string | null;
+  tier: 1 | 2 | 3;
+  bullets: Bilingual[];
   tech: string[];
 };
 
@@ -493,37 +496,121 @@ export const cvProjects: CvProject[] = [
   {
     id: "harpia",
     name: "HarpIA",
-    pt: "Motor de automação criativa com 7+ modelos de IA. Pipeline agentic autônomo com GPT-4.1 tool calling, geração de imagens (DALL-E 3, Flux), vídeo (Sora, Veo) e stack leve PIL/SQLite com fallback para APIs pagas. 6.900+ LOC Python async com testes de segurança.",
-    en: "Creative automation engine with 7+ AI models. Autonomous agentic pipeline with GPT-4.1 tool calling, image generation (DALL-E 3, Flux), video (Sora, Veo), and lightweight PIL/SQLite stack with fallback to paid APIs. 6,900+ LOC async Python with security tests.",
+    url: "github.com/xAngryBadger/harpia",
+    tier: 1,
+    bullets: [
+      b(
+        "Motor de automação criativa com 7+ modelos de IA — agente GPT-4.1 com tool calling, pipeline agentic autônomo (copywriting, busca de imagens, composição de designs, geração de vídeo). Stack leve por padrão (SQLite + PIL local) com fallback para APIs pagas.",
+        "Creative automation engine with 7+ AI models — GPT-4.1 agent with tool calling, autonomous agentic pipeline (copywriting, image search, design compositing, video generation). Lightweight stack by default (SQLite + local PIL) with fallback to paid APIs."
+      ),
+      b(
+        "6.900+ LOC Python async com testes de segurança e zero hardcoded secrets. Backend swap: SQLite local para Azure Cosmos DB + Blob Storage, alternado via env var. Pronto para cron com file-locking e recuperação de lotes travados.",
+        "6,900+ LOC async Python with security tests and zero hardcoded secrets. Backend swap: local SQLite to Azure Cosmos DB + Blob Storage, toggled via env var. Cron-ready with file-locking and stuck batch recovery."
+      ),
+    ],
     tech: ["Python", "GPT-4.1", "DALL-E 3", "Flux 2.0 Pro", "Sora", "Veo 3.1", "Azure Cosmos DB", "SQLite"],
   },
   {
     id: "florasensus",
     name: "Flora Sensus",
-    pt: "App Flutter offline-first para inventário florestal com motor de sincronização custom, UUID remapping, rollback atômico e painel admin React. ~24K LOC — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente.",
-    en: "Flutter offline-first app for forest inventory with custom sync engine, UUID remapping, atomic rollback, and React admin panel. ~24K LOC — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed.",
+    url: "github.com/xAngryBadger/flora-sensus",
+    tier: 1,
+    bullets: [
+      b(
+        "App Flutter offline-first para inventário florestal com motor de sincronização custom — detecção de remapping em cascata pela FK chain (Propriedade → UT → Parcela → Planta → Foto) e rollback atômico via transações Drift.",
+        "Flutter offline-first app for forest inventory with custom sync engine — cascading remap detection through FK chain (Propriedade → UT → Parcela → Planta → Foto) and atomic rollback via Drift transactions."
+      ),
+      b(
+        "~24K LOC — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente. Painel admin React com auth, fotos, relatórios e exportação XLSX/PDF/CSV.",
+        "~24K LOC — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed. React admin panel with auth, photos, reports, and XLSX/PDF/CSV export."
+      ),
+      b(
+        "Backoff exponencial com jitter, auth retry wrapper com refresh transparente em 401s, ngrok bypass para desenvolvimento.",
+        "Exponential backoff with jitter, auth retry wrapper with transparent 401 refresh, ngrok bypass for development."
+      ),
+    ],
     tech: ["Flutter", "Dart", "Drift/SQLite", "React", "PocketBase", "TypeScript"],
-  },
-  {
-    id: "srf-system",
-    name: "SRF System",
-    pt: "Motor de planejamento operacional para restauração florestal. Geração automática de dossiês executivos com alocação de equipes, territórios e cronogramas. Interface NiceGUI + CLI Rich.",
-    en: "Operational planning engine for forest restoration. Automatic generation of executive dossiers with crew allocation, territory mapping, and schedules. NiceGUI + Rich CLI interface.",
-    tech: ["Python", "NiceGUI", "Rich CLI", "openpyxl", "Pandas"],
-  },
-  {
-    id: "fennec",
-    name: "Fennec Excel",
-    pt: "Assistente de IA local para Excel via Ollama/qwen2.5 com agente ReAct. Comando em linguagem natural para filtrar, ordenar e manipular planilhas. Checkpoint automático antes de cada alteração.",
-    en: "Local AI assistant for Excel via Ollama/qwen2.5 with ReAct agent. Natural language commands to filter, sort, and manipulate spreadsheets. Auto-checkpoint before every change.",
-    tech: ["Python", "Ollama", "CustomTkinter", "xlwings", "PyInstaller"],
   },
   {
     id: "forestai",
     name: "ForestAI",
-    pt: "Detecção e classificação de espécies florestais com Deep Learning — construído do zero sem IA-assisted coding. Anotação manual de imagens de drone da Fundação Renova, treinamento DeepForest/YOLO, splits estratificadas, interpretação de curvas no TensorBoard. GPU local, PyTorch.",
-    en: "Forest species detection and classification with Deep Learning — built from scratch without AI-assisted coding. Manual annotation of drone images from Fundação Renova, DeepForest/YOLO training, stratified splits, TensorBoard curve interpretation. Local GPU, PyTorch.",
+    url: "github.com/xAngryBadger/forestai",
+    tier: 1,
+    bullets: [
+      b(
+        "Detecção e classificação de espécies florestais com Deep Learning — construído do zero sem IA-assisted coding. Stack Overflow + Thonny IDE apenas.",
+        "Forest species detection and classification with Deep Learning — built from scratch without AI-assisted coding. Stack Overflow + Thonny IDE only."
+      ),
+      b(
+        "Anotação manual de centenas de imagens de drone da Fundação Renova (bounding boxes), treinamento DeepForest/YOLO em GPU local, splits estratificadas. Interpretação de curvas no TensorBoard — detectando memorização vs generalização. O jeito difícil construiu a intuição que fez cada framework subsequente clicar mais rápido.",
+        "Manual annotation of hundreds of drone images from Fundação Renova (bounding boxes), DeepForest/YOLO training on local GPU, stratified splits. TensorBoard curve interpretation — detecting memorization vs generalization. The hard way built the intuition that made every subsequent framework click faster."
+      ),
+    ],
     tech: ["PyTorch", "DeepForest", "OpenCV", "scikit-learn", "TensorBoard"],
+  },
+  {
+    id: "fennec",
+    name: "Fennec Excel",
+    url: "github.com/xAngryBadger/Sahara-Fenneck",
+    tier: 1,
+    bullets: [
+      b(
+        "Assistente de IA local para Excel via agente ReAct (Ollama/qwen2.5). Comando em linguagem natural para filtrar, ordenar, renomear abas e manipular planilhas com checkpoint automático antes de cada alteração.",
+        "Local AI assistant for Excel via ReAct agent (Ollama/qwen2.5). Natural language commands to filter, sort, rename sheets and manipulate spreadsheets with auto-checkpoint before every change."
+      ),
+      b(
+        "6+ integrações OAuth (Gmail, Teams, Calendar, Drive, Outlook, Trello) com confirmação do usuário antes de modificações.",
+        "6+ OAuth integrations (Gmail, Teams, Calendar, Drive, Outlook, Trello) with user confirmation before modifications."
+      ),
+      b(
+        "Design visual feito à mão com paleta pastel e mascote original (Fennec). Instalador nativo Windows (Inno Setup + PyInstaller). Interface bilíngue PT/EN.",
+        "Hand-crafted visual design with pastel palette and original mascot (Fennec). Native Windows installer (Inno Setup + PyInstaller). Bilingual PT/EN interface."
+      ),
+    ],
+    tech: ["Python", "Ollama", "CustomTkinter", "xlwings/COM", "PyInstaller", "Inno Setup"],
+  },
+  {
+    id: "srf-system",
+    name: "SRF System",
+    url: "github.com/xAngryBadger/srf-system",
+    tier: 2,
+    bullets: [
+      b(
+        "Motor de planejamento operacional para restauração florestal em larga escala — geração automática de dossiês executivos com alocação de equipes, territórios e cronogramas.",
+        "Operational planning engine for large-scale forest restoration — automatic generation of executive dossiers with crew allocation, territory mapping, and schedules."
+      ),
+      b(
+        "Gerenciamento de tarifas e custos operacionais. Interface NiceGUI + CLI Rich com suite de testes unitários.",
+        "Tariff and operational cost management. NiceGUI + Rich CLI interface with unit test suite."
+      ),
+    ],
+    tech: ["Python", "pandas", "NiceGUI", "Rich CLI", "openpyxl", "unittest"],
+  },
+  {
+    id: "mainecoon",
+    name: "MaineCoon",
+    url: "github.com/xAngryBadger/minepal",
+    tier: 2,
+    bullets: [
+      b(
+        "Bot de Minecraft com comandos em linguagem natural via LLM (NVIDIA NIM API) — minerar, craftar, seguir, navegar e interagir pelo chat. Módulo de reinforcement learning para comportamento autônomo.",
+        "Minecraft bot with natural language commands via LLM (NVIDIA NIM API) — mine, craft, follow, navigate, and interact via chat. Reinforcement learning module for autonomous behavior."
+      ),
+    ],
+    tech: ["Node.js", "mineflayer", "NVIDIA NIM API", "Reinforcement Learning"],
+  },
+  {
+    id: "hellosocial",
+    name: "HelloSocial",
+    url: null,
+    tier: 3,
+    bullets: [
+      b(
+        "Plataforma de criação e agendamento de posts com IA — projeto na Paware que inspirou o HarpIA. Pipeline de geração de imagens com Flux Kontext Pro e DALL-E 3, agentes de copy e template. PIX via Mercado Pago (AguaQuality). Canva + Placid (HelloSocial/Paware). Pexels API para busca automática de imagens no HarpIA.",
+        "AI-powered social media post creation and scheduling platform — project at Paware that inspired HarpIA. Image generation pipeline with Flux Kontext Pro and DALL-E 3, copy and template agents. PIX via Mercado Pago (AguaQuality). Canva + Placid (HelloSocial/Paware). Pexels API for automatic image search in HarpIA."
+      ),
+    ],
+    tech: ["Python", "FastAPI", "Azure OpenAI", "Flux", "Canva API", "React"],
   },
 ];
 

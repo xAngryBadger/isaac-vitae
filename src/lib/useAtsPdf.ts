@@ -19,56 +19,63 @@ export function useAtsPdf(lang: "pt" | "en") {
 
     ln(personal.fullName);
     ln(plain(personal.title, lang) + " — " + plain(personal.subtitle, lang));
+    ln(plain(personal.pcd, lang));
     blank();
     ln(personal.email);
     ln(personal.phone);
     ln(plain(personal.location, lang));
     ln(personal.linkedin);
     ln(personal.github);
+    ln(personal.portfolio);
 
-    sectionHead(lang === "pt" ? "Resumo" : "Summary");
+    sectionHead(lang === "pt" ? "Perfil" : "Profile");
     ln(cvSummary[lang]);
 
     sectionHead(lang === "pt" ? "Experiência Profissional" : "Professional Experience");
     for (const exp of experiences) {
       blank();
       ln(plain(exp.role, lang));
-      ln(exp.company + "  ·  " + plain(exp.period, lang));
+      ln(exp.company + " · " + plain(exp.period, lang));
       for (const h of exp.highlights) {
-        ln("  • " + plain(h, lang));
+        ln(" • " + plain(h, lang));
       }
     }
 
-    sectionHead(lang === "pt" ? "Projetos de Destaque" : "Key Projects");
+    sectionHead(lang === "pt" ? "Projetos de Engenharia" : "Engineering Projects");
     for (const proj of cvProjects) {
       blank();
-      ln(proj.name);
-      ln(proj[lang]);
+      ln(proj.name + (proj.url ? " · " + proj.url : ""));
+      for (const b of proj.bullets) {
+        ln(" • " + plain(b, lang));
+      }
       ln(" Tech: " + proj.tech.join(" · "));
     }
 
-    sectionHead(lang === "pt" ? "Educação" : "Education");
-    for (const edu of education) {
-      blank();
-      ln(plain(edu.degree, lang));
-      ln(edu.institution + "  ·  " + edu.period + "  ·  " + plain(edu.status, lang));
-    }
-
-    sectionHead(lang === "pt" ? "Habilidades" : "Skills");
+    sectionHead(lang === "pt" ? "Stack Principal" : "Core Stack");
     for (const g of skillGroups) {
       const label = typeof g.label === "string" ? g.label : plain(g.label, lang);
       const items = g.skills.map((s) => (typeof s === "string" ? s : plain(s, lang))).join(" · ");
       ln(label + ": " + items);
+      ln("  " + plain(g.storyProof, lang));
+    }
+
+    sectionHead(lang === "pt" ? "Formação" : "Education");
+    for (const edu of education) {
+      blank();
+      ln(plain(edu.degree, lang));
+      ln(edu.institution + " · " + edu.period + " · " + plain(edu.status, lang));
     }
 
     sectionHead(lang === "pt" ? "Certificações" : "Certifications");
     for (const c of courses) {
-      ln("  • " + plain(c.name, lang) + " — " + plain(c.issuer, lang) + (c.hours ? " (" + (typeof c.hours === "string" ? c.hours : plain(c.hours, lang)) + ")" : ""));
+      let line = " • " + plain(c.name, lang) + " — " + plain(c.issuer, lang);
+      if (c.hours) line += " (" + (typeof c.hours === "string" ? c.hours : plain(c.hours, lang)) + ")";
+      if (c.context) line += " — " + plain(c.context, lang);
+      ln(line);
     }
 
     sectionHead(lang === "pt" ? "Idiomas" : "Languages");
-    ln(lang === "pt" ? "  • Português — Nativo" : "  • Portuguese — Native");
-    ln(lang === "pt" ? "  • Inglês — Fluente (KUMON, 3 anos)" : "  • English — Fluent (KUMON, 3 years)");
+    ln(lang === "pt" ? " • Português — Nativo · Inglês — Fluente (KUMON, 3 anos)" : " • Portuguese — Native · English — Fluent (KUMON, 3 years)");
 
     const text = lines.join("\n");
 
