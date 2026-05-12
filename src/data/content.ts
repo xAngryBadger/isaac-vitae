@@ -41,8 +41,8 @@ export const personal = {
     "Tech enthusiast who believes Artificial Intelligence should be, above all, a practical tool for solving real problems."
   ),
   bioExtended: b(
-    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT, aulas extras à tarde só para continuar aprendendo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero usando Stack Overflow e Thonny, anotando manualmente centenas de imagens de drone da Fundação Renova. Hoje no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco meu trabalho na intersecção entre IA Generativa, Dados e Infraestrutura Cloud.`,
-    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT, extra afternoon classes just to keep learning. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch using Stack Overflow and Thonny, manually annotating hundreds of drone images from Fundação Renova. Now in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus my work at the intersection of Generative AI, Data, and Cloud Infrastructure.`
+    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT, aulas extras à tarde só para continuar aprendendo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero usando Stack Overflow e Thonny, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitectei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco meu trabalho na intersecção entre IA Generativa, Dados e Infraestrutura Cloud.`,
+    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT, extra afternoon classes just to keep learning. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch using Stack Overflow and Thonny, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus my work at the intersection of Generative AI, Data, and Cloud Infrastructure.`
   ),
   bioHighlights: [
     b(
@@ -77,8 +77,8 @@ export const experiences: Experience[] = [
   {
     company: "Paware Softwares",
     role: b("Desenvolvedor Full-Stack", "Full-Stack Developer"),
-    period: b("Out 2025 — Presente", "Oct 2025 — Present"),
-    current: true,
+    period: b("Out 2025 — Mai 2026", "Oct 2025 — May 2026"),
+    current: false,
     highlights: [
       b(
         "Scripts de extração automatizada (auth por cookies) para puxar datasets legados do Google Drive para a Meritage Homes (EUA) — trabalho direto com Luciano Amado (Orlando, FL). Compressão, renomeação e injeção em painéis de apresentação prontos para embedding via agente WhatsApp (com limites rígidos de tamanho de arquivo).",
@@ -89,8 +89,8 @@ export const experiences: Experience[] = [
         "Cross-platform MIME type resolution: Android displayed files natively, but iPhone required application/octet-stream headers to force ZIPs to open in Firefox. Validation layer + Docker for reproducible environments → final migration to Azure Cosmos DB."
       ),
       b(
-        "Desenvolvimento e evolução de agentes de IA para o HelloSocial — pipeline de geração de imagens com Flux, DALL-E 3 e APIs Placid/Canva.",
-        "Development and evolution of AI agents for HelloSocial — image generation pipeline with Flux, DALL-E 3, and Placid/Canva APIs."
+        "Desenvolvimento e arquitetura de agentes de IA para o HelloSocial — pipeline de geração de imagens com Flux, DALL-E 3 e APIs Placid/Canva.",
+        "Development and architecture of AI agents for HelloSocial — image generation pipeline with Flux, DALL-E 3, and Placid/Canva APIs."
       ),
     ],
   },

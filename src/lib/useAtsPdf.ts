@@ -29,8 +29,8 @@ export function useAtsPdf(lang: "pt" | "en") {
     sectionHead(lang === "pt" ? "Resumo" : "Summary");
     ln(
       lang === "pt"
-        ? "Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT. Após 2 anos em Engenharia Química na UFSJ, pivotei para Computação e construí o ForestAI do zero (Stack Overflow + Thonny, anotação manual de imagens de drone). Hoje na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e orquestro agentes de IA para o HelloSocial. Aprendo resolvendo problemas reais."
-        : "First Python contact in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT. After 2 years in Chemical Engineering at UFSJ, I pivoted to Computer Engineering and built ForestAI from scratch (Stack Overflow + Thonny, manual annotation of drone images). Now at Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and orchestrate AI agents for HelloSocial. I learn by solving real problems."
+        ? "Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT. Após 2 anos em Engenharia Química na UFSJ, pivotei para Computação e construí o ForestAI do zero (Stack Overflow + Thonny, anotação manual de imagens de drone). Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitectei pipelines de IA para o HelloSocial. Aprendo resolvendo problemas reais."
+        : "First Python contact in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT. After 2 years in Chemical Engineering at UFSJ, I pivoted to Computer Engineering and built ForestAI from scratch (Stack Overflow + Thonny, manual annotation of drone images). At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. I learn by solving real problems."
     );
 
     sectionHead(lang === "pt" ? "Experiência Profissional" : "Professional Experience");
