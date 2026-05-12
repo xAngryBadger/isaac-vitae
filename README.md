@@ -1,20 +1,19 @@
 # Isaac Nathan — Portfolio
 
-Personal portfolio website built with React + TypeScript + Vite. Deployed on GitHub Pages.
+Personal portfolio website built with React 19 + TypeScript + Vite. Deployed on GitHub Pages.
 
-## Features
+## Pages
 
-- Custom cursor with scramble text animation
-- Sections: About, Experience, Projects, Skills, Contact
-- Responsive design with dark theme
-- Particle background effects
+Home · About · Experience · Projects (with case studies) · Skills · Gallery · Certificates · Contact · CV (ATS-ready .txt export) · 404
 
 ## Tech Stack
 
-- React 18 + TypeScript
-- Vite
-- Tailwind CSS
-- tsParticles
+- React 19 + TypeScript
+- Vite 8
+- Tailwind CSS v4
+- Motion (Framer Motion) + Lenis
+- GSAP + ScrollTrigger
+- React Router v7
 
 ## Local Development
 

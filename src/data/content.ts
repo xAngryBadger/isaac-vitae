@@ -37,17 +37,17 @@ export const personal = {
     "Computer Engineering · AI · Cloud · IoT"
   ),
   bio: b(
-    "Entusiasta de tecnologia que acredita que a Inteligência Artificial deve ser, acima de tudo, uma ferramenta prática para resolver problemas reais.",
-    "Tech enthusiast who believes Artificial Intelligence should be, above all, a practical tool for solving real problems."
+    "De Química para Computação. Construo sistemas de IA que funcionam de verdade — do pipeline agentic ao deploy. CachyOS/Hyprland, dois cachorros e muitos agentes ReAct.",
+    "From Chemistry to Computer Engineering. I build AI systems that actually work — from agentic pipelines to deploy. CachyOS/Hyprland, two dogs, and way too many ReAct agents."
   ),
   bioExtended: b(
-    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT, aulas extras à tarde só para continuar aprendendo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero usando Stack Overflow e Thonny, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitectei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco meu trabalho na intersecção entre IA Generativa, Dados e Infraestrutura Cloud.`,
-    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT, extra afternoon classes just to keep learning. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch using Stack Overflow and Thonny, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus my work at the intersection of Generative AI, Data, and Cloud Infrastructure.`
+    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT, aulas extras à tarde só para continuar aprendendo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero usando Stack Overflow e Thonny, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitectei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, SRF System e em breve ForestAI de novo.`,
+    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT, extra afternoon classes just to keep learning. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch using Stack Overflow and Thonny, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, SRF System, and soon ForestAI again.`
   ),
   bioHighlights: [
     b(
-      "Experiência com IA e Automação: Desenvolvimento de agentes para atendimento e integração de modelos de linguagem (LLMs) em fluxos de trabalho empresariais.",
-      "AI & Automation Experience: Development of agents for customer service and integration of language models (LLMs) into enterprise workflows."
+      "IA & Automação: Construção de pipelines agentic (GPT-4.1 tool calling, ReAct loops) e integração de LLMs em fluxos de trabalho reais — do HelloSocial na Paware ao HarpIA pessoal.",
+      "AI & Automation: Building agentic pipelines (GPT-4.1 tool calling, ReAct loops) and integrating LLMs into real workflows — from HelloSocial at Paware to personal HarpIA project."
     ),
     b(
       "Interação com Cloud e Backend: Experiência prática em Azure Cloud, migração de bancos de dados em larga escala e construção de APIs robustas com Python/FastAPI.",
@@ -63,8 +63,8 @@ export const personal = {
     ),
   ],
   bioPersonal: b(
-    "Fora do Terminal: Sou um curioso nato. Quando não estou codando ou estudando visão computacional, estou acompanhando conteúdos de desenvolvimento pessoal, comédia ou aproveitando o tempo com meus dois cachorros (uma Chow Chow e um Border Collie).",
-    "Outside the Terminal: I'm naturally curious. When I'm not coding or studying computer vision, I'm following personal development content, comedy, or spending time with my two dogs (a Chow Chow and a Border Collie)."
+    "Fora do Terminal: Rodo CachyOS com Hyprland e rice própria. Quando desligo o PC, treino minha Chow Chow e meu Border Collie, ou limpo a cabeça com anime e comédia romântica.",
+    "Outside the Terminal: I run CachyOS with Hyprland and a custom rice. When I shut down the PC, I train my Chow Chow and Border Collie, or clear my head with anime and romantic comedy."
   ),
   email: "isaacnathandasilva@gmail.com",
   phone: "+55 (31) 99441-7786",
@@ -170,8 +170,8 @@ export const skillGroups: SkillGroup[] = [
     skills: ["Python", "FastAPI", "Node.js", "Express", "Java", "SQL"],
     color: "#456A4B",
     storyProof: b(
-      "FastAPI + Azure Cosmos DB \u2192 HarpIA pipeline, AguaQuality IoT backend, Hello Social na Paware. Python async como linguagem de produ\u00e7\u00e3o.",
-      "FastAPI + Azure Cosmos DB \u2192 HarpIA pipeline, AguaQuality IoT backend, Hello Social at Paware. Python async as production language."
+      "FastAPI + Azure Cosmos DB → HarpIA pipeline, AguaQuality IoT backend, Hello Social (Paware). Python async como linguagem de produção.",
+      "FastAPI + Azure Cosmos DB → HarpIA pipeline, AguaQuality IoT backend, Hello Social (Paware). Python async as production language."
     ),
     storySnippet: {
       language: "python",
@@ -243,8 +243,8 @@ code: `class OllamaClient:
     ],
     color: "#4A6741",
     storyProof: b(
-      "PIX via Mercado Pago para AguaQuality. Canva Connect + Placid para Hello Social na Paware. Pexels API para busca autom\u00e1tica de imagens no HarpIA.",
-      "PIX via Mercado Pago for AguaQuality. Canva Connect + Placid for Hello Social at Paware. Pexels API for automatic image search in HarpIA."
+      "PIX via Mercado Pago para AguaQuality. Canva Connect + Placid para Hello Social (Paware). Pexels API para busca automática de imagens no HarpIA.",
+      "PIX via Mercado Pago for AguaQuality. Canva Connect + Placid for Hello Social (Paware). Pexels API for automatic image search in HarpIA."
     ),
     storyProjectIds: ["aguaquality", "hellosocial", "harpia"],
   },
@@ -341,8 +341,8 @@ export const projects: Project[] = [
     year: "2025",
     category: b("IA Local · Desktop · Python", "Local AI · Desktop · Python"),
     description: b(
-      "App desktop que conecta planilhas Excel a um agente de IA local (Ollama). Design feito à mão com mascote original, 6+ integrações OAuth (Gmail, Teams, Calendar, Drive, Outlook, Trello), checkpoint automático e instalador nativo.",
-      "Desktop app connecting Excel spreadsheets to a local AI agent (Ollama). Hand-crafted design with original mascot, 6+ OAuth integrations (Gmail, Teams, Calendar, Drive, Outlook, Trello), auto-checkpoints, and native installer."
+      "App desktop que conecta planilhas Excel a um agente de IA local (Ollama). Design visual feito à mão com mascote original, 6+ integrações OAuth (Gmail, Teams, Calendar, Drive, Outlook, Trello), checkpoint automático e instalador nativo.",
+      "Desktop app connecting Excel spreadsheets to a local AI agent (Ollama). Hand-crafted visual design with original mascot, 6+ OAuth integrations (Gmail, Teams, Calendar, Drive, Outlook, Trello), auto-checkpoints, and native installer."
     ),
     tech: ["Python", "CustomTkinter", "Ollama", "openpyxl", "xlwings / COM", "ReAct", "PyInstaller", "Inno Setup"],
     color: "#c4853a",
@@ -393,10 +393,10 @@ export const projects: Project[] = [
   title: "Hello Social",
   year: "2026",
   category: b("IA · Social Media · Full-Stack", "AI · Social Media · Full-Stack"),
-  description: b(
-    "Plataforma de criação e agendamento de posts com IA — trabalho na Paware que inspirou o HarpIA. Pipeline de geração de imagens com Flux Kontext Pro e DALL-E 3, agentes de copy e template.",
-    "AI-powered social media post creation and scheduling platform — work at Paware that inspired HarpIA. Image generation pipeline with Flux Kontext Pro and DALL-E 3, copy and template agents."
-  ),
+    description: b(
+      "Plataforma de criação e agendamento de posts com IA — projeto na Paware que inspirou o HarpIA. Pipeline de geração de imagens com Flux Kontext Pro e DALL-E 3, agentes de copy e template.",
+      "AI-powered social media post creation and scheduling platform — project at Paware that inspired HarpIA. Image generation pipeline with Flux Kontext Pro and DALL-E 3, copy and template agents."
+    ),
   tech: ["Python", "FastAPI", "Azure OpenAI", "Flux", "Canva API", "React", "TypeScript"],
   color: "#2a1a3a",
   icon: "/images/hellosocial.png",
@@ -472,7 +472,7 @@ export const courses: Course[] = [
 
 export const stats = [
   { value: 10, suffix: "+", label: b("Projetos", "Projects") },
-  { value: 1, suffix: b("ano+", "yr+"), label: b("Experiência", "Experience") },
+  { value: 8, suffix: "mo+", label: b("Experiência Profissional", "Professional Experience") },
   { value: 7, suffix: "+", label: b("Modelos de IA", "AI Models") },
 ];
 
@@ -634,7 +634,6 @@ def plan(input_path: str, output_dir: str = "./output"):
     ),
     results: [
       b("~24K LOC — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente", "~24K LOC — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed"),
-      b("30+ funcionalidades distintas em 4 subsistemas", "30+ distinct features across 4 subsystems"),
       b("Motor de sync com detecção de conflitos e rollback atômico", "Sync engine with conflict detection and atomic rollback"),
       b("Exportação XLSX/PDF com filtragem por usuário e data", "XLSX/PDF export with user and date filtering"),
       b("Modo alto contraste para uso em campo com sol direto", "High contrast mode for field use in direct sunlight"),
@@ -718,7 +717,7 @@ gallery: [
       "Python desktop app with CustomTkinter and Ollama/qwen2.5 agent. ReAct commands: filter, sort, rename sheets, duplicate data. Auto-checkpoint before each change with user confirmation."
     ),
     results: [
-      b("Design UI feito à mão com paleta pastel e mascote original (Fennec)", "Hand-crafted UI design with pastel palette and original mascot (Fennec)"),
+      b("Design visual feito à mão com paleta pastel e mascote original (Fennec)", "Hand-crafted visual design with pastel palette and original mascot (Fennec)"),
       b("6+ integrações OAuth: Gmail, Teams, Calendar, Drive, Outlook, Trello", "6+ OAuth integrations: Gmail, Teams, Calendar, Drive, Outlook, Trello"),
       b("Instalador nativo Windows (Inno Setup) com PyInstaller", "Native Windows installer (Inno Setup) with PyInstaller"),
       b("Checkpoint automático e confirmação antes de modificações", "Auto-checkpoint and confirmation before modifications"),

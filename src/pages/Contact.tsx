@@ -151,10 +151,10 @@ return () => ctx.revert();
                 {t({ pt: "Disponibilidade", en: "Availability" })}
               </p>
               <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>
-              {t({
-                pt: "Aberto a oportunidades de desenvolvimento full-stack, projetos de IA e consultoria técnica. Resposta em até 24h.",
-                en: "Open to full-stack development opportunities, AI projects, and technical consulting. Response within 24h.",
-              })}
+        {t({
+          pt: "Disponível imediatamente para oportunidades de desenvolvimento full-stack, projetos de IA e consultoria técnica. Resposta em até 24h.",
+          en: "Available immediately for full-stack development opportunities, AI projects, and technical consulting. Response within 24h.",
+        })}
             </p>
             <Link
               to="/cv"
