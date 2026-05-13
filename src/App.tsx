@@ -19,6 +19,7 @@ import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import Certificates from "./pages/Certificates";
 import CV from "./pages/CV";
+import Playground from "./pages/Playground";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider, useLang } from "./lib/LanguageContext";
 import { useSounds } from "./lib/useSounds";
@@ -35,6 +36,7 @@ const pageTitles: Record<string, { pt: string; en: string }> = {
   "/certificates": { pt: "Certificações — Isaac Nathan", en: "Certificates — Isaac Nathan" },
   "/contact": { pt: "Contato — Isaac Nathan", en: "Contact — Isaac Nathan" },
   "/cv": { pt: "Currículo — Isaac Nathan", en: "Resume — Isaac Nathan" },
+  "/playground": { pt: "Playground — Isaac Nathan", en: "Playground — Isaac Nathan" },
 };
 
 function DocumentTitle() {
@@ -125,6 +127,7 @@ function AppContent() {
                 <Route path="/gallery" element={<Gallery />} />
           <Route path="/certificates" element={<Certificates />} />
           <Route path="/cv" element={<CV />} />
+          <Route path="/playground" element={<Playground />} />
           <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

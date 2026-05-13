@@ -280,6 +280,7 @@ export type Project = {
   inProgress: boolean;
   hasCaseStudy: boolean;
   caseStudySlug?: string;
+  playground?: boolean;
 };
 
 export const projects: Project[] = [
@@ -457,6 +458,150 @@ export const projects: Project[] = [
     featured: false,
     inProgress: true,
     hasCaseStudy: false,
+  },
+  {
+    id: "apple-product-page",
+    title: "Apple Product Page",
+    year: "2026",
+    category: b("Web · 3D · Cinematic Scroll", "Web · 3D · Cinematic Scroll"),
+    description: b(
+      "Página de produto estilo Apple com R3F 3D, GSAP ScrollTrigger, Lenis smooth scroll, variable fonts e magnetic buttons. O scroll IS o portfólio.",
+      "Apple-style product page with R3F 3D, GSAP ScrollTrigger, Lenis smooth scroll, variable fonts and magnetic buttons. The scroll IS the portfolio."
+    ),
+    tech: ["React 19", "Three.js / R3F", "GSAP ScrollTrigger", "Lenis", "TypeScript", "Vite"],
+    color: "#0a0a0a",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/apple-product-page",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
+  {
+    id: "json-forge",
+    title: "JSON Forge",
+    year: "2026",
+    category: b("Web · Ferramenta · Editor de Dados", "Web · Tool · Data Editor"),
+    description: b(
+      "Editor JSON completo com CodeMirror 6, árvore virtualizada, grafo ReactFlow, diff mode, gerador TypeScript e client REST integrado. Toggle claro/escuro.",
+      "Full JSON editor with CodeMirror 6, virtualized tree, ReactFlow graph, diff mode, TypeScript generator and integrated REST client. Light/dark toggle."
+    ),
+    tech: ["React 19", "CodeMirror 6", "ReactFlow", "react-virtuoso", "TypeScript", "Vite"],
+    color: "#1a1a2e",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/json-forge",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
+  {
+    id: "stripe-landing",
+    title: "Stripe Landing",
+    year: "2026",
+    category: b("Web · WebGL · Landing Page", "Web · WebGL · Landing Page"),
+    description: b(
+      "Landing page com aurora shader WebGL (FBM), glassmorphism, pricing toggle, checkout state machine e API preview. Dark cinematic.",
+      "Landing page with WebGL aurora shader (FBM), glassmorphism, pricing toggle, checkout state machine and API preview. Dark cinematic."
+    ),
+    tech: ["React 19", "WebGL / GLSL", "Tailwind CSS v4", "Framer Motion", "TypeScript", "Vite"],
+    color: "#635bff",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/stripe-landing",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
+  {
+    id: "notion-editor",
+    title: "Notion Editor",
+    year: "2026",
+    category: b("Web · Rich Text · Block Editor", "Web · Rich Text · Block Editor"),
+    description: b(
+      "Editor de blocos estilo Notion com Tiptap 3.x, slash commands, drag handle, menu bolha, IA assistente e exportação Markdown. Toggle claro/escuro.",
+      "Notion-style block editor with Tiptap 3.x, slash commands, drag handle, bubble menu, AI assistant and Markdown export. Light/dark toggle."
+    ),
+    tech: ["React 19", "Tiptap 3.x", "ProseMirror", "dnd-kit", "TypeScript", "Vite"],
+    color: "#191919",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/notion-editor",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
+  {
+    id: "linear-app-ui",
+    title: "Linear App UI",
+    year: "2026",
+    category: b("Web · App UI · Kanban", "Web · App UI · Kanban"),
+    description: b(
+      "Clone do Linear com 3 colunas, command palette (cmdk), Kanban drag-drop (dnd-kit), Zustand stores e 25 issues seed. Dark cinematic.",
+      "Linear clone with 3-column layout, command palette (cmdk), Kanban drag-drop (dnd-kit), Zustand stores and 25 seed issues. Dark cinematic."
+    ),
+    tech: ["React 19", "cmdk", "dnd-kit", "Zustand", "Tailwind CSS v4", "TypeScript"],
+    color: "#5e6ad2",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/linear-app-ui",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
+  {
+    id: "diskvisor",
+    title: "DiskVisor",
+    year: "2026",
+    category: b("Desktop · Tauri 2 · Visualização de Disco", "Desktop · Tauri 2 · Disk Visualization"),
+    description: b(
+      "Analisador de uso de disco com sunburst D3, scan paralelo (jwalk), árvore de arquivos colapsável e breadcrumb interativo. Tauri 2 + Rust.",
+      "Disk usage analyzer with D3 sunburst, parallel scan (jwalk), collapsible file tree and interactive breadcrumb. Tauri 2 + Rust."
+    ),
+    tech: ["Tauri 2", "React 19", "D3.js", "jwalk (Rust)", "TypeScript", "Vite"],
+    color: "#456A4B",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/diskvisor",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
+  {
+    id: "sysvisor",
+    title: "SysVisor",
+    year: "2026",
+    category: b("Desktop · Tauri 2 · Monitor de Sistema", "Desktop · Tauri 2 · System Monitor"),
+    description: b(
+      "Monitor de sistema com CPU/memória/disco/rede/processos em tempo real. Kill process, gauges por core, swap tracking. Tauri 2 + sysinfo (Rust).",
+      "Real-time system monitor with CPU/memory/disk/network/processes. Kill process, per-core gauges, swap tracking. Tauri 2 + sysinfo (Rust)."
+    ),
+    tech: ["Tauri 2", "React 19", "sysinfo (Rust)", "Tailwind CSS v4", "TypeScript", "Vite"],
+    color: "#0D1117",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/sysvisor",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
+  {
+    id: "forge-usb",
+    title: "ForgeUSB",
+    year: "2026",
+    category: b("Desktop · Tauri 2 · Bootable USB", "Desktop · Tauri 2 · Bootable USB"),
+    description: b(
+      "Criador de USB bootável com listagem de dispositivos via sysfs, unmount automático e escrita com dd. Seleção de ISO com browse. Tauri 2 + Rust.",
+      "Bootable USB maker with sysfs device listing, auto-unmount and dd write. ISO selection with browse dialog. Tauri 2 + Rust."
+    ),
+    tech: ["Tauri 2", "React 19", "sysfs (Rust)", "dd", "Tailwind CSS v4", "TypeScript"],
+    color: "#A8611A",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/forge-usb",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
   },
 ];
 

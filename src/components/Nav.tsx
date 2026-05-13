@@ -15,6 +15,7 @@ const menuLinks = [
   { label: { pt: "Galeria", en: "Gallery" }, href: "/gallery", num: "06" },
   { label: { pt: "Certificações", en: "Certificates" }, href: "/certificates", num: "07" },
   { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "08" },
+  { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "09" },
 ];
 
 export default function Nav() {
