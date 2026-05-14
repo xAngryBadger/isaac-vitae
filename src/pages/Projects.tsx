@@ -15,7 +15,13 @@ function ProjectIcon({ project, className }: { project: Project; className?: str
   const Widget = projectWidgets[project.id];
   if (Widget) return <Widget className={className} />;
   if (project.icon) return <img src={`${import.meta.env.BASE_URL}${project.icon.replace(/^\//, '')}`} alt={project.title} className={`${className ?? ""} object-contain`} />;
-  return null;
+  const initials = project.title.replace(/[^A-Za-z]/g, "").slice(0, 2).toUpperCase();
+  return (
+    <svg viewBox="0 0 48 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="48" height="48" rx="10" fill={`${project.color}15`} />
+      <text x="24" y="28" textAnchor="middle" dominantBaseline="central" fontSize="16" fontFamily="system-ui, sans-serif" fontWeight="700" fill={project.color}>{initials}</text>
+    </svg>
+  );
 }
 
 function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.MouseEvent<HTMLElement>, text: string) => void }) {

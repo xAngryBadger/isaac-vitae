@@ -215,6 +215,211 @@ export function ForestAIWidget({ className }: { className?: string }) {
   );
 }
 
+export function AppleProductPageWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="4" y="4" width="112" height="72" rx="4" stroke="#0a0a0a" strokeWidth="1.5" fill="#0a0a0a06" />
+      <rect x="10" y="10" width="100" height="12" rx="2" fill="#0a0a0a08" />
+      <circle cx="18" cy="16" r="2" fill="#0a0a0a30" />
+      <circle cx="24" cy="16" r="2" fill="#0a0a0a20" />
+      <circle cx="30" cy="16" r="2" fill="#0a0a0a15" />
+      <text x="60" y="18" textAnchor="middle" fontSize="5" fontFamily="monospace" fill="#0a0a0a40">SCROLL</text>
+      <line x1="60" y1="28" x2="60" y2="68" stroke="#0a0a0a15" strokeWidth="0.5" />
+      <circle cx="60" cy="44" r="12" stroke="#0a0a0a" strokeWidth="1" fill="#0a0a0a08" />
+      <circle cx="60" cy="44" r="5" stroke="#0a0a0a60" strokeWidth="0.75" fill="none" />
+      <circle cx="60" cy="44" r="1.5" fill="#0a0a0a" />
+      <path d="M30 34 L40 30" stroke="#0a0a0a20" strokeWidth="0.75" />
+      <path d="M80 30 L90 34" stroke="#0a0a0a20" strokeWidth="0.75" />
+      <path d="M30 54 L40 58" stroke="#0a0a0a20" strokeWidth="0.75" />
+      <path d="M80 58 L90 54" stroke="#0a0a0a20" strokeWidth="0.75" />
+      <rect x="14" y="64" width="20" height="2" rx="1" fill="#0a0a0a20" />
+      <rect x="86" y="64" width="20" height="2" rx="1" fill="#0a0a0a20" />
+      <rect x="44" y="62" width="32" height="3" rx="1.5" fill="#0a0a0a25" />
+    </svg>
+  );
+}
+
+export function JsonForgeWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="4" y="4" width="56" height="72" rx="3" stroke="#1a1a2e" strokeWidth="1.5" fill="#1a1a2e06" />
+      <text x="32" y="16" textAnchor="middle" fontSize="7" fontFamily="monospace" fill="#1a1a2e50" fontWeight="700">{}</text>
+      <rect x="10" y="22" width="44" height="2" rx="1" fill="#1a1a2e18" />
+      <rect x="14" y="28" width="36" height="2" rx="1" fill="#1a1a2e12" />
+      <rect x="14" y="34" width="28" height="2" rx="1" fill="#1a1a2e15" />
+      <rect x="18" y="40" width="32" height="2" rx="1" fill="#1a1a2e10" />
+      <rect x="14" y="46" width="24" height="2" rx="1" fill="#1a1a2e12" />
+      <rect x="10" y="52" width="44" height="2" rx="1" fill="#1a1a2e08" />
+      <rect x="66" y="4" width="50" height="36" rx="3" stroke="#1a1a2e" strokeWidth="1" fill="#1a1a2e05" />
+      <circle cx="78" cy="14" r="4" stroke="#1a1a2e60" strokeWidth="0.75" fill="#1a1a2e10" />
+      <circle cx="104" cy="14" r="4" stroke="#1a1a2e60" strokeWidth="0.75" fill="#1a1a2e10" />
+      <line x1="78" y1="18" x2="104" y2="18" stroke="#1a1a2e40" strokeWidth="0.75" />
+      <line x1="82" y1="14" x2="100" y2="14" stroke="#1a1a2e25" strokeWidth="0.75" />
+      <circle cx="91" cy="30" r="5" stroke="#1a1a2e40" strokeWidth="0.75" fill="#1a1a2e08" />
+      <rect x="66" y="44" width="50" height="32" rx="3" stroke="#1a1a2e30" strokeWidth="0.75" fill="#1a1a2e04" />
+      <rect x="72" y="50" width="16" height="2" rx="1" fill="#1a1a2e20" />
+      <rect x="72" y="55" width="38" height="2" rx="1" fill="#1a1a2e12" />
+      <rect x="72" y="60" width="30" height="2" rx="1" fill="#1a1a2e15" />
+      <rect x="72" y="65" width="34" height="2" rx="1" fill="#1a1a2e10" />
+    </svg>
+  );
+}
+
+export function StripeLandingWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="4" y="4" width="112" height="72" rx="4" stroke="#635bff" strokeWidth="1.5" fill="#635bff06" />
+      <path d="M20 60 Q40 20 60 35 Q80 50 100 20" stroke="#635bff40" strokeWidth="1.5" fill="none" />
+      <path d="M20 65 Q40 30 60 40 Q80 55 100 25" stroke="#635bff20" strokeWidth="1" fill="none" />
+      <rect x="14" y="10" width="28" height="14" rx="3" stroke="#635bff60" strokeWidth="1" fill="#635bff10" />
+      <rect x="18" y="14" width="12" height="2" rx="1" fill="#635bff40" />
+      <rect x="18" y="18" width="8" height="2" rx="1" fill="#635bff25" />
+      <rect x="78" y="10" width="28" height="14" rx="3" stroke="#635bff60" strokeWidth="1" fill="#635bff10" />
+      <text x="92" y="20" textAnchor="middle" fontSize="6" fontFamily="monospace" fill="#635bff50">API</text>
+      <rect x="44" y="48" width="32" height="18" rx="4" stroke="#635bff" strokeWidth="1" fill="#635bff08" />
+      <rect x="48" y="52" width="24" height="2" rx="1" fill="#635bff30" />
+      <rect x="48" y="56" width="18" height="2" rx="1" fill="#635bff20" />
+      <rect x="48" y="60" width="22" height="2" rx="1" fill="#635bff15" />
+    </svg>
+  );
+}
+
+export function NotionEditorWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="4" y="4" width="112" height="72" rx="4" stroke="#191919" strokeWidth="1.5" fill="#19191906" />
+      <rect x="4" y="4" width="24" height="72" rx="4" stroke="#19191930" strokeWidth="0.75" fill="#19191904" />
+      <rect x="10" y="12" width="12" height="2" rx="1" fill="#19191925" />
+      <rect x="10" y="18" width="10" height="2" rx="1" fill="#19191918" />
+      <rect x="10" y="24" width="12" height="2" rx="1" fill="#19191915" />
+      <rect x="10" y="30" width="8" height="2" rx="1" fill="#19191912" />
+      <rect x="34" y="14" width="40" height="4" rx="1" fill="#19191930" />
+      <rect x="34" y="22" width="70" height="2" rx="1" fill="#19191912" />
+      <rect x="34" y="28" width="60" height="2" rx="1" fill="#19191910" />
+      <rect x="34" y="34" width="65" height="2" rx="1" fill="#19191908" />
+      <rect x="34" y="42" width="28" height="3" rx="1" fill="#19191922" />
+      <rect x="34" y="49" width="70" height="2" rx="1" fill="#19191910" />
+      <rect x="34" y="55" width="55" height="2" rx="1" fill="#19191908" />
+      <rect x="34" y="61" width="62" height="2" rx="1" fill="#19191906" />
+      <rect x="34" y="67" width="48" height="2" rx="1" fill="#19191905" />
+      <circle cx="104" cy="68" r="4" stroke="#19191950" strokeWidth="0.75" fill="#19191908" />
+      <text x="104" y="70" textAnchor="middle" fontSize="4" fontFamily="monospace" fill="#19191950">/</text>
+    </svg>
+  );
+}
+
+export function LinearAppUIWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="4" y="4" width="20" height="72" rx="3" stroke="#5e6ad2" strokeWidth="1" fill="#5e6ad205" />
+      <circle cx="14" cy="14" r="3" fill="#5e6ad225" />
+      <rect x="10" y="22" width="8" height="2" rx="1" fill="#5e6ad220" />
+      <rect x="10" y="28" width="8" height="2" rx="1" fill="#5e6ad215" />
+      <rect x="10" y="34" width="8" height="2" rx="1" fill="#5e6ad210" />
+      <rect x="28" y="4" width="88" height="72" rx="3" stroke="#5e6ad2" strokeWidth="1.5" fill="#5e6ad204" />
+      <rect x="28" y="4" width="88" height="14" rx="3" stroke="#5e6ad225" strokeWidth="0.75" fill="#5e6ad206" />
+      <rect x="34" y="8" width="20" height="2" rx="1" fill="#5e6ad220" />
+      <rect x="58" y="8" width="14" height="2" rx="1" fill="#5e6ad212" />
+      <rect x="96" y="8" width="14" height="4" rx="2" stroke="#5e6ad240" strokeWidth="0.75" fill="#5e6ad208" />
+      <text x="103" y="11.5" textAnchor="middle" fontSize="4" fontFamily="monospace" fill="#5e6ad250">⌘K</text>
+      <rect x="34" y="24" width="24" height="8" rx="2" stroke="#5e6ad250" strokeWidth="0.75" fill="#5e6ad210" />
+      <rect x="38" y="28" width="16" height="2" rx="1" fill="#5e6ad225" />
+      <rect x="62" y="24" width="24" height="8" rx="2" stroke="#5e6ad225" strokeWidth="0.75" fill="#5e6ad206" />
+      <rect x="66" y="28" width="16" height="2" rx="1" fill="#5e6ad215" />
+      <rect x="34" y="38" width="76" height="6" rx="1" fill="#5e6ad208" />
+      <rect x="38" y="40" width="4" height="2" rx="0.5" fill="#5e6ad240" />
+      <rect x="46" y="40" width="24" height="2" rx="1" fill="#5e6ad218" />
+      <rect x="34" y="48" width="76" height="6" rx="1" fill="#5e6ad205" />
+      <rect x="38" y="50" width="4" height="2" rx="0.5" fill="#5e6ad230" />
+      <rect x="46" y="50" width="20" height="2" rx="1" fill="#5e6ad212" />
+      <rect x="34" y="58" width="76" height="6" rx="1" fill="#5e6ad208" />
+      <rect x="38" y="60" width="4" height="2" rx="0.5" fill="#5e6ad235" />
+      <rect x="46" y="60" width="28" height="2" rx="1" fill="#5e6ad215" />
+      <rect x="34" y="68" width="76" height="6" rx="1" fill="#5e6ad204" />
+      <rect x="38" y="70" width="4" height="2" rx="0.5" fill="#5e6ad225" />
+      <rect x="46" y="70" width="22" height="2" rx="1" fill="#5e6ad210" />
+    </svg>
+  );
+}
+
+export function DiskVisorWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <circle cx="44" cy="40" r="28" stroke="#456A4B" strokeWidth="1.5" fill="#456A4B06" />
+      <circle cx="44" cy="40" r="20" stroke="#456A4B30" strokeWidth="0.75" fill="none" />
+      <circle cx="44" cy="40" r="12" stroke="#456A4B25" strokeWidth="0.75" fill="none" />
+      <circle cx="44" cy="40" r="4" stroke="#456A4B" strokeWidth="1" fill="#456A4B15" />
+      <path d="M44 12 L44 16" stroke="#456A4B" strokeWidth="1" />
+      <path d="M44 64 L44 68" stroke="#456A4B40" strokeWidth="0.75" />
+      <path d="M16 40 L20 40" stroke="#456A4B40" strokeWidth="0.75" />
+      <path d="M68 40 L72 40" stroke="#456A4B40" strokeWidth="0.75" />
+      <path d="M24 20 L27 23" stroke="#456A4B30" strokeWidth="0.75" />
+      <path d="M61 57 L64 60" stroke="#456A4B30" strokeWidth="0.75" />
+      <rect x="80" y="10" width="32" height="56" rx="3" stroke="#456A4B30" strokeWidth="0.75" fill="#456A4B04" />
+      <rect x="84" y="16" width="24" height="2" rx="1" fill="#456A4B18" />
+      <rect x="84" y="22" width="20" height="2" rx="1" fill="#456A4B12" />
+      <rect x="84" y="28" width="22" height="2" rx="1" fill="#456A4B10" />
+      <rect x="84" y="34" width="18" height="2" rx="1" fill="#456A4B08" />
+      <rect x="88" y="16" width="4" height="2" rx="0.5" fill="#456A4B30" />
+      <rect x="88" y="22" width="4" height="2" rx="0.5" fill="#456A4B25" />
+      <rect x="88" y="28" width="4" height="2" rx="0.5" fill="#456A4B20" />
+      <rect x="88" y="34" width="4" height="2" rx="0.5" fill="#456A4B15" />
+    </svg>
+  );
+}
+
+export function SysVisorWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="4" y="4" width="112" height="72" rx="4" stroke="#0D1117" strokeWidth="1.5" fill="#0D111708" />
+      <rect x="10" y="10" width="48" height="28" rx="2" stroke="#0D111740" strokeWidth="0.75" fill="#0D111706" />
+      <text x="34" y="20" textAnchor="middle" fontSize="5" fontFamily="monospace" fill="#0D111740">CPU</text>
+      <rect x="14" y="24" width="8" height="10" rx="1" fill="#0D111715" stroke="#0D111730" strokeWidth="0.5" />
+      <rect x="24" y="26" width="8" height="8" rx="1" fill="#0D111718" stroke="#0D111730" strokeWidth="0.5" />
+      <rect x="34" y="28" width="8" height="6" rx="1" fill="#0D111712" stroke="#0D111730" strokeWidth="0.5" />
+      <rect x="44" y="25" width="8" height="9" rx="1" fill="#0D111716" stroke="#0D111730" strokeWidth="0.5" />
+      <rect x="62" y="10" width="48" height="28" rx="2" stroke="#0D111740" strokeWidth="0.75" fill="#0D111706" />
+      <text x="86" y="20" textAnchor="middle" fontSize="5" fontFamily="monospace" fill="#0D111740">MEM</text>
+      <rect x="66" y="24" width="6" height="10" rx="1" fill="#0D111720" stroke="#0D111740" strokeWidth="0.5" />
+      <rect x="74" y="26" width="6" height="8" rx="1" fill="#0D111715" stroke="#0D111740" strokeWidth="0.5" />
+      <rect x="82" y="22" width="6" height="12" rx="1" fill="#0D111722" stroke="#0D111740" strokeWidth="0.5" />
+      <rect x="90" y="28" width="6" height="6" rx="1" fill="#0D111710" stroke="#0D111740" strokeWidth="0.5" />
+      <rect x="98" y="24" width="6" height="10" rx="1" fill="#0D111718" stroke="#0D111740" strokeWidth="0.5" />
+      <rect x="10" y="42" width="100" height="28" rx="2" stroke="#0D111730" strokeWidth="0.75" fill="#0D111704" />
+      <rect x="14" y="48" width="92" height="2" rx="1" fill="#0D111712" />
+      <rect x="14" y="54" width="92" height="2" rx="1" fill="#0D111710" />
+      <rect x="14" y="60" width="92" height="2" rx="1" fill="#0D111708" />
+      <circle cx="18" cy="49" r="1" fill="#0D111740" />
+      <circle cx="18" cy="55" r="1" fill="#0D111730" />
+      <circle cx="18" cy="61" r="1" fill="#0D111725" />
+    </svg>
+  );
+}
+
+export function ForgeUSBWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="30" y="8" width="60" height="24" rx="3" stroke="#A8611A" strokeWidth="1.5" fill="#A8611A08" />
+      <rect x="36" y="12" width="24" height="16" rx="2" stroke="#A8611A50" strokeWidth="0.75" fill="#A8611A10" />
+      <rect x="40" y="16" width="16" height="2" rx="1" fill="#A8611A30" />
+      <rect x="40" y="20" width="12" height="2" rx="1" fill="#A8611A20" />
+      <rect x="66" y="14" width="8" height="4" rx="1" fill="#A8611A30" />
+      <rect x="66" y="22" width="8" height="4" rx="1" fill="#A8611A20" />
+      <rect x="78" y="14" width="8" height="4" rx="1" fill="#A8611A15" />
+      <rect x="78" y="22" width="8" height="4" rx="1" fill="#A8611A12" />
+      <path d="M60 32 L60 44" stroke="#A8611A40" strokeWidth="1" />
+      <path d="M56 40 L60 44 L64 40" stroke="#A8611A40" strokeWidth="1" fill="none" />
+      <rect x="20" y="48" width="80" height="24" rx="4" stroke="#A8611A" strokeWidth="1.5" fill="#A8611A06" />
+      <rect x="40" y="52" width="14" height="6" rx="2" stroke="#A8611A50" strokeWidth="0.75" fill="#A8611A10" />
+      <rect x="58" y="52" width="14" height="6" rx="2" stroke="#A8611A50" strokeWidth="0.75" fill="#A8611A10" />
+      <path d="M44 55 L50 55" stroke="#A8611A60" strokeWidth="0.75" />
+      <path d="M62 55 L68 55" stroke="#A8611A60" strokeWidth="0.75" />
+      <rect x="30" y="62" width="60" height="4" rx="2" fill="#A8611A12" />
+      <rect x="30" y="62" width="24" height="4" rx="2" fill="#A8611A25" />
+    </svg>
+  );
+}
+
 export const projectWidgets: Record<string, (props: { className?: string }) => JSX.Element> = {
   harpia: HarpIAWidget,
   "srf-system": SRFWidget,
@@ -226,4 +431,12 @@ export const projectWidgets: Record<string, (props: { className?: string }) => J
   mainecoon: MaineCoonWidget,
   "finance-tracker": FinanceTrackerWidget,
   forestai: ForestAIWidget,
+  "apple-product-page": AppleProductPageWidget,
+  "json-forge": JsonForgeWidget,
+  "stripe-landing": StripeLandingWidget,
+  "notion-editor": NotionEditorWidget,
+  "linear-app-ui": LinearAppUIWidget,
+  diskvisor: DiskVisorWidget,
+  sysvisor: SysVisorWidget,
+  "forge-usb": ForgeUSBWidget,
 };
