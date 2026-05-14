@@ -101,13 +101,29 @@ export default function Home() {
 
       {/* Content */}
       <div className="hero-content relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
-        <div className="hero-label flex items-center justify-center gap-3 mb-8">
-          <div className="w-8 h-px" style={{ backgroundColor: "var(--color-accent-light)" }} />
-          <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: "var(--color-accent)" }}>
-            {t(personal.title)}
-          </span>
-          <div className="w-8 h-px" style={{ backgroundColor: "var(--color-accent-light)" }} />
+      <div className="hero-label flex items-center justify-center gap-3 mb-8">
+        <div className="w-8 h-px" style={{ backgroundColor: "var(--color-accent-light)" }} />
+        <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: "var(--color-accent)" }}>
+          {t(personal.title)}
+        </span>
+        <div className="w-8 h-px" style={{ backgroundColor: "var(--color-accent-light)" }} />
+      </div>
+
+      <div className="hero-avatar mx-auto mb-8">
+        <div
+          className="w-24 h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden mx-auto"
+          style={{
+            border: "2px solid var(--color-accent-30)",
+            boxShadow: "0 0 40px var(--color-accent-10), 0 0 80px var(--color-sage-05)",
+          }}
+        >
+          <img
+            src="/images/foto-isaac.jpg"
+            alt={personal.name}
+            className="w-full h-full object-cover"
+          />
         </div>
+      </div>
 
         <h1
           ref={titleRef}

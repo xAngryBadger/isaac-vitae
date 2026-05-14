@@ -219,7 +219,7 @@ export const projectWidgets: Record<string, (props: { className?: string }) => J
   harpia: HarpIAWidget,
   "srf-system": SRFWidget,
   florasensus: FloraSensusWidget,
-  "fennec-excel": FennecWidget,
+  fennec: FennecWidget,
   inovesa: InovesaWidget,
   aguaquality: AguaQualityWidget,
   hellosocial: HelloSocialWidget,
