@@ -37,12 +37,12 @@ export const personal = {
     "Computer Engineering · AI · Cloud · IoT"
   ),
   bio: b(
-    "De Química para Computação. Construo sistemas de IA que funcionam de verdade — do pipeline agentic ao deploy. CachyOS/Hyprland, dois cachorros e muitos agentes ReAct.",
-    "From Chemistry to Computer Engineering. I build AI systems that actually work — from agentic pipelines to deploy. CachyOS/Hyprland, two dogs, and way too many ReAct agents."
+    "De Química para Computação. Construo sistemas de IA com impacto em produção — do pipeline de agentes ao deploy. Especialista em Linux (CachyOS/Hyprland) e sistemas de IA com agentes autônomos.",
+    "From Chemistry to Computer Engineering. I build AI systems with production impact — from agent pipelines to deploy. Linux specialist (CachyOS/Hyprland) and autonomous AI agent systems."
   ),
   bioExtended: b(
-    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — Thonny IDE, sem GPT, aulas extras à tarde só para continuar aprendendo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero usando Stack Overflow e Thonny, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, SRF System e em breve ForestAI de novo.`,
-    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — Thonny IDE, no GPT, extra afternoon classes just to keep learning. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch using Stack Overflow and Thonny, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, SRF System, and soon ForestAI again.`
+    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, SRF System e em breve ForestAI de novo.`,
+    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — self-directed learning, extra afternoon classes to keep evolving. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch with Thonny IDE, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, SRF System, and soon ForestAI again.`
   ),
   bioHighlights: [
     b(
@@ -58,13 +58,13 @@ export const personal = {
       "Product Vision (Full Stack): Ability to deliver solutions from scratch — from React/TypeScript frontends to real-time IoT device integration."
     ),
     b(
-      "Diferenciais Técnicos: Usuário avançado de Linux (CachyOS/Hyprland com rice própria), deploy local de modelos (Ollama) e estruturação de dados complexos em JSON para integrações limpas.",
-      "Technical Differentiators: Advanced Linux user (CachyOS/Hyprland with custom rice), local model deployment (Ollama), and complex JSON data structuring for clean integrations."
+      "Diferenciais Técnicos: Usuário avançado de Linux (CachyOS/Hyprland com customização própria), deploy local de modelos (Ollama) e estruturação de dados complexos em JSON para integrações limpas.",
+      "Technical Differentiators: Advanced Linux user (CachyOS/Hyprland with custom setup), local model deployment (Ollama), and complex JSON data structuring for clean integrations."
     ),
   ],
   bioPersonal: b(
-    "Fora do Terminal: Rodo CachyOS com Hyprland e rice própria. Quando desligo o PC, treino minha Chow Chow e meu Border Collie, ou limpo a cabeça com anime e comédia romântica.",
-    "Outside the Terminal: I run CachyOS with Hyprland and a custom rice. When I shut down the PC, I train my Chow Chow and Border Collie, or clear my head with anime and romantic comedy."
+    "Fora do Terminal: Usuário avançado de Linux com ambiente customizado (CachyOS/Hyprland). Fora do código, valorizo momentos de descanso e atividades ao ar livre.",
+    "Outside the Terminal: Advanced Linux user with custom environment (CachyOS/Hyprland). Outside of code, I value moments of rest and outdoor activities."
   ),
   email: "isaacnathandasilva@gmail.com",
   phone: "+55 (31) 99441-7786",
@@ -87,8 +87,8 @@ export const experiences: Experience[] = [
         "Migrated legacy datasets from Google Drive to Azure Cosmos DB for Meritage Homes (USA) — pipeline with automated cookie-based extraction, compression, renaming, and injection into panels for WhatsApp agent embedding with strict file size limits. Containerized with Docker for reproducible environments and wrote schema validation layer with automated rollback."
       ),
       b(
-        "Resolvi problema cross-platform de MIME types (Android nativo vs iPhone exigindo octet-stream — testei no iPhone dos meus pais, sem Macbook). Essa validação virou o backbone da migração final para Azure Cosmos DB.",
-        "Resolved cross-platform MIME type issue (Android native vs iPhone requiring octet-stream — tested on my parents' iPhone, no Macbook). This validation layer became the backbone of the final Azure Cosmos DB migration."
+      "Resolvi problema cross-platform de MIME types (Android nativo vs iPhone exigindo octet-stream — com testes extensivos em dispositivos iOS). Essa validação virou o backbone da migração final para Azure Cosmos DB.",
+      "Resolved cross-platform MIME type issue (Android native vs iPhone requiring octet-stream — with extensive testing on iOS devices). This validation layer became the backbone of the final Azure Cosmos DB migration."
       ),
       b(
         "Arquitetei pipeline agentic de geração de imagens para o HelloSocial — agente GPT-4.1 com tool calling, até 10 iterações de raciocínio, integração Flux Kontext Pro + DALL-E 3 + Placid/Canva. Fallback SQLite/PIL local quando API paga não era necessária.",
@@ -119,14 +119,14 @@ export const education: Education[] = [
     degree: b("Química Industrial", "Industrial Chemistry"),
     institution: "UFOP",
     period: "2022",
-    status: b("Onde Python começou — Thonny IDE, sem GPT", "Where Python began — Thonny IDE, no GPT"),
+    status: b("Primeiros passos em Python — Thonny IDE", "First steps in Python — Thonny IDE"),
     statusActive: false,
   },
   {
     degree: b("Engenharia Química", "Chemical Engineering"),
     institution: "UFSJ — Campus Alto Paraopeba",
     period: "2022 — 2024",
-    status: b("Período de transição — longe do código, acompanhando IA de perto", "Pivot period — away from code, watching AI closely"),
+    status: b("Período de transição — estudo autodirigido em IA", "Transition period — self-directed AI study"),
     statusActive: false,
   },
   {
@@ -259,8 +259,8 @@ code: `class OllamaClient:
     ],
     color: "#6A5A4A",
     storyProof: b(
-      "Ingl\u00eas fluente para docs e reuni\u00f5es com equipe EUA. SRF System com NiceGUI + Rich CLI. PyInstaller + Inno Setup para instalador do Fennec. CachyOS/Hyprland rice pr\u00f3pria.",
-      "Fluent English for docs and meetings with US team. SRF System with NiceGUI + Rich CLI. PyInstaller + Inno Setup for Fennec installer. Custom CachyOS/Hyprland rice."
+      "Ingl\u00eas fluente para docs e reuni\u00f5es com equipe EUA. SRF System com NiceGUI + Rich CLI. PyInstaller + Inno Setup para instalador do Fennec. CachyOS/Hyprland setup pr\u00f3pria.",
+      "Fluent English for documentation and meetings with US team. SRF System with NiceGUI + Rich CLI. PyInstaller + Inno Setup for Fennec installer. Custom CachyOS/Hyprland rice."
     ),
     storyProjectIds: ["srf-system", "fennec"],
   },
@@ -281,6 +281,7 @@ export type Project = {
   hasCaseStudy: boolean;
   caseStudySlug?: string;
   playground?: boolean;
+  demoUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -465,18 +466,19 @@ export const projects: Project[] = [
     year: "2026",
     category: b("Web · 3D · Cinematic Scroll", "Web · 3D · Cinematic Scroll"),
     description: b(
-      "Página de produto estilo Apple com R3F 3D, GSAP ScrollTrigger, Lenis smooth scroll, variable fonts e magnetic buttons. O scroll IS o portfólio.",
+      "Página de produto estilo Apple com R3F 3D, GSAP ScrollTrigger, Lenis smooth scroll, variable fonts e magnetic buttons. O scroll É o portfólio.",
       "Apple-style product page with R3F 3D, GSAP ScrollTrigger, Lenis smooth scroll, variable fonts and magnetic buttons. The scroll IS the portfolio."
     ),
     tech: ["React 19", "Three.js / R3F", "GSAP ScrollTrigger", "Lenis", "TypeScript", "Vite"],
     color: "#0a0a0a",
     icon: null,
-    githubUrl: "https://github.com/xAngryBadger/apple-product-page",
-    featured: false,
-    inProgress: false,
-    hasCaseStudy: false,
-    playground: true,
-  },
+  githubUrl: "https://github.com/xAngryBadger/apple-product-page",
+  demoUrl: "https://xangrybadger.github.io/apple-product-page/",
+  featured: false,
+  inProgress: false,
+  hasCaseStudy: false,
+  playground: true,
+},
   {
     id: "json-forge",
     title: "JSON Forge",
@@ -489,12 +491,13 @@ export const projects: Project[] = [
     tech: ["React 19", "CodeMirror 6", "ReactFlow", "react-virtuoso", "TypeScript", "Vite"],
     color: "#1a1a2e",
     icon: null,
-    githubUrl: "https://github.com/xAngryBadger/json-forge",
-    featured: false,
-    inProgress: false,
-    hasCaseStudy: false,
-    playground: true,
-  },
+  githubUrl: "https://github.com/xAngryBadger/json-forge",
+  demoUrl: "https://xangrybadger.github.io/json-forge/",
+  featured: false,
+  inProgress: false,
+  hasCaseStudy: false,
+  playground: true,
+},
   {
     id: "stripe-landing",
     title: "Stripe Landing",
@@ -507,12 +510,13 @@ export const projects: Project[] = [
     tech: ["React 19", "WebGL / GLSL", "Tailwind CSS v4", "Framer Motion", "TypeScript", "Vite"],
     color: "#635bff",
     icon: null,
-    githubUrl: "https://github.com/xAngryBadger/stripe-landing",
-    featured: false,
-    inProgress: false,
-    hasCaseStudy: false,
-    playground: true,
-  },
+  githubUrl: "https://github.com/xAngryBadger/stripe-landing",
+  demoUrl: "https://xangrybadger.github.io/stripe-landing/",
+  featured: false,
+  inProgress: false,
+  hasCaseStudy: false,
+  playground: true,
+},
   {
     id: "notion-editor",
     title: "Notion Editor",
@@ -525,12 +529,13 @@ export const projects: Project[] = [
     tech: ["React 19", "Tiptap 3.x", "ProseMirror", "dnd-kit", "TypeScript", "Vite"],
     color: "#191919",
     icon: null,
-    githubUrl: "https://github.com/xAngryBadger/notion-editor",
-    featured: false,
-    inProgress: false,
-    hasCaseStudy: false,
-    playground: true,
-  },
+  githubUrl: "https://github.com/xAngryBadger/notion-editor",
+  demoUrl: "https://xangrybadger.github.io/notion-editor/",
+  featured: false,
+  inProgress: false,
+  hasCaseStudy: false,
+  playground: true,
+},
   {
     id: "linear-app-ui",
     title: "Linear App UI",
@@ -543,12 +548,13 @@ export const projects: Project[] = [
     tech: ["React 19", "cmdk", "dnd-kit", "Zustand", "Tailwind CSS v4", "TypeScript"],
     color: "#5e6ad2",
     icon: null,
-    githubUrl: "https://github.com/xAngryBadger/linear-app-ui",
-    featured: false,
-    inProgress: false,
-    hasCaseStudy: false,
-    playground: true,
-  },
+  githubUrl: "https://github.com/xAngryBadger/linear-app-ui",
+  demoUrl: "https://xangrybadger.github.io/linear-app-ui/",
+  featured: false,
+  inProgress: false,
+  hasCaseStudy: false,
+  playground: true,
+},
   {
     id: "diskvisor",
     title: "DiskVisor",

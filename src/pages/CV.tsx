@@ -5,7 +5,8 @@ import { ArrowLeft, FileText, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAtsPdf } from "../lib/useAtsPdf";
 
-const PDF_URLS = { pt: "/cv/Isaac-Nathan-CV-PT.pdf", en: "/cv/Isaac-Nathan-CV-EN.pdf" };
+const base = import.meta.env.BASE_URL;
+const PDF_URLS = { pt: `${base}cv/Isaac-Nathan-CV-PT.pdf`, en: `${base}cv/Isaac-Nathan-CV-EN.pdf` };
 
 export default function CV() {
   const { t, lang } = useLang();

@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 function ProjectIcon({ project, className }: { project: Project; className?: string }) {
   const Widget = projectWidgets[project.id];
   if (Widget) return <Widget className={className} />;
-  if (project.icon) return <img src={project.icon} alt={project.title} className={`${className ?? ""} object-contain`} />;
+  if (project.icon) return <img src={`${import.meta.env.BASE_URL}${project.icon.replace(/^\//, '')}`} alt={project.title} className={`${className ?? ""} object-contain`} />;
   return null;
 }
 

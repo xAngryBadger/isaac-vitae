@@ -117,9 +117,9 @@ export default function Home() {
             boxShadow: "0 0 40px var(--color-accent-10), 0 0 80px var(--color-sage-05)",
           }}
         >
-          <img
-            src="/images/foto-isaac.jpg"
-            alt={personal.name}
+        <img
+          src={`${import.meta.env.BASE_URL}images/foto-isaac.jpg`}
+          alt={personal.name}
             className="w-full h-full object-cover"
           />
         </div>

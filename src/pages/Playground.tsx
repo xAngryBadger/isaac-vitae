@@ -106,8 +106,23 @@ function PlaygroundCard({ proj }: { proj: DemoProject }) {
           )}
         </div>
 
-        <div className="flex items-center gap-4 mt-auto">
-          {proj.githubUrl && (
+  <div className="flex items-center gap-4 mt-auto">
+    {"demoUrl" in proj && proj.demoUrl && (
+      <a
+        href={proj.demoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.08em] uppercase"
+        style={{
+          color: proj.color,
+          opacity: hovered ? 1 : 0.7,
+          transition: "opacity 0.3s",
+        }}
+      >
+        <Globe className="w-3 h-3" /> {t({ pt: "Ver Demo", en: "Live Demo" })} <ArrowUpRight className="w-2.5 h-2.5" />
+      </a>
+    )}
+    {proj.githubUrl && (
             <a
               href={proj.githubUrl}
               target="_blank"
@@ -179,7 +194,7 @@ export default function Playground() {
             >
               {t({ pt: "Demos que ", en: "Demos that " })}
               <span className="italic" style={{ color: "var(--color-accent)" }}>
-                {t({ pt: "provam range.", en: "prove range." })}
+                {t({ pt: "provam versatilidade.", en: "prove versatility." })}
               </span>
             </h2>
           </div>

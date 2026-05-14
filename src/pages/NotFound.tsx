@@ -27,7 +27,7 @@ export default function NotFound() {
           404
         </span>
         <p className="notfound-msg font-mono text-xs tracking-[0.2em] uppercase mb-2" style={{ color: "var(--color-text-3)" }}>
-          {t({ pt: "Essa rota se perdeu num loop ReAct.", en: "This route got lost in a ReAct loop." })}
+          {t({ pt: "Página não encontrada.", en: "Page not found." })}
         </p>
         <p className="notfound-msg text-sm mb-8" style={{ color: "var(--color-text-2)", opacity: 0.6 }}>
           {t({ pt: "Página não encontrada.", en: "Page not found." })}

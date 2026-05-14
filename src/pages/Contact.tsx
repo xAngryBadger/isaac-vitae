@@ -240,13 +240,23 @@ return () => ctx.revert();
                   <><CheckCircle className="w-4 h-4" /> {t({ pt: "Enviado!", en: "Sent!" })}</>
                 )}
           {formState === "error" && (
-            <><AlertCircle className="w-4 h-4" /> {t({ pt: "Erro — tente novamente", en: "Error — try again" })}</>
+            <><AlertCircle className="w-4 h-4" /> {t({ pt: "Erro — use o email abaixo", en: "Error — use the email below" })}</>
           )}
           {formState === "rate-limited" && (
             <><AlertCircle className="w-4 h-4" /> {t({ pt: "Aguarde um momento...", en: "Wait a moment..." })}</>
           )}
-              </button>
-            </form>
+        </button>
+        {(formState === "error" || formState === "idle") && (
+          <a
+            href={`mailto:${personal.email}`}
+            className="clip-btn inline-flex items-center gap-2"
+            style={{ textDecoration: "none" }}
+          >
+            <Mail className="w-4 h-4" />
+            {t({ pt: "Prefere email?", en: "Prefer email?" })}
+          </a>
+        )}
+      </form>
           </div>
         </div>
       </div>
