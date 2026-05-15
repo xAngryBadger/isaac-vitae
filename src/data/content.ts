@@ -499,25 +499,6 @@ export const projects: Project[] = [
   playground: true,
 },
   {
-    id: "stripe-landing",
-    title: "Stripe Landing",
-    year: "2026",
-    category: b("Web · WebGL · Landing Page", "Web · WebGL · Landing Page"),
-    description: b(
-      "Landing page com aurora shader WebGL (FBM), glassmorphism, pricing toggle, checkout state machine e API preview. Dark cinematic.",
-      "Landing page with WebGL aurora shader (FBM), glassmorphism, pricing toggle, checkout state machine and API preview. Dark cinematic."
-    ),
-    tech: ["React 19", "WebGL / GLSL", "Tailwind CSS v4", "Framer Motion", "TypeScript", "Vite"],
-    color: "#635bff",
-    icon: null,
-  githubUrl: "https://github.com/xAngryBadger/stripe-landing",
-  demoUrl: "https://xangrybadger.github.io/stripe-landing/",
-  featured: false,
-  inProgress: false,
-  hasCaseStudy: false,
-  playground: true,
-},
-  {
     id: "notion-editor",
     title: "Notion Editor",
     year: "2026",

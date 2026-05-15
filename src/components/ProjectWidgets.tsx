@@ -265,25 +265,6 @@ export function JsonForgeWidget({ className }: { className?: string }) {
   );
 }
 
-export function StripeLandingWidget({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <rect x="4" y="4" width="112" height="72" rx="4" stroke="#635bff" strokeWidth="1.5" fill="#635bff06" />
-      <path d="M20 60 Q40 20 60 35 Q80 50 100 20" stroke="#635bff40" strokeWidth="1.5" fill="none" />
-      <path d="M20 65 Q40 30 60 40 Q80 55 100 25" stroke="#635bff20" strokeWidth="1" fill="none" />
-      <rect x="14" y="10" width="28" height="14" rx="3" stroke="#635bff60" strokeWidth="1" fill="#635bff10" />
-      <rect x="18" y="14" width="12" height="2" rx="1" fill="#635bff40" />
-      <rect x="18" y="18" width="8" height="2" rx="1" fill="#635bff25" />
-      <rect x="78" y="10" width="28" height="14" rx="3" stroke="#635bff60" strokeWidth="1" fill="#635bff10" />
-      <text x="92" y="20" textAnchor="middle" fontSize="6" fontFamily="monospace" fill="#635bff50">API</text>
-      <rect x="44" y="48" width="32" height="18" rx="4" stroke="#635bff" strokeWidth="1" fill="#635bff08" />
-      <rect x="48" y="52" width="24" height="2" rx="1" fill="#635bff30" />
-      <rect x="48" y="56" width="18" height="2" rx="1" fill="#635bff20" />
-      <rect x="48" y="60" width="22" height="2" rx="1" fill="#635bff15" />
-    </svg>
-  );
-}
-
 export function NotionEditorWidget({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -433,7 +414,6 @@ export const projectWidgets: Record<string, (props: { className?: string }) => J
   forestai: ForestAIWidget,
   "apple-product-page": AppleProductPageWidget,
   "json-forge": JsonForgeWidget,
-  "stripe-landing": StripeLandingWidget,
   "notion-editor": NotionEditorWidget,
   "linear-app-ui": LinearAppUIWidget,
   diskvisor: DiskVisorWidget,
