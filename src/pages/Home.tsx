@@ -68,59 +68,56 @@ export default function Home() {
       <ForestParallax />
 
       <div className="hero-content relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
-      <div className="hero-label flex items-center justify-center gap-3 mb-8">
-        <div className="w-8 h-px" style={{ backgroundColor: "var(--color-accent-light)" }} />
-        <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: "var(--color-accent)" }}>
-          {t(personal.title)}
-        </span>
-        <div className="w-8 h-px" style={{ backgroundColor: "var(--color-accent-light)" }} />
-      </div>
-
-      <div className="hero-avatar mx-auto mb-8">
-        <div
-          className="w-24 h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden mx-auto"
-          style={{
-            border: "2px solid var(--color-accent-30)",
-            boxShadow: "0 0 40px var(--color-accent-10), 0 0 80px var(--color-sage-05)",
-          }}
-        >
-        <img
-          src={`${import.meta.env.BASE_URL}images/foto-isaac.jpg`}
-          alt={personal.name}
-            className="w-full h-full object-cover"
-          />
+        <div className="hero-label flex items-center justify-center gap-3 mb-8">
+          <div className="w-8 h-px bg-amber-300/60" />
+          <span className="font-mono text-xs tracking-[0.3em] uppercase text-amber-200">
+            {t(personal.title)}
+          </span>
+          <div className="w-8 h-px bg-amber-300/60" />
         </div>
-      </div>
+
+        <div className="hero-avatar mx-auto mb-8">
+          <div
+            className="w-24 h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden mx-auto"
+            style={{
+              border: "2px solid rgba(255,175,27,0.4)",
+              boxShadow: "0 0 40px rgba(255,175,27,0.15), 0 0 80px rgba(255,100,0,0.1)",
+            }}
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}images/foto-isaac.jpg`}
+              alt={personal.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
 
         <h1
           ref={titleRef}
-          className="font-serif font-bold leading-[1.05] tracking-tight mb-6"
-          style={{ fontSize: "clamp(3rem, 8vw, 7rem)", color: "var(--color-text)" }}
+          className="font-serif font-bold leading-[1.05] tracking-tight mb-6 text-white"
+          style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}
         >
-    <span data-scramble-reveal={personal.name.split(" ")[0] ?? ""}>
-          {personal.name.split(" ")[0] ?? ""}
-        </span>{" "}
-        <span
-          data-scramble-reveal={personal.name.split(" ")[1] ?? ""}
-          className="italic"
-          style={{ color: "var(--color-accent)" }}
-        >
-          {personal.name.split(" ")[1] ?? ""}
+          <span data-scramble-reveal={personal.name.split(" ")[0] ?? ""}>
+            {personal.name.split(" ")[0] ?? ""}
+          </span>{" "}
+          <span
+            data-scramble-reveal={personal.name.split(" ")[1] ?? ""}
+            className="italic text-amber-300"
+          >
+            {personal.name.split(" ")[1] ?? ""}
           </span>
         </h1>
 
         <p
           ref={subtitleRef}
-          className="font-mono text-sm tracking-[0.15em] uppercase mb-8"
-          style={{ color: "var(--color-text-2)" }}
+          className="font-mono text-sm tracking-[0.15em] uppercase mb-8 text-amber-100/70"
         >
           {t(personal.subtitle)}
         </p>
 
         <p
           ref={bioRef}
-          className="text-lg leading-relaxed max-w-2xl mx-auto mb-12"
-          style={{ color: "var(--color-text-2)" }}
+          className="text-lg leading-relaxed max-w-2xl mx-auto mb-12 text-amber-50/80"
           data-selectable
         >
           {t(personal.bio)}
@@ -137,61 +134,55 @@ export default function Home() {
             </span>
             <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
           </Link>
-        <a
-          href={`mailto:${personal.email}`}
-          className="clip-btn"
-        >
-          {t({ pt: "Falar Comigo", en: "Talk to Me" })}
-        </a>
-        <Link
-          to="/cv"
-          className="clip-btn"
-        >
-          <FileDown className="w-4 h-4" />
-          {t({ pt: "Currículo", en: "Resume" })}
-        </Link>
+          <a
+            href={`mailto:${personal.email}`}
+            className="clip-btn"
+          >
+            {t({ pt: "Falar Comigo", en: "Talk to Me" })}
+          </a>
+          <Link
+            to="/cv"
+            className="clip-btn"
+          >
+            <FileDown className="w-4 h-4" />
+            {t({ pt: "Currículo", en: "Resume" })}
+          </Link>
         </div>
 
         <div className="flex items-center justify-center gap-6">
-        <a
-          href={personal.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="hero-social custom-cursor-target transition-colors duration-300"
-          style={{ color: "var(--color-text-3)" }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-accent)"; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text-3)"; }}
-        >
-          <Linkedin className="w-5 h-5" />
-        </a>
-        <a
-          href={personal.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className="hero-social custom-cursor-target transition-colors duration-300"
-          style={{ color: "var(--color-text-3)" }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-accent)"; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text-3)"; }}
-        >
-          <Github className="w-5 h-5" />
-        </a>
-          <span className="w-px h-4" style={{ backgroundColor: "var(--color-border-2)" }} />
-          <span className="font-mono text-xs tracking-[0.1em]" style={{ color: "var(--color-text-3)" }}>
+          <a
+            href={personal.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="hero-social custom-cursor-target transition-colors duration-300 text-amber-200/50 hover:text-amber-300"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+          <a
+            href={personal.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="hero-social custom-cursor-target transition-colors duration-300 text-amber-200/50 hover:text-amber-300"
+          >
+            <Github className="w-5 h-5" />
+          </a>
+          <span className="w-px h-4 bg-amber-400/30" />
+          <span className="font-mono text-xs tracking-[0.1em] text-amber-200/50">
             {t(personal.location)}
           </span>
         </div>
       </div>
 
-      <div ref={scrollRef} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: "var(--color-text-3)" }}>
+      <div ref={scrollRef} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+        <span className="font-mono text-xs tracking-[0.2em] uppercase text-amber-200/50">
           {t({ pt: "Rolar", en: "Scroll" })}
         </span>
         <div
           className="w-px h-12 origin-top"
           style={{
-            backgroundImage: "linear-gradient(to bottom, var(--color-accent), transparent)",
+            backgroundImage: "linear-gradient(to bottom, #ffaf00, transparent)",
             animation: "pulse 2s ease-in-out infinite",
           }}
         />

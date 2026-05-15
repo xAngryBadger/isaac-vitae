@@ -1,33 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SkyLayer from "./parallax/SkyLayer";
-import RuinsLayer from "./parallax/RuinsLayer";
-import TreesLayer from "./parallax/TreesLayer";
-import ColumnsLayer from "./parallax/ColumnsLayer";
-import GroundLayer from "./parallax/GroundLayer";
-import FoliageLayer from "./parallax/FoliageLayer";
-import LightRaysLayer from "./parallax/LightRaysLayer";
-import FogLayer from "./parallax/FogLayer";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const FIREWATCH_SPEEDS = [2, 5, 11, 16, 26, 36, 49, 69, 100];
+
+const LAYER_IMAGES = FIREWATCH_SPEEDS.map((_, i) => {
+  const base = import.meta.env.BASE_URL;
+  return `${base}images/parallax/fw-layer${i}.png`;
+});
+
 type LayerConfig = {
-  scrollSpeed: number;
+  dataSpeed: number;
   mouseXFactor: number;
-  mouseYFactor: number;
 };
 
-const LAYERS: LayerConfig[] = [
-  { scrollSpeed: 0.05, mouseXFactor: 0.003, mouseYFactor: 0.002 },
-  { scrollSpeed: 0.12, mouseXFactor: 0.008, mouseYFactor: 0.005 },
-  { scrollSpeed: 0.25, mouseXFactor: 0.015, mouseYFactor: 0.01 },
-  { scrollSpeed: 0.4, mouseXFactor: 0.024, mouseYFactor: 0.016 },
-  { scrollSpeed: 0.15, mouseXFactor: 0.005, mouseYFactor: 0.003 },
-  { scrollSpeed: 0.6, mouseXFactor: 0.03, mouseYFactor: 0.02 },
-  { scrollSpeed: 0.8, mouseXFactor: 0.04, mouseYFactor: 0.028 },
-  { scrollSpeed: 0.1, mouseXFactor: 0.002, mouseYFactor: 0.001 },
-];
+const LAYERS: LayerConfig[] = FIREWATCH_SPEEDS.map((speed, i) => ({
+  dataSpeed: speed,
+  mouseXFactor: 0.001 + (i / FIREWATCH_SPEEDS.length) * 0.04,
+}));
 
 const LERP = 0.06;
 
@@ -50,15 +42,17 @@ export default function ForestParallax() {
     const ctx = gsap.context(() => {
       layerRefs.current.forEach((el, i) => {
         if (!el) return;
-        const speed = LAYERS[i]?.scrollSpeed ?? 0;
+        const cfg = LAYERS[i];
+        if (!cfg) return;
+        const speedNorm = cfg.dataSpeed / 100;
         gsap.to(el, {
-          y: () => window.innerHeight * speed,
+          y: () => window.innerHeight * speedNorm,
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top top",
             end: "bottom top",
-            scrub: 1.5 + (1 - speed) * 2,
+            scrub: 0.8 + (1 - speedNorm) * 1.5,
           },
         });
       });
@@ -92,8 +86,7 @@ export default function ForestParallax() {
         const cfg = LAYERS[i];
         if (!cfg) return;
         const tx = s.x * cfg.mouseXFactor * window.innerWidth;
-        const ty = s.y * cfg.mouseYFactor * window.innerHeight;
-        el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+        el.style.transform = `translate3d(${tx}px, 0, 0)`;
       });
 
       rafRef.current = requestAnimationFrame(tick);
@@ -117,7 +110,7 @@ export default function ForestParallax() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, #d8d0c4 0%, #e5dfd8 30%, #b8c4b2 100%)",
+              "linear-gradient(to bottom, #ffaf1b 0%, #c25a00 40%, #210002 100%)",
           }}
         />
       </div>
@@ -125,15 +118,22 @@ export default function ForestParallax() {
   }
 
   return (
-    <div ref={containerRef} className="absolute inset-0 overflow-hidden">
-      <div ref={setRef(0)} className="parallax-layer"><SkyLayer /></div>
-      <div ref={setRef(1)} className="parallax-layer"><RuinsLayer /></div>
-      <div ref={setRef(2)} className="parallax-layer"><TreesLayer /></div>
-      <div ref={setRef(3)} className="parallax-layer"><ColumnsLayer /></div>
-      <div ref={setRef(4)} className="parallax-layer"><LightRaysLayer /></div>
-      <div ref={setRef(5)} className="parallax-layer"><GroundLayer /></div>
-      <div ref={setRef(6)} className="parallax-layer"><FoliageLayer /></div>
-      <div ref={setRef(7)} className="parallax-layer"><FogLayer /></div>
+    <div ref={containerRef} className="absolute inset-0 overflow-hidden" style={{ backgroundColor: "#ffaf1b" }}>
+      {LAYERS.map((cfg, i) => (
+        <div
+          key={i}
+          ref={setRef(i)}
+          className="parallax-layer"
+          data-speed={cfg.dataSpeed}
+          style={{
+            zIndex: i + 1,
+            backgroundImage: `url(${LAYER_IMAGES[i]})`,
+            backgroundPosition: "bottom center",
+            backgroundSize: "auto 1038px",
+            backgroundRepeat: "repeat-x",
+          }}
+        />
+      ))}
     </div>
   );
 }
