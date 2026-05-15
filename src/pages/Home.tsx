@@ -5,7 +5,8 @@ import { personal } from "../data/content";
 import { scrambleText } from "../lib/scramble";
 import { useLang } from "../lib/LanguageContext";
 import { ArrowDown, Github, Linkedin, FileDown } from "lucide-react";
-import { EASE_PRIMARY, EASE_SECONDARY } from "../lib/scroll-anim";
+import { EASE_SECONDARY } from "../lib/scroll-anim";
+import ForestParallax from "../components/ForestParallax";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,11 +21,7 @@ export default function Home() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.1 });
 
-    tl.from(".corner-line-h", { scaleX: 0, duration: 0.8, ease: EASE_PRIMARY, stagger: 0.1 }, 0)
-    .from(".corner-line-v", { scaleY: 0, duration: 0.8, ease: EASE_PRIMARY, stagger: 0.1 }, 0.1)
-    .from(".corner-dot", { scale: 0, opacity: 0, duration: 0.3, stagger: 0.05 }, 0.4);
-
-    tl.from(".hero-label", { opacity: 0, y: 10, duration: 0.6, ease: EASE_SECONDARY }, 0.3);
+      tl.from(".hero-label", { opacity: 0, y: 10, duration: 0.6, ease: EASE_SECONDARY }, 0.3);
 
       tl.call(() => {
         if (titleRef.current) {
@@ -42,16 +39,15 @@ export default function Home() {
         }
       }, [], 0.55);
 
-    tl.from(subtitleRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 0.9);
-    tl.from(bioRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 1.05);
-    tl.from(ctaRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 1.2);
-    tl.from(".hero-social", { opacity: 0, y: 10, duration: 0.45, stagger: 0.08 }, 1.35);
-  tl.from(scrollRef.current, { opacity: 0, duration: 0.5 }, 1.5);
+      tl.from(subtitleRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 0.9);
+      tl.from(bioRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 1.05);
+      tl.from(ctaRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 1.2);
+      tl.from(".hero-social", { opacity: 0, y: 10, duration: 0.45, stagger: 0.08 }, 1.35);
+      tl.from(scrollRef.current, { opacity: 0, duration: 0.5 }, 1.5);
     }, containerRef);
 
     const onScroll = () => {
       const y = window.scrollY;
-      gsap.set(".hero-bg-gradient", { y: y * 0.3 });
       gsap.set(".hero-content", { opacity: 1 - y / (window.innerHeight * 0.7) });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -69,37 +65,8 @@ export default function Home() {
 
   return (
     <section ref={containerRef} className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-      <div
-        className="hero-bg-gradient absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(ellipse at 30% 50%, var(--color-accent-06) 0%, transparent 60%), radial-gradient(ellipse at 70% 20%, var(--color-sage-05) 0%, transparent 50%)",
-        }}
-      />
+      <ForestParallax />
 
-      {/* Corner decorations */}
-      <div className="absolute top-8 left-8 lg:top-12 lg:left-12 pointer-events-none">
-        <div className="corner-dot w-1.5 h-1.5 rounded-full mb-2" style={{ backgroundColor: "var(--color-accent)" }} />
-        <div className="corner-line-h h-px w-16 lg:w-24 origin-left" style={{ backgroundColor: "var(--color-border-2)" }} />
-        <div className="corner-line-v w-px h-16 lg:h-24 origin-top" style={{ backgroundColor: "var(--color-border-2)" }} />
-      </div>
-      <div className="absolute top-8 right-8 lg:top-12 lg:right-12 pointer-events-none flex flex-col items-end">
-        <div className="corner-dot w-1.5 h-1.5 rounded-full mb-2" style={{ backgroundColor: "var(--color-accent)" }} />
-        <div className="corner-line-h h-px w-16 lg:w-24 origin-right" style={{ backgroundColor: "var(--color-border-2)" }} />
-        <div className="corner-line-v w-px h-16 lg:h-24 origin-top ml-auto" style={{ backgroundColor: "var(--color-border-2)" }} />
-      </div>
-      <div className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12 pointer-events-none flex flex-col-reverse">
-        <div className="corner-dot w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: "var(--color-accent)" }} />
-        <div className="corner-line-h h-px w-16 lg:w-24 origin-left" style={{ backgroundColor: "var(--color-border-2)" }} />
-        <div className="corner-line-v w-px h-16 lg:h-24 origin-bottom" style={{ backgroundColor: "var(--color-border-2)" }} />
-      </div>
-      <div className="absolute bottom-8 right-8 lg:bottom-12 lg:right-12 pointer-events-none flex flex-col-reverse items-end">
-        <div className="corner-dot w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: "var(--color-accent)" }} />
-        <div className="corner-line-h h-px w-16 lg:w-24 origin-right" style={{ backgroundColor: "var(--color-border-2)" }} />
-        <div className="corner-line-v w-px h-16 lg:h-24 origin-bottom ml-auto" style={{ backgroundColor: "var(--color-border-2)" }} />
-      </div>
-
-      {/* Content */}
       <div className="hero-content relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
       <div className="hero-label flex items-center justify-center gap-3 mb-8">
         <div className="w-8 h-px" style={{ backgroundColor: "var(--color-accent-light)" }} />
