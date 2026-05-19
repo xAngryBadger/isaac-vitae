@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/opendyslexic@latest/opendyslexic-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-bg: #e5dfd8;
   --color-bg-deep: #efeae6;
@@ -70,34 +78,24 @@ img::selection { background: transparent; }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
 ::-webkit-scrollbar-thumb { background: var(--color-border-2); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-2); }
 
 .cursor-dot {
-  width: 8px; height: 8px; background: var(--color-accent); border-radius: 50%;
-  position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width .8s var(--ease-spring-1), height .8s var(--ease-spring-1), background .3s;
+width: 10px; height: 10px; background: var(--color-text); border-radius: 50%;
+position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+transform: translate(-50%, -50%);
+transition: width 0.2s ease, height 0.2s ease;
 }
-.cursor-ring {
-  width: 36px; height: 36px;   border: 1px solid var(--color-accent-30); border-radius: 50%;
-  position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width .8s var(--ease-spring-1), height .8s var(--ease-spring-1), border-color .3s;
-}
-.cursor-dot.hovering { width: 14px; height: 14px; background: var(--color-accent-dark); }
-.cursor-ring.hovering { width: 52px; height: 52px; border-color: var(--color-accent-30); }
-
-body:has(.custom-cursor-target:hover) .cursor-dot { width: 14px; height: 14px; }
-body:has(.custom-cursor-target:hover) .cursor-ring { width: 52px; height: 52px; }
+.cursor-dot.hovering { width: 16px; height: 16px; background: var(--color-text-2); }
 
 .font-serif { font-family: var(--font-serif); }
 .font-mono { font-family: var(--font-mono); }
 
 .accent-underline { position: relative; }
 .accent-underline::after {
-  content: ''; position: absolute; bottom: -2px; left: 0;
-  width: 0; height: 1px; background: var(--color-accent);
-  transition: width .4s cubic-bezier(.16,1,.3,1);
+content: ''; position: absolute; bottom: -2px; left: 0;
+width: 0; height: 1px; background: var(--color-text-2);
+transition: width .3s ease;
 }
 .accent-underline:hover::after { width: 100%; }
 
@@ -107,36 +105,12 @@ body:has(.custom-cursor-target:hover) .cursor-ring { width: 52px; height: 52px; 
 }
 
 .scroll-progress {
-  position: fixed; top: 0; left: 0; height: 2px;
-  background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent-light));
-  transform-origin: left; z-index: 9996; width: 100%;
+position: fixed; top: 0; left: 0; height: 2px;
+background: var(--color-text);
+transform-origin: left; z-index: 9996; width: 100%;
 }
 
-.noise-overlay {
-  position: fixed; inset: 0; z-index: 9990; pointer-events: none; opacity: 0.035;
-  overflow: hidden;
-}
-.noise-overlay-inner {
-  position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 128px 128px;
-  animation: noise-dist 0.8s steps(3) infinite both;
-  will-change: transform;
-}
 
-@keyframes noise-dist {
-  0% { transform: translate3d(1%, -1%, 0); }
-  10% { transform: translate3d(-5%, -2%, 0); }
-  20% { transform: translate3d(3%, 1%, 0); }
-  30% { transform: translate3d(-1%, 5%, 0); }
-  40% { transform: translate3d(4%, -3%, 0); }
-  50% { transform: translate3d(-2%, 2%, 0); }
-  60% { transform: translate3d(1%, -4%, 0); }
-  70% { transform: translate3d(-3%, 3%, 0); }
-  80% { transform: translate3d(2%, -1%, 0); }
-  90% { transform: translate3d(-4%, 4%, 0); }
-  100% { transform: translate3d(0, 8%, 0); }
-}
 
 .clip-btn {
 position: relative; display: inline-flex; align-items: center; gap: 0.5rem;
@@ -192,6 +166,17 @@ letter-spacing: .2em;
 }
 }
 
+.split-right .section-root {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+@media (min-width: 1024px) {
+  .split-right .section-root {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+}
+
 .bg-surface { background-color: var(--color-bg); }
 .bg-surface-deep { background-color: var(--color-bg-deep); }
 .bg-card { background-color: var(--color-bg-card); }
@@ -225,15 +210,175 @@ padding-bottom: 10rem;
 }
 }
 .section-container {
-max-width: 80rem;
-margin-left: auto;
-margin-right: auto;
-padding-left: 1.5rem;
-padding-right: 1.5rem;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 @media (min-width: 1024px) {
-.section-container {
-padding-left: 3rem;
-padding-right: 3rem;
+  .section-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
+
+:root {
+  --split-columns: 12;
+  --split-gap: 1.25rem;
+  --split-margin: 1.25rem;
+  --split-grid: repeat(var(--split-columns), 1fr);
+}
+@media (max-width: 40rem) {
+  :root { --split-columns: 4; }
+}
+
+.split-grid {
+  display: grid;
+  grid-template-columns: var(--split-grid);
+  gap: var(--split-gap);
+  padding-inline: var(--split-margin);
+  min-height: 100vh;
+}
+.split-grid.container {
+  max-width: none;
+  margin-inline: auto;
+}
+
+.split-left {
+  grid-column: span 4 / span 4;
+}
+@media (min-width: 40rem) {
+  .split-left {
+    grid-column: span 7 / span 7;
+  }
+}
+
+.split-right {
+  grid-column: span 4 / span 4;
+}
+@media (min-width: 40rem) {
+  .split-right {
+    grid-column: span 5 / span 5;
+  }
+}
+
+.split-right-content {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+@media (min-width: 40rem) {
+  .split-right-content {
+    padding-top: 0;
+  }
+}
+
+.nav-tile {
+  padding: 0.5rem 0;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--color-text-2);
+  transition: color 0.2s;
+}
+.nav-tile-num {
+  color: var(--color-text-3);
+  margin-right: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+.nav-tile-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--color-sage);
+  will-change: transform;
+  pointer-events: none;
+}
+@media (hover: none) {
+  .nav-tile-bg { display: none; }
+}
+
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(45, 58, 47, 0.6);
+  pointer-events: none;
+}
+.sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  max-height: 80dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+.sheet-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.1s;
+}
+.sheet-toggle:active { opacity: 0.7; }
+.sheet-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none;
+  transition: opacity 0.1s;
+}
+.sheet-item:active { opacity: 0.7; }
+
+.split-hero {
+  background: radial-gradient(ellipse at 30% 50%, var(--color-accent-06) 0%, transparent 60%), radial-gradient(ellipse at 70% 20%, var(--color-sage-05) 0%, transparent 50%);
+}
+
+@media (max-width: 40rem) {
+.split-grid {
+grid-template-columns: var(--split-grid);
+}
+}
+
+.dyslexia-toggle {
+font-family: var(--font-mono);
+font-size: 0.65rem;
+cursor: pointer;
+background: transparent;
+border: none;
+color: var(--color-text-3);
+transition: all 0.2s ease;
+}
+.dyslexia-toggle:hover {
+color: var(--color-text);
+transform: scale(1.1);
+}
+.dyslexia-toggle .icon {
+font-weight: 600;
+}
+
+html.dyslexia-font {
+--font-sans: 'OpenDyslexic', sans-serif !important;
+--font-mono: 'OpenDyslexic', monospace !important;
+}
+
+.hero-social:hover {
+color: var(--color-text) !important;
+transform: translateY(-1px);
 }

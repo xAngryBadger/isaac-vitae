@@ -4,10 +4,9 @@ import { AnimatePresence, motion } from "motion/react";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitPanelLayout from "./components/SplitPanelLayout";
 import Nav from "./components/Nav";
-import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
-import NoiseOverlay from "./components/NoiseOverlay";
 import Preloader from "./components/Preloader";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -48,9 +47,9 @@ function DocumentTitle() {
     const title = pageTitles[path];
     if (title) {
       document.title = title[lang];
-  } else if (path.startsWith("/projects/")) {
-  const slug = path.replace("/projects/", "");
-  document.title = `${slug} — Isaac Nathan`;
+    } else if (path.startsWith("/projects/")) {
+      const slug = path.replace("/projects/", "");
+      document.title = `${slug} — Isaac Nathan`;
     } else {
       document.title = lang === "pt" ? "Página não encontrada — Isaac Nathan" : "Page not found — Isaac Nathan";
     }
@@ -103,37 +102,37 @@ function AppContent() {
   return (
     <>
       {!loaded && <Preloader onDone={handlePreloaderDone} />}
-      {loaded && (
-        <>
-          <DocumentTitle />
-          <NoiseOverlay />
-          <CustomCursor />
-          <Nav />
-          <AnimatePresence mode="wait">
-            <motion.main
-              key={location.pathname}
-              initial={firstRender ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <Routes location={location}>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/experience" element={<Experience />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
-                <Route path="/skills" element={<Skills />} />
-                <Route path="/gallery" element={<Gallery />} />
-          <Route path="/certificates" element={<Certificates />} />
-          <Route path="/cv" element={<CV />} />
-          <Route path="/playground" element={<Playground />} />
-          <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </motion.main>
-          </AnimatePresence>
-          <Footer />
+{loaded && (
+<>
+<DocumentTitle />
+<CustomCursor />
+          <SplitPanelLayout nav={<Nav />}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={location.pathname}
+                initial={firstRender ? false : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="split-right-content"
+              >
+                <Routes location={location}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/experience" element={<Experience />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
+                  <Route path="/skills" element={<Skills />} />
+                  <Route path="/gallery" element={<Gallery />} />
+                  <Route path="/certificates" element={<Certificates />} />
+                  <Route path="/cv" element={<CV />} />
+                  <Route path="/playground" element={<Playground />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </motion.div>
+            </AnimatePresence>
+          </SplitPanelLayout>
         </>
       )}
     </>

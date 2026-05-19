@@ -31,19 +31,19 @@ export type Education = {
 export const personal = {
   name: "Isaac Nathan",
   fullName: "Isaac Nathan da Silva Barbosa",
-  title: b("Desenvolvedor Full-Stack com IA", "Full-Stack AI Engineer"),
-  subtitle: b(
-    "Engenharia de Computação · IA · Cloud · IoT",
-    "Computer Engineering · AI · Cloud · IoT"
-  ),
-  bio: b(
-    "De Química para Computação. Construo sistemas de IA com impacto em produção — do pipeline de agentes ao deploy. Especialista em Linux (CachyOS/Hyprland) e sistemas de IA com agentes autônomos.",
-    "From Chemistry to Computer Engineering. I build AI systems with production impact — from agent pipelines to deploy. Linux specialist (CachyOS/Hyprland) and autonomous AI agent systems."
-  ),
-  bioExtended: b(
-    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, SRF System e em breve ForestAI de novo.`,
-    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — self-directed learning, extra afternoon classes to keep evolving. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch with Thonny IDE, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, SRF System, and soon ForestAI again.`
-  ),
+title: b("Engenharia de Computação + IA", "Computer Engineering + AI"),
+subtitle: b(
+"Full-Stack · Python · React · Cloud",
+"Full-Stack · Python · React · Cloud"
+),
+bio: b(
+"Engenheiro de Computação focado em IA e sistemas full-stack. Construo pipelines de agentes autônomos, migro bancos de dados em escala e entrego soluções do frontend ao backend.",
+"Computer Engineering student focused on AI and full-stack systems. I build autonomous agent pipelines, migrate large-scale databases, and deliver end-to-end solutions."
+),
+bioExtended: b(
+`Comecei com Python em 2022 na UFOP, aprendendo por conta própria. Após dois anos em Química, mudei para Engenharia de Computação. Meu primeiro projeto foi o ForestAI — anotei centenas de imagens de drone manualmente e treinei modelos de detecção. Na Paware, migrei bancos de dados para Azure Cosmos DB e criei pipelines de IA. Hoje estou no ${getCurrentSemesterInline().pt} e construo projetos como HarpIA e SRF System.`,
+`Started with Python in 2022 at UFOP, learning on my own. After two years in Chemistry, switched to Computer Engineering. My first project was ForestAI — manually annotated hundreds of drone images and trained detection models. At Paware, migrated databases to Azure Cosmos DB and built AI pipelines. Now in my ${getCurrentSemesterInline().en}, building projects like HarpIA and SRF System.`
+),
   bioHighlights: [
     b(
       "IA & Automação: Construção de pipelines agentic (GPT-4.1 tool calling, ReAct loops) e integração de LLMs em fluxos de trabalho reais — do HelloSocial na Paware ao HarpIA pessoal.",
@@ -62,10 +62,10 @@ export const personal = {
       "Technical Differentiators: Advanced Linux user (CachyOS/Hyprland with custom setup), local model deployment (Ollama), and complex JSON data structuring for clean integrations."
     ),
   ],
-  bioPersonal: b(
-    "Fora do Terminal: Usuário avançado de Linux com ambiente customizado (CachyOS/Hyprland). Fora do código, valorizo momentos de descanso e atividades ao ar livre.",
-    "Outside the Terminal: Advanced Linux user with custom environment (CachyOS/Hyprland). Outside of code, I value moments of rest and outdoor activities."
-  ),
+bioPersonal: b(
+"Além do código: Linux diário, atividades ao ar livre e descanso.",
+"Beyond code: Linux daily driver, outdoor activities, and rest."
+),
   email: "isaacnathandasilva@gmail.com",
   phone: "+55 (31) 99441-7786",
   location: b("Mariana, MG — Brasil", "Mariana, MG — Brazil"),
@@ -789,51 +789,55 @@ export const caseStudies: Record<string, {
       b("APIs de design: Placid, Templated.io, Canva Connect (scaffolded)", "Design APIs: Placid, Templated.io, Canva Connect (scaffolded)"),
       b("6,930+ LOC de Python async, testes de segurança, zero hardcoded secrets", "6,930+ LOC async Python, security tests, zero hardcoded secrets"),
     ],
-    codeSnippets: [
-      {
-        language: "python",
-        title: b("Pipeline Agentic — Tool Calling", "Agentic Pipeline — Tool Calling"),
-        code: `async def run_agent(self, batch: Batch) -> Batch:
-    messages = [{"role": "system", "content": self.system_prompt}]
-    tools = self._build_tool_schema(batch)
+codeSnippets: [
+{
+language: "python",
+title: b("Pipeline Agentic — Tool Calling", "Agentic Pipeline — Tool Calling"),
+code: `async def run_agent(self, batch: Batch) -> Batch:
+messages = [{"role": "system", "content": self.system_prompt}]
+tools = self._build_tool_schema(batch)
 
-    for iteration in range(MAX_ITERATIONS):
-        response = await self.client.chat.completions.create(
-            model="gpt-4.1",
-            messages=messages,
-            tools=tools,
-            tool_choice="auto",
-        )
-        choice = response.choices[0]
+for iteration in range(MAX_ITERATIONS):
+response = await self.client.chat.completions.create(
+model="gpt-4.1",
+messages=messages,
+tools=tools,
+tool_choice="auto",
+)
+choice = response.choices[0]
 
-        if choice.finish_reason == "tool_calls":
-            for call in choice.message.tool_calls:
-                result = await self._execute_tool(call)
-                messages.append({"role": "tool", "content": result})
-        else:
-            return self._finalize(batch, choice.message.content)
+if choice.finish_reason == "tool_calls":
+for call in choice.message.tool_calls:
+result = await self._execute_tool(call)
+messages.append({"role": "tool", "content": result})
+else:
+return self._finalize(batch, choice.message.content)
 
-    raise AgentMaxIterationsError()`,
-      },
-      {
-        language: "python",
-        title: b("Compositor PIL Local", "Local PIL Compositor"),
-        code: `class PILCompositor:
-    TEMPLATES = {
-        "modern_split": ModernSplitTemplate,
-        "centered_hero": CenteredHeroTemplate,
-        "grid_four": GridFourTemplate,
-    }
+raise AgentMaxIterationsError()`,
+},
+{
+language: "python",
+title: b("Compositor PIL Local", "Local PIL Compositor"),
+code: `class PILCompositor:
+TEMPLATES = {
+"modern_split": ModernSplitTemplate,
+"centered_hero": CenteredHeroTemplate,
+"grid_four": GridFourTemplate,
+}
 
-    async def compose(self, layout: str, copy: str,
-                      image: Image.Image, brand: BrandConfig) -> Image.Image:
-        template = self.TEMPLATES[layout](brand)
-        canvas = Image.new("RGB", template.size, brand.bg_color)
-        canvas = template.render(canvas, copy=copy, image=image)
-        return canvas`,
-      },
-    ],
-  },
+async def compose(self, layout: str, copy: str,
+image: Image.Image, brand: BrandConfig) -> Image.Image:
+template = self.TEMPLATES[layout](brand)
+canvas = Image.new("RGB", template.size, brand.bg_color)
+canvas = template.render(canvas, copy=copy, image=image)
+return canvas`,
+},
+],
+gallery: [
+{ src: "/images/harpia-pipeline.png", alt: b("Pipeline de automação HarpIA", "HarpIA automation pipeline") },
+{ src: "/images/hellosocial.png", alt: b("Interface HelloSocial", "HelloSocial interface") },
+],
+},
   "srf-system": {
     challenge: b(
       "Planejar operações de restauração florestal em larga escala envolve dezenas de variáveis: territórios, equipes, tarifas, cronogramas e dossiês executivos. O processo manual era lento e propenso a erros.",
