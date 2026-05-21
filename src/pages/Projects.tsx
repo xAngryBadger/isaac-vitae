@@ -13,9 +13,6 @@ import { TagFilter } from "../components/TagFilter";
 gsap.registerPlugin(ScrollTrigger);
 
 function ProjectIcon({ project, className }: { project: Project; className?: string }) {
-  const Widget = projectWidgets[project.id];
-  if (Widget) return <Widget className={className} />;
-  if (project.icon) return <img src={`${import.meta.env.BASE_URL}${project.icon.replace(/^\//, '')}`} alt={project.title} className={`${className ?? ""} object-contain`} />;
   const initials = project.title.replace(/[^A-Za-z]/g, "").slice(0, 2).toUpperCase();
   return (
     <svg viewBox="0 0 48 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,13 +49,7 @@ function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
       />
 
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 p-8 lg:p-10">
-        <div
-          className="shrink-0 w-28 h-28 lg:w-36 lg:h-36 flex items-center justify-center rounded-lg"
-          style={{
-            backgroundColor: `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.06)`,
-            transition: "background-color 0.3s",
-          }}
-        >
+        <div className="shrink-0 w-28 h-28 lg:w-36 lg:h-36 flex items-center justify-center rounded-lg">
           <ProjectIcon project={proj} className="w-20 h-20 lg:w-28 lg:h-28" />
         </div>
 
@@ -238,12 +229,9 @@ function Tier3Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
 
       <div className="relative z-10 p-6 flex flex-col">
         {hasIcon && (
-          <div
-            className="w-16 h-16 mb-4 flex items-center justify-center rounded"
-            style={{ backgroundColor: `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.03)` }}
-          >
-            <ProjectIcon project={proj} className="w-12 h-12" />
-          </div>
+        <div className="w-16 h-16 mb-4 flex items-center justify-center rounded">
+          <ProjectIcon project={proj} className="w-12 h-12" />
+        </div>
         )}
 
         <div className="flex items-center gap-2 flex-wrap mb-1">
@@ -280,7 +268,7 @@ function Tier3Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
           {t(proj.description)}
         </p>
 
-        <div className="flex flex-wrap gap-1 mb-auto">
+        <div className="flex flex-wrap gap-1 mb-2">
           {proj.tech.slice(0, 3).map((tech) => (
             <span
               key={tech}
@@ -302,7 +290,7 @@ function Tier3Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
             href={proj.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.08em] uppercase mt-4 self-start"
+            className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.08em] uppercase self-start"
             style={{ color: "var(--color-text-3)", opacity: hovered ? 1 : 0.5, transition: "opacity 0.3s" }}
           >
             <Github className="w-3 h-3" /> GitHub <ArrowUpRight className="w-2.5 h-2.5" />

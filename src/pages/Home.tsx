@@ -7,12 +7,11 @@ import { ArrowDown, Github, Linkedin, FileDown } from "lucide-react";
 import { EASE_PRIMARY, EASE_SECONDARY } from "../lib/scroll-anim";
 
 export default function Home() {
-const containerRef = useRef<HTMLDivElement>(null);
-const subtitleRef = useRef<HTMLParagraphElement>(null);
-const bioRef = useRef<HTMLParagraphElement>(null);
-const ctaRef = useRef<HTMLDivElement>(null);
-const scrollRef = useRef<HTMLDivElement>(null);
-const { t } = useLang();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const bioRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const { t } = useLang();
 
 useEffect(() => {
 const ctx = gsap.context(() => {
@@ -23,11 +22,10 @@ tl.from(".corner-line-h", { scaleX: 0, duration: 0.8, ease: EASE_PRIMARY, stagge
 .from(".corner-dot", { scale: 0, opacity: 0, duration: 0.3, stagger: 0.05 }, 0.4);
 
   tl.from(".hero-avatar", { opacity: 0, y: 10, duration: 0.6, ease: EASE_SECONDARY }, 0.3);
-tl.from(subtitleRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 0.7);
-tl.from(bioRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 0.85);
-tl.from(ctaRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 1.0);
-tl.from(".hero-social", { opacity: 0, y: 10, duration: 0.45, stagger: 0.08 }, 1.15);
-tl.from(scrollRef.current, { opacity: 0, duration: 0.5 }, 1.3);
+  tl.from(subtitleRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 0.7);
+  tl.from(bioRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 0.85);
+  tl.from(ctaRef.current, { opacity: 0, y: 16, duration: 0.6, ease: EASE_SECONDARY }, 1.0);
+  tl.from(".hero-social", { opacity: 0, y: 10, duration: 0.45, stagger: 0.08 }, 1.15);
 }, containerRef);
 
 const onScroll = () => {
@@ -176,19 +174,6 @@ className="clip-btn-filled group"
           </span>
         </div>
       </div>
-
-      <div ref={scrollRef} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: "var(--color-text-3)" }}>
-          {t({ pt: "Rolar", en: "Scroll" })}
-        </span>
-        <div
-          className="w-px h-12 origin-top"
-          style={{
-            backgroundImage: "linear-gradient(to bottom, var(--color-accent), transparent)",
-            animation: "pulse 2s ease-in-out infinite",
-          }}
-        />
-      </div>
     </section>
-  );
+    );
 }

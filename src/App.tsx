@@ -8,7 +8,6 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
 import Preloader from "./components/Preloader";
-import { SidebarNav } from "./components/SidebarNav";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Experience from "./pages/Experience";
@@ -61,7 +60,6 @@ function DocumentTitle() {
 
 function AppContent() {
   const [loaded, setLoaded] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const isFirstMount = useRef(true);
   const location = useLocation();
   const { playRouteChange } = useSounds();
@@ -105,30 +103,11 @@ function AppContent() {
     const handler = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        setSidebarOpen((v) => !v);
       }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, []);
-
-  useEffect(() => {
-    if (sidebarOpen) {
-      document.documentElement.classList.add("sidebar-open");
-      document.body.style.overflow = "hidden";
-      const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
-      lenis?.stop();
-    } else {
-      document.documentElement.classList.remove("sidebar-open");
-      document.body.style.overflow = "";
-      const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
-      lenis?.start();
-    }
-    return () => {
-      document.documentElement.classList.remove("sidebar-open");
-      document.body.style.overflow = "";
-    };
-  }, [sidebarOpen]);
 
   const firstRender = isFirstMount.current;
   if (loaded && isFirstMount.current) isFirstMount.current = false;
@@ -138,10 +117,9 @@ function AppContent() {
       {!loaded && <Preloader onDone={handlePreloaderDone} />}
       {loaded && (
         <>
-          <DocumentTitle />
-          <CustomCursor />
-          <Nav onSidebarOpen={() => setSidebarOpen(true)} />
-          <SidebarNav open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <DocumentTitle />
+      <CustomCursor />
+      <Nav />
           <AnimatePresence mode="wait">
             <motion.main
               key={location.pathname}
