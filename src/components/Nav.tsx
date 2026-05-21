@@ -5,6 +5,8 @@ import { useLang } from "../lib/LanguageContext";
 import { useSounds } from "../lib/useSounds";
 import { personal } from "../data/content";
 import { scrambleText } from "../lib/scramble";
+import { DarkModeToggle } from "./DarkModeToggle";
+import { DyslexiaToggle } from "./DyslexiaToggle";
 
 const menuLinks = [
   { label: { pt: "Início", en: "Home" }, href: "/", num: "01" },
@@ -166,32 +168,36 @@ aria-label="Menu"
           </nav>
 
           {/* Footer: lang + sound toggles */}
-          <div className="absolute bottom-10 left-10 lg:left-20 flex items-center gap-6">
-            <span
-              className="font-mono text-xs"
-              style={{ color: "var(--color-text-3)", letterSpacing: "0.15em" }}
-            >
-              {personal.email}
-            </span>
-            <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
-            <button
-              onClick={() => { toggle(); }}
-              className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target flex items-center gap-1"
-              style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
-            >
-              <Globe className="w-3 h-3" />
-              {lang === "pt" ? "EN" : "PT"}
-            </button>
-            <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
-            <button
-              onClick={toggleSounds}
-              className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target flex items-center gap-1"
-              style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
-            >
-              {soundsEnabled ? <Volume2 className="w-3 h-3" /> : <VolumeX className="w-3 h-3" />}
-              {soundsEnabled ? "ON" : "OFF"}
-            </button>
-          </div>
+<div className="absolute bottom-10 left-10 lg:left-20 flex items-center gap-6">
+<span
+className="font-mono text-xs"
+style={{ color: "var(--color-text-3)", letterSpacing: "0.15em" }}
+>
+{personal.email}
+</span>
+<span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
+<button
+onClick={() => { toggle(); }}
+className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target flex items-center gap-1"
+style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
+>
+<Globe className="w-3 h-3" />
+{lang === "pt" ? "EN" : "PT"}
+</button>
+<span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
+<DarkModeToggle />
+<span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
+<DyslexiaToggle />
+<span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
+<button
+onClick={toggleSounds}
+className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target flex items-center gap-1"
+style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
+>
+{soundsEnabled ? <Volume2 className="w-3 h-3" /> : <VolumeX className="w-3 h-3" />}
+{soundsEnabled ? "ON" : "OFF"}
+</button>
+</div>
         </div>
       )}
     </>
