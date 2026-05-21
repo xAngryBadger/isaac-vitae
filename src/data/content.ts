@@ -37,8 +37,8 @@ subtitle: b(
 "Full-Stack · Python · React · Cloud"
 ),
 bio: b(
-"Engenheiro de Computação focado em IA e full-stack. Construo pipelines de agentes autônomos, migro bancos de dados em escala e entrego soluções do frontend ao backend.",
-"Computer Engineering student focused on AI and full-stack systems. I build autonomous agent pipelines, migrate large-scale databases, and deliver end-to-end solutions."
+"Engenheiro de Computação focado em IA e full-stack. Construo pipelines de agentes autônomos, migro centenas de GB para Azure Cosmos DB e entrego soluções do frontend ao backend.",
+"Computer Engineering student focused on AI and full-stack systems. I build autonomous agent pipelines, migrate hundreds of GB to Azure Cosmos DB, and deliver end-to-end solutions."
 ),
   bioExtended: b(
     `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, SRF System e em breve ForestAI de novo.`,
@@ -49,10 +49,10 @@ bio: b(
       "IA & Automação: Construção de pipelines agentic (GPT-4.1 tool calling, ReAct loops) e integração de LLMs em fluxos de trabalho reais — do HelloSocial na Paware ao HarpIA pessoal.",
       "AI & Automation: Building agentic pipelines (GPT-4.1 tool calling, ReAct loops) and integrating LLMs into real workflows — from HelloSocial at Paware to personal HarpIA project."
     ),
-    b(
-      "Interação com Cloud e Backend: Experiência prática em Azure Cloud, migração de bancos de dados em larga escala e construção de APIs robustas com Python/FastAPI.",
-      "Cloud & Backend Interaction: Hands-on experience with Azure Cloud, large-scale database migration, and building robust APIs with Python/FastAPI."
-    ),
+b(
+"Interação com Cloud e Backend: Experiência prática em Azure Cloud, migração de centenas de GB para Cosmos DB e construção de APIs robustas com Python/FastAPI.",
+"Cloud & Backend Interaction: Hands-on experience with Azure Cloud, migrating hundreds of GB to Cosmos DB, and building robust APIs with Python/FastAPI."
+),
     b(
       "Visão de Produto (Full Stack): Capacidade de entregar soluções do zero, desde o frontend em React/TypeScript até a integração com dispositivos IoT em tempo real.",
       "Product Vision (Full Stack): Ability to deliver solutions from scratch — from React/TypeScript frontends to real-time IoT device integration."
@@ -81,11 +81,11 @@ export const experiences: Experience[] = [
     role: b("Desenvolvedor Full-Stack com foco em IA", "Full-Stack Developer with AI focus"),
     period: b("Out 2025 — Mai 2026", "Oct 2025 — May 2026"),
     current: false,
-    highlights: [
-      b(
-        "Migrei datasets legados do Google Drive para Azure Cosmos DB destinados à Meritage Homes (EUA) — pipeline com extração automatizada por cookies, compressão, renomeação e injeção em painéis para embedding via agente WhatsApp com limites rígidos de tamanho de arquivo. Containerizei com Docker para ambientes reproduzíveis e escrevi camada de validação de schema com rollback automático.",
-        "Migrated legacy datasets from Google Drive to Azure Cosmos DB for Meritage Homes (USA) — pipeline with automated cookie-based extraction, compression, renaming, and injection into panels for WhatsApp agent embedding with strict file size limits. Containerized with Docker for reproducible environments and wrote schema validation layer with automated rollback."
-      ),
+highlights: [
+b(
+"Migrei centenas de GB de datasets legados do Google Drive para Azure Cosmos DB destinados à Meritage Homes (EUA) — pipeline com extração automatizada por cookies, compressão, renomeação e injeção em painéis para embedding via agente WhatsApp com limites rígidos de tamanho de arquivo. Containerizei com Docker para ambientes reproduzíveis e escrevi camada de validação de schema com rollback automático.",
+"Migrated hundreds of GB of legacy datasets from Google Drive to Azure Cosmos DB for Meritage Homes (USA) — pipeline with automated cookie-based extraction, compression, renaming, and injection into panels for WhatsApp agent embedding with strict file size limits. Containerized with Docker for reproducible environments and wrote schema validation layer with automated rollback."
+),
       b(
       "Resolvi problema cross-platform de MIME types (Android nativo vs iPhone exigindo octet-stream — com testes extensivos em dispositivos iOS). Essa validação virou o backbone da migração final para Azure Cosmos DB.",
       "Resolved cross-platform MIME type issue (Android native vs iPhone requiring octet-stream — with extensive testing on iOS devices). This validation layer became the backbone of the final Azure Cosmos DB migration."
@@ -518,27 +518,81 @@ playground: true,
   hasCaseStudy: false,
   playground: true,
 },
-  {
-    id: "linear-app-ui",
-    title: "Linear App UI",
-    year: "2026",
-    category: b("Web · App UI · Kanban", "Web · App UI · Kanban"),
-    description: b(
-      "Clone do Linear com 3 colunas, command palette (cmdk), Kanban drag-drop (dnd-kit), Zustand stores e 25 issues seed. Dark cinematic.",
-      "Linear clone with 3-column layout, command palette (cmdk), Kanban drag-drop (dnd-kit), Zustand stores and 25 seed issues. Dark cinematic."
-    ),
-    tech: ["React 19", "cmdk", "dnd-kit", "Zustand", "Tailwind CSS v4", "TypeScript"],
-    color: "#5e6ad2",
-    icon: null,
-  githubUrl: "https://github.com/xAngryBadger/linear-app-ui",
-  demoUrl: "https://xangrybadger.github.io/linear-app-ui/",
-  featured: false,
-  inProgress: false,
-  hasCaseStudy: false,
-  playground: true,
+{
+id: "linear-app-ui",
+title: "Linear App UI",
+year: "2026",
+category: b("Web · App UI · Kanban", "Web · App UI · Kanban"),
+description: b(
+"Clone do Linear com 3 colunas, command palette (cmdk), Kanban drag-drop (dnd-kit), Zustand stores e 25 issues seed. Dark cinematic.",
+"Linear clone with 3-column layout, command palette (cmdk), Kanban drag-drop (dnd-kit), Zustand stores and 25 seed issues. Dark cinematic."
+),
+tech: ["React 19", "cmdk", "dnd-kit", "Zustand", "Tailwind CSS v4", "TypeScript"],
+color: "#5e6ad2",
+icon: null,
+githubUrl: "https://github.com/xAngryBadger/linear-app-ui",
+demoUrl: "https://xangrybadger.github.io/linear-app-ui/",
+featured: false,
+inProgress: false,
+hasCaseStudy: false,
+playground: true,
 },
-  {
-    id: "diskvisor",
+{
+id: "docx-pdf-converter",
+title: "DocX PDF Converter",
+year: "2026",
+category: b("Web · Ferramenta · Conversão de Documentos", "Web · Tool · Document Conversion"),
+description: b(
+"Conversor DocX → PDF com upload drag-drop, preview side-by-side e download automático. Backend FastAPI rodando em Google Colab (ngrok) para conversão serverless gratuita.",
+"DocX → PDF converter with drag-drop upload, side-by-side preview and auto-download. FastAPI backend running on Google Colab (ngrok) for free serverless conversion."
+),
+tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
+color: "#3a5a8a",
+icon: null,
+githubUrl: "https://github.com/xAngryBadger/docx-pdf-converter",
+featured: false,
+inProgress: false,
+hasCaseStudy: false,
+playground: true,
+},
+{
+id: "pdf-compressor",
+title: "PDF Compressor",
+year: "2026",
+category: b("Web · Ferramenta · Otimização de PDF", "Web · Tool · PDF Optimization"),
+description: b(
+"Compressor de PDF com slider de qualidade, estimativa de redução em tempo real e visualização do resultado. Backend FastAPI rodando em Google Colab (ngrok) para compressão serverless gratuita.",
+"PDF compressor with quality slider, real-time reduction estimate and result preview. FastAPI backend running on Google Colab (ngrok) for free serverless compression."
+),
+tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
+color: "#5a3a6a",
+icon: null,
+githubUrl: "https://github.com/xAngryBadger/pdf-compressor",
+featured: false,
+inProgress: false,
+hasCaseStudy: false,
+playground: true,
+},
+{
+id: "cv-generator",
+title: "CV Generator",
+year: "2026",
+category: b("Web · Ferramenta · Geração de Currículo", "Web · Tool · Resume Generation"),
+description: b(
+"Gerador de currículo com templates editáveis, preview em tempo real e exportação PDF. Formulários dinâmicos com drag-reorder. Backend FastAPI rodando em Google Colab (ngrok) para geração serverless gratuita.",
+"Resume generator with editable templates, real-time preview and PDF export. Dynamic forms with drag-reorder. FastAPI backend running on Google Colab (ngrok) for free serverless generation."
+),
+tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
+color: "#4a6a3a",
+icon: null,
+githubUrl: "https://github.com/xAngryBadger/cv-generator",
+featured: false,
+inProgress: false,
+hasCaseStudy: false,
+playground: true,
+},
+{
+id: "diskvisor",
     title: "DiskVisor",
     year: "2026",
     category: b("Desktop · Tauri 2 · Visualização de Disco", "Desktop · Tauri 2 · Disk Visualization"),
@@ -591,60 +645,6 @@ playground: true,
     hasCaseStudy: false,
     playground: true,
   },
-  {
-    id: "docx-pdf-converter",
-    title: "DocX PDF Converter",
-    year: "2026",
-    category: b("Web · Ferramenta · Conversão de Documentos", "Web · Tool · Document Conversion"),
-    description: b(
-      "Conversor DocX → PDF com upload drag-drop, preview side-by-side e download automático. Interface limpa com animações suaves — backend não funciona, só coisinha bonitinha.",
-      "DocX → PDF converter with drag-drop upload, side-by-side preview and auto-download. Clean interface with smooth animations — backend doesn't work, just a pretty thing."
-    ),
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI"],
-    color: "#3a5a8a",
-    icon: null,
-    githubUrl: "https://github.com/xAngryBadger/docx-pdf-converter",
-    featured: false,
-    inProgress: false,
-    hasCaseStudy: false,
-    playground: true,
-  },
-  {
-    id: "pdf-compressor",
-    title: "PDF Compressor",
-    year: "2026",
-    category: b("Web · Ferramenta · Otimização de PDF", "Web · Tool · PDF Optimization"),
-    description: b(
-      "Compressor de PDF com slider de qualidade, estimativa de redução em tempo real e visualização do resultado. Animações de progresso — backend não funciona, só coisinha bonitinha.",
-      "PDF compressor with quality slider, real-time reduction estimate and result preview. Progress animations — backend doesn't work, just a pretty thing."
-    ),
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI"],
-    color: "#5a3a6a",
-    icon: null,
-    githubUrl: "https://github.com/xAngryBadger/pdf-compressor",
-    featured: false,
-    inProgress: false,
-    hasCaseStudy: false,
-    playground: true,
-  },
-  {
-    id: "cv-generator",
-    title: "CV Generator",
-    year: "2026",
-    category: b("Web · Ferramenta · Geração de Currículo", "Web · Tool · Resume Generation"),
-    description: b(
-      "Gerador de currículo com templates editáveis, preview em tempo real e exportação PDF. Formulários dinâmicos com drag-reorder — backend não funciona, só coisinha bonitinha.",
-      "Resume generator with editable templates, real-time preview and PDF export. Dynamic forms with drag-reorder — backend doesn't work, just a pretty thing."
-    ),
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI"],
-    color: "#4a6a3a",
-    icon: null,
-    githubUrl: "https://github.com/xAngryBadger/cv-generator",
-    featured: false,
-    inProgress: false,
-    hasCaseStudy: false,
-    playground: true,
-  },
 ];
 
 export const courses: Course[] = [
@@ -666,8 +666,8 @@ export const stats = [
 ];
 
 export const cvSummary: Bilingual = b(
-  "Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 meses de experiência profissional. De Química Industrial para Computação: construí o ForestAI do zero (Stack Overflow + Thonny, sem IA-assisted coding). Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines agentic de IA para o HelloSocial (GPT-4.1 tool calling, DALL-E 3, Flux). Aprendo resolvendo problemas reais — de MIME type cross-platform a agentes ReAct com schema enforcement.",
-  "Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 months of professional experience. From Industrial Chemistry to Computer Engineering: built ForestAI from scratch (Stack Overflow + Thonny, no AI-assisted coding). At Paware, migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected agentic AI pipelines for HelloSocial (GPT-4.1 tool calling, DALL-E 3, Flux). I learn by solving real problems — from cross-platform MIME types to ReAct agents with schema enforcement."
+"Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 meses de experiência profissional. De Química Industrial para Computação: construí o ForestAI do zero (Stack Overflow + Thonny, sem IA-assisted coding). Na Paware, migrei centenas de GB para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines agentic de IA para o HelloSocial (GPT-4.1 tool calling, DALL-E 3, Flux). Aprendo resolvendo problemas reais — de MIME type cross-platform a agentes ReAct com schema enforcement.",
+"Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 months of professional experience. From Industrial Chemistry to Computer Engineering: built ForestAI from scratch (Stack Overflow + Thonny, no AI-assisted coding). At Paware, migrated hundreds of GB to Azure Cosmos DB (Meritage Homes, USA) and architected agentic AI pipelines for HelloSocial (GPT-4.1 tool calling, DALL-E 3, Flux). I learn by solving real problems — from cross-platform MIME types to ReAct agents with schema enforcement."
 );
 
 export type CvProject = {

@@ -75,17 +75,21 @@ export default function Nav() {
               <span style={{ color: "var(--color-text-3)" }}>.</span>
             </Link>
 
-            <button
-              onClick={openMenu}
-              className="flex items-center gap-2 custom-cursor-target"
-              style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
-              aria-label="Menu"
-            >
-              <Menu className="w-4 h-4" />
-              <span className="font-mono text-xs tracking-[0.1em] uppercase hidden md:block">
-                {t({ pt: "Menu", en: "Menu" })}
-              </span>
-            </button>
+<button
+onClick={openMenu}
+className="flex items-center gap-2 custom-cursor-target px-3 py-2 rounded transition-all custom-border"
+style={{
+color: "var(--color-text)",
+background: "var(--color-bg-card)",
+border: "1px solid var(--color-border)",
+}}
+aria-label="Menu"
+>
+<Menu className="w-4 h-4" />
+<span className="font-mono text-xs tracking-[0.1em] uppercase hidden md:block">
+{t({ pt: "Menu", en: "Menu" })}
+</span>
+</button>
           </div>
         </div>
       </header>
