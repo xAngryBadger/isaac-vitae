@@ -56,19 +56,19 @@ function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-2">
             <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: proj.color }}>
-        {proj.year}
-      </span>
-      {proj.inProgress && (
-        <span
-          className="font-mono text-[9px] tracking-[0.1em] uppercase px-1.5 py-0.5"
-          style={{ border: `1px solid rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.3)`, color: proj.color, backgroundColor: `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.06)` }}
-        >
-          {t({ pt: "Em andamento", en: "WIP" })}
-          </span>
-        )}
-      </div>
+              {proj.year}
+            </span>
+            {proj.inProgress && (
+              <span
+                className="font-mono text-[9px] tracking-[0.1em] uppercase px-1.5 py-0.5"
+                style={{ border: `1px solid rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.3)`, color: proj.color, backgroundColor: `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.06)` }}
+              >
+                {t({ pt: "Em andamento", en: "WIP" })}
+              </span>
+            )}
+          </div>
 
-      <h3
+          <h3
             className="font-serif font-bold text-xl lg:text-2xl leading-snug mb-2"
             style={{ color: "var(--color-text)" }}
             onMouseEnter={(e) => onScramble(e, proj.title)}
@@ -80,16 +80,16 @@ function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
             {t(proj.category)}
           </p>
 
-        <p
-          className="text-sm leading-relaxed mb-4"
-          style={{ color: "var(--color-text-2)" }}
-          data-selectable
-        >
-          {t(proj.description)}
-        </p>
+          <p
+            className="text-sm leading-relaxed mb-4"
+            style={{ color: "var(--color-text-2)" }}
+            data-selectable
+          >
+            {t(proj.description)}
+          </p>
 
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {proj.tech.slice(0, 5).map((tech) => (
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {proj.tech.slice(0, 5).map((tech) => (
               <span
                 key={tech}
                 className="px-2 py-0.5 text-[10px] font-mono"
@@ -105,11 +105,11 @@ function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
             )}
           </div>
 
-        <span
-          className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.08em] uppercase"
-          style={{ color: proj.color, opacity: hovered ? 1 : 0.6, transition: "opacity 0.3s" }}
-        >
-          {t({ pt: "Ver case study", en: "View case study" })} <ArrowUpRight className="w-3 h-3" />
+          <span
+            className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.08em] uppercase"
+            style={{ color: proj.color, opacity: hovered ? 1 : 0.6, transition: "opacity 0.3s" }}
+          >
+            {t({ pt: "Ver case study", en: "View case study" })} <ArrowUpRight className="w-3 h-3" />
           </span>
         </div>
       </div>
@@ -120,21 +120,21 @@ function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
 function Tier2Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.MouseEvent<HTMLElement>, text: string) => void }) {
   const { t } = useLang();
   const [hovered, setHovered] = useState(false);
+  const hasDemo = !!proj.demoUrl;
 
-  return (
-    <Link
-      to={`/projects/${proj.caseStudySlug}`}
-      className="proj-card group relative overflow-hidden custom-cursor-target border"
-      style={{
-        borderColor: hovered ? "rgba(69,106,75,0.5)" : "var(--color-border)",
-        borderLeft: `4px solid ${hovered ? "var(--color-sage)" : "rgba(69,106,75,0.3)"}`,
-        backgroundColor: "var(--color-bg-card)",
-      transition: "border-color 0.3s, border-left-color 0.3s, box-shadow 0.3s",
-      boxShadow: hovered ? "0 4px 20px rgba(69,106,75,0.08)" : "0 0 0 0 transparent",
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+  const cardStyle: React.CSSProperties = {
+    borderColor: hovered ? "rgba(69,106,75,0.5)" : "var(--color-border)",
+    borderLeft: `4px solid ${hovered ? "var(--color-sage)" : "rgba(69,106,75,0.3)"}`,
+    backgroundColor: "var(--color-bg-card)",
+    transition: "border-color 0.3s, border-left-color 0.3s, box-shadow 0.3s",
+    boxShadow: hovered ? "0 4px 20px rgba(69,106,75,0.08)" : "0 0 0 0 transparent",
+  };
+
+  const cls = "proj-card group relative overflow-hidden custom-cursor-target border";
+  const hoverProps = { onMouseEnter: () => setHovered(true), onMouseLeave: () => setHovered(false) };
+
+  const inner = (
+    <>
       <div
         className="absolute inset-0"
         style={{
@@ -144,14 +144,14 @@ function Tier2Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
         }}
       />
 
-  <div className="relative z-10 p-8 flex flex-col">
+      <div className="relative z-10 p-8 flex flex-col">
         <div className="flex items-center gap-2 flex-wrap mb-2">
-      <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "var(--color-sage)" }}>
-        {proj.year}
-      </span>
-    </div>
+          <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "var(--color-sage)" }}>
+            {proj.year}
+          </span>
+        </div>
 
-    <h3
+        <h3
           className="font-serif font-bold text-lg leading-snug mb-2"
           style={{ color: "var(--color-text)" }}
           onMouseEnter={(e) => onScramble(e, proj.title)}
@@ -192,9 +192,38 @@ function Tier2Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
           className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.08em] uppercase mt-4"
           style={{ color: "var(--color-sage)", opacity: hovered ? 1 : 0.5, transition: "opacity 0.3s" }}
         >
-          {t({ pt: "Ver case study", en: "View case study" })} <ArrowUpRight className="w-3 h-3" />
+          {hasDemo
+            ? t({ pt: "Abrir ferramenta", en: "Open tool" })
+            : t({ pt: "Ver case study", en: "View case study" })
+          } <ArrowUpRight className="w-3 h-3" />
         </span>
       </div>
+    </>
+  );
+
+  if (hasDemo) {
+    return (
+      <a
+        href={proj.demoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cls}
+        style={cardStyle}
+        {...hoverProps}
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      to={`/projects/${proj.caseStudySlug}`}
+      className={cls}
+      style={cardStyle}
+      {...hoverProps}
+    >
+      {inner}
     </Link>
   );
 }
@@ -208,12 +237,12 @@ function Tier3Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
     <div
       className="proj-card relative overflow-hidden border"
       style={{
-      borderColor: hovered ? "var(--color-border-accent)" : "var(--color-border)",
-      backgroundColor: "var(--color-bg-card)",
-      transform: hovered ? "translateY(-2px)" : "translateY(0)",
-      willChange: "transform",
-      transition: "transform 0.3s cubic-bezier(.16,1,.3,1), border-color 0.25s, box-shadow 0.3s",
-      boxShadow: hovered ? "0 4px 16px rgba(0,0,0,0.04)" : "0 0 0 0 transparent",
+        borderColor: hovered ? "var(--color-border-accent)" : "var(--color-border)",
+        backgroundColor: "var(--color-bg-card)",
+        transform: hovered ? "translateY(-2px)" : "translateY(0)",
+        willChange: "transform",
+        transition: "transform 0.3s cubic-bezier(.16,1,.3,1), border-color 0.25s, box-shadow 0.3s",
+        boxShadow: hovered ? "0 4px 16px rgba(0,0,0,0.04)" : "0 0 0 0 transparent",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -229,21 +258,21 @@ function Tier3Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
 
       <div className="relative z-10 p-6 flex flex-col">
         {hasIcon && (
-        <div className="w-16 h-16 mb-4 flex items-center justify-center rounded">
-          <ProjectIcon project={proj} className="w-12 h-12" />
-        </div>
+          <div className="w-16 h-16 mb-4 flex items-center justify-center rounded">
+            <ProjectIcon project={proj} className="w-12 h-12" />
+          </div>
         )}
 
         <div className="flex items-center gap-2 flex-wrap mb-1">
           <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "var(--color-text-2)" }}>
-        {proj.year}
-      </span>
-      {proj.inProgress && (
-        <span
-          className="font-mono text-[9px] tracking-[0.1em] uppercase px-1.5 py-0.5"
-          style={{ border: "1px solid var(--color-accent-50)", color: "var(--color-accent)", backgroundColor: "var(--color-accent-08)" }}
-        >
-          {t({ pt: "Em andamento", en: "WIP" })}
+            {proj.year}
+          </span>
+          {proj.inProgress && (
+            <span
+              className="font-mono text-[9px] tracking-[0.1em] uppercase px-1.5 py-0.5"
+              style={{ border: "1px solid var(--color-accent-50)", color: "var(--color-accent)", backgroundColor: "var(--color-accent-08)" }}
+            >
+              {t({ pt: "Em andamento", en: "WIP" })}
             </span>
           )}
         </div>
@@ -302,36 +331,36 @@ function Tier3Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
 }
 
 export default function Projects() {
-const sectionRef = useRef<HTMLDivElement>(null);
-const { t } = useLang();
-const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useLang();
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-const allTags = Array.from(new Set(projects.flatMap(p => p.tech.slice(0, 3)))).slice(0, 12);
+  const allTags = Array.from(new Set(projects.flatMap(p => p.tech.slice(0, 3)))).slice(0, 12);
 
-const filteredProjects = selectedTags.length > 0
-? projects.filter(p => selectedTags.every(tag => p.tech.includes(tag)))
-: projects;
+  const filteredProjects = selectedTags.length > 0
+    ? projects.filter(p => selectedTags.every(tag => p.tech.includes(tag)))
+    : projects;
 
-const featured = filteredProjects.filter((p) => p.featured);
-const caseStudies = filteredProjects.filter((p) => !p.featured && p.hasCaseStudy);
-const others = filteredProjects.filter((p) => !p.featured && !p.hasCaseStudy);
+  const featured = filteredProjects.filter((p) => p.featured);
+  const caseStudies = filteredProjects.filter((p) => !p.featured && p.hasCaseStudy);
+  const others = filteredProjects.filter((p) => !p.featured && !p.hasCaseStudy);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-  gsap.from(".proj-label, .proj-title", {
-  opacity: 0, y: 30, stagger: 0.12, duration: 0.8, ease: EASE_PRIMARY,
-  scrollTrigger: { trigger: sectionRef.current, start: SCROLL_START, once: true },
-  });
+      gsap.from(".proj-label, .proj-title", {
+        opacity: 0, y: 30, stagger: 0.12, duration: 0.8, ease: EASE_PRIMARY,
+        scrollTrigger: { trigger: sectionRef.current, start: SCROLL_START, once: true },
+      });
 
-  gsap.from(".tier-section", {
-  opacity: 0, y: 30, stagger: 0.15, duration: 0.7, ease: EASE_PRIMARY,
-  scrollTrigger: { trigger: sectionRef.current, start: SCROLL_START, once: true },
-  });
+      gsap.from(".tier-section", {
+        opacity: 0, y: 30, stagger: 0.15, duration: 0.7, ease: EASE_PRIMARY,
+        scrollTrigger: { trigger: sectionRef.current, start: SCROLL_START, once: true },
+      });
 
-    gsap.from(".proj-card", {
-      y: 30, opacity: 0, stagger: 0.06, duration: 0.6, ease: EASE_PRIMARY,
-      scrollTrigger: { trigger: sectionRef.current?.querySelector(".proj-grid-1") ?? sectionRef.current, start: SCROLL_START, once: true },
-    });
+      gsap.from(".proj-card", {
+        y: 30, opacity: 0, stagger: 0.06, duration: 0.6, ease: EASE_PRIMARY,
+        scrollTrigger: { trigger: sectionRef.current?.querySelector(".proj-grid-1") ?? sectionRef.current, start: SCROLL_START, once: true },
+      });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -341,31 +370,31 @@ const others = filteredProjects.filter((p) => !p.featured && !p.hasCaseStudy);
   };
 
   return (
-<div ref={sectionRef} className="section-root">
-<div className="section-container">
-<div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
-<div>
-<span className="proj-label section-label">{t({ pt: "Projetos", en: "Projects" })}</span>
-<h2
-className="proj-title font-serif font-bold leading-tight"
-style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
->
-{t({ pt: "Sistemas que ", en: "Systems that " })}
-<span className="italic" style={{ color: "var(--color-text-2)" }}>
-{t({ pt: "resolvem problemas reais.", en: "solve real problems." })}
-</span>
-</h2>
-</div>
-<p className="max-w-xs text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
-{t({ pt: "Clique nos destaques para ver o case study completo.", en: "Click featured projects for full case studies." })}
-</p>
-</div>
+    <div ref={sectionRef} className="section-root">
+      <div className="section-container">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+          <div>
+            <span className="proj-label section-label">{t({ pt: "Projetos", en: "Projects" })}</span>
+            <h2
+              className="proj-title font-serif font-bold leading-tight"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
+            >
+              {t({ pt: "Sistemas que ", en: "Systems that " })}
+              <span className="italic" style={{ color: "var(--color-text-2)" }}>
+                {t({ pt: "resolvem problemas reais.", en: "solve real problems." })}
+              </span>
+            </h2>
+          </div>
+          <p className="max-w-xs text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
+            {t({ pt: "Clique nos destaques para ver o case study completo.", en: "Click featured projects for full case studies." })}
+          </p>
+        </div>
 
-<TagFilter
-tags={allTags}
-selectedTags={selectedTags}
-onTagChange={setSelectedTags}
-/>
+        <TagFilter
+          tags={allTags}
+          selectedTags={selectedTags}
+          onTagChange={setSelectedTags}
+        />
 
         {featured.length > 0 && (
           <section className="tier-section mb-16">

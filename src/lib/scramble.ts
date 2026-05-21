@@ -1,4 +1,6 @@
-const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
+const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+const isTouchDevice = typeof window !== "undefined" && ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
 interface ScrambleOptions {
   el: HTMLElement;
@@ -17,6 +19,7 @@ export function scrambleText({
   scramblePct = 0.5,
   onComplete,
 }: ScrambleOptions) {
+  if (isTouchDevice) return;
   const prev = activeAnimations.get(el);
   if (prev) cancelAnimationFrame(prev);
 
@@ -57,10 +60,12 @@ export function scrambleText({
 }
 
 export function useScrambleHover() {
-  const onMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
-    const el = e.currentTarget;
-    const text = el.getAttribute("data-scramble") || el.textContent || "";
-    scrambleText({ el, text, duration: 400, scramblePct: 0.45 });
-  };
+  const onMouseEnter = isTouchDevice
+    ? undefined
+    : (e: React.MouseEvent<HTMLElement>) => {
+        const el = e.currentTarget;
+        const text = el.getAttribute("data-scramble") || el.textContent || "";
+        scrambleText({ el, text, duration: 400, scramblePct: 0.45 });
+      };
   return { onMouseEnter };
 }

@@ -21,7 +21,7 @@ export function HarpIAWidget({ className }: { className?: string }) {
   );
 }
 
-export function SRFWidget({ className }: { className?: string }) {
+export function OrcaWidget({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <rect x="16" y="8" width="88" height="64" rx="3" stroke="#2d5a3d" strokeWidth="1.5" fill="#2d5a3d08" />
@@ -471,7 +471,7 @@ export function CVGeneratorWidget({ className }: { className?: string }) {
 
 export const projectWidgets: Record<string, (props: { className?: string }) => JSX.Element> = {
   harpia: HarpIAWidget,
-  "srf-system": SRFWidget,
+  orca: OrcaWidget,
   florasensus: FloraSensusWidget,
   fennec: FennecWidget,
   inovesa: InovesaWidget,
@@ -489,5 +489,5 @@ export const projectWidgets: Record<string, (props: { className?: string }) => J
   "forge-usb": ForgeUSBWidget,
   "docx-pdf-converter": DocXPDFConverterWidget,
   "pdf-compressor": PDFCompressorWidget,
-  "cv-generator": CVGeneratorWidget,
+  "cegonha": CVGeneratorWidget,
 };

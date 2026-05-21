@@ -41,8 +41,8 @@ bio: b(
 "Computer Engineering student focused on AI and full-stack systems. I build autonomous agent pipelines, migrate hundreds of GB to Azure Cosmos DB, and deliver end-to-end solutions."
 ),
   bioExtended: b(
-    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, SRF System e em breve ForestAI de novo.`,
-    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — self-directed learning, extra afternoon classes to keep evolving. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch with Thonny IDE, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, SRF System, and soon ForestAI again.`
+    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, Orca e em breve ForestAI de novo.`,
+    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — self-directed learning, extra afternoon classes to keep evolving. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch with Thonny IDE, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, Orca, and soon ForestAI again.`
   ),
   bioHighlights: [
     b(
@@ -258,11 +258,11 @@ code: `class OllamaClient:
       "NiceGUI", "PyInstaller / Inno Setup", "xlwings / COM", "Linux (CachyOS/Hyprland)",
     ],
     color: "#6A5A4A",
-    storyProof: b(
-      "Ingl\u00eas fluente para docs e reuni\u00f5es com equipe EUA. SRF System com NiceGUI + Rich CLI. PyInstaller + Inno Setup para instalador do Fennec. CachyOS/Hyprland setup pr\u00f3pria.",
-      "Fluent English for documentation and meetings with US team. SRF System with NiceGUI + Rich CLI. PyInstaller + Inno Setup for Fennec installer. Custom CachyOS/Hyprland rice."
+      storyProof: b(
+      "Inglês fluente para docs e reuniões com equipe EUA. Orca com NiceGUI + Rich CLI. PyInstaller + Inno Setup para instalador do Fennec. CachyOS/Hyprland setup própria.",
+      "Fluent English for documentation and meetings with US team. Orca with NiceGUI + Rich CLI. PyInstaller + Inno Setup for Fennec installer. Custom CachyOS/Hyprland rice."
     ),
-    storyProjectIds: ["srf-system", "fennec"],
+    storyProjectIds: ["orca", "fennec"],
   },
 ];
 
@@ -304,8 +304,8 @@ export const projects: Project[] = [
     caseStudySlug: "harpia",
   },
   {
-    id: "srf-system",
-    title: "SRF System",
+    id: "orca",
+    title: "Orca",
     year: "2026",
     category: b("Motor de Planejamento · Floresta · Logística", "Planning Engine · Forestry · Logistics"),
     description: b(
@@ -314,12 +314,12 @@ export const projects: Project[] = [
     ),
     tech: ["Python 3.10+", "pandas", "openpyxl", "NiceGUI", "Rich", "unittest"],
     color: "#2d5a3d",
-  icon: null,
-  githubUrl: "https://github.com/xAngryBadger/srf-system",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/orca",
     featured: true,
     inProgress: false,
     hasCaseStudy: true,
-    caseStudySlug: "srf-system",
+    caseStudySlug: "orca",
   },
   {
     id: "florasensus",
@@ -537,60 +537,66 @@ inProgress: false,
 hasCaseStudy: false,
 playground: true,
 },
-{
-id: "docx-pdf-converter",
-title: "DocX PDF Converter",
-year: "2026",
-category: b("Web · Ferramenta · Conversão de Documentos", "Web · Tool · Document Conversion"),
-description: b(
-"Conversor DocX → PDF com upload drag-drop, preview side-by-side e download automático. Backend FastAPI rodando em Google Colab (ngrok) para conversão serverless gratuita.",
-"DocX → PDF converter with drag-drop upload, side-by-side preview and auto-download. FastAPI backend running on Google Colab (ngrok) for free serverless conversion."
-),
-tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
-color: "#3a5a8a",
-icon: null,
-githubUrl: "https://github.com/xAngryBadger/docx-pdf-converter",
-featured: true,
-inProgress: false,
-hasCaseStudy: false,
-playground: true,
-},
-{
-id: "pdf-compressor",
-title: "PDF Compressor",
-year: "2026",
-category: b("Web · Ferramenta · Otimização de PDF", "Web · Tool · PDF Optimization"),
-description: b(
-"Compressor de PDF com slider de qualidade, estimativa de redução em tempo real e visualização do resultado. Backend FastAPI rodando em Google Colab (ngrok) para compressão serverless gratuita.",
-"PDF compressor with quality slider, real-time reduction estimate and result preview. FastAPI backend running on Google Colab (ngrok) for free serverless compression."
-),
-tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
-color: "#5a3a6a",
-icon: null,
-githubUrl: "https://github.com/xAngryBadger/pdf-compressor",
-featured: true,
-inProgress: false,
-hasCaseStudy: false,
-playground: true,
-},
-{
-id: "cv-generator",
-title: "CV Generator",
-year: "2026",
-category: b("Web · Ferramenta · Geração de Currículo", "Web · Tool · Resume Generation"),
-description: b(
-"Gerador de currículo com templates editáveis, preview em tempo real e exportação PDF. Formulários dinâmicos com drag-reorder. Backend FastAPI rodando em Google Colab (ngrok) para geração serverless gratuita.",
-"Resume generator with editable templates, real-time preview and PDF export. Dynamic forms with drag-reorder. FastAPI backend running on Google Colab (ngrok) for free serverless generation."
-),
-tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
-color: "#4a6a3a",
-icon: null,
-githubUrl: "https://github.com/xAngryBadger/cv-generator",
-featured: true,
-inProgress: false,
-hasCaseStudy: false,
-playground: true,
-},
+  {
+    id: "docx-pdf-converter",
+    title: "DocX PDF Converter",
+    year: "2026",
+    category: b("Web · Ferramenta · Conversão de Documentos", "Web · Tool · Document Conversion"),
+    description: b(
+      "Conversor DocX → PDF com upload drag-drop, preview side-by-side e download automático. Backend FastAPI rodando em Google Colab (ngrok) para conversão serverless gratuita.",
+      "DocX → PDF converter with drag-drop upload, side-by-side preview and auto-download. FastAPI backend running on Google Colab (ngrok) for free serverless conversion."
+    ),
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
+    color: "#3a5a8a",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/docx-pdf-converter",
+    demoUrl: "https://xangrybadger.github.io/docx-pdf-converter/",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: true,
+    caseStudySlug: "docx-pdf-converter",
+    playground: true,
+  },
+  {
+    id: "pdf-compressor",
+    title: "PDF Compressor",
+    year: "2026",
+    category: b("Web · Ferramenta · Otimização de PDF", "Web · Tool · PDF Optimization"),
+    description: b(
+      "Compressor de PDF com slider de qualidade, estimativa de redução em tempo real e visualização do resultado. Backend FastAPI rodando em Google Colab (ngrok) para compressão serverless gratuita.",
+      "PDF compressor with quality slider, real-time reduction estimate and result preview. FastAPI backend running on Google Colab (ngrok) for free serverless compression."
+    ),
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
+    color: "#5a3a6a",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/pdf-compressor",
+    demoUrl: "https://xangrybadger.github.io/pdf-compressor/",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: true,
+    caseStudySlug: "pdf-compressor",
+    playground: true,
+  },
+  {
+    id: "cegonha",
+    title: "Cegonha",
+    year: "2026",
+    category: b("Web · Ferramenta · Geração de Currículo", "Web · Tool · Resume Generation"),
+    description: b(
+      "Gerador de currículo com templates editáveis, preview em tempo real e exportação PDF. Formulários dinâmicos com drag-reorder. Backend FastAPI rodando em Google Colab (ngrok) para geração serverless gratuita.",
+      "Resume generator with editable templates, real-time preview and PDF export. Dynamic forms with drag-reorder. FastAPI backend running on Google Colab (ngrok) for free serverless generation."
+    ),
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
+    color: "#4a6a3a",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/cegonha",
+    demoUrl: "https://xangrybadger.github.io/cegonha/",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: true,
+    caseStudySlug: "cegonha",
+    playground: true,
+  },
 {
 id: "diskvisor",
     title: "DiskVisor",
@@ -757,9 +763,9 @@ export const cvProjects: CvProject[] = [
     tech: ["Python", "Ollama", "CustomTkinter", "xlwings/COM", "PyInstaller", "Inno Setup"],
   },
   {
-    id: "srf-system",
-    name: "SRF System",
-    url: "github.com/xAngryBadger/srf-system",
+    id: "orca",
+    name: "Orca",
+    url: "github.com/xAngryBadger/orca",
     tier: 2,
     bullets: [
       b(
@@ -887,7 +893,7 @@ export const caseStudies: Record<string, {
       },
     ],
   },
-  "srf-system": {
+  orca: {
     challenge: b(
       "Projetos de restauração florestal cruzam centenas de territórios, dezenas de equipes com tarifas diferentes, janelas sazonais por bioma, e dossiês executivos de 40+ páginas. Planejar manualmente um projeto de 500 ha leva ~3 semanas — com erros de tarifação entre tipos de equipe e conflitos de cronograma que só aparecem em campo.",
       "Forest restoration projects span hundreds of territories, dozens of crews with different tariffs, seasonal windows per biome, and 40+ page executive dossiers. Manually planning a 500 ha project takes ~3 weeks — with tariff misapplication between crew types and schedule conflicts that only surface in the field."
@@ -934,7 +940,7 @@ export const caseStudies: Record<string, {
         title: b("CLI Rich — Saída Estruturada", "Rich CLI — Structured Output"),
         code: `@app.command()
 def plan(input_path: str, output_dir: str = "./output"):
-    console.rule("[bold green]SRF Planning Engine[/]")
+    console.rule("[bold green]Orca Planning Engine[/]")
     with console.status("Processando dados..."):
         engine = PlanningEngine.from_yaml("config.yaml")
         dossier = engine.generate_dossier(

@@ -15,6 +15,12 @@ Deferred improvements from the portfolio overhaul (May 2026).
 - [ ] **Experience section enrichment** — Only 2 entries. Add: Freelance / Personal Projects category (HarpIA, Flora Sensus are substantial), university projects/research from Engenharia de Computação, open source contributions.
 - [ ] **Contact form → real backend** — Current Formspree free tier has limits. Consider: honeypot + Cloudflare Turnstile (server-side verification), or a simple Cloudflare Workers / Netlify Functions endpoint.
 
+## Upcoming Projects
+
+- [ ] **Kakapo (Image Studio)** — Image tool with amber/coral palette. Kakapo = world's only flightless parrot, famously photogenic. Editorial design system, Playfair+Inter+JetBrains, GitHub Pages.
+- [ ] **Oilbird (Markdown→PDF)** — Markdown to PDF converter with ink/ivory palette. Oilbird = nocturnal bird that navigates by echolocation. Transforms raw markdown into beautiful PDF. Editorial design system, GitHub Pages.
+- [ ] **Tarsier (JSON Transformer)** — Rename/rebuild json-forge with emerald/teal palette. Tarsier = those enormous eyes that parse everything. Editorial design system, GitHub Pages.
+
 ## Low Priority
 
 - [ ] **KUMON English cert** — Show the 3-year duration more prominently, link to verification URL if available.
