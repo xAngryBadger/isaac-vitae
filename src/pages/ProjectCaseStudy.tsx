@@ -6,6 +6,7 @@ import { projects, caseStudies } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
 import { ArrowLeft, ArrowUpRight, Copy, Check, ChevronDown } from "lucide-react";
+import { InlineAnnotation } from "../components/InlineAnnotation";
 gsap.registerPlugin(ScrollTrigger);
 
 function CodeBlock({ language, title, code }: { language: string; title: string; code: string }) {
@@ -195,9 +196,81 @@ export default function ProjectCaseStudy() {
     "flora-sensus": "flora-sensus",
     "fennec-excel": "Sahara-Fenneck",
     inovesa: "",
+    forestai: "forestai",
   };
   const githubSlug = slug ? githubSlugMap[slug] : "";
   const hasGithub = !!githubSlug;
+
+  const annotations: Record<string, Record<string, { pt: string; en: string }>> = {
+    harpia: {
+      agentic: { pt: "Agente de IA que decide autonomamente quais ferramentas usar e em que ordem, sem intervenção humana a cada passo.", en: "AI agent that autonomously decides which tools to use and in what order, without human intervention at each step." },
+      "tool-calling": { pt: "Mecanismo da OpenAI onde o modelo pode invocar funções externas (APIs, banco de dados) durante o raciocínio.", en: "OpenAI mechanism where the model can invoke external functions (APIs, databases) during reasoning." },
+      "flux-kontext": { pt: "Modelo de edição de imagens da Black Forest Labs — gera variações e edições preservando identidade visual.", en: "Image editing model by Black Forest Labs — generates variations and edits while preserving visual identity." },
+      "pil-compositor": { pt: "Compositor de imagens usando Python Imaging Library — gera designs localmente sem custo de API.", en: "Image compositor using Python Imaging Library — generates designs locally with no API cost." },
+      "schema-enforcement": { pt: "Validação estrita de que as respostas do LLM seguem um schema JSON pré-definido antes de serem processadas.", en: "Strict validation that LLM responses follow a pre-defined JSON schema before being processed." },
+    },
+    "srf-system": {
+      dossie: { pt: "Documento executivo completo com cronograma, custos, equipes e territórios para uma área de restauração.", en: "Complete executive document with schedule, costs, crews and territories for a restoration area." },
+      nicegui: { pt: "Framework Python para interfaces web baseado em FastAPI + Vue.js — roda no navegador sem frontend separado.", en: "Python framework for web interfaces based on FastAPI + Vue.js — runs in the browser without a separate frontend." },
+      "rich-cli": { pt: "Biblioteca Python para saídas de terminal ricas — tabelas, progress bars, árvores e highlight de syntax.", en: "Python library for rich terminal output — tables, progress bars, trees and syntax highlighting." },
+    },
+    "flora-sensus": {
+      "offline-first": { pt: "Arquitetura onde o app funciona totalmente sem internet e sincroniza quando conectado.", en: "Architecture where the app works fully without internet and syncs when connected." },
+      "uuid-remapping": { pt: "Técnica para conciliar IDs temporários do cliente com IDs definitivos do servidor após sincronização.", en: "Technique to reconcile temporary client IDs with definitive server IDs after synchronization." },
+      drift: { pt: "ORM/SQLite para Flutter/Dart — tipo Prisma mas para apps mobile, com queries tipadas e migrations.", en: "ORM/SQLite for Flutter/Dart — like Prisma but for mobile apps, with typed queries and migrations." },
+      "atomic-rollback": { pt: "Reversão completa de todas as operações de uma transação se qualquer passo falhar — tudo ou nada.", en: "Complete reversal of all operations in a transaction if any step fails — all or nothing." },
+    },
+    "fennec-excel": {
+      react: { pt: "Padrão de agente de IA que alterna entre pensamento (Reasoning) e ação (Acting) em loop iterativo.", en: "AI agent pattern that alternates between thinking (Reasoning) and acting (Acting) in an iterative loop." },
+      ollama: { pt: "Runtime para rodar LLMs localmente — sem custo de API, sem dados na nuvem, 100% offline.", en: "Runtime to run LLMs locally — no API cost, no cloud data, 100% offline." },
+      xlwings: { pt: "Biblioteca Python que controla o Excel diretamente via COM/Windows API — como VBA mas em Python.", en: "Python library that controls Excel directly via COM/Windows API — like VBA but in Python." },
+    },
+  inovesa: {
+    lenis: { pt: "Biblioteca JS de smooth scrolling — substitui o scroll nativo com animações fluidas e sincronizáveis.", en: "JS smooth scrolling library — replaces native scroll with fluid, syncable animations." },
+    parallax: { pt: "Efeito visual onde diferentes camadas se movem em velocidades distintas ao rolar, criando profundidade.", en: "Visual effect where different layers move at different speeds on scroll, creating depth." },
+    "motion-system": { pt: "Sistema centralizado de springs, variantes e easings reutilizáveis para animações consistentes no app todo.", en: "Centralized system of reusable springs, variants and easings for consistent animations across the app." },
+  },
+  forestai: {
+    deepforest: { pt: "Framework open-source para detecção de copas de árvores em imagens aéreas — baseado em Retinanet/Faster R-CNN.", en: "Open-source framework for tree crown detection in aerial imagery — based on Retinanet/Faster R-CNN." },
+    "bounding-box": { pt: "Retângulo que marca a posição de um objeto na imagem — coordenadas (x, y, largura, altura) usadas para treinar modelos de detecção.", en: "Rectangle marking an object's position in an image — (x, y, width, height) coordinates used to train detection models." },
+    "stratified-split": { pt: "Divisão do dataset garantindo que cada subconjunto mantém a mesma proporção de classes — evita viés no treino.", en: "Dataset split ensuring each subset maintains the same class proportions — prevents training bias." },
+    tensorboard: { pt: "Ferramenta de visualização do TensorFlow para monitorar métricas de treino (loss, accuracy, mAP) em tempo real.", en: "TensorFlow visualization tool for monitoring training metrics (loss, accuracy, mAP) in real-time." },
+  },
+  };
+
+  const pageAnnotations = slug ? annotations[slug] ?? {} : {};
+
+  const annotateText = (text: string): React.ReactNode[] => {
+    if (!pageAnnotations || Object.keys(pageAnnotations).length === 0) return [text];
+    const parts: React.ReactNode[] = [];
+    let remaining = text;
+    let keyIdx = 0;
+    while (remaining.length > 0) {
+      let earliestMatch = -1;
+      let earliestKey = "";
+      for (const key of Object.keys(pageAnnotations)) {
+        const idx = remaining.toLowerCase().indexOf(key.toLowerCase().replace(/-/g, " "));
+        if (idx !== -1 && (earliestMatch === -1 || idx < earliestMatch)) {
+          earliestMatch = idx;
+          earliestKey = key;
+        }
+      }
+      if (earliestMatch === -1) {
+        parts.push(remaining);
+        break;
+      }
+      const searchStr = earliestKey.replace(/-/g, " ");
+      const matchEnd = earliestMatch + searchStr.length;
+      if (earliestMatch > 0) parts.push(remaining.slice(0, earliestMatch));
+      parts.push(
+        <InlineAnnotation key={`ann-${keyIdx++}`} id={earliestKey}>
+          {pageAnnotations[earliestKey]}
+        </InlineAnnotation>
+      );
+      remaining = remaining.slice(matchEnd);
+    }
+    return parts;
+  };
 
   return (
   <div ref={sectionRef} className="section-root">
@@ -212,10 +285,10 @@ export default function ProjectCaseStudy() {
         </Link>
 
         <div className="cs-hero mb-20">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="font-mono text-xs tracking-[0.15em] uppercase" style={{ color: "var(--color-accent)" }}>
-              {project.year}
-            </span>
+        <div className="flex items-center gap-3 mb-4">
+          <span className="highlight-date font-mono text-xs tracking-[0.15em] uppercase" style={{ color: "var(--color-text-3)" }}>
+            {project.year}
+          </span>
             {project.inProgress && (
               <span
                 className="font-mono text-[9px] tracking-[0.1em] uppercase px-2 py-0.5"
@@ -240,19 +313,19 @@ export default function ProjectCaseStudy() {
         </div>
 
       <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 mb-20">
-          <div className="cs-section">
-            <span className="section-label">{t({ pt: "O Desafio", en: "The Challenge" })}</span>
-            <p className="text-lg leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>
-              {t(cs.challenge)}
-            </p>
-          </div>
+  <div className="cs-section">
+    <span className="section-label">{t({ pt: "O Desafio", en: "The Challenge" })}</span>
+    <p className="text-lg leading-relaxed case-study-challenge" style={{ color: "var(--color-text-2)" }} data-selectable>
+      {annotateText(t(cs.challenge))}
+    </p>
+  </div>
 
-          <div className="cs-section">
-            <span className="section-label">{t({ pt: "A Abordagem", en: "The Approach" })}</span>
-            <p className="text-lg leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>
-              {t(cs.approach)}
-            </p>
-          </div>
+  <div className="cs-section">
+    <span className="section-label">{t({ pt: "A Abordagem", en: "The Approach" })}</span>
+    <p className="text-lg leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>
+      {annotateText(t(cs.approach))}
+    </p>
+  </div>
         </div>
 
         {cs.codeSnippets && cs.codeSnippets.length > 0 && (
@@ -319,23 +392,21 @@ export default function ProjectCaseStudy() {
           </div>
         )}
 
-        <div className="cs-section">
-          <span className="section-label">{t({ pt: "Tecnologias", en: "Technologies" })}</span>
-          <div className="flex flex-wrap gap-2">
-            {project.tech.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1.5 text-sm font-mono border"
-                style={{ borderColor: "var(--color-accent-20)", color: "var(--color-text-2)", backgroundColor: "var(--color-accent-04)" }}
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+      <div className="cs-section">
+        <span className="section-label">{t({ pt: "Tecnologias", en: "Technologies" })}</span>
+        <div className="flex flex-wrap gap-2">
+          {project.tech.map((tech) => (
+            <span
+              key={tech}
+              className="tech-pill"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
+      </div>
 
-        <div
-          className="mt-20 pt-12 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+      <div
           style={{ borderColor: "var(--color-border)" }}
         >
           <Link to="/projects" className="clip-btn">

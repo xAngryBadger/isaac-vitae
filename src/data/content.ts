@@ -31,15 +31,15 @@ export type Education = {
 export const personal = {
   name: "Isaac Nathan",
   fullName: "Isaac Nathan da Silva Barbosa",
-  title: b("Desenvolvedor Full-Stack com IA", "Full-Stack AI Engineer"),
-  subtitle: b(
-    "Engenharia de Computação · IA · Cloud · IoT",
-    "Computer Engineering · AI · Cloud · IoT"
-  ),
-  bio: b(
-    "De Química para Computação. Construo sistemas de IA com impacto em produção — do pipeline de agentes ao deploy. Especialista em Linux (CachyOS/Hyprland) e sistemas de IA com agentes autônomos.",
-    "From Chemistry to Computer Engineering. I build AI systems with production impact — from agent pipelines to deploy. Linux specialist (CachyOS/Hyprland) and autonomous AI agent systems."
-  ),
+title: b("Engenharia de Computação + IA", "Computer Engineering + AI"),
+subtitle: b(
+"Full-Stack · Python · React · Cloud",
+"Full-Stack · Python · React · Cloud"
+),
+bio: b(
+"Engenheiro de Computação focado em IA e full-stack. Construo pipelines de agentes autônomos, migro bancos de dados em escala e entrego soluções do frontend ao backend.",
+"Computer Engineering student focused on AI and full-stack systems. I build autonomous agent pipelines, migrate large-scale databases, and deliver end-to-end solutions."
+),
   bioExtended: b(
     `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, SRF System e em breve ForestAI de novo.`,
     `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — self-directed learning, extra afternoon classes to keep evolving. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch with Thonny IDE, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, SRF System, and soon ForestAI again.`
@@ -397,18 +397,18 @@ export const projects: Project[] = [
   title: "HelloSocial",
   year: "2026",
   category: b("IA · Social Media · Full-Stack", "AI · Social Media · Full-Stack"),
-    description: b(
-      "Plataforma de criação e agendamento de posts com IA — projeto na Paware que inspirou o HarpIA. Pipeline de geração de imagens com Flux Kontext Pro e DALL-E 3, agentes de copy e template.",
-      "AI-powered social media post creation and scheduling platform — project at Paware that inspired HarpIA. Image generation pipeline with Flux Kontext Pro and DALL-E 3, copy and template agents."
-    ),
-  tech: ["Python", "FastAPI", "Azure OpenAI", "Flux", "Canva API", "React", "TypeScript"],
+  description: b(
+    "Plataforma de criação e agendamento de posts com IA — projeto na Paware que inspirou o HarpIA. Pipeline de geração de imagens com Flux Kontext Pro e DALL-E 3, agentes de copy e template. PIX via Mercado Pago.",
+    "AI-powered social media post creation and scheduling platform — project at Paware that inspired HarpIA. Image generation pipeline with Flux Kontext Pro and DALL-E 3, copy and template agents. PIX via Mercado Pago."
+  ),
+  tech: ["Python", "FastAPI", "Azure OpenAI", "Flux", "Canva API", "Placid", "React", "TypeScript"],
   color: "#2a1a3a",
   icon: "/images/hellosocial.png",
-    githubUrl: null,
-    featured: false,
-    inProgress: false,
-    hasCaseStudy: false,
-  },
+  githubUrl: null,
+  featured: true,
+  inProgress: false,
+  hasCaseStudy: false,
+},
   {
     id: "mainecoon",
     title: "MaineCoon",
@@ -444,22 +444,23 @@ export const projects: Project[] = [
     hasCaseStudy: false,
   },
   {
-    id: "forestai",
-    title: "ForestAI",
-    year: "2024",
-    category: b("IA · Visão Computacional · PyTorch", "AI · Computer Vision · PyTorch"),
-    description: b(
-      "Detecção e classificação de espécies florestais com Deep Learning. Pipeline completo: treinamento com DeepForest, divisão estratificada, validação com bounding boxes. Projeto de pesquisa em andamento.",
-      "Forest species detection and classification with Deep Learning. Full pipeline: DeepForest training, stratified splits, bounding box validation. Ongoing research project."
-    ),
-    tech: ["Python", "PyTorch", "DeepForest", "OpenCV", "scikit-learn", "TensorBoard"],
-    color: "#2a301a",
+  id: "forestai",
+  title: "ForestAI",
+  year: "2024",
+  category: b("IA · Visão Computacional · PyTorch", "AI · Computer Vision · PyTorch"),
+  description: b(
+    "Detecção e classificação de espécies florestais com Deep Learning. Pipeline completo: anotação manual de imagens de drone, treinamento DeepForest/YOLO em GPU local, splits estratificadas. Construído do zero sem IA-assisted coding.",
+    "Forest species detection and classification with Deep Learning. Full pipeline: manual drone image annotation, DeepForest/YOLO training on local GPU, stratified splits. Built from scratch without AI-assisted coding."
+  ),
+  tech: ["Python", "PyTorch", "DeepForest", "YOLO", "OpenCV", "scikit-learn", "TensorBoard"],
+  color: "#2a301a",
   icon: null,
   githubUrl: "https://github.com/xAngryBadger/forestai",
-    featured: false,
-    inProgress: true,
-    hasCaseStudy: false,
-  },
+  featured: true,
+  inProgress: true,
+  hasCaseStudy: true,
+  caseStudySlug: "forestai",
+},
   {
     id: "apple-product-page",
     title: "Apple Product Page",
@@ -585,6 +586,60 @@ playground: true,
     color: "#A8611A",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/forge-usb",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
+  {
+    id: "docx-pdf-converter",
+    title: "DocX PDF Converter",
+    year: "2026",
+    category: b("Web · Ferramenta · Conversão de Documentos", "Web · Tool · Document Conversion"),
+    description: b(
+      "Conversor DocX → PDF com upload drag-drop, preview side-by-side e download automático. Interface limpa com animações suaves — backend não funciona, só coisinha bonitinha.",
+      "DocX → PDF converter with drag-drop upload, side-by-side preview and auto-download. Clean interface with smooth animations — backend doesn't work, just a pretty thing."
+    ),
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI"],
+    color: "#3a5a8a",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/docx-pdf-converter",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
+  {
+    id: "pdf-compressor",
+    title: "PDF Compressor",
+    year: "2026",
+    category: b("Web · Ferramenta · Otimização de PDF", "Web · Tool · PDF Optimization"),
+    description: b(
+      "Compressor de PDF com slider de qualidade, estimativa de redução em tempo real e visualização do resultado. Animações de progresso — backend não funciona, só coisinha bonitinha.",
+      "PDF compressor with quality slider, real-time reduction estimate and result preview. Progress animations — backend doesn't work, just a pretty thing."
+    ),
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI"],
+    color: "#5a3a6a",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/pdf-compressor",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
+  {
+    id: "cv-generator",
+    title: "CV Generator",
+    year: "2026",
+    category: b("Web · Ferramenta · Geração de Currículo", "Web · Tool · Resume Generation"),
+    description: b(
+      "Gerador de currículo com templates editáveis, preview em tempo real e exportação PDF. Formulários dinâmicos com drag-reorder — backend não funciona, só coisinha bonitinha.",
+      "Resume generator with editable templates, real-time preview and PDF export. Dynamic forms with drag-reorder — backend doesn't work, just a pretty thing."
+    ),
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI"],
+    color: "#4a6a3a",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/cv-generator",
     featured: false,
     inProgress: false,
     hasCaseStudy: false,
@@ -732,10 +787,10 @@ export const cvProjects: CvProject[] = [
     tech: ["Node.js", "mineflayer", "NVIDIA NIM API", "Reinforcement Learning"],
   },
   {
-    id: "hellosocial",
-    name: "HelloSocial",
-    url: null,
-    tier: 3,
+  id: "hellosocial",
+  name: "HelloSocial",
+  url: null,
+  tier: 2,
     bullets: [
       b(
         "Plataforma de criação e agendamento de posts com IA — projeto na Paware que inspirou o HarpIA. Pipeline de geração de imagens com Flux Kontext Pro e DALL-E 3, agentes de copy e template. PIX via Mercado Pago (AguaQuality). Canva + Placid (HelloSocial/Paware). Pexels API para busca automática de imagens no HarpIA.",
@@ -767,27 +822,25 @@ export const caseStudies: Record<string, {
 }> = {
   harpia: {
     challenge: b(
-      "Automatizar a criação de conteúdo visual para marketing sem depender de designers humanos ou APIs pagas para cada output.",
-      "Automate visual content creation for marketing without relying on human designers or paid APIs for every output."
+      "Criar conteúdo visual para marketing digital exige copy + imagem + composição — repetido dezenas de vezes por campanha. Cada asset leva ~15 min manualmente; 50 posts = ~12h de trabalho humano. O desafio: automatizar esse pipeline mantendo controle de custo (APIs pagas apenas quando necessário) e qualidade visual consistente.",
+      "Creating visual content for digital marketing requires copy + image + composition — repeated dozens of times per campaign. Each asset takes ~15 min manually; 50 posts = ~12h of human work. The challenge: automate this pipeline while controlling cost (paid APIs only when needed) and maintaining consistent visual quality."
     ),
     approach: b(
-      "Arquitetura de pipeline com 7+ modelos de IA acessíveis por interface unificada. Agente GPT-4.1 com tool calling seleciona templates, busca imagens no Pexels e escreve copy automaticamente. Compositor local PIL para stack leve (sem APIs pagas quando não precisa).",
-      "Pipeline architecture with 7+ AI models accessible through a unified interface. GPT-4.1 agent with tool calling selects templates, searches Pexels images, and writes copy automatically. Local PIL compositor for lightweight stack (no paid APIs when not needed)."
+      "Pipeline agentic com modelo por tarefa: GPT-4.1 para copy e orquestração (tool calling), Flux para geração de imagens com identidade visual consistente, DALL-E 3 quando o prompt exige composição livre. Compositor PIL local como stack leve padrão (zero custo de API) — só aciona APIs pagas quando o template exige renderização que PIL não resolve. Backend dual: SQLite local para desenvolvimento e uso pessoal, Azure Cosmos DB + Blob Storage para escala.",
+      "Agentic pipeline with model-per-task: GPT-4.1 for copy and orchestration (tool calling), Flux for image generation with consistent visual identity, DALL-E 3 when the prompt requires free composition. Local PIL compositor as default lightweight stack (zero API cost) — only triggers paid APIs when the template requires rendering that PIL can't handle. Dual backend: local SQLite for development and personal use, Azure Cosmos DB + Blob Storage for scale."
     ),
     results: [
-      b("7+ modelos de IA integrados (imagem + vídeo + copy)", "7+ AI models integrated (image + video + copy)"),
-      b("Pipeline agentic autônomo com até 10 iterações de raciocínio", "Autonomous agentic pipeline with up to 10 reasoning iterations"),
-      b("Stack leve por padrão (SQLite + PIL local), fallback para APIs pagas", "Lightweight stack by default (SQLite + local PIL), fallback to paid APIs"),
-      b("Backend swap: local para Azure Cosmos DB + Blob Storage", "Backend swap: local to Azure Cosmos DB + Blob Storage"),
-      b("Pronto para cron com file-locking e recuperação de lotes travados", "Cron-ready with file-locking and stuck batch recovery"),
+      b("Pipeline completo: copywriting → busca de imagens → composição → output final em ~30s por asset", "Full pipeline: copywriting → image search → composition → final output in ~30s per asset"),
+      b("Stack leve por padrão (SQLite + PIL local) — APIs pagas apenas para composições que PIL não resolve", "Lightweight stack by default (SQLite + local PIL) — paid APIs only for compositions PIL can't handle"),
+      b("Agente GPT-4.1 com schema enforcement: resposta fora do formato = rejeição automática, não crash", "GPT-4.1 agent with schema enforcement: response outside format = auto-rejection, not crash"),
+      b("Backend swap via env var: SQLite local ↔ Azure Cosmos DB + Blob Storage, zero mudança de código", "Backend swap via env var: local SQLite ↔ Azure Cosmos DB + Blob Storage, zero code changes"),
+      b("Cron-ready com file-locking e recuperação de lotes travados (produção noturna autônoma)", "Cron-ready with file-locking and stuck batch recovery (autonomous overnight production)"),
     ],
     keyFeatures: [
-      b("Geração de imagens: DALL-E 3, Flux 1.1, Flux 2.0 Pro, Flux Kontext Pro, Nano Banana (Gemini)", "Image generation: DALL-E 3, Flux 1.1, Flux 2.0 Pro, Flux Kontext Pro, Nano Banana (Gemini)"),
-      b("Geração de vídeo: Sora, Veo 3.1 (async polling)", "Video generation: Sora, Veo 3.1 (async polling)"),
-      b("Agente GPT-4.1 com tool calling e schema enforcement", "GPT-4.1 agent with tool calling and schema enforcement"),
-      b("Compositor PIL: 8 templates de layout, brand colors, badges", "PIL compositor: 8 layout templates, brand colors, badges"),
-      b("APIs de design: Placid, Templated.io, Canva Connect (scaffolded)", "Design APIs: Placid, Templated.io, Canva Connect (scaffolded)"),
-      b("6,930+ LOC de Python async, testes de segurança, zero hardcoded secrets", "6,930+ LOC async Python, security tests, zero hardcoded secrets"),
+      b("Multi-modelo por tarefa: Flux (identidade visual), DALL-E 3 (composição livre), Sora/Veo (vídeo)", "Multi-model per task: Flux (visual identity), DALL-E 3 (free composition), Sora/Veo (video)"),
+      b("Compositor PIL: 8 templates de layout, brand colors, badges — zero custo quando suficiente", "PIL compositor: 8 layout templates, brand colors, badges — zero cost when sufficient"),
+      b("APIs de design como fallback: Placid, Templated.io, Canva Connect (quando PIL não basta)", "Design APIs as fallback: Placid, Templated.io, Canva Connect (when PIL isn't enough)"),
+      b("Segurança: testes de validação de secrets, env-based config, sem credenciais hardcoded", "Security: secret validation tests, env-based config, no hardcoded credentials"),
     ],
     codeSnippets: [
       {
@@ -836,25 +889,24 @@ export const caseStudies: Record<string, {
   },
   "srf-system": {
     challenge: b(
-      "Planejar operações de restauração florestal em larga escala envolve dezenas de variáveis: territórios, equipes, tarifas, cronogramas e dossiês executivos. O processo manual era lento e propenso a erros.",
-      "Planning large-scale forest restoration operations involves dozens of variables: territories, crews, tariffs, schedules, and executive dossiers. The manual process was slow and error-prone."
+      "Projetos de restauração florestal cruzam centenas de territórios, dezenas de equipes com tarifas diferentes, janelas sazonais por bioma, e dossiês executivos de 40+ páginas. Planejar manualmente um projeto de 500 ha leva ~3 semanas — com erros de tarifação entre tipos de equipe e conflitos de cronograma que só aparecem em campo.",
+      "Forest restoration projects span hundreds of territories, dozens of crews with different tariffs, seasonal windows per biome, and 40+ page executive dossiers. Manually planning a 500 ha project takes ~3 weeks — with tariff misapplication between crew types and schedule conflicts that only surface in the field."
     ),
     approach: b(
-      "Motor de planejamento em Python que processa dados de entrada e gera dossiês completos automaticamente. Interface NiceGUI para visualização + CLI para automação. Testes unitários garantem integridade dos outputs.",
-      "Python planning engine that processes input data and generates complete dossiers automatically. NiceGUI interface for visualization + CLI for automation. Unit tests ensure output integrity."
+      "Motor de planejamento Python que modela o domínio como pipeline: territories.allocate → tariffs.apply → scheduler.build_timeline → Dossier(). Pandas para transforms numéricos (alocação, tarifação, custos), openpyxl para exportação Excel dos dossiês. NiceGUI para visualização web interativa + Rich CLI para automação batch.",
+      "Python planning engine that models the domain as a pipeline: territories.allocate → tariffs.apply → scheduler.build_timeline → Dossier(). Pandas for numerical transforms (allocation, tariffing, costs), openpyxl for Excel dossier export. NiceGUI for interactive web visualization + Rich CLI for batch automation."
     ),
     results: [
-      b("Geração automática de dossiês executivos completos", "Automatic generation of complete executive dossiers"),
-      b("Cronogramas de atividades com alocação de equipes e territórios", "Activity schedules with crew and territory allocation"),
-      b("Gerenciamento de tarifas e custos operacionais", "Tariff and operational cost management"),
-      b("Interface NiceGUI + CLI para flexibilidade de uso", "NiceGUI + CLI interface for usage flexibility"),
-      b("Suite de testes unitários para garantia de qualidade", "Unit test suite for quality assurance"),
+      b("Dossiê executivo completo (cronograma + custos + mapa de territórios) gerado em ~45 min vs. ~3 semanas manual", "Complete executive dossier (schedule + costs + territory map) generated in ~45 min vs. ~3 weeks manually"),
+      b("Motor de tarifação com regras por tipo de equipe e região — elimina erros de aplicação manual", "Tariff engine with rules per crew type and region — eliminates manual application errors"),
+      b("Pipeline modular: cada etapa (alocação, tarifação, scheduling) é testável independentemente", "Modular pipeline: each step (allocation, tariffing, scheduling) is independently testable"),
+      b("NiceGUI para inspeção visual + CLI Rich para automação batch (mesmo engine, duas interfaces)", "NiceGUI for visual inspection + Rich CLI for batch automation (same engine, two interfaces)"),
     ],
     keyFeatures: [
-      b("Motor de planejamento operacional com lógica de domínio complexa", "Operational planning engine with complex domain logic"),
-      b("Exportação de dossiês em formato estruturado (openpyxl)", "Dossier export in structured format (openpyxl)"),
-      b("Interface web NiceGUI + CLI Rich", "NiceGUI web interface + Rich CLI"),
-      b("Arquitetura modular com separação clara de responsabilidades", "Modular architecture with clear separation of concerns"),
+      b("Pipeline pandas: allocate → apply tariffs → build timeline → export dossier", "Pandas pipeline: allocate → apply tariffs → build timeline → export dossier"),
+      b("Exportação openpyxl com formatação profissional (headers, bordas, seções)", "openpyxl export with professional formatting (headers, borders, sections)"),
+      b("NiceGUI web para exploração interativa + Rich CLI para automação", "NiceGUI web for interactive exploration + Rich CLI for automation"),
+      b("Testes que capturam misapplication de tarifas entre limites de tipo de equipe", "Tests that catch tariff misapplication across crew type boundaries"),
     ],
     codeSnippets: [
       {
@@ -895,16 +947,16 @@ def plan(input_path: str, output_dir: str = "./output"):
   },
   "flora-sensus": {
     challenge: b(
-      "Inventário florestal em campo requer app mobile que funciona sem internet, sincroniza dados quando conectado, e detecta conflitos entre edições simultâneas. Nenhuma solução existente atendia as necessidades específicas.",
-      "Forest inventory in the field requires a mobile app that works without internet, syncs data when connected, and detects conflicts between simultaneous edits. No existing solution met the specific needs."
+      "Inventário florestal em campo requer app que funciona sem internet por dias, sincroniza quando conectado, e resolve conflitos entre edições simultâneas de agentes em campo e gestores no escritório. Firebase/Supabase exigem conexão; apps de coleta genéricos não modelam a hierarquia florestal (Propriedade > UT > Parcela > Planta > Foto).",
+      "Forest inventory in the field requires an app that works without internet for days, syncs when connected, and resolves conflicts between simultaneous edits from field agents and office managers. Firebase/Supabase require connectivity; generic collection apps don't model the forest hierarchy (Propriedade > UT > Parcela > Planta > Foto)."
     ),
     approach: b(
-      "App Flutter offline-first com banco Drift/SQLite local e motor de sincronização custom. UUID remapping para conciliar IDs cliente-servidor. Rollback atômico em falhas parciais. Painel admin React para gestão centralizada.",
-      "Flutter offline-first app with local Drift/SQLite database and custom sync engine. UUID remapping to reconcile client-server IDs. Atomic rollback on partial failures. React admin panel for centralized management."
+      "App Flutter offline-first com Drift/SQLite local e motor de sync custom (arquitetura e lógica de conflito desenhados manualmente — UI e boilerplate com apoio de LLM e revisão humana). UUID remapping para conciliar IDs cliente-servidor com cascade por FK chain. PocketBase como backend leve (deploy simples, sem vendor lock-in). Painel admin React para gestão centralizada.",
+      "Flutter offline-first app with local Drift/SQLite and custom sync engine (architecture and conflict logic hand-designed — UI and boilerplate LLM-assisted with human review). UUID remapping to reconcile client-server IDs with FK chain cascade. PocketBase as lightweight backend (simple deploy, no vendor lock-in). React admin panel for centralized management."
     ),
     results: [
-      b("~24K LOC — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente", "~24K LOC — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed"),
-      b("Motor de sync com detecção de conflitos e rollback atômico", "Sync engine with conflict detection and atomic rollback"),
+      b("Motor de sync com detecção de conflitos e rollback atômico — sem corrupção de dados em falhas parciais", "Sync engine with conflict detection and atomic rollback — no data corruption on partial failures"),
+      b("UUID remapping em cascade: Propriedade → UT → Parcela → Planta → Foto (5 níveis de FK)", "Cascade UUID remapping: Propriedade → UT → Parcela → Planta → Foto (5 FK levels)"),
       b("Exportação XLSX/PDF com filtragem por usuário e data", "XLSX/PDF export with user and date filtering"),
       b("Modo alto contraste para uso em campo com sol direto", "High contrast mode for field use in direct sunlight"),
       b("Painel admin React com auth, fotos, relatórios e exportação", "React admin panel with auth, photos, reports, and export"),
@@ -979,25 +1031,25 @@ gallery: [
   },
   "fennec-excel": {
     challenge: b(
-      "Usuários de Excel precisam manipular planilhas complexas mas não conhecem fórmulas avançadas. Conectar IA local a planilhas permite conversar com dados em linguagem natural.",
-      "Excel users need to manipulate complex spreadsheets but don't know advanced formulas. Connecting local AI to spreadsheets enables conversing with data in natural language."
+      "Usuários de Excel precisam ir além de filtro e ordenação — 'quais vendedores ficaram abaixo da meta no trimestre?' exige multi-col filter + formatação condicional que usuários não sabem construir. Copilot requer nuvem e assinatura; Fennec roda IA local (Ollama) com zero custo de API e zero dado na nuvem.",
+      "Excel users need to go beyond filter and sort — 'which sales reps missed Q3 targets?' requires multi-column filter + conditional formatting that users can't build. Copilot requires cloud and subscription; Fennec runs local AI (Ollama) with zero API cost and zero cloud data."
     ),
     approach: b(
-      "App desktop Python com CustomTkinter e agente Ollama/qwen2.5. Comando ReAct: filtrar, ordenar, renomear abas, duplicar dados. Checkpoint automático antes de cada alteração com confirmação do usuário.",
-      "Python desktop app with CustomTkinter and Ollama/qwen2.5 agent. ReAct commands: filter, sort, rename sheets, duplicate data. Auto-checkpoint before each change with user confirmation."
+      "App desktop Python com CustomTkinter e agente Ollama/qwen2.5. Loop ReAct: o modelo planeja a operação, o usuário confirma, xlwings/COM executa no Excel vivo. Checkpoint automático antes de cada alteração — rollback em 1 clique se o resultado não for o esperado. Integrações OAuth para workflows que conectam planilha a e-mail/calendário (ex: enviar relatório filtrado por e-mail).",
+      "Python desktop app with CustomTkinter and Ollama/qwen2.5 agent. ReAct loop: the model plans the operation, the user confirms, xlwings/COM executes on live Excel. Auto-checkpoint before each change — 1-click rollback if the result isn't as expected. OAuth integrations for workflows that connect spreadsheets to email/calendar (e.g., send filtered report by email)."
     ),
     results: [
-      b("Design visual feito à mão com paleta pastel e mascote original (Fennec)", "Hand-crafted visual design with pastel palette and original mascot (Fennec)"),
-      b("6+ integrações OAuth: Gmail, Teams, Calendar, Drive, Outlook, Trello", "6+ OAuth integrations: Gmail, Teams, Calendar, Drive, Outlook, Trello"),
-      b("Instalador nativo Windows (Inno Setup) com PyInstaller", "Native Windows installer (Inno Setup) with PyInstaller"),
-      b("Checkpoint automático e confirmação antes de modificações", "Auto-checkpoint and confirmation before modifications"),
-      b("Agente ReAct com memória de contexto entre comandos", "ReAct agent with context memory between commands"),
+      b("IA local via Ollama — zero custo de API, zero dado enviado à nuvem, funciona offline", "Local AI via Ollama — zero API cost, zero data sent to cloud, works offline"),
+      b("Operações complexas via linguagem natural: 'destaque em vermelho as linhas onde vendas < meta' → filter + conditional formatting automático", "Complex operations via natural language: 'highlight red rows where sales < target' → automatic filter + conditional formatting"),
+      b("Checkpoint antes de cada modificação — rollback instantâneo se resultado não é o esperado", "Checkpoint before each modification — instant rollback if result isn't as expected"),
+      b("OAuth integrado ao workflow: filtrar dados → enviar relatório por Gmail/Outlook sem sair do app", "OAuth integrated into workflow: filter data → send report via Gmail/Outlook without leaving the app"),
+      b("Instalador nativo Windows (Inno Setup) com PyInstaller — um clique para instalar", "Native Windows installer (Inno Setup) with PyInstaller — one click to install"),
     ],
     keyFeatures: [
-      b("IA local via Ollama — sem custo de API, sem dados na nuvem", "Local AI via Ollama — no API cost, no cloud data"),
-      b("xlwings / COM para manipulação avançada do Excel", "xlwings / COM for advanced Excel manipulation"),
-      b("Interface bilíngue (PT/EN) com tema claro customizado", "Bilingual interface (PT/EN) with custom light theme"),
-      b("Suite de smoke tests para validação de funcionalidades", "Smoke test suite for functionality validation"),
+      b("IA local via Ollama (qwen2.5) — sem API, sem nuvem, sem custo por uso", "Local AI via Ollama (qwen2.5) — no API, no cloud, no per-use cost"),
+      b("xlwings / COM: manipula Excel ativo (não gera arquivo novo) — o que o usuário vê é o que o agente modificou", "xlwings / COM: manipulates live Excel (not generating new file) — what the user sees is what the agent changed"),
+      b("Interface bilíngue (PT/EN) com tema claro customizado e mascote Fennec", "Bilingual interface (PT/EN) with custom light theme and Fennec mascot"),
+      b("Integrações OAuth: Gmail, Outlook, Calendar, Drive, Teams — conectados ao workflow de planilha", "OAuth integrations: Gmail, Outlook, Calendar, Drive, Teams — connected to spreadsheet workflow"),
     ],
     codeSnippets: [
       {
@@ -1005,13 +1057,13 @@ gallery: [
         title: b("Agente ReAct — Ciclo de Raciocínio", "ReAct Agent — Reasoning Loop"),
         code: `class FennecAgent:
     def __init__(self, model: str = "qwen2.5"):
-self.client = OllamaClient(model)
-    self.tools = ExcelToolkit()
+        self.client = OllamaClient(model)
+        self.tools = ExcelToolkit()
 
     async def run(self, prompt: str, wb: Workbook) -> str:
-      messages = [self._system_prompt(wb)]
-      for step in range(MAX_STEPS):
-        thought = await self.client.chat(messages)
+        messages = [self._system_prompt(wb)]
+        for step in range(MAX_STEPS):
+            thought = await self.client.chat(messages)
             action = self._parse_action(thought)
 
             if action.is_final:
@@ -1054,27 +1106,92 @@ self.client = OllamaClient(model)
       { src: "/images/projects/fennec-desert.png", alt: b("Background desértico customizado", "Custom desert background") },
     ],
   },
-  inovesa: {
+  forestai: {
     challenge: b(
-      "Empresa de engenharia florestal precisava de um site profissional que transmitisse credibilidade e sofisticação, com informações sobre serviços, equipe e ouvidoria.",
-      "Forestry engineering company needed a professional website conveying credibility and sophistication, with service information, team, and ombudsman channel."
+      "Inventários florestais por drone geram milhares de imagens — identificar espécies manualmente leva semanas e é suscetível a erro. Ferramentas comerciais de detecção são caixas-pretas sem controle sobre thresholds, splits ou arquitetura. Precisava de um pipeline aberto onde cada decisão (dataset split, augmentation, threshold de confiança) fosse explicitamente configurável e auditável.",
+      "Drone-based forest inventories generate thousands of images — identifying species manually takes weeks and is error-prone. Commercial detection tools are black boxes with no control over thresholds, splits, or architecture. I needed an open pipeline where every decision (dataset split, augmentation, confidence threshold) was explicitly configurable and auditable."
     ),
     approach: b(
-      "React 19 + Motion + Lenis com design editorial/cinemático. Sistema de motion centralizado com springs e variantes reutilizáveis. Multi-página com transições, parallax em hero e galeria, formulários animados.",
-      "React 19 + Motion + Lenis with editorial/cinematic design. Centralized motion system with reusable springs and variants. Multi-page with transitions, hero and gallery parallax, animated forms."
+      "Pipeline de detecção e classificação com DeepForest + YOLO, treinado em GPU local. Anotação manual de centenas de imagens de drone da Fundação Renova (bounding boxes) — sem auto-labeling. Splits estratificados por espécie e área para evitar vazamento de dados. Monitoramento via TensorBoard: curvas de loss, mAP, e análise explícita de memorização vs generalização. Stack Overflow + Thonny IDE — zero IA-assisted coding.",
+      "Detection and classification pipeline with DeepForest + YOLO, trained on local GPU. Manual annotation of hundreds of drone images from Fundação Renova (bounding boxes) — no auto-labeling. Stratified splits by species and area to prevent data leakage. Monitoring via TensorBoard: loss curves, mAP, and explicit analysis of memorization vs generalization. Stack Overflow + Thonny IDE — zero AI-assisted coding."
     ),
     results: [
-      b("6 páginas completas com dados reais da empresa", "6 complete pages with real company data"),
-      b("Sistema de motion reutilizável (7 variantes + 3 springs + 2 easings)", "Reusable motion system (7 variants + 3 springs + 2 easings)"),
-      b("Ouvidoria com wizard multi-step e submit animado", "Ombudsman with multi-step wizard and animated submit"),
-      b("Scroll suave Lenis sincronizado com Motion", "Lenis smooth scroll synced with Motion"),
-      b("Custom cursor com física de spring e mix-blend-difference", "Custom cursor with spring physics and mix-blend-difference"),
+      b("Pipeline de detecção de espécies com DeepForest + YOLO treinado em GPU local", "Species detection pipeline with DeepForest + YOLO trained on local GPU"),
+      b("Anotação manual de centenas de imagens de drone — bounding boxes desenhados à mão", "Manual annotation of hundreds of drone images — hand-drawn bounding boxes"),
+      b("Splits estratificados por espécie e área — sem vazamento de dados entre treino/validação", "Stratified splits by species and area — no data leakage between train/validation"),
+      b("Interpretação de curvas TensorBoard — detecção de memorização vs generalização", "TensorBoard curve interpretation — detecting memorization vs generalization"),
+      b("Construído do zero sem IA-assisted coding — Stack Overflow + Thonny IDE apenas", "Built from scratch without AI-assisted coding — Stack Overflow + Thonny IDE only"),
+    ],
+    keyFeatures: [
+      b("DeepForest para detecção de copas com fine-tuning em dataset de drone", "DeepForest for crown detection with fine-tuning on drone dataset"),
+      b("YOLO para classificação de espécies com augmentations geográficos", "YOLO for species classification with geographic augmentations"),
+      b("TensorBoard monitoring: loss, mAP, grad-cam por época", "TensorBoard monitoring: loss, mAP, grad-cam per epoch"),
+      b("Stratified split por espécie + área geográfica — generalização real", "Stratified split by species + geographic area — real generalization"),
+    ],
+    codeSnippets: [
+      {
+        language: "python",
+        title: b("DeepForest — Fine-Tuning em Dataset de Drone", "DeepForest — Fine-Tuning on Drone Dataset"),
+        code: `from deepforest import main
+from deepforest.utilities import read_file
+
+model = main.deepforest()
+model.use_release()
+
+annotations = read_file("renova_annotations.csv")
+train, val = stratified_split(
+    annotations,
+    group_by=["species", "area"],
+    ratios=[0.7, 0.3],
+)
+
+model.config["train"]["fast_dev_run"] = False
+model.config["train"]["epochs"] = 50
+model.config["train"]["lr"] = 1e-4
+
+model.trainer.fit(
+    model,
+    train_dataloaders=train,
+    val_dataloaders=val,
+)`,
+      },
+      {
+        language: "python",
+        title: b("Split Estratificado — Sem Vazamento", "Stratified Split — No Leakage"),
+        code: `def stratified_split(df, group_by, ratios):
+    groups = df.groupby(group_by).size()
+    train, val = [], []
+    for name, count in groups.items():
+        subset = df[df[group_by] == name]
+        n_train = max(1, int(count * ratios[0]))
+        train.append(subset.iloc[:n_train])
+        val.append(subset.iloc[n_train:])
+    return pd.concat(train), pd.concat(val)`,
+      },
+    ],
+  },
+    inovesa: {
+    challenge: b(
+      "Empresas florestais no Brasil têm problema de credibilidade visual — sites parecem de 2005. A Inovesa queria sinalizar engenharia premium através de design premium: motion cinematográfico, scroll suave, e uma ouvidoria que transmita seriedade. O desafio era entregar isso com bundle enxuto — Motion + Lenis + React 19 pesa se não for controlado.",
+      "Forestry companies in Brazil have a visual credibility problem — their websites look like 2005. Inovesa wanted to signal premium engineering through premium design: cinematic motion, smooth scroll, and an ombudsman that conveys seriousness. The challenge was delivering this with a lean bundle — Motion + Lenis + React 19 gets heavy if not controlled."
+    ),
+    approach: b(
+      "React 19 + Motion + Lenis com motion system centralizado (7 variantes, 3 springs, 2 easings — todos reutilizáveis). Lenis para scroll suave sincronizado com useScroll do Motion. Tailwind v4 CSS-first com @theme customizado. Cada animação respeita prefers-reduced-motion — motion é refinamento, não barreira.",
+      "React 19 + Motion + Lenis with centralized motion system (7 variants, 3 springs, 2 easings — all reusable). Lenis for smooth scroll synced with Motion's useScroll. Tailwind v4 CSS-first with custom @theme. Every animation respects prefers-reduced-motion — motion is enhancement, not barrier."
+    ),
+    results: [
+      b("6 páginas com dados reais da empresa: serviços, equipe, ouvidoria, galeria, sobre, contato", "6 pages with real company data: services, team, ombudsman, gallery, about, contact"),
+      b("Sistema de motion reutilizável (7 variantes + 3 springs + 2 easings) — consistência visual sem código duplicado", "Reusable motion system (7 variants + 3 springs + 2 easings) — visual consistency without duplicated code"),
+      b("Ouvidoria com wizard multi-step, validação por etapa e submit animado — formulário que transmite seriedade", "Ombudsman with multi-step wizard, per-step validation and animated submit — a form that conveys seriousness"),
+      b("prefers-reduced-motion: todas as animações respeitam a preferência do sistema — zero motion para quem precisa", "prefers-reduced-motion: all animations respect system preference — zero motion for those who need it"),
+      b("Custom cursor com spring physics e mix-blend-difference — detalhe que sinaliza atenção craft", "Custom cursor with spring physics and mix-blend-difference — a detail that signals craft attention"),
     ],
     keyFeatures: [
       b("Parallax multi-camada com useScroll por seção", "Multi-layer parallax with per-section useScroll"),
       b("AnimatedText: reveal por palavras/linhas/caracteres com highlight", "AnimatedText: word/line/char reveal with highlight"),
       b("PageOverlay + AnimatePresence para transições de página", "PageOverlay + AnimatePresence for page transitions"),
       b("Tailwind v4 CSS-first com @theme customizado", "Tailwind v4 CSS-first with custom @theme"),
+      b("prefers-reduced-motion: redução automática de motion para acessibilidade", "prefers-reduced-motion: automatic motion reduction for accessibility"),
     ],
     codeSnippets: [
       {

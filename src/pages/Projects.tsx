@@ -8,6 +8,7 @@ import { useLang } from "../lib/LanguageContext";
 import { ArrowUpRight, Github } from "lucide-react";
 import { EASE_PRIMARY, SCROLL_START } from "../lib/scroll-anim";
 import { projectWidgets } from "../components/ProjectWidgets";
+import { TagFilter } from "../components/TagFilter";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +20,7 @@ function ProjectIcon({ project, className }: { project: Project; className?: str
   return (
     <svg viewBox="0 0 48 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="48" height="48" rx="10" fill={`${project.color}15`} />
-      <text x="24" y="28" textAnchor="middle" dominantBaseline="central" fontSize="16" fontFamily="system-ui, sans-serif" fontWeight="700" fill={project.color}>{initials}</text>
+      <text x="24" y="28" textAnchor="middle" dominantBaseline="central" fontSize="16" fontFamily="'Playfair Display', serif" fontWeight="700" fill={project.color}>{initials}</text>
     </svg>
   );
 }
@@ -33,10 +34,10 @@ function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
       to={`/projects/${proj.caseStudySlug}`}
       className="proj-card group relative overflow-hidden custom-cursor-target border"
       style={{
-        borderColor: hovered ? `${proj.color}60` : "var(--color-border)",
+        borderColor: hovered ? `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.38)` : "var(--color-border)",
         backgroundColor: "var(--color-bg-card)",
         transition: "border-color 0.3s, box-shadow 0.3s",
-        boxShadow: hovered ? `0 0 0 1px ${proj.color}25, 0 8px 32px ${proj.color}12` : "none",
+        boxShadow: hovered ? `0 0 0 1px rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.15), 0 8px 32px rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.07)` : "0 0 0 0 transparent",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -44,7 +45,7 @@ function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `radial-gradient(circle at 25% 30%, ${proj.color}20 0%, transparent 65%)`,
+          backgroundImage: `radial-gradient(circle at 25% 30%, rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.12) 0%, transparent 65%)`,
           opacity: hovered ? 0.8 : 0.4,
           transition: "opacity 0.5s ease",
         }}
@@ -54,7 +55,7 @@ function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
         <div
           className="shrink-0 w-28 h-28 lg:w-36 lg:h-36 flex items-center justify-center rounded-lg"
           style={{
-            backgroundColor: `${proj.color}10`,
+            backgroundColor: `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.06)`,
             transition: "background-color 0.3s",
           }}
         >
@@ -69,7 +70,7 @@ function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
       {proj.inProgress && (
         <span
           className="font-mono text-[9px] tracking-[0.1em] uppercase px-1.5 py-0.5"
-          style={{ border: `1px solid ${proj.color}50`, color: proj.color, backgroundColor: `${proj.color}10` }}
+          style={{ border: `1px solid rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.3)`, color: proj.color, backgroundColor: `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.06)` }}
         >
           {t({ pt: "Em andamento", en: "WIP" })}
           </span>
@@ -101,7 +102,7 @@ function Tier1Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
               <span
                 key={tech}
                 className="px-2 py-0.5 text-[10px] font-mono"
-                style={{ border: `1px solid ${proj.color}20`, color: "var(--color-text-3)", backgroundColor: `${proj.color}06` }}
+                style={{ border: `1px solid rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.12)`, color: "var(--color-text-3)", backgroundColor: `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.02)` }}
               >
                 {tech}
               </span>
@@ -137,8 +138,8 @@ function Tier2Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
         borderColor: hovered ? "rgba(69,106,75,0.5)" : "var(--color-border)",
         borderLeft: `4px solid ${hovered ? "var(--color-sage)" : "rgba(69,106,75,0.3)"}`,
         backgroundColor: "var(--color-bg-card)",
-        transition: "border-color 0.3s, box-shadow 0.3s",
-        boxShadow: hovered ? "0 4px 20px rgba(69,106,75,0.08)" : "none",
+      transition: "border-color 0.3s, border-left-color 0.3s, box-shadow 0.3s",
+      boxShadow: hovered ? "0 4px 20px rgba(69,106,75,0.08)" : "0 0 0 0 transparent",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -216,11 +217,12 @@ function Tier3Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
     <div
       className="proj-card relative overflow-hidden border"
       style={{
-        borderColor: hovered ? "var(--color-border-accent)" : "var(--color-border)",
-        backgroundColor: "var(--color-bg-card)",
-        transform: hovered ? "translateY(-2px)" : "translateY(0)",
-        transition: "transform 0.3s cubic-bezier(.16,1,.3,1), border-color 0.25s, box-shadow 0.3s",
-        boxShadow: hovered ? "0 4px 16px rgba(0,0,0,0.04)" : "none",
+      borderColor: hovered ? "var(--color-border-accent)" : "var(--color-border)",
+      backgroundColor: "var(--color-bg-card)",
+      transform: hovered ? "translateY(-2px)" : "translateY(0)",
+      willChange: "transform",
+      transition: "transform 0.3s cubic-bezier(.16,1,.3,1), border-color 0.25s, box-shadow 0.3s",
+      boxShadow: hovered ? "0 4px 16px rgba(0,0,0,0.04)" : "0 0 0 0 transparent",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -228,7 +230,7 @@ function Tier3Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `radial-gradient(circle at 50% 20%, ${proj.color}12 0%, transparent 60%)`,
+          backgroundImage: `radial-gradient(circle at 50% 20%, rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.07) 0%, transparent 60%)`,
           opacity: hovered ? 0.6 : 0.3,
           transition: "opacity 0.4s ease",
         }}
@@ -238,14 +240,14 @@ function Tier3Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
         {hasIcon && (
           <div
             className="w-16 h-16 mb-4 flex items-center justify-center rounded"
-            style={{ backgroundColor: `${proj.color}08` }}
+            style={{ backgroundColor: `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.03)` }}
           >
             <ProjectIcon project={proj} className="w-12 h-12" />
           </div>
         )}
 
         <div className="flex items-center gap-2 flex-wrap mb-1">
-          <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "var(--color-accent)" }}>
+          <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "var(--color-text-2)" }}>
         {proj.year}
       </span>
       {proj.inProgress && (
@@ -312,12 +314,19 @@ function Tier3Card({ proj, onScramble }: { proj: Project; onScramble: (e: React.
 }
 
 export default function Projects() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { t } = useLang();
+const sectionRef = useRef<HTMLDivElement>(null);
+const { t } = useLang();
+const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const featured = projects.filter((p) => p.featured);
-  const caseStudies = projects.filter((p) => !p.featured && p.hasCaseStudy);
-  const others = projects.filter((p) => !p.featured && !p.hasCaseStudy);
+const allTags = Array.from(new Set(projects.flatMap(p => p.tech.slice(0, 3)))).slice(0, 12);
+
+const filteredProjects = selectedTags.length > 0
+? projects.filter(p => selectedTags.every(tag => p.tech.includes(tag)))
+: projects;
+
+const featured = filteredProjects.filter((p) => p.featured);
+const caseStudies = filteredProjects.filter((p) => !p.featured && p.hasCaseStudy);
+const others = filteredProjects.filter((p) => !p.featured && !p.hasCaseStudy);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -331,10 +340,10 @@ export default function Projects() {
   scrollTrigger: { trigger: sectionRef.current, start: SCROLL_START, once: true },
   });
 
-  gsap.from(".proj-card", {
-  y: 30, opacity: 0, stagger: 0.06, duration: 0.6, ease: EASE_PRIMARY,
-  scrollTrigger: { trigger: ".proj-grid-1", start: SCROLL_START, once: true },
-  });
+    gsap.from(".proj-card", {
+      y: 30, opacity: 0, stagger: 0.06, duration: 0.6, ease: EASE_PRIMARY,
+      scrollTrigger: { trigger: sectionRef.current?.querySelector(".proj-grid-1") ?? sectionRef.current, start: SCROLL_START, once: true },
+    });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -346,23 +355,29 @@ export default function Projects() {
   return (
 <div ref={sectionRef} className="section-root">
 <div className="section-container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <span className="proj-label section-label">{t({ pt: "Projetos", en: "Projects" })}</span>
-            <h2
-              className="proj-title font-serif font-bold leading-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
-            >
-              {t({ pt: "Sistemas que ", en: "Systems that " })}
-              <span className="italic" style={{ color: "var(--color-accent)" }}>
-                {t({ pt: "resolvem problemas reais.", en: "solve real problems." })}
-              </span>
-            </h2>
-          </div>
-          <p className="max-w-xs text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
-            {t({ pt: "Clique nos destaques para ver o case study completo.", en: "Click featured projects for full case studies." })}
-          </p>
-        </div>
+<div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+<div>
+<span className="proj-label section-label">{t({ pt: "Projetos", en: "Projects" })}</span>
+<h2
+className="proj-title font-serif font-bold leading-tight"
+style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
+>
+{t({ pt: "Sistemas que ", en: "Systems that " })}
+<span className="italic" style={{ color: "var(--color-text-2)" }}>
+{t({ pt: "resolvem problemas reais.", en: "solve real problems." })}
+</span>
+</h2>
+</div>
+<p className="max-w-xs text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
+{t({ pt: "Clique nos destaques para ver o case study completo.", en: "Click featured projects for full case studies." })}
+</p>
+</div>
+
+<TagFilter
+tags={allTags}
+selectedTags={selectedTags}
+onTagChange={setSelectedTags}
+/>
 
         {featured.length > 0 && (
           <section className="tier-section mb-16">

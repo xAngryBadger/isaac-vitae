@@ -7,8 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
-import NoiseOverlay from "./components/NoiseOverlay";
 import Preloader from "./components/Preloader";
+import { SidebarNav } from "./components/SidebarNav";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Experience from "./pages/Experience";
@@ -48,9 +48,9 @@ function DocumentTitle() {
     const title = pageTitles[path];
     if (title) {
       document.title = title[lang];
-  } else if (path.startsWith("/projects/")) {
-  const slug = path.replace("/projects/", "");
-  document.title = `${slug} — Isaac Nathan`;
+    } else if (path.startsWith("/projects/")) {
+      const slug = path.replace("/projects/", "");
+      document.title = `${slug} — Isaac Nathan`;
     } else {
       document.title = lang === "pt" ? "Página não encontrada — Isaac Nathan" : "Page not found — Isaac Nathan";
     }
@@ -61,6 +61,7 @@ function DocumentTitle() {
 
 function AppContent() {
   const [loaded, setLoaded] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const isFirstMount = useRef(true);
   const location = useLocation();
   const { playRouteChange } = useSounds();
@@ -68,6 +69,9 @@ function AppContent() {
   const handlePreloaderDone = useCallback(() => setLoaded(true), []);
 
   useEffect(() => {
+    const lenis = (window as unknown as { lenis?: { scrollTo: (pos: number, opts?: { immediate?: boolean }) => void } }).lenis;
+    if (lenis) lenis.scrollTo(0, { immediate: true });
+    else window.scrollTo(0, 0);
     const timer = window.setTimeout(() => ScrollTrigger.refresh(), 500);
     if (loaded && !isFirstMount.current) playRouteChange();
     return () => window.clearTimeout(timer);
@@ -97,6 +101,35 @@ function AppContent() {
     };
   }, []);
 
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSidebarOpen((v) => !v);
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
+
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.documentElement.classList.add("sidebar-open");
+      document.body.style.overflow = "hidden";
+      const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
+      lenis?.stop();
+    } else {
+      document.documentElement.classList.remove("sidebar-open");
+      document.body.style.overflow = "";
+      const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
+      lenis?.start();
+    }
+    return () => {
+      document.documentElement.classList.remove("sidebar-open");
+      document.body.style.overflow = "";
+    };
+  }, [sidebarOpen]);
+
   const firstRender = isFirstMount.current;
   if (loaded && isFirstMount.current) isFirstMount.current = false;
 
@@ -106,9 +139,9 @@ function AppContent() {
       {loaded && (
         <>
           <DocumentTitle />
-          <NoiseOverlay />
           <CustomCursor />
-          <Nav />
+          <Nav onSidebarOpen={() => setSidebarOpen(true)} />
+          <SidebarNav open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
           <AnimatePresence mode="wait">
             <motion.main
               key={location.pathname}
@@ -125,10 +158,10 @@ function AppContent() {
                 <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
                 <Route path="/skills" element={<Skills />} />
                 <Route path="/gallery" element={<Gallery />} />
-          <Route path="/certificates" element={<Certificates />} />
-          <Route path="/cv" element={<CV />} />
-          <Route path="/playground" element={<Playground />} />
-          <Route path="/contact" element={<Contact />} />
+                <Route path="/certificates" element={<Certificates />} />
+                <Route path="/cv" element={<CV />} />
+                <Route path="/playground" element={<Playground />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </motion.main>

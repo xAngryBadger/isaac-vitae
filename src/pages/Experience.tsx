@@ -46,7 +46,7 @@ return () => ctx.revert();
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
           >
             {t({ pt: "Onde construí ", en: "Where I built " })}
-            <span className="italic" style={{ color: "var(--color-accent)" }}>
+            <span className="italic" style={{ color: "var(--color-text-2)" }}>
               {t({ pt: "expertise real.", en: "real expertise." })}
             </span>
           </h2>
@@ -86,7 +86,7 @@ return () => ctx.revert();
                     <h3 className="font-serif font-semibold text-xl" style={{ color: "var(--color-text)" }}>
                       {t(exp.role)}
                     </h3>
-                    <p className="font-mono text-sm" style={{ color: "var(--color-accent)" }}>
+                    <p className="font-mono text-sm" style={{ color: "var(--color-text-2)" }}>
                       {exp.company}
                     </p>
                   </div>

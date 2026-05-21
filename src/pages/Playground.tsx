@@ -193,7 +193,7 @@ export default function Playground() {
               style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
             >
               {t({ pt: "Demos que ", en: "Demos that " })}
-              <span className="italic" style={{ color: "var(--color-accent)" }}>
+              <span className="italic" style={{ color: "var(--color-text-2)" }}>
                 {t({ pt: "provam versatilidade.", en: "prove versatility." })}
               </span>
             </h2>

@@ -103,7 +103,7 @@ return () => ctx.revert();
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
           >
             {t({ pt: "Vamos construir ", en: "Let's build " })}
-            <span className="italic" style={{ color: "var(--color-accent)" }}>
+            <span className="italic" style={{ color: "var(--color-text-2)" }}>
               {t({ pt: "algo juntos.", en: "something together." })}
             </span>
           </h2>
@@ -147,7 +147,7 @@ return () => ctx.revert();
             </div>
 
             <div className="p-8 border card-hover" style={{ borderColor: "var(--color-border)", backgroundColor: "var(--color-bg-card)" }}>
-              <p className="font-mono text-xs tracking-[0.15em] uppercase mb-3" style={{ color: "var(--color-accent)" }}>
+              <p className="font-mono text-xs tracking-[0.15em] uppercase mb-3" style={{ color: "var(--color-text-2)" }}>
                 {t({ pt: "Disponibilidade", en: "Availability" })}
               </p>
               <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>

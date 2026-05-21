@@ -143,8 +143,8 @@ function SpringDemo() {
   return (
     <div>
       <div className="flex items-center gap-2 mb-3">
-        <Activity className="w-3.5 h-3.5" style={{ color: "var(--color-accent)", opacity: 0.7 }} />
-        <span className="font-mono text-xs tracking-wider uppercase" style={{ color: "var(--color-accent)", opacity: 0.7 }}>
+        <Activity className="w-3.5 h-3.5" style={{ color: "var(--color-text-2)", opacity: 0.7 }} />
+        <span className="font-mono text-xs tracking-wider uppercase" style={{ color: "var(--color-text-2)", opacity: 0.7 }}>
           {t({ pt: "Física de Mola", en: "Spring Physics" })}
         </span>
       </div>
@@ -169,7 +169,7 @@ style={{
             top: 0,
             bottom: 0,
             width: "1px",
-            background: "var(--color-accent)",
+            background: "var(--color-text-2)",
             opacity: 0.15,
           }}
         />
@@ -183,7 +183,7 @@ style={{
             width: "48px",
             height: "48px",
 borderRadius: "2px",
-  background: "var(--color-accent)",
+  background: "var(--color-text-2)",
             cursor: "grab",
             display: "flex",
             alignItems: "center",
@@ -198,7 +198,7 @@ borderRadius: "2px",
       </div>
       <div className="flex justify-between mt-2">
         <span className="font-mono" style={{ fontSize: "0.55rem", color: "var(--color-text-3)", opacity: 0.4, letterSpacing: "0.1em" }}>-X</span>
-        <span className="font-mono" style={{ fontSize: "0.55rem", color: "var(--color-accent)", opacity: 0.5, letterSpacing: "0.1em" }}>0</span>
+        <span className="font-mono" style={{ fontSize: "0.55rem", color: "var(--color-text-2)", opacity: 0.5, letterSpacing: "0.1em" }}>0</span>
         <span className="font-mono" style={{ fontSize: "0.55rem", color: "var(--color-text-3)", opacity: 0.4, letterSpacing: "0.1em" }}>+X</span>
       </div>
     </div>
@@ -215,8 +215,8 @@ function ParallaxDemo() {
   return (
     <div>
       <div className="flex items-center gap-2 mb-3">
-        <Layers className="w-3.5 h-3.5" style={{ color: "var(--color-accent)", opacity: 0.7 }} />
-        <span className="font-mono text-xs tracking-wider uppercase" style={{ color: "var(--color-accent)", opacity: 0.7 }}>
+        <Layers className="w-3.5 h-3.5" style={{ color: "var(--color-text-2)", opacity: 0.7 }} />
+        <span className="font-mono text-xs tracking-wider uppercase" style={{ color: "var(--color-text-2)", opacity: 0.7 }}>
           {t({ pt: "Profundidade Parallax", en: "Parallax Depth" })}
         </span>
       </div>
@@ -253,7 +253,7 @@ background: "var(--color-bg)",
 width: "40px",
 height: "40px",
 borderRadius: "2px",
-            background: "var(--color-accent)",
+            background: "var(--color-text-2)",
             opacity: 0.15,
           }} />
           <div style={{
@@ -276,7 +276,7 @@ borderRadius: "0",
             width: "8px",
             height: "8px",
             borderRadius: "50%",
-            background: "var(--color-accent)",
+            background: "var(--color-text-2)",
             opacity: 0.5,
           }} />
           <div style={{
@@ -286,7 +286,7 @@ borderRadius: "0",
             width: "6px",
             height: "6px",
             borderRadius: "50%",
-            background: "var(--color-accent)",
+            background: "var(--color-text-2)",
             opacity: 0.4,
           }} />
           <div style={{
@@ -296,7 +296,7 @@ borderRadius: "0",
             width: "4px",
             height: "4px",
             borderRadius: "50%",
-            background: "var(--color-accent)",
+            background: "var(--color-text-2)",
             opacity: 0.35,
           }} />
         </motion.div>
@@ -412,8 +412,8 @@ function ReActDemo() {
   return (
     <div>
       <div className="flex items-center gap-2 mb-3">
-        <Terminal className="w-3.5 h-3.5" style={{ color: "var(--color-accent)", opacity: 0.7 }} />
-        <span className="font-mono text-xs tracking-wider uppercase" style={{ color: "var(--color-accent)", opacity: 0.7 }}>
+        <Terminal className="w-3.5 h-3.5" style={{ color: "var(--color-text-2)", opacity: 0.7 }} />
+        <span className="font-mono text-xs tracking-wider uppercase" style={{ color: "var(--color-text-2)", opacity: 0.7 }}>
           {t({ pt: "Agente ReAct", en: "ReAct Agent" })}
         </span>
       </div>
@@ -465,8 +465,8 @@ overflow: "hidden",
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.7rem",
                 letterSpacing: "0.08em",
-                color: "var(--color-accent)",
-                background: "var(--color-accent-06)",
+                color: "var(--color-text-2)",
+                background: "var(--color-sage-05)",
 border: "1px solid var(--color-accent-20)",
 borderRadius: "0",
 padding: "0.5rem 1.2rem",
@@ -531,10 +531,10 @@ function PipelineDemo() {
   }, []);
 
   const nodes = [
-    { id: "req", label: "POST /webhook", sublabel: "FastAPI", color: "var(--color-accent)" },
+    { id: "req", label: "POST /webhook", sublabel: "FastAPI", color: "var(--color-text-2)" },
     { id: "auth", label: "validate_token()", sublabel: "Auth Middleware", color: "#6B5B3D" },
     { id: "db", label: "cosmos.read()", sublabel: "Azure Cosmos DB", color: "#456A4B" },
-    { id: "res", label: "200 OK + JSON", sublabel: "Response", color: "var(--color-accent)" },
+    { id: "res", label: "200 OK + JSON", sublabel: "Response", color: "var(--color-text-2)" },
   ];
 
   const run = () => {
@@ -560,8 +560,8 @@ function PipelineDemo() {
   return (
     <div>
       <div className="flex items-center gap-2 mb-3">
-        <GitBranch className="w-3.5 h-3.5" style={{ color: "var(--color-accent)", opacity: 0.7 }} />
-        <span className="font-mono text-xs tracking-wider uppercase" style={{ color: "var(--color-accent)", opacity: 0.7 }}>
+        <GitBranch className="w-3.5 h-3.5" style={{ color: "var(--color-text-2)", opacity: 0.7 }} />
+        <span className="font-mono text-xs tracking-wider uppercase" style={{ color: "var(--color-text-2)", opacity: 0.7 }}>
           {t({ pt: "Pipeline de API", en: "API Pipeline" })}
         </span>
       </div>
@@ -732,10 +732,10 @@ function Playground() {
   return (
     <div className="skills-playground" style={{ marginTop: "3rem" }}>
       <div className="flex items-center gap-3 mb-6">
-        <Code2 className="w-4 h-4" style={{ color: "var(--color-accent)", opacity: 0.6 }} />
+        <Code2 className="w-4 h-4" style={{ color: "var(--color-text-2)", opacity: 0.6 }} />
         <h3
           className="font-mono text-xs tracking-[0.2em] uppercase"
-          style={{ color: "var(--color-accent)", opacity: 0.7 }}
+          style={{ color: "var(--color-text-2)", opacity: 0.7 }}
         >
           {t({ pt: "Campus de Testes", en: "Playground" })}
         </h3>
@@ -1034,7 +1034,7 @@ className="absolute inset-0 pointer-events-none dot-grid-bg"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
           >
             {t({ pt: "A história das minhas ", en: "Story of my " })}
-            <span className="italic" style={{ color: "var(--color-accent)" }}>
+            <span className="italic" style={{ color: "var(--color-text-2)" }}>
               {t({ pt: "habilidades.", en: "skills." })}
             </span>
           </h2>

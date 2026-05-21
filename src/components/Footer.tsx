@@ -22,7 +22,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="font-mono text-xs text-center" style={{ color: "var(--color-text-3)" }}>
-            © {new Date().getFullYear()} {personal.fullName} — {t({ pt: "Feito com React, GSAP & Tailwind", en: "Built with React, GSAP & Tailwind" })}
+            © {new Date().getFullYear()} {personal.name} — {t({ pt: "Feito com React, GSAP & Tailwind", en: "Built with React, GSAP & Tailwind" })}
           </p>
           <a
             href={`mailto:${personal.email}`}

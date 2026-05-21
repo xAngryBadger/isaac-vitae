@@ -314,7 +314,7 @@ scrollTrigger: { trigger: ".gallery-header", start: SCROLL_START, once: true },
           style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
         >
           {t({ pt: "Imagens dos ", en: "Project " })}
-          <span className="italic" style={{ color: "var(--color-accent)" }}>
+          <span className="italic" style={{ color: "var(--color-text-2)" }}>
             {t({ pt: "projetos.", en: "gallery." })}
           </span>
         </h2>

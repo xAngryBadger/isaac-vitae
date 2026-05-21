@@ -4,7 +4,7 @@ export function HarpIAWidget({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <rect x="4" y="24" width="28" height="32" rx="4" stroke="#FFB800" strokeWidth="1.5" fill="#FFB80010" />
-      <text x="18" y="44" textAnchor="middle" fontSize="8" fontFamily="monospace" fill="#FFB800" fontWeight="600">TXT</text>
+      <text x="18" y="44" textAnchor="middle" fontSize="8" fontFamily="'Space Mono', monospace" fill="#FFB800" fontWeight="600">TXT</text>
       <line x1="34" y1="40" x2="44" y2="40" stroke="#FFB80060" strokeWidth="1" />
       <polyline points="41,37 44,40 41,43" fill="none" stroke="#FFB80060" strokeWidth="1" />
       <rect x="46" y="18" width="28" height="44" rx="4" stroke="#FFB800" strokeWidth="1.5" fill="#FFB80018" />
@@ -160,7 +160,7 @@ export function MaineCoonWidget({ className }: { className?: string }) {
       <rect x="58" y="56" width="4" height="2" rx="0.5" fill="#2a2a1a30" />
       <rect x="64" y="56" width="4" height="2" rx="0.5" fill="#2a2a1a30" />
       <path d="M24 48 L14 52 L14 64 L24 64" stroke="#2a2a1a50" strokeWidth="0.75" fill="none" strokeDasharray="2 2" />
-      <text x="14" y="70" fontSize="5" fontFamily="monospace" fill="#2a2a1a40">/cmd</text>
+      <text x="14" y="70" fontSize="5" fontFamily="'Space Mono', monospace" fill="#2a2a1a40">/cmd</text>
     </svg>
   );
 }
@@ -170,7 +170,7 @@ export function FinanceTrackerWidget({ className }: { className?: string }) {
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <rect x="20" y="4" width="80" height="72" rx="10" stroke="#1a2a3a" strokeWidth="1.5" fill="#1a2a3a06" />
       <rect x="28" y="14" width="64" height="8" rx="4" stroke="#1a2a3a30" strokeWidth="0.75" fill="#1a2a3a08" />
-      <text x="60" y="20" textAnchor="middle" fontSize="5" fontFamily="monospace" fill="#1a2a3a40">$ 1,240.00</text>
+      <text x="60" y="20" textAnchor="middle" fontSize="5" fontFamily="'Space Mono', monospace" fill="#1a2a3a40">$ 1,240.00</text>
       <rect x="28" y="28" width="30" height="20" rx="3" stroke="#1a2a3a" strokeWidth="1" fill="#1a2a3a08" />
       <path d="M32 44 L38 38 L44 42 L52 34 L56 40" stroke="#1a2a3a" strokeWidth="1.2" fill="none" />
       <circle cx="32" cy="44" r="1.5" fill="#1a2a3a" />
@@ -223,7 +223,7 @@ export function AppleProductPageWidget({ className }: { className?: string }) {
       <circle cx="18" cy="16" r="2" fill="#0a0a0a30" />
       <circle cx="24" cy="16" r="2" fill="#0a0a0a20" />
       <circle cx="30" cy="16" r="2" fill="#0a0a0a15" />
-      <text x="60" y="18" textAnchor="middle" fontSize="5" fontFamily="monospace" fill="#0a0a0a40">SCROLL</text>
+      <text x="60" y="18" textAnchor="middle" fontSize="5" fontFamily="'Space Mono', monospace" fill="#0a0a0a40">SCROLL</text>
       <line x1="60" y1="28" x2="60" y2="68" stroke="#0a0a0a15" strokeWidth="0.5" />
       <circle cx="60" cy="44" r="12" stroke="#0a0a0a" strokeWidth="1" fill="#0a0a0a08" />
       <circle cx="60" cy="44" r="5" stroke="#0a0a0a60" strokeWidth="0.75" fill="none" />
@@ -243,7 +243,7 @@ export function JsonForgeWidget({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <rect x="4" y="4" width="56" height="72" rx="3" stroke="#1a1a2e" strokeWidth="1.5" fill="#1a1a2e06" />
-      <text x="32" y="16" textAnchor="middle" fontSize="7" fontFamily="monospace" fill="#1a1a2e50" fontWeight="700">{}</text>
+      <text x="32" y="16" textAnchor="middle" fontSize="7" fontFamily="'Space Mono', monospace" fill="#1a1a2e50" fontWeight="700">{}</text>
       <rect x="10" y="22" width="44" height="2" rx="1" fill="#1a1a2e18" />
       <rect x="14" y="28" width="36" height="2" rx="1" fill="#1a1a2e12" />
       <rect x="14" y="34" width="28" height="2" rx="1" fill="#1a1a2e15" />
@@ -284,7 +284,7 @@ export function NotionEditorWidget({ className }: { className?: string }) {
       <rect x="34" y="61" width="62" height="2" rx="1" fill="#19191906" />
       <rect x="34" y="67" width="48" height="2" rx="1" fill="#19191905" />
       <circle cx="104" cy="68" r="4" stroke="#19191950" strokeWidth="0.75" fill="#19191908" />
-      <text x="104" y="70" textAnchor="middle" fontSize="4" fontFamily="monospace" fill="#19191950">/</text>
+      <text x="104" y="70" textAnchor="middle" fontSize="4" fontFamily="'Space Mono', monospace" fill="#19191950">/</text>
     </svg>
   );
 }
@@ -302,7 +302,7 @@ export function LinearAppUIWidget({ className }: { className?: string }) {
       <rect x="34" y="8" width="20" height="2" rx="1" fill="#5e6ad220" />
       <rect x="58" y="8" width="14" height="2" rx="1" fill="#5e6ad212" />
       <rect x="96" y="8" width="14" height="4" rx="2" stroke="#5e6ad240" strokeWidth="0.75" fill="#5e6ad208" />
-      <text x="103" y="11.5" textAnchor="middle" fontSize="4" fontFamily="monospace" fill="#5e6ad250">⌘K</text>
+      <text x="103" y="11.5" textAnchor="middle" fontSize="4" fontFamily="'Space Mono', monospace" fill="#5e6ad250">⌘K</text>
       <rect x="34" y="24" width="24" height="8" rx="2" stroke="#5e6ad250" strokeWidth="0.75" fill="#5e6ad210" />
       <rect x="38" y="28" width="16" height="2" rx="1" fill="#5e6ad225" />
       <rect x="62" y="24" width="24" height="8" rx="2" stroke="#5e6ad225" strokeWidth="0.75" fill="#5e6ad206" />
@@ -354,13 +354,13 @@ export function SysVisorWidget({ className }: { className?: string }) {
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <rect x="4" y="4" width="112" height="72" rx="4" stroke="#0D1117" strokeWidth="1.5" fill="#0D111708" />
       <rect x="10" y="10" width="48" height="28" rx="2" stroke="#0D111740" strokeWidth="0.75" fill="#0D111706" />
-      <text x="34" y="20" textAnchor="middle" fontSize="5" fontFamily="monospace" fill="#0D111740">CPU</text>
+      <text x="34" y="20" textAnchor="middle" fontSize="5" fontFamily="'Space Mono', monospace" fill="#0D111740">CPU</text>
       <rect x="14" y="24" width="8" height="10" rx="1" fill="#0D111715" stroke="#0D111730" strokeWidth="0.5" />
       <rect x="24" y="26" width="8" height="8" rx="1" fill="#0D111718" stroke="#0D111730" strokeWidth="0.5" />
       <rect x="34" y="28" width="8" height="6" rx="1" fill="#0D111712" stroke="#0D111730" strokeWidth="0.5" />
       <rect x="44" y="25" width="8" height="9" rx="1" fill="#0D111716" stroke="#0D111730" strokeWidth="0.5" />
       <rect x="62" y="10" width="48" height="28" rx="2" stroke="#0D111740" strokeWidth="0.75" fill="#0D111706" />
-      <text x="86" y="20" textAnchor="middle" fontSize="5" fontFamily="monospace" fill="#0D111740">MEM</text>
+      <text x="86" y="20" textAnchor="middle" fontSize="5" fontFamily="'Space Mono', monospace" fill="#0D111740">MEM</text>
       <rect x="66" y="24" width="6" height="10" rx="1" fill="#0D111720" stroke="#0D111740" strokeWidth="0.5" />
       <rect x="74" y="26" width="6" height="8" rx="1" fill="#0D111715" stroke="#0D111740" strokeWidth="0.5" />
       <rect x="82" y="22" width="6" height="12" rx="1" fill="#0D111722" stroke="#0D111740" strokeWidth="0.5" />
@@ -401,6 +401,74 @@ export function ForgeUSBWidget({ className }: { className?: string }) {
   );
 }
 
+export function DocXPDFConverterWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="4" y="8" width="50" height="64" rx="3" stroke="#3a5a8a" strokeWidth="1.5" fill="#3a5a8a06" />
+      <rect x="10" y="14" width="38" height="4" rx="1" fill="#3a5a8a25" />
+      <rect x="10" y="22" width="32" height="3" rx="1" fill="#3a5a8a15" />
+      <rect x="10" y="28" width="36" height="3" rx="1" fill="#3a5a8a12" />
+      <rect x="10" y="34" width="28" height="3" rx="1" fill="#3a5a8a10" />
+      <text x="29" y="58" textAnchor="middle" fontSize="8" fontFamily="'Space Mono', monospace" fill="#3a5a8a40" fontWeight="700">DOC</text>
+      <line x1="56" y1="40" x2="64" y2="40" stroke="#3a5a8a50" strokeWidth="1" />
+      <polyline points="61,37 64,40 61,43" fill="none" stroke="#3a5a8a50" strokeWidth="1" />
+      <rect x="66" y="8" width="50" height="64" rx="3" stroke="#3a5a8a" strokeWidth="1.5" fill="#3a5a8a08" />
+      <rect x="72" y="14" width="38" height="4" rx="1" fill="#3a5a8a20" />
+      <rect x="72" y="22" width="32" height="3" rx="1" fill="#3a5a8a12" />
+      <rect x="72" y="28" width="36" height="3" rx="1" fill="#3a5a8a10" />
+      <rect x="72" y="34" width="28" height="3" rx="1" fill="#3a5a8a08" />
+      <circle cx="91" cy="56" r="10" stroke="#3a5a8a" strokeWidth="1" fill="none" />
+      <path d="M88 56 L91 53 L94 56 M91 53 L91 60" stroke="#3a5a8a" strokeWidth="1" fill="none" />
+    </svg>
+  );
+}
+
+export function PDFCompressorWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="16" y="8" width="88" height="64" rx="4" stroke="#5a3a6a" strokeWidth="1.5" fill="#5a3a6a06" />
+      <rect x="24" y="16" width="44" height="48" rx="2" stroke="#5a3a6a40" strokeWidth="1" fill="#5a3a6a08" />
+      <rect x="30" y="22" width="32" height="3" rx="1" fill="#5a3a6a20" />
+      <rect x="30" y="28" width="28" height="2" rx="1" fill="#5a3a6a15" />
+      <rect x="30" y="33" width="32" height="2" rx="1" fill="#5a3a6a12" />
+      <rect x="30" y="38" width="24" height="2" rx="1" fill="#5a3a6a10" />
+      <path d="M36 50 L42 44 L48 50" stroke="#5a3a6a50" strokeWidth="1.5" fill="none" />
+      <line x1="42" y1="44" x2="42" y2="58" stroke="#5a3a6a50" strokeWidth="1.5" />
+      <rect x="76" y="20" width="20" height="40" rx="2" stroke="#5a3a6a30" strokeWidth="1" fill="#5a3a6a04" />
+      <rect x="80" y="24" width="12" height="32" rx="1" fill="#5a3a6a15" />
+      <rect x="80" y="44" width="12" height="12" rx="1" fill="#5a3a6a30" />
+      <circle cx="86" cy="50" r="2" fill="#5a3a6a60" />
+    </svg>
+  );
+}
+
+export function CVGeneratorWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="4" y="4" width="56" height="72" rx="3" stroke="#4a6a3a" strokeWidth="1.5" fill="#4a6a3a06" />
+      <rect x="10" y="10" width="44" height="8" rx="1" fill="#4a6a3a25" />
+      <rect x="10" y="22" width="44" height="4" rx="1" fill="#4a6a3a15" />
+      <rect x="10" y="30" width="20" height="3" rx="1" fill="#4a6a3a20" />
+      <rect x="10" y="36" width="44" height="2" rx="1" fill="#4a6a3a12" />
+      <rect x="10" y="41" width="40" height="2" rx="1" fill="#4a6a3a10" />
+      <rect x="10" y="46" width="44" height="2" rx="1" fill="#4a6a3a08" />
+      <rect x="10" y="54" width="20" height="3" rx="1" fill="#4a6a3a20" />
+      <rect x="10" y="60" width="44" height="2" rx="1" fill="#4a6a3a12" />
+      <rect x="10" y="65" width="36" height="2" rx="1" fill="#4a6a3a10" />
+      <line x1="62" y1="40" x2="70" y2="40" stroke="#4a6a3a50" strokeWidth="1" />
+      <polyline points="67,37 70,40 67,43" fill="none" stroke="#4a6a3a50" strokeWidth="1" />
+      <rect x="72" y="8" width="44" height="64" rx="3" stroke="#4a6a3a" strokeWidth="1.5" fill="#4a6a3a08" />
+      <rect x="78" y="14" width="32" height="6" rx="1" fill="#4a6a3a30" />
+      <circle cx="86" cy="30" r="6" stroke="#4a6a3a50" strokeWidth="0.75" fill="#4a6a3a10" />
+      <rect x="78" y="40" width="32" height="2" rx="1" fill="#4a6a3a18" />
+      <rect x="78" y="45" width="28" height="2" rx="1" fill="#4a6a3a14" />
+      <rect x="78" y="50" width="32" height="2" rx="1" fill="#4a6a3a12" />
+      <rect x="78" y="58" width="16" height="6" rx="2" stroke="#4a6a3a40" strokeWidth="0.75" fill="#4a6a3a08" />
+      <rect x="96" y="58" width="14" height="6" rx="2" stroke="#4a6a3a50" strokeWidth="0.75" fill="#4a6a3a12" />
+    </svg>
+  );
+}
+
 export const projectWidgets: Record<string, (props: { className?: string }) => JSX.Element> = {
   harpia: HarpIAWidget,
   "srf-system": SRFWidget,
@@ -419,4 +487,7 @@ export const projectWidgets: Record<string, (props: { className?: string }) => J
   diskvisor: DiskVisorWidget,
   sysvisor: SysVisorWidget,
   "forge-usb": ForgeUSBWidget,
+  "docx-pdf-converter": DocXPDFConverterWidget,
+  "pdf-compressor": PDFCompressorWidget,
+  "cv-generator": CVGeneratorWidget,
 };

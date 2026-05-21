@@ -160,18 +160,39 @@ export default function CV() {
       </div>
 
       <style>{`
-        .cv-page {
-          min-height: 100vh;
-          padding: 2rem 1rem;
-          background: var(--color-bg);
-        }
-        .cv-sheet {
-          max-width: 52rem;
-          margin: 0 auto;
-          background: #fffdf3;
-          padding: 3rem;
-          border: 1px solid var(--color-border);
-        }
+.cv-page {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: var(--color-bg);
+}
+.cv-sheet {
+  max-width: 52rem;
+  margin: 0 auto;
+  background: #fffdf3;
+  padding: 3rem;
+  border: 1px solid var(--color-border);
+  color: #2d3a2f;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+html.dark-mode .cv-sheet {
+  box-shadow: 0 4px 48px rgba(0,0,0,0.4);
+  border-color: #2a2a2a;
+}
+html.dark-mode .cv-name { color: #1a1a1a !important; }
+html.dark-mode .cv-heading { color: #1a1a1a !important; border-bottom-color: #d4cfc5 !important; }
+html.dark-mode .cv-title { color: #5c6e60 !important; }
+html.dark-mode .cv-pcd { color: #8a9b8e !important; }
+html.dark-mode .cv-contact, html.dark-mode .cv-contact a { color: #5c6e60 !important; }
+html.dark-mode .cv-body, html.dark-mode .cv-list, html.dark-mode .cv-skill-items { color: #5c6e60 !important; }
+html.dark-mode .cv-entry-title { color: #1a1a1a !important; }
+html.dark-mode .cv-entry-org { color: #5c6e60 !important; }
+html.dark-mode .cv-entry-date, html.dark-mode .cv-tech, html.dark-mode .cv-skill-proof, html.dark-mode .cv-cert-context { color: #8a9b8e !important; }
+html.dark-mode .cv-status { color: #8a9b8e !important; border-color: #d4cfc5 !important; }
+html.dark-mode .cv-rule { border-top-color: #456a4b !important; }
+html.dark-mode .cv-ats-note { background: #1a1a1a !important; border-color: #2a2a2a !important; color: #cccccc !important; }
+html.dark-mode .cv-btn { border-color: #2a2a2a !important; color: #e5e5e5 !important; background: transparent !important; }
+html.dark-mode .cv-btn:hover { border-color: #e5e5e5 !important; }
+html.dark-mode .cv-btn-filled { background: #e5e5e5 !important; color: #0a0a0a !important; border-color: #e5e5e5 !important; }
   .cv-actions {
     display: flex;
     justify-content: space-between;
@@ -213,13 +234,13 @@ export default function CV() {
           transition: all 0.2s;
         }
         .cv-btn:hover {
-          border-color: var(--color-accent);
-          color: var(--color-accent);
+          border-color: var(--color-text-2);
+          color: var(--color-text-2);
         }
         .cv-btn-filled {
-          background: var(--color-accent);
+          background: var(--color-text-2);
           color: #fff;
-          border-color: var(--color-accent);
+          border-color: var(--color-text-2);
         }
         .cv-btn-filled:hover {
           opacity: 0.9;
@@ -233,12 +254,12 @@ export default function CV() {
           margin: 0 0 0.25rem;
           line-height: 1.2;
         }
-  .cv-title {
-    font-family: var(--font-mono);
+.cv-title {
+  font-family: var(--font-serif);
     font-size: 0.8rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-text-2);
     margin: 0 0 0.25rem;
   }
   .cv-pcd {
@@ -257,7 +278,7 @@ export default function CV() {
           margin-bottom: 1rem;
         }
         .cv-contact a {
-          color: var(--color-accent);
+          color: var(--color-text-2);
           text-decoration: none;
         }
         .cv-contact a:hover {
@@ -312,7 +333,7 @@ export default function CV() {
         .cv-entry-org {
           font-family: var(--font-mono);
           font-size: 0.75rem;
-          color: var(--color-accent);
+          color: var(--color-text-2);
           margin: 0;
         }
         .cv-entry-date {
@@ -333,8 +354,8 @@ export default function CV() {
           margin-top: 0.15rem;
         }
         .cv-status[data-active="true"] {
-          color: var(--color-accent);
-          border-color: var(--color-accent-30);
+          color: var(--color-text-2);
+          border-color: var(--color-text-2)-30);
         }
         .cv-list {
           list-style: disc;
@@ -362,7 +383,7 @@ export default function CV() {
     font-family: var(--font-mono);
     font-size: 0.7rem;
     font-weight: 400;
-    color: var(--color-accent);
+    color: var(--color-text-2);
     text-decoration: none;
     margin-left: 0.5rem;
   }
@@ -382,7 +403,7 @@ export default function CV() {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-accent);
+    color: var(--color-text-2);
     white-space: nowrap;
     min-width: 6rem;
     padding-top: 0.1rem;
