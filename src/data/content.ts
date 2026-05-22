@@ -72,6 +72,7 @@ b(
   linkedin: "https://www.linkedin.com/in/isaac-nathan-da-silva-barbosa-815b212ab/",
   github: "https://github.com/xAngryBadger",
   portfolio: "https://xangrybadger.github.io/isaac-vitae/",
+  personalSite: "https://xangrybadger.github.io/nathan/",
   pcd: b("PCD — TEA (CID-11: 6A02.2) + TDAH (CID-11: 6A05.2)", "PWD — ASD (ICD-11: 6A02.2) + ADHD (ICD-11: 6A05.2)"),
 };
 
