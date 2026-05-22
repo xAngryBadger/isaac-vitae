@@ -67,32 +67,32 @@ export default function Nav() {
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            <Link
-              to="/"
-              className="font-mono text-sm tracking-[0.2em] uppercase custom-cursor-target"
-              style={{ color: "var(--color-text)", textDecoration: "none" }}
-            >
-              Isaac
-              <span style={{ color: "var(--color-text-3)" }}>.</span>
-            </Link>
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          <button
+            onClick={openMenu}
+            className="flex items-center gap-2 custom-cursor-target px-3 py-2 rounded transition-all custom-border"
+            style={{
+              color: "var(--color-text)",
+              background: "var(--color-bg-card)",
+              border: "1px solid var(--color-border)",
+            }}
+            aria-label="Menu"
+          >
+            <Menu className="w-4 h-4" />
+            <span className="font-mono text-xs tracking-[0.1em] uppercase hidden md:block">
+              {t({ pt: "Menu", en: "Menu" })}
+            </span>
+          </button>
 
-<button
-onClick={openMenu}
-className="flex items-center gap-2 custom-cursor-target px-3 py-2 rounded transition-all custom-border"
-style={{
-color: "var(--color-text)",
-background: "var(--color-bg-card)",
-border: "1px solid var(--color-border)",
-}}
-aria-label="Menu"
->
-<Menu className="w-4 h-4" />
-<span className="font-mono text-xs tracking-[0.1em] uppercase hidden md:block">
-{t({ pt: "Menu", en: "Menu" })}
-</span>
-</button>
-          </div>
+          <Link
+            to="/"
+            className="font-mono text-sm tracking-[0.2em] uppercase custom-cursor-target"
+            style={{ color: "var(--color-text)", textDecoration: "none" }}
+          >
+            Isaac
+            <span style={{ color: "var(--color-text-3)" }}>.</span>
+          </Link>
+        </div>
         </div>
       </header>
 

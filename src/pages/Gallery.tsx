@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const galleryImages = [
   { src: "https://picsum.photos/seed/harpia-ai/1200/750", caption: { pt: "HarpIA — Pipeline de IA Criativa", en: "HarpIA — Creative AI Pipeline" }, project: "harpia" },
-  { src: "https://picsum.photos/seed/srf-forest/1200/750", caption: { pt: "SRF System — Restauração Florestal", en: "SRF System — Forest Restoration" }, project: "srf-system" },
+  { src: "https://picsum.photos/seed/orca-forest/1200/750", caption: { pt: "Orca — Planejamento Florestal", en: "Orca — Forest Planning" }, project: "orca" },
   { src: "https://picsum.photos/seed/flora-mobile/1200/750", caption: { pt: "Flora Sensus — Inventário Offline", en: "Flora Sensus — Offline Inventory" }, project: "florasensus" },
   { src: "https://picsum.photos/seed/fennec-desert/1200/750", caption: { pt: "Fennec Excel — IA Local & Planilhas", en: "Fennec Excel — Local AI & Spreadsheets" }, project: "fennec" },
   { src: "https://picsum.photos/seed/inovesa-web/1200/750", caption: { pt: "Inovesa — Site Institucional", en: "Inovesa — Institutional Website" }, project: "inovesa" },

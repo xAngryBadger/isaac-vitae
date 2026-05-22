@@ -480,27 +480,8 @@ export const projects: Project[] = [
   hasCaseStudy: false,
   playground: true,
 },
-  {
-    id: "json-forge",
-    title: "JSON Forge",
-    year: "2026",
-    category: b("Web · Ferramenta · Editor de Dados", "Web · Tool · Data Editor"),
-    description: b(
-      "Editor JSON completo com CodeMirror 6, árvore virtualizada, grafo ReactFlow, diff mode, gerador TypeScript e client REST integrado. Toggle claro/escuro. Renomeado para Tarsier — veja abaixo.",
-      "Full JSON editor with CodeMirror 6, virtualized tree, ReactFlow graph, diff mode, TypeScript generator and integrated REST client. Light/dark toggle. Renamed to Tarsier — see below."
-    ),
-    tech: ["React 19", "CodeMirror 6", "ReactFlow", "react-virtuoso", "TypeScript", "Vite"],
-    color: "#1a1a2e",
-    icon: null,
-    githubUrl: "https://github.com/xAngryBadger/tarsier",
-    demoUrl: "https://xangrybadger.github.io/tarsier/",
-    featured: false,
-    inProgress: false,
-    hasCaseStudy: false,
-    playground: true,
-  },
-  {
-    id: "notion-editor",
+{
+id: "notion-editor",
     title: "Notion Editor",
     year: "2026",
     category: b("Web · Rich Text · Block Editor", "Web · Rich Text · Block Editor"),

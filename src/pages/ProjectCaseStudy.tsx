@@ -190,14 +190,14 @@ export default function ProjectCaseStudy() {
     );
   }
 
-  const githubSlugMap: Record<string, string> = {
-    harpia: "harpia",
-    "srf-system": "srf-system",
-    "flora-sensus": "flora-sensus",
-    "fennec-excel": "Sahara-Fenneck",
-    inovesa: "",
-    forestai: "forestai",
-  };
+const githubSlugMap: Record<string, string> = {
+harpia: "harpia",
+orca: "orca",
+"flora-sensus": "flora-sensus",
+"fennec-excel": "Sahara-Fenneck",
+inovesa: "",
+forestai: "forestai",
+};
   const githubSlug = slug ? githubSlugMap[slug] : "";
   const hasGithub = !!githubSlug;
 
@@ -209,7 +209,7 @@ export default function ProjectCaseStudy() {
       "pil-compositor": { pt: "Compositor de imagens usando Python Imaging Library — gera designs localmente sem custo de API.", en: "Image compositor using Python Imaging Library — generates designs locally with no API cost." },
       "schema-enforcement": { pt: "Validação estrita de que as respostas do LLM seguem um schema JSON pré-definido antes de serem processadas.", en: "Strict validation that LLM responses follow a pre-defined JSON schema before being processed." },
     },
-    "srf-system": {
+    orca: {
       dossie: { pt: "Documento executivo completo com cronograma, custos, equipes e territórios para uma área de restauração.", en: "Complete executive document with schedule, costs, crews and territories for a restoration area." },
       nicegui: { pt: "Framework Python para interfaces web baseado em FastAPI + Vue.js — roda no navegador sem frontend separado.", en: "Python framework for web interfaces based on FastAPI + Vue.js — runs in the browser without a separate frontend." },
       "rich-cli": { pt: "Biblioteca Python para saídas de terminal ricas — tabelas, progress bars, árvores e highlight de syntax.", en: "Python library for rich terminal output — tables, progress bars, trees and syntax highlighting." },

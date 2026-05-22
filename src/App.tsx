@@ -21,6 +21,7 @@ import CV from "./pages/CV";
 import Playground from "./pages/Playground";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider, useLang } from "./lib/LanguageContext";
+import { DarkModeProvider } from "./lib/useDarkMode";
 import { useSounds } from "./lib/useSounds";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -152,9 +153,11 @@ function AppContent() {
 }
 
 export default function App() {
-  return (
-    <LanguageProvider>
-      <AppContent />
-    </LanguageProvider>
-  );
+return (
+<LanguageProvider>
+<DarkModeProvider>
+<AppContent />
+</DarkModeProvider>
+</LanguageProvider>
+);
 }

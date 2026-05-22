@@ -10,8 +10,6 @@ function getInitialLang(): Lang {
   if (typeof window === "undefined") return "pt";
   const stored = localStorage.getItem("lang");
   if (stored === "pt" || stored === "en") return stored;
-  const nav = navigator.language.slice(0, 2).toLowerCase();
-  if (nav === "en") return "en";
   return "pt";
 }
 

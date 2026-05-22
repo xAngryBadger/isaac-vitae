@@ -239,32 +239,6 @@ export function AppleProductPageWidget({ className }: { className?: string }) {
   );
 }
 
-export function JsonForgeWidget({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <rect x="4" y="4" width="56" height="72" rx="3" stroke="#1a1a2e" strokeWidth="1.5" fill="#1a1a2e06" />
-      <text x="32" y="16" textAnchor="middle" fontSize="7" fontFamily="'Space Mono', monospace" fill="#1a1a2e50" fontWeight="700">{}</text>
-      <rect x="10" y="22" width="44" height="2" rx="1" fill="#1a1a2e18" />
-      <rect x="14" y="28" width="36" height="2" rx="1" fill="#1a1a2e12" />
-      <rect x="14" y="34" width="28" height="2" rx="1" fill="#1a1a2e15" />
-      <rect x="18" y="40" width="32" height="2" rx="1" fill="#1a1a2e10" />
-      <rect x="14" y="46" width="24" height="2" rx="1" fill="#1a1a2e12" />
-      <rect x="10" y="52" width="44" height="2" rx="1" fill="#1a1a2e08" />
-      <rect x="66" y="4" width="50" height="36" rx="3" stroke="#1a1a2e" strokeWidth="1" fill="#1a1a2e05" />
-      <circle cx="78" cy="14" r="4" stroke="#1a1a2e60" strokeWidth="0.75" fill="#1a1a2e10" />
-      <circle cx="104" cy="14" r="4" stroke="#1a1a2e60" strokeWidth="0.75" fill="#1a1a2e10" />
-      <line x1="78" y1="18" x2="104" y2="18" stroke="#1a1a2e40" strokeWidth="0.75" />
-      <line x1="82" y1="14" x2="100" y2="14" stroke="#1a1a2e25" strokeWidth="0.75" />
-      <circle cx="91" cy="30" r="5" stroke="#1a1a2e40" strokeWidth="0.75" fill="#1a1a2e08" />
-      <rect x="66" y="44" width="50" height="32" rx="3" stroke="#1a1a2e30" strokeWidth="0.75" fill="#1a1a2e04" />
-      <rect x="72" y="50" width="16" height="2" rx="1" fill="#1a1a2e20" />
-      <rect x="72" y="55" width="38" height="2" rx="1" fill="#1a1a2e12" />
-      <rect x="72" y="60" width="30" height="2" rx="1" fill="#1a1a2e15" />
-      <rect x="72" y="65" width="34" height="2" rx="1" fill="#1a1a2e10" />
-    </svg>
-  );
-}
-
 export function NotionEditorWidget({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -539,7 +513,6 @@ export const projectWidgets: Record<string, (props: { className?: string }) => J
   "finance-tracker": FinanceTrackerWidget,
   forestai: ForestAIWidget,
   "apple-product-page": AppleProductPageWidget,
-  "json-forge": JsonForgeWidget,
   "notion-editor": NotionEditorWidget,
   "linear-app-ui": LinearAppUIWidget,
   diskvisor: DiskVisorWidget,
