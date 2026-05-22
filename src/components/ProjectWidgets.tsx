@@ -401,48 +401,106 @@ export function ForgeUSBWidget({ className }: { className?: string }) {
   );
 }
 
-export function DocXPDFConverterWidget({ className }: { className?: string }) {
+export function CapivaraWidget({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <rect x="4" y="8" width="50" height="64" rx="3" stroke="#3a5a8a" strokeWidth="1.5" fill="#3a5a8a06" />
-      <rect x="10" y="14" width="38" height="4" rx="1" fill="#3a5a8a25" />
-      <rect x="10" y="22" width="32" height="3" rx="1" fill="#3a5a8a15" />
-      <rect x="10" y="28" width="36" height="3" rx="1" fill="#3a5a8a12" />
-      <rect x="10" y="34" width="28" height="3" rx="1" fill="#3a5a8a10" />
-      <text x="29" y="58" textAnchor="middle" fontSize="8" fontFamily="'Space Mono', monospace" fill="#3a5a8a40" fontWeight="700">DOC</text>
-      <line x1="56" y1="40" x2="64" y2="40" stroke="#3a5a8a50" strokeWidth="1" />
-      <polyline points="61,37 64,40 61,43" fill="none" stroke="#3a5a8a50" strokeWidth="1" />
-      <rect x="66" y="8" width="50" height="64" rx="3" stroke="#3a5a8a" strokeWidth="1.5" fill="#3a5a8a08" />
-      <rect x="72" y="14" width="38" height="4" rx="1" fill="#3a5a8a20" />
-      <rect x="72" y="22" width="32" height="3" rx="1" fill="#3a5a8a12" />
-      <rect x="72" y="28" width="36" height="3" rx="1" fill="#3a5a8a10" />
-      <rect x="72" y="34" width="28" height="3" rx="1" fill="#3a5a8a08" />
-      <circle cx="91" cy="56" r="10" stroke="#3a5a8a" strokeWidth="1" fill="none" />
-      <path d="M88 56 L91 53 L94 56 M91 53 L91 60" stroke="#3a5a8a" strokeWidth="1" fill="none" />
+      <rect x="4" y="4" width="112" height="72" rx="4" stroke="#2563eb" strokeWidth="1.5" fill="#2563eb06" />
+      <rect x="10" y="10" width="50" height="12" rx="2" stroke="#2563eb30" strokeWidth="0.75" fill="#2563eb08" />
+      <rect x="14" y="14" width="16" height="2" rx="1" fill="#2563eb30" />
+      <rect x="34" y="14" width="8" height="2" rx="1" fill="#2563eb20" />
+      <rect x="10" y="28" width="24" height="20" rx="2" stroke="#2563eb" strokeWidth="1" fill="#2563eb08" />
+      <text x="22" y="42" textAnchor="middle" fontSize="6" fontFamily="'Space Mono', monospace" fill="#2563eb50" fontWeight="700">PDF</text>
+      <rect x="38" y="28" width="24" height="20" rx="2" stroke="#2563eb40" strokeWidth="0.75" fill="#2563eb04" />
+      <text x="50" y="42" textAnchor="middle" fontSize="5" fontFamily="'Space Mono', monospace" fill="#2563eb30">DOC</text>
+      <rect x="66" y="28" width="24" height="20" rx="2" stroke="#2563eb40" strokeWidth="0.75" fill="#2563eb04" />
+      <text x="78" y="42" textAnchor="middle" fontSize="5" fontFamily="'Space Mono', monospace" fill="#2563eb30">IMG</text>
+      <rect x="94" y="28" width="18" height="20" rx="2" stroke="#2563eb25" strokeWidth="0.75" fill="#2563eb03" />
+      <text x="103" y="42" textAnchor="middle" fontSize="4" fontFamily="'Space Mono', monospace" fill="#2563eb20">+</text>
+      <rect x="10" y="54" width="20" height="16" rx="2" stroke="#2563eb30" strokeWidth="0.75" fill="#2563eb05" />
+      <rect x="14" y="58" width="12" height="2" rx="1" fill="#2563eb15" />
+      <rect x="14" y="62" width="8" height="2" rx="1" fill="#2563eb10" />
+      <circle cx="90" cy="62" r="8" stroke="#2563eb" strokeWidth="1" fill="none" />
+      <path d="M87 62 L90 59 L93 62 M90 59 L90 65" stroke="#2563eb" strokeWidth="1" fill="none" />
     </svg>
   );
 }
 
-export function PDFCompressorWidget({ className }: { className?: string }) {
+export function TarsierWidget({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <rect x="16" y="8" width="88" height="64" rx="4" stroke="#5a3a6a" strokeWidth="1.5" fill="#5a3a6a06" />
-      <rect x="24" y="16" width="44" height="48" rx="2" stroke="#5a3a6a40" strokeWidth="1" fill="#5a3a6a08" />
-      <rect x="30" y="22" width="32" height="3" rx="1" fill="#5a3a6a20" />
-      <rect x="30" y="28" width="28" height="2" rx="1" fill="#5a3a6a15" />
-      <rect x="30" y="33" width="32" height="2" rx="1" fill="#5a3a6a12" />
-      <rect x="30" y="38" width="24" height="2" rx="1" fill="#5a3a6a10" />
-      <path d="M36 50 L42 44 L48 50" stroke="#5a3a6a50" strokeWidth="1.5" fill="none" />
-      <line x1="42" y1="44" x2="42" y2="58" stroke="#5a3a6a50" strokeWidth="1.5" />
-      <rect x="76" y="20" width="20" height="40" rx="2" stroke="#5a3a6a30" strokeWidth="1" fill="#5a3a6a04" />
-      <rect x="80" y="24" width="12" height="32" rx="1" fill="#5a3a6a15" />
-      <rect x="80" y="44" width="12" height="12" rx="1" fill="#5a3a6a30" />
-      <circle cx="86" cy="50" r="2" fill="#5a3a6a60" />
+      <rect x="4" y="4" width="56" height="72" rx="3" stroke="#10b981" strokeWidth="1.5" fill="#10b98106" />
+      <text x="32" y="16" textAnchor="middle" fontSize="7" fontFamily="'Space Mono', monospace" fill="#10b98150" fontWeight="700">{}</text>
+      <rect x="10" y="22" width="44" height="2" rx="1" fill="#10b98118" />
+      <rect x="14" y="28" width="36" height="2" rx="1" fill="#10b98112" />
+      <rect x="14" y="34" width="28" height="2" rx="1" fill="#10b98115" />
+      <rect x="18" y="40" width="32" height="2" rx="1" fill="#10b98110" />
+      <rect x="14" y="46" width="24" height="2" rx="1" fill="#10b98112" />
+      <rect x="10" y="52" width="44" height="2" rx="1" fill="#10b98108" />
+      <rect x="66" y="4" width="50" height="36" rx="3" stroke="#10b981" strokeWidth="1" fill="#10b98105" />
+      <circle cx="78" cy="14" r="4" stroke="#10b98160" strokeWidth="0.75" fill="#10b98110" />
+      <circle cx="104" cy="14" r="4" stroke="#10b98160" strokeWidth="0.75" fill="#10b98110" />
+      <line x1="78" y1="18" x2="104" y2="18" stroke="#10b98140" strokeWidth="0.75" />
+      <line x1="82" y1="14" x2="100" y2="14" stroke="#10b98125" strokeWidth="0.75" />
+      <circle cx="91" cy="30" r="5" stroke="#10b98140" strokeWidth="0.75" fill="#10b98108" />
+      <rect x="66" y="44" width="50" height="32" rx="3" stroke="#10b98130" strokeWidth="0.75" fill="#10b98104" />
+      <rect x="72" y="50" width="16" height="2" rx="1" fill="#10b98120" />
+      <rect x="72" y="55" width="38" height="2" rx="1" fill="#10b98112" />
+      <rect x="72" y="60" width="30" height="2" rx="1" fill="#10b98115" />
+      <rect x="72" y="65" width="34" height="2" rx="1" fill="#10b98110" />
     </svg>
   );
 }
 
-export function CVGeneratorWidget({ className }: { className?: string }) {
+export function KakapoWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="4" y="4" width="112" height="72" rx="4" stroke="#d97706" strokeWidth="1.5" fill="#d9770606" />
+      <rect x="10" y="10" width="60" height="52" rx="3" stroke="#d9770640" strokeWidth="1" fill="#d9770608" />
+      <circle cx="40" cy="36" r="14" stroke="#d97706" strokeWidth="1.5" fill="none" />
+      <circle cx="40" cy="36" r="5" stroke="#d9770660" strokeWidth="0.75" fill="#d9770610" />
+      <path d="M34 30 L40 24 L46 30" stroke="#d9770640" strokeWidth="1" fill="none" />
+      <rect x="20" y="56" width="40" height="2" rx="1" fill="#d9770620" />
+      <rect x="76" y="14" width="36" height="6" rx="1" fill="#d9770620" />
+      <rect x="76" y="24" width="36" height="2" rx="1" fill="#d9770612" />
+      <rect x="76" y="30" width="28" height="2" rx="1" fill="#d9770610" />
+      <rect x="76" y="36" width="36" height="2" rx="1" fill="#d9770608" />
+      <rect x="76" y="46" width="16" height="6" rx="1" stroke="#d9770640" strokeWidth="0.75" fill="#d9770608" />
+      <rect x="96" y="46" width="16" height="6" rx="1" stroke="#d9770630" strokeWidth="0.75" fill="#d9770604" />
+      <rect x="76" y="58" width="36" height="4" rx="2" fill="#d9770615" />
+      <rect x="76" y="58" width="20" height="4" rx="2" fill="#d9770630" />
+    </svg>
+  );
+}
+
+export function OilbirdWidget({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="4" y="4" width="52" height="72" rx="3" stroke="#64748b" strokeWidth="1.5" fill="#64748b06" />
+      <text x="30" y="18" textAnchor="middle" fontSize="5" fontFamily="'Space Mono', monospace" fill="#64748b50" fontWeight="700"># MD</text>
+      <rect x="10" y="24" width="40" height="2" rx="1" fill="#64748b20" />
+      <rect x="14" y="30" width="32" height="2" rx="1" fill="#64748b15" />
+      <rect x="14" y="36" width="28" height="2" rx="1" fill="#64748b12" />
+      <rect x="10" y="42" width="40" height="2" rx="1" fill="#64748b10" />
+      <rect x="14" y="48" width="36" height="2" rx="1" fill="#64748b08" />
+      <rect x="14" y="54" width="24" height="2" rx="1" fill="#64748b12" />
+      <rect x="10" y="60" width="40" height="2" rx="1" fill="#64748b06" />
+      <line x1="58" y1="40" x2="66" y2="40" stroke="#64748b50" strokeWidth="1" />
+      <polyline points="63,37 66,40 63,43" fill="none" stroke="#64748b50" strokeWidth="1" />
+      <rect x="68" y="4" width="48" height="72" rx="3" stroke="#d4a574" strokeWidth="1.5" fill="#d4a57406" />
+      <rect x="74" y="10" width="36" height="6" rx="1" fill="#d4a57425" />
+      <rect x="74" y="22" width="36" height="2" rx="1" fill="#d4a57415" />
+      <rect x="74" y="28" width="28" height="2" rx="1" fill="#d4a57412" />
+      <rect x="74" y="34" width="36" height="2" rx="1" fill="#d4a57410" />
+      <rect x="78" y="42" width="28" height="2" rx="1" fill="#d4a57408" />
+      <rect x="78" y="48" width="24" height="2" rx="1" fill="#d4a57410" />
+      <rect x="74" y="56" width="36" height="2" rx="1" fill="#d4a57408" />
+      <rect x="74" y="64" width="16" height="4" rx="1" stroke="#d4a57440" strokeWidth="0.75" fill="#d4a57408" />
+      <rect x="94" y="64" width="16" height="4" rx="1" stroke="#d4a57450" strokeWidth="0.75" fill="#d4a57412" />
+    </svg>
+  );
+}
+
+export function CegonhaWidget({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <rect x="4" y="4" width="56" height="72" rx="3" stroke="#4a6a3a" strokeWidth="1.5" fill="#4a6a3a06" />
@@ -487,7 +545,9 @@ export const projectWidgets: Record<string, (props: { className?: string }) => J
   diskvisor: DiskVisorWidget,
   sysvisor: SysVisorWidget,
   "forge-usb": ForgeUSBWidget,
-  "docx-pdf-converter": DocXPDFConverterWidget,
-  "pdf-compressor": PDFCompressorWidget,
-  "cegonha": CVGeneratorWidget,
+  capivara: CapivaraWidget,
+  tarsier: TarsierWidget,
+  kakapo: KakapoWidget,
+  oilbird: OilbirdWidget,
+  cegonha: CegonhaWidget,
 };

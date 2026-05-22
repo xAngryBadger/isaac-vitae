@@ -20,6 +20,11 @@ const galleryImages = [
   { src: "https://picsum.photos/seed/forest-vision/1200/750", caption: { pt: "ForestAI — Detecção de Espécies", en: "ForestAI — Species Detection" }, project: "forestai" },
   { src: "https://picsum.photos/seed/dev-setup1/1200/750", caption: { pt: "CachyOS + Hyprland — Rice", en: "CachyOS + Hyprland — Rice" }, project: "rice" },
   { src: "https://picsum.photos/seed/dev-terminal/1200/750", caption: { pt: "Terminal & Tooling — Workflow", en: "Terminal & Tooling — Workflow" }, project: "rice" },
+  { src: "https://picsum.photos/seed/capivara-pdf/1200/750", caption: { pt: "Capivara — Suíte PDF Completa", en: "Capivara — Full PDF Suite" }, project: "capivara" },
+  { src: "https://picsum.photos/seed/tarsier-json/1200/750", caption: { pt: "Tarsier — Editor JSON Visual", en: "Tarsier — Visual JSON Editor" }, project: "tarsier" },
+  { src: "https://picsum.photos/seed/kakapo-editor/1200/750", caption: { pt: "Kakapo — Editor de Imagens", en: "Kakapo — Image Editor" }, project: "kakapo" },
+  { src: "https://picsum.photos/seed/oilbird-md/1200/750", caption: { pt: "Oilbird — Markdown → PDF", en: "Oilbird — Markdown → PDF" }, project: "oilbird" },
+  { src: "https://picsum.photos/seed/cegonha-form/1200/750", caption: { pt: "Cegonha — Gerador de Formulários", en: "Cegonha — Form Generator" }, project: "cegonha" },
 ];
 
 function Lightbox({

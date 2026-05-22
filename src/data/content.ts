@@ -486,19 +486,19 @@ export const projects: Project[] = [
     year: "2026",
     category: b("Web · Ferramenta · Editor de Dados", "Web · Tool · Data Editor"),
     description: b(
-      "Editor JSON completo com CodeMirror 6, árvore virtualizada, grafo ReactFlow, diff mode, gerador TypeScript e client REST integrado. Toggle claro/escuro.",
-      "Full JSON editor with CodeMirror 6, virtualized tree, ReactFlow graph, diff mode, TypeScript generator and integrated REST client. Light/dark toggle."
+      "Editor JSON completo com CodeMirror 6, árvore virtualizada, grafo ReactFlow, diff mode, gerador TypeScript e client REST integrado. Toggle claro/escuro. Renomeado para Tarsier — veja abaixo.",
+      "Full JSON editor with CodeMirror 6, virtualized tree, ReactFlow graph, diff mode, TypeScript generator and integrated REST client. Light/dark toggle. Renamed to Tarsier — see below."
     ),
     tech: ["React 19", "CodeMirror 6", "ReactFlow", "react-virtuoso", "TypeScript", "Vite"],
     color: "#1a1a2e",
     icon: null,
-githubUrl: "https://github.com/xAngryBadger/json-forge",
-demoUrl: "https://xangrybadger.github.io/json-forge/",
-featured: false,
-inProgress: false,
-hasCaseStudy: false,
-playground: true,
-},
+    githubUrl: "https://github.com/xAngryBadger/tarsier",
+    demoUrl: "https://xangrybadger.github.io/tarsier/",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: false,
+    playground: true,
+  },
   {
     id: "notion-editor",
     title: "Notion Editor",
@@ -538,43 +538,83 @@ hasCaseStudy: false,
 playground: true,
 },
   {
-    id: "docx-pdf-converter",
-    title: "DocX PDF Converter",
+    id: "capivara",
+    title: "Capivara",
     year: "2026",
-    category: b("Web · Ferramenta · Conversão de Documentos", "Web · Tool · Document Conversion"),
+    category: b("Web · Suíte PDF · 15 Ferramentas", "Web · PDF Suite · 15 Tools"),
     description: b(
-      "Conversor DocX → PDF com upload drag-drop, preview side-by-side e download automático. Backend FastAPI rodando em Google Colab (ngrok) para conversão serverless gratuita.",
-      "DocX → PDF converter with drag-drop upload, side-by-side preview and auto-download. FastAPI backend running on Google Colab (ngrok) for free serverless conversion."
+      "Suíte PDF completa estilo iLovePDF — 15 ferramentas: DOCX/XLSX→PDF, PDF→DOCX, compressão, merge, split, rotação, marca d'água, numeração, cabeçalho/rodapé, proteção, desbloqueio, OCR, PDF→imagens, PDF/A. Frontend React 19 com hash routing, backend FastAPI com StreamingResponse e cloudflared para túnel serverless gratuito via Google Colab.",
+      "Full PDF suite à la iLovePDF — 15 tools: DOCX/XLSX→PDF, PDF→DOCX, compress, merge, split, rotate, watermark, page numbers, header/footer, protect, unlock, OCR, PDF→images, PDF/A. React 19 frontend with hash routing, FastAPI backend with StreamingResponse and cloudflared for free serverless tunneling via Google Colab."
     ),
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
-    color: "#3a5a8a",
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "FastAPI", "pypdf", "reportlab", "PyMuPDF", "cloudflared"],
+    color: "#2563eb",
     icon: null,
-    githubUrl: "https://github.com/xAngryBadger/docx-pdf-converter",
-    demoUrl: "https://xangrybadger.github.io/docx-pdf-converter/",
+    githubUrl: "https://github.com/xAngryBadger/capivara",
+    demoUrl: "https://xangrybadger.github.io/capivara/",
     featured: false,
     inProgress: false,
     hasCaseStudy: true,
-    caseStudySlug: "docx-pdf-converter",
+    caseStudySlug: "capivara",
     playground: true,
   },
   {
-    id: "pdf-compressor",
-    title: "PDF Compressor",
+    id: "tarsier",
+    title: "Tarsier",
     year: "2026",
-    category: b("Web · Ferramenta · Otimização de PDF", "Web · Tool · PDF Optimization"),
+    category: b("Web · Ferramenta · Editor de Dados", "Web · Tool · Data Editor"),
     description: b(
-      "Compressor de PDF com slider de qualidade, estimativa de redução em tempo real e visualização do resultado. Backend FastAPI rodando em Google Colab (ngrok) para compressão serverless gratuita.",
-      "PDF compressor with quality slider, real-time reduction estimate and result preview. FastAPI backend running on Google Colab (ngrok) for free serverless compression."
+      "Editor JSON completo com CodeMirror 6, árvore virtualizada, grafo ReactFlow, diff mode, gerador TypeScript e client REST integrado. 100% client-side — zero backend. Toggle claro/escuro com paleta emerald/teal.",
+      "Full JSON editor with CodeMirror 6, virtualized tree, ReactFlow graph, diff mode, TypeScript generator and integrated REST client. 100% client-side — zero backend. Light/dark toggle with emerald/teal palette."
     ),
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
-    color: "#5a3a6a",
+    tech: ["React 19", "CodeMirror 6", "ReactFlow", "react-virtuoso", "TypeScript", "Vite"],
+    color: "#10b981",
     icon: null,
-    githubUrl: "https://github.com/xAngryBadger/pdf-compressor",
-    demoUrl: "https://xangrybadger.github.io/pdf-compressor/",
+    githubUrl: "https://github.com/xAngryBadger/tarsier",
+    demoUrl: "https://xangrybadger.github.io/tarsier/",
     featured: false,
     inProgress: false,
     hasCaseStudy: true,
-    caseStudySlug: "pdf-compressor",
+    caseStudySlug: "tarsier",
+    playground: true,
+  },
+  {
+    id: "kakapo",
+    title: "Kakapo",
+    year: "2026",
+    category: b("Web · Ferramenta · Editor de Imagens", "Web · Tool · Image Editor"),
+    description: b(
+      "Editor de imagens client-side com Canvas API — compressão, resize, crop, filtros, rotação e ajustes. Motor de edição commit-based com undo/redo. 100% no browser, zero upload. Paleta warm amber/coral.",
+      "Client-side image editor with Canvas API — compress, resize, crop, filters, rotation and adjustments. Commit-based editing engine with undo/redo. 100% in-browser, zero uploads. Warm amber/coral palette."
+    ),
+    tech: ["React 19", "Canvas API", "TypeScript", "Vite", "Tailwind CSS v4"],
+    color: "#d97706",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/kakapo",
+    demoUrl: "https://xangrybadger.github.io/kakapo/",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: true,
+    caseStudySlug: "kakapo",
+    playground: true,
+  },
+  {
+    id: "oilbird",
+    title: "Oilbird",
+    year: "2026",
+    category: b("Web · Ferramenta · Markdown → PDF", "Web · Tool · Markdown to PDF"),
+    description: b(
+      "Conversor Markdown → PDF com preview em tempo real e temas customizáveis. Backend FastAPI com WeasyPrint para renderização PDF profissional, cloudflared para túnel serverless gratuito via Google Colab. Paleta ink/ivory com acentos dourados.",
+      "Markdown → PDF converter with real-time preview and customizable themes. FastAPI backend with WeasyPrint for professional PDF rendering, cloudflared for free serverless tunneling via Google Colab. Ink/ivory palette with golden accents."
+    ),
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "FastAPI", "WeasyPrint", "cloudflared"],
+    color: "#64748b",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/oilbird",
+    demoUrl: "https://xangrybadger.github.io/oilbird/",
+    featured: false,
+    inProgress: false,
+    hasCaseStudy: true,
+    caseStudySlug: "oilbird",
     playground: true,
   },
   {
@@ -583,11 +623,11 @@ playground: true,
     year: "2026",
     category: b("Web · Ferramenta · Geração de Currículo", "Web · Tool · Resume Generation"),
     description: b(
-      "Gerador de currículo com templates editáveis, preview em tempo real e exportação PDF. Formulários dinâmicos com drag-reorder. Backend FastAPI rodando em Google Colab (ngrok) para geração serverless gratuita.",
-      "Resume generator with editable templates, real-time preview and PDF export. Dynamic forms with drag-reorder. FastAPI backend running on Google Colab (ngrok) for free serverless generation."
+      "Gerador de currículo com templates editáveis, preview em tempo real e exportação PDF. Formulários dinâmicos com drag-reorder. Paleta sage green com tipografia editorial.",
+      "Resume generator with editable templates, real-time preview and PDF export. Dynamic forms with drag-reorder. Sage green palette with editorial typography."
     ),
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "Google Colab"],
-    color: "#4a6a3a",
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion"],
+    color: "#456A4B",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/cegonha",
     demoUrl: "https://xangrybadger.github.io/cegonha/",
@@ -793,10 +833,10 @@ export const cvProjects: CvProject[] = [
     tech: ["Node.js", "mineflayer", "NVIDIA NIM API", "Reinforcement Learning"],
   },
   {
-  id: "hellosocial",
-  name: "HelloSocial",
-  url: null,
-  tier: 2,
+    id: "hellosocial",
+    name: "HelloSocial",
+    url: null,
+    tier: 2,
     bullets: [
       b(
         "Plataforma de criação e agendamento de posts com IA — projeto na Paware que inspirou o HarpIA. Pipeline de geração de imagens com Flux Kontext Pro e DALL-E 3, agentes de copy e template. PIX via Mercado Pago (AguaQuality). Canva + Placid (HelloSocial/Paware). Pexels API para busca automática de imagens no HarpIA.",
@@ -804,6 +844,75 @@ export const cvProjects: CvProject[] = [
       ),
     ],
     tech: ["Python", "FastAPI", "Azure OpenAI", "Flux", "Canva API", "React"],
+  },
+  {
+    id: "capivara",
+    name: "Capivara",
+    url: "github.com/xAngryBadger/capivara",
+    tier: 2,
+    bullets: [
+      b(
+        "Suíte PDF completa com 15 ferramentas — DOCX/XLSX→PDF, PDF→DOCX, compressão, merge, split, rotação, marca d'água, numeração, cabeçalho/rodapé, proteção, desbloqueio, OCR, PDF→imagens, PDF/A. Frontend React 19 com hash routing e grid de ferramentas, backend FastAPI com StreamingResponse.",
+        "Full PDF suite with 15 tools — DOCX/XLSX→PDF, PDF→DOCX, compress, merge, split, rotate, watermark, page numbers, header/footer, protect, unlock, OCR, PDF→images, PDF/A. React 19 frontend with hash routing and tool grid, FastAPI backend with StreamingResponse."
+      ),
+      b(
+        "Túnel serverless gratuito via cloudflared + Google Colab — zero conta, zero token. Lazy imports para deps pesadas (PyMuPDF, pytesseract, pikepdf). pypdf 6+ compat (PdfWriter-based merge).",
+        "Free serverless tunneling via cloudflared + Google Colab — zero account, zero token. Lazy imports for heavy deps (PyMuPDF, pytesseract, pikepdf). pypdf 6+ compat (PdfWriter-based merge)."
+      ),
+    ],
+    tech: ["React 19", "TypeScript", "FastAPI", "pypdf", "reportlab", "PyMuPDF", "cloudflared"],
+  },
+  {
+    id: "tarsier",
+    name: "Tarsier",
+    url: "github.com/xAngryBadger/tarsier",
+    tier: 2,
+    bullets: [
+      b(
+        "Editor JSON 100% client-side com CodeMirror 6, árvore virtualizada, grafo ReactFlow, diff mode, gerador TypeScript e client REST integrado. Zero backend — tudo roda no browser.",
+        "100% client-side JSON editor with CodeMirror 6, virtualized tree, ReactFlow graph, diff mode, TypeScript generator and integrated REST client. Zero backend — everything runs in the browser."
+      ),
+    ],
+    tech: ["React 19", "CodeMirror 6", "ReactFlow", "TypeScript", "Vite"],
+  },
+  {
+    id: "kakapo",
+    name: "Kakapo",
+    url: "github.com/xAngryBadger/kakapo",
+    tier: 2,
+    bullets: [
+      b(
+        "Editor de imagens client-side com Canvas API — compressão, resize, crop, filtros, rotação e ajustes. Motor de edição commit-based com undo/redo. 100% no browser, zero upload.",
+        "Client-side image editor with Canvas API — compress, resize, crop, filters, rotation and adjustments. Commit-based editing engine with undo/redo. 100% in-browser, zero uploads."
+      ),
+    ],
+    tech: ["React 19", "Canvas API", "TypeScript", "Vite"],
+  },
+  {
+    id: "oilbird",
+    name: "Oilbird",
+    url: "github.com/xAngryBadger/oilbird",
+    tier: 2,
+    bullets: [
+      b(
+        "Conversor Markdown → PDF com preview em tempo real e temas customizáveis. Backend FastAPI + WeasyPrint para renderização PDF profissional, túnel cloudflared via Google Colab.",
+        "Markdown → PDF converter with real-time preview and customizable themes. FastAPI + WeasyPrint backend for professional PDF rendering, cloudflared tunnel via Google Colab."
+      ),
+    ],
+    tech: ["React 19", "TypeScript", "FastAPI", "WeasyPrint", "cloudflared"],
+  },
+  {
+    id: "cegonha",
+    name: "Cegonha",
+    url: "github.com/xAngryBadger/cegonha",
+    tier: 2,
+    bullets: [
+      b(
+        "Gerador de currículo com templates editáveis, preview em tempo real e exportação PDF. Formulários dinâmicos com drag-reorder. Paleta sage green com tipografia editorial.",
+        "Resume generator with editable templates, real-time preview and PDF export. Dynamic forms with drag-reorder. Sage green palette with editorial typography."
+      ),
+    ],
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4"],
   },
 ];
 
@@ -1176,7 +1285,7 @@ model.trainer.fit(
       },
     ],
   },
-    inovesa: {
+  inovesa: {
     challenge: b(
       "Empresas florestais no Brasil têm problema de credibilidade visual — sites parecem de 2005. A Inovesa queria sinalizar engenharia premium através de design premium: motion cinematográfico, scroll suave, e uma ouvidoria que transmita seriedade. O desafio era entregar isso com bundle enxuto — Motion + Lenis + React 19 pesa se não for controlado.",
       "Forestry companies in Brazil have a visual credibility problem — their websites look like 2005. Inovesa wanted to signal premium engineering through premium design: cinematic motion, smooth scroll, and an ombudsman that conveys seriousness. The challenge was delivering this with a lean bundle — Motion + Lenis + React 19 gets heavy if not controlled."
@@ -1249,7 +1358,170 @@ export const variants = {
   );
 }`,
       },
-],
+    ],
+  },
+  capivara: {
+    challenge: b(
+      "Ferramentas online de PDF (iLovePDF, Smallpdf) são freemium agressivo — limite de arquivos, marca d'água, fila de espera. Hospedar um backend PDF requer crédito para cloud. O desafio: construir uma suíte completa de 15 ferramentas PDF com backend Python pesado (PyMuPDF, pytesseract, pikepdf) sem gastar nada com infra.",
+      "Online PDF tools (iLovePDF, Smallpdf) are aggressively freemium — file limits, watermarks, wait queues. Hosting a PDF backend requires cloud credit. The challenge: build a complete 15-tool PDF suite with a heavy Python backend (PyMuPDF, pytesseract, pikepdf) without spending anything on infra."
+    ),
+    approach: b(
+      "Frontend React 19 com hash routing (useSyncExternalStore) — grid de ferramentas por categoria + workspace individual por ferramenta. Backend FastAPI monolítico com lazy imports para deps pesadas (só carrega PyMuPDF quando alguém chama PDF→DOCX). StreamingResponse em tudo (zero temp files). Cloudflared para túnel serverless gratuito via Google Colab — zero conta, zero token, instante.",
+      "React 19 frontend with hash routing (useSyncExternalStore) — category-grouped tool grid + individual workspace per tool. Monolithic FastAPI backend with lazy imports for heavy deps (only loads PyMuPDF when someone calls PDF→DOCX). StreamingResponse everywhere (zero temp files). Cloudflared for free serverless tunneling via Google Colab — zero account, zero token, instant."
+    ),
+    results: [
+      b("15 ferramentas PDF: converter, comprimir, mesclar, dividir, rotacionar, marca d'água, numeração, cabeçalho/rodapé, proteção, desbloqueio, OCR, PDF→DOCX, PDF→imagens, PDF/A", "15 PDF tools: convert, compress, merge, split, rotate, watermark, page numbers, header/footer, protect, unlock, OCR, PDF→DOCX, PDF→images, PDF/A"),
+      b("Backend zero custo — cloudflared + Google Colab (zero conta, zero token)", "Zero-cost backend — cloudflared + Google Colab (zero account, zero token)"),
+      b("StreamingResponse em todos os endpoints — zero temp files, tudo in-memory", "StreamingResponse on all endpoints — zero temp files, all in-memory"),
+      b("pypdf 6+ compat — PdfWriter-based merge (PdfMerger removido)", "pypdf 6+ compat — PdfWriter-based merge (PdfMerger removed)"),
+      b("Lazy imports: PyMuPDF, pytesseract, pikepdf só carregam quando chamados", "Lazy imports: PyMuPDF, pytesseract, pikepdf only load when called"),
+    ],
+    keyFeatures: [
+      b("Hash routing com useSyncExternalStore — sem react-router", "Hash routing with useSyncExternalStore — no react-router"),
+      b("Static switch WorkspaceSlot — satisfaz ESLint react-hooks/static-components", "Static switch WorkspaceSlot — satisfies ESLint react-hooks/static-components"),
+      b("StreamingResponse + BytesIO — zero FileResponse, zero disco", "StreamingResponse + BytesIO — zero FileResponse, zero disk"),
+      b("reportlab + pypdf overlay pattern para watermark, page numbers, header/footer", "reportlab + pypdf overlay pattern for watermark, page numbers, header/footer"),
+      b("Colab notebook 3 células: install deps, %%writefile, cloudflared+uvicorn", "Colab notebook 3 cells: install deps, %%writefile, cloudflared+uvicorn"),
+    ],
+    codeSnippets: [
+      {
+        language: "python",
+        title: b("StreamingResponse — Merge PDF", "StreamingResponse — Merge PDF"),
+        code: `def merge_pdfs(pdf_bytes_list: list[bytes]) -> bytes:
+    writer = PdfWriter()
+    for pdf_bytes in pdf_bytes_list:
+        reader = PdfReader(io.BytesIO(pdf_bytes))
+        for page in reader.pages:
+            writer.add_page(page)
+    buf = io.BytesIO()
+    writer.write(buf)
+    buf.seek(0)
+    return buf.getvalue()
+
+@app.post("/api/merge")
+async def api_merge(files: list[UploadFile] = File(...)):
+    pdf_bytes_list = [await f.read() for f in files]
+    result = merge_pdfs(pdf_bytes_list)
+    return StreamingResponse(
+        io.BytesIO(result), media_type="application/pdf"
+    )`,
+      },
+      {
+        language: "python",
+        title: b("Lazy Import — PyMuPDF para PDF→DOCX", "Lazy Import — PyMuPDF for PDF→DOCX"),
+        code: `def pdf_to_docx(pdf_bytes: bytes) -> bytes:
+    import fitz  # PyMuPDF — only loaded on demand
+
+    doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+    text = ""
+    for page in doc:
+        text += page.get_text()
+    doc.close()
+
+    from docx import Document as DocxDocument
+    docx_doc = DocxDocument()
+    for para_text in text.split("\\n"):
+        if para_text.strip():
+            docx_doc.add_paragraph(para_text)
+
+    buf = io.BytesIO()
+    docx_doc.save(buf)
+    buf.seek(0)
+    return buf.getvalue()`,
+      },
+    ],
+  },
+  tarsier: {
+    challenge: b(
+      "Editores JSON online dependem de backend para validação, transformação e diff. Ferramentas desktop são pesadas. O desafio: construir um editor JSON completo que funciona 100% no browser — com árvore, grafo, diff, geração de tipos e REST client — sem nenhum backend.",
+      "Online JSON editors depend on backends for validation, transformation and diff. Desktop tools are heavy. The challenge: build a complete JSON editor that works 100% in the browser — with tree, graph, diff, type generation and REST client — without any backend."
+    ),
+    approach: b(
+      "React 19 com CodeMirror 6 para edição de código, ReactFlow para visualização de grafo, react-virtuoso para árvores com milhares de nós. Motor de transformação JSON (filter, map, flatten, jq-like) tudo client-side em TypeScript. Diff mode com comparison visual side-by-side. Gerador TypeScript que infere tipos a partir de dados JSON reais.",
+      "React 19 with CodeMirror 6 for code editing, ReactFlow for graph visualization, react-virtuoso for trees with thousands of nodes. JSON transform engine (filter, map, flatten, jq-like) all client-side in TypeScript. Diff mode with visual side-by-side comparison. TypeScript generator that infers types from real JSON data."
+    ),
+    results: [
+      b("100% client-side — zero backend, zero latency de rede, funciona offline", "100% client-side — zero backend, zero network latency, works offline"),
+      b("Editor CodeMirror 6 com syntax highlighting, validation e autocomplete JSON", "CodeMirror 6 editor with syntax highlighting, validation and JSON autocomplete"),
+      b("Grafo ReactFlow — visualização interativa da estrutura JSON com nós expansíveis", "ReactFlow graph — interactive JSON structure visualization with expandable nodes"),
+      b("Diff mode side-by-side — compara duas versões com highlight de mudanças", "Side-by-side diff mode — compare two versions with change highlighting"),
+      b("Gerador TypeScript — infere tipos a partir de dados reais (não genéricos)", "TypeScript generator — infers types from real data (not generic)"),
+    ],
+    keyFeatures: [
+      b("CodeMirror 6 com JSON mode, lint e autocomplete", "CodeMirror 6 with JSON mode, lint and autocomplete"),
+      b("ReactFlow graph visualization com drag-zoom-pan", "ReactFlow graph visualization with drag-zoom-pan"),
+      b("react-virtuoso para árvores com 10K+ nós sem travar", "react-virtuoso for trees with 10K+ nodes without freezing"),
+      b("Jq-like transform engine: filter, map, flatten, pick, rename", "Jq-like transform engine: filter, map, flatten, pick, rename"),
+      b("REST client integrado — testa APIs direto do editor", "Integrated REST client — test APIs right from the editor"),
+    ],
+  },
+  kakapo: {
+    challenge: b(
+      "Editores de imagem online (Canva, Pixlr) são pesados e exigem upload. Ferramentas de desktop são overkill para ajustes rápidos. O desafio: editor de imagens completo que roda 100% no browser — compressão, resize, crop, filtros — sem enviar nada para nenhum servidor.",
+      "Online image editors (Canva, Pixlr) are heavy and require uploads. Desktop tools are overkill for quick adjustments. The challenge: complete image editor that runs 100% in the browser — compress, resize, crop, filters — without sending anything to any server."
+    ),
+    approach: b(
+      "React 19 com Canvas API nativa para processamento de imagens. Motor de edição commit-based — cada operação gera um snapshot, undo/redo navega pelo histórico. Nenhum dado sai do browser: compressão, filtros e ajustes rodam via Canvas 2D context. Tailwind v4 com paleta warm amber/coral.",
+      "React 19 with native Canvas API for image processing. Commit-based editing engine — each operation generates a snapshot, undo/redo navigates history. No data leaves the browser: compression, filters and adjustments run via Canvas 2D context. Tailwind v4 with warm amber/coral palette."
+    ),
+    results: [
+      b("100% client-side — zero upload, zero servidor, funciona offline", "100% client-side — zero upload, zero server, works offline"),
+      b("Compressão com controle de qualidade e preview de tamanho em tempo real", "Compression with quality control and real-time size preview"),
+      b("Resize, crop, rotação, flip — operações básicas com undo/redo", "Resize, crop, rotation, flip — basic operations with undo/redo"),
+      b("Filtros: brightness, contrast, saturation, grayscale, sepia, blur — via Canvas API", "Filters: brightness, contrast, saturation, grayscale, sepia, blur — via Canvas API"),
+      b("Paleta amber/coral com tipografia editorial Playfair + Inter", "Amber/coral palette with editorial typography Playfair + Inter"),
+    ],
+    keyFeatures: [
+      b("Canvas API — processamento nativo, zero WebGL, zero WASM", "Canvas API — native processing, zero WebGL, zero WASM"),
+      b("Commit-based engine — undo/redo com histórico de snapshots", "Commit-based engine — undo/redo with snapshot history"),
+      b("Drag-drop upload + paste from clipboard", "Drag-drop upload + paste from clipboard"),
+      b("Download em PNG, JPEG ou WebP com controle de qualidade", "Download as PNG, JPEG or WebP with quality control"),
+    ],
+  },
+  oilbird: {
+    challenge: b(
+      "Conversores Markdown→PDF online inserem marca d'água ou limitam páginas. Ferramentas desktop (Pandoc) exigem instalação. O desafio: conversor com preview em tempo real, temas profissionais e renderização PDF de qualidade — sem custo de infra.",
+      "Online Markdown→PDF converters insert watermarks or limit pages. Desktop tools (Pandoc) require installation. The challenge: converter with real-time preview, professional themes and quality PDF rendering — without infra cost."
+    ),
+    approach: b(
+      "Frontend React 19 com editor Markdown e preview live (rendered HTML). Backend FastAPI + WeasyPrint para renderização PDF com CSS Paged Media — suporte a margins, headers/footers, page breaks e fontes customizadas. Cloudflared para túnel serverless gratuito via Google Colab. Paleta ink/ivory com acentos dourados.",
+      "React 19 frontend with Markdown editor and live preview (rendered HTML). FastAPI + WeasyPrint backend for PDF rendering with CSS Paged Media — margins, headers/footers, page breaks and custom fonts support. Cloudflared for free serverless tunneling via Google Colab. Ink/ivory palette with golden accents."
+    ),
+    results: [
+      b("Preview em tempo real — Markdown editado aparece renderizado instantaneamente", "Real-time preview — edited Markdown appears rendered instantly"),
+      b("WeasyPrint para PDF profissional — CSS Paged Media, page breaks, headers/footers", "WeasyPrint for professional PDF — CSS Paged Media, page breaks, headers/footers"),
+      b("Túnel serverless gratuito — cloudflared + Google Colab", "Free serverless tunnel — cloudflared + Google Colab"),
+      b("Temas customizáveis — academic, modern, minimal", "Customizable themes — academic, modern, minimal"),
+      b("Exportação PDF com tipografia profissional (Playfair Display + Inter)", "PDF export with professional typography (Playfair Display + Inter)"),
+    ],
+    keyFeatures: [
+      b("WeasyPrint: CSS Paged Media com @page, @bottom-center, string-set", "WeasyPrint: CSS Paged Media with @page, @bottom-center, string-set"),
+      b("Live preview split-pane — Markdown left, rendered right", "Live preview split-pane — Markdown left, rendered right"),
+      b("Temas: academic (serif), modern (sans), minimal (mono)", "Themes: academic (serif), modern (sans), minimal (mono)"),
+      b("Cloudflared tunnel — zero account, zero token, instant URL", "Cloudflared tunnel — zero account, zero token, instant URL"),
+    ],
+  },
+  cegonha: {
+    challenge: b(
+      "Geradores de currículo online (Canva, Novoresume) inserem marca d'água ou limitam seções. Templates Word são inconsistentes entre versões. O desafio: gerador com preview em tempo real, templates editáveis e exportação PDF limpa — sem watermark, sem limite.",
+      "Online resume generators (Canva, Novoresume) insert watermarks or limit sections. Word templates are inconsistent across versions. The challenge: generator with real-time preview, editable templates and clean PDF export — no watermark, no limits."
+    ),
+    approach: b(
+      "React 19 com formulários dinâmicos e drag-reorder para reordenar seções. Preview em tempo real que reflete edições instantaneamente. Exportação PDF client-side com tipografia editorial (Playfair Display + Inter). Paleta sage green com design premium — cada template é uma composição tipográfica, não um formulário genérico.",
+      "React 19 with dynamic forms and drag-reorder to reorder sections. Real-time preview that reflects edits instantly. Client-side PDF export with editorial typography (Playfair Display + Inter). Sage green palette with premium design — each template is a typographic composition, not a generic form."
+    ),
+    results: [
+      b("Preview em tempo real — cada edição reflete instantaneamente no currículo", "Real-time preview — every edit reflects instantly on the resume"),
+      b("Drag-reorder de seções — reordene experiência, educação, skills com drag", "Section drag-reorder — reorder experience, education, skills with drag"),
+      b("Exportação PDF limpa — sem marca d'água, sem limite de seções", "Clean PDF export — no watermark, no section limits"),
+      b("Tipografia editorial — Playfair Display + Inter, composição premium", "Editorial typography — Playfair Display + Inter, premium composition"),
+    ],
+    keyFeatures: [
+      b("Dynamic forms — adicione/remova seções sem limite", "Dynamic forms — add/remove sections without limits"),
+      b("Drag-reorder — reordene seções com drag-and-drop", "Drag-reorder — reorder sections with drag-and-drop"),
+      b("Client-side PDF — sem backend para geração do PDF", "Client-side PDF — no backend for PDF generation"),
+      b("Sage green palette com editorial dividers", "Sage green palette with editorial dividers"),
+    ],
   },
 };
 
