@@ -5,7 +5,7 @@ import { useLang } from "../lib/LanguageContext";
 import { useSounds } from "../lib/useSounds";
 import { personal } from "../data/content";
 import { scrambleText } from "../lib/scramble";
-import { useDarkMode } from "../lib/useDarkMode";
+import { DarkModeToggle } from "./DarkModeToggle";
 import { DyslexiaToggle } from "./DyslexiaToggle";
 
 const menuLinks = [
@@ -27,7 +27,6 @@ export default function Nav() {
   const progressRef = useRef<HTMLDivElement>(null);
   const { t, lang, toggle } = useLang();
   const { enabled: soundsEnabled, playMenuOpen, playMenuClose, toggleSounds } = useSounds();
-  const { isEnabled: darkEnabled, toggle: toggleDark } = useDarkMode();
   const location = useLocation();
 
   const handleScramble = (e: React.MouseEvent<HTMLElement>) => {
@@ -219,13 +218,7 @@ export default function Nav() {
             {lang === "pt" ? "EN" : "PT"}
           </button>
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
-          <button
-            onClick={toggleDark}
-            className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target flex items-center gap-1"
-            style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
-          >
-            {darkEnabled ? "☀" : "☾"} {darkEnabled ? (lang === "pt" ? "Claro" : "Light") : (lang === "pt" ? "Escuro" : "Dark")}
-          </button>
+          <DarkModeToggle />
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
           <DyslexiaToggle />
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
