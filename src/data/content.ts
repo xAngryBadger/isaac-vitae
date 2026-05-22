@@ -544,10 +544,10 @@ playground: true,
     year: "2026",
     category: b("Web · Ferramenta · Editor de Dados", "Web · Tool · Data Editor"),
     description: b(
-      "Editor JSON completo com CodeMirror 6, árvore virtualizada, grafo ReactFlow, diff mode, gerador TypeScript e client REST integrado. 100% client-side — zero backend. Toggle claro/escuro com paleta emerald/teal.",
-      "Full JSON editor with CodeMirror 6, virtualized tree, ReactFlow graph, diff mode, TypeScript generator and integrated REST client. 100% client-side — zero backend. Light/dark toggle with emerald/teal palette."
+"Workbench JSON 100% client-side com árvore colapsável, transformações (pretty-print, minify, CSV, tipos TypeScript), stats (keys, depth, bytes) e exportação. Zero backend — parse, análise e transformação rodam no browser.",
+       "100% client-side JSON workbench with collapsible tree, transformations (pretty-print, minify, CSV, TypeScript types), stats (keys, depth, bytes) and export. Zero backend — parse, analysis and transformation run in the browser."
     ),
-    tech: ["React 19", "CodeMirror 6", "ReactFlow", "react-virtuoso", "TypeScript", "Vite"],
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion"],
     color: "#10b981",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/tarsier",
@@ -584,10 +584,10 @@ playground: true,
     year: "2026",
     category: b("Web · Ferramenta · Markdown → PDF", "Web · Tool · Markdown to PDF"),
     description: b(
-      "Conversor Markdown → PDF com preview em tempo real e temas customizáveis. Backend FastAPI com WeasyPrint para renderização PDF profissional, cloudflared para túnel serverless gratuito via Google Colab. Paleta ink/ivory com acentos dourados.",
-      "Markdown → PDF converter with real-time preview and customizable themes. FastAPI backend with WeasyPrint for professional PDF rendering, cloudflared for free serverless tunneling via Google Colab. Ink/ivory palette with golden accents."
+"Conversor Markdown → PDF com preview live split-pane e renderização WeasyPrint profissional. Backend FastAPI com CSS Paged Media (@page, headers/footers), cloudflared para túnel serverless gratuito via Google Colab. Paleta ink/ivory com acentos dourados.",
+       "Markdown → PDF converter with live split-pane preview and professional WeasyPrint rendering. FastAPI backend with CSS Paged Media (@page, headers/footers), cloudflared for free serverless tunneling via Google Colab. Ink/ivory palette with golden accents."
     ),
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "FastAPI", "WeasyPrint", "cloudflared"],
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "WeasyPrint", "cloudflared"],
     color: "#64748b",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/oilbird",
@@ -604,11 +604,11 @@ playground: true,
     year: "2026",
     category: b("Web · Ferramenta · Geração de Currículo", "Web · Tool · Resume Generation"),
     description: b(
-      "Gerador de currículo com templates editáveis, preview em tempo real e exportação PDF. Formulários dinâmicos com drag-reorder. Paleta sage green com tipografia editorial.",
-      "Resume generator with editable templates, real-time preview and PDF export. Dynamic forms with drag-reorder. Sage green palette with editorial typography."
+"Gerador de currículo com formulários estruturados, 3 estilos de template e exportação PDF server-side. Backend FastAPI + reportlab para geração de PDF limpo, sem marca d'água. Paleta sage green com tipografia editorial. Suporte bilíngue (pt/en).",
+       "Resume generator with structured forms, 3 template styles and server-side PDF export. FastAPI + reportlab backend for clean PDF generation, no watermark. Sage green palette with editorial typography. Bilingual support (pt/en)."
     ),
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion"],
-    color: "#456A4B",
+tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "reportlab"],
+  color: "#456A4B",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/cegonha",
     demoUrl: "https://xangrybadger.github.io/cegonha/",
@@ -837,8 +837,8 @@ export const cvProjects: CvProject[] = [
         "Full PDF suite with 15 tools — DOCX/XLSX→PDF, PDF→DOCX, compress, merge, split, rotate, watermark, page numbers, header/footer, protect, unlock, OCR, PDF→images, PDF/A. React 19 frontend with hash routing and tool grid, FastAPI backend with StreamingResponse."
       ),
       b(
-        "Túnel serverless gratuito via cloudflared + Google Colab — zero conta, zero token. Lazy imports para deps pesadas (PyMuPDF, pytesseract, pikepdf). pypdf 6+ compat (PdfWriter-based merge).",
-        "Free serverless tunneling via cloudflared + Google Colab — zero account, zero token. Lazy imports for heavy deps (PyMuPDF, pytesseract, pikepdf). pypdf 6+ compat (PdfWriter-based merge)."
+        "Túnel serverless gratuito via cloudflared + Google Colab — zero conta, zero token. Lazy imports para deps pesadas (PyMuPDF, pytesseract, pikepdf). pypdf 4+ com PdfWriter-based merge (PdfMerger removido).",
+        "Free serverless tunneling via cloudflared + Google Colab — zero account, zero token. Lazy imports for heavy deps (PyMuPDF, pytesseract, pikepdf). pypdf 4+ with PdfWriter-based merge (PdfMerger removed)."
       ),
     ],
     tech: ["React 19", "TypeScript", "FastAPI", "pypdf", "reportlab", "PyMuPDF", "cloudflared"],
@@ -850,37 +850,24 @@ export const cvProjects: CvProject[] = [
     tier: 2,
     bullets: [
       b(
-        "Editor JSON 100% client-side com CodeMirror 6, árvore virtualizada, grafo ReactFlow, diff mode, gerador TypeScript e client REST integrado. Zero backend — tudo roda no browser.",
-        "100% client-side JSON editor with CodeMirror 6, virtualized tree, ReactFlow graph, diff mode, TypeScript generator and integrated REST client. Zero backend — everything runs in the browser."
+        "Workbench JSON 100% client-side com árvore colapsável, transformações (pretty-print, minify, CSV, tipos TypeScript) e stats. Zero backend — tudo roda no browser.",
+        "100% client-side JSON workbench with collapsible tree, transformations (pretty-print, minify, CSV, TypeScript types) and stats. Zero backend — everything runs in the browser."
       ),
-    ],
-    tech: ["React 19", "CodeMirror 6", "ReactFlow", "TypeScript", "Vite"],
-  },
-  {
-    id: "kakapo",
-    name: "Kakapo",
-    url: "github.com/xAngryBadger/kakapo",
-    tier: 2,
-    bullets: [
-      b(
-        "Editor de imagens client-side com Canvas API — compressão, resize, crop, filtros, rotação e ajustes. Motor de edição commit-based com undo/redo. 100% no browser, zero upload.",
-        "Client-side image editor with Canvas API — compress, resize, crop, filters, rotation and adjustments. Commit-based editing engine with undo/redo. 100% in-browser, zero uploads."
-      ),
-    ],
-    tech: ["React 19", "Canvas API", "TypeScript", "Vite"],
-  },
-  {
-    id: "oilbird",
+],
+      tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "reportlab"],
+    },
+    {
+      id: "oilbird",
     name: "Oilbird",
     url: "github.com/xAngryBadger/oilbird",
     tier: 2,
     bullets: [
       b(
-        "Conversor Markdown → PDF com preview em tempo real e temas customizáveis. Backend FastAPI + WeasyPrint para renderização PDF profissional, túnel cloudflared via Google Colab.",
-        "Markdown → PDF converter with real-time preview and customizable themes. FastAPI + WeasyPrint backend for professional PDF rendering, cloudflared tunnel via Google Colab."
+        "Conversor Markdown → PDF com preview live split-pane e renderização WeasyPrint profissional. Backend FastAPI + WeasyPrint com CSS Paged Media (@page, headers/footers), túnel cloudflared gratuito via Google Colab.",
+        "Markdown → PDF converter with live split-pane preview and professional WeasyPrint rendering. FastAPI + WeasyPrint backend with CSS Paged Media (@page, headers/footers), free cloudflared tunnel via Google Colab."
       ),
     ],
-    tech: ["React 19", "TypeScript", "FastAPI", "WeasyPrint", "cloudflared"],
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "WeasyPrint", "cloudflared"],
   },
   {
     id: "cegonha",
@@ -889,11 +876,11 @@ export const cvProjects: CvProject[] = [
     tier: 2,
     bullets: [
       b(
-        "Gerador de currículo com templates editáveis, preview em tempo real e exportação PDF. Formulários dinâmicos com drag-reorder. Paleta sage green com tipografia editorial.",
-        "Resume generator with editable templates, real-time preview and PDF export. Dynamic forms with drag-reorder. Sage green palette with editorial typography."
+        "Gerador de currículo com formulários estruturados, 3 estilos de template (modern, classic, minimal) e exportação PDF server-side via FastAPI + reportlab. Paleta sage green com tipografia editorial. Suporte bilíngue (pt/en).",
+        "Resume generator with structured forms, 3 template styles (modern, classic, minimal) and server-side PDF export via FastAPI + reportlab. Sage green palette with editorial typography. Bilingual support (pt/en)."
       ),
     ],
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4"],
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "reportlab"],
   },
 ];
 
@@ -1414,26 +1401,24 @@ async def api_merge(files: list[UploadFile] = File(...)):
   },
   tarsier: {
     challenge: b(
-      "Editores JSON online dependem de backend para validação, transformação e diff. Ferramentas desktop são pesadas. O desafio: construir um editor JSON completo que funciona 100% no browser — com árvore, grafo, diff, geração de tipos e REST client — sem nenhum backend.",
-      "Online JSON editors depend on backends for validation, transformation and diff. Desktop tools are heavy. The challenge: build a complete JSON editor that works 100% in the browser — with tree, graph, diff, type generation and REST client — without any backend."
+      "Editores JSON online dependem de backend para validação e transformação. Ferramentas desktop são pesadas. O desafio: construir um workbench JSON que funciona 100% no browser — parse, análise de estrutura, transformações úteis e geração de tipos — sem nenhum backend.",
+      "Online JSON editors depend on backends for validation and transformation. Desktop tools are heavy. The challenge: build a JSON workbench that works 100% in the browser — parse, structure analysis, useful transformations and type generation — without any backend."
     ),
     approach: b(
-      "React 19 com CodeMirror 6 para edição de código, ReactFlow para visualização de grafo, react-virtuoso para árvores com milhares de nós. Motor de transformação JSON (filter, map, flatten, jq-like) tudo client-side em TypeScript. Diff mode com comparison visual side-by-side. Gerador TypeScript que infere tipos a partir de dados JSON reais.",
-      "React 19 with CodeMirror 6 for code editing, ReactFlow for graph visualization, react-virtuoso for trees with thousands of nodes. JSON transform engine (filter, map, flatten, jq-like) all client-side in TypeScript. Diff mode with visual side-by-side comparison. TypeScript generator that infers types from real JSON data."
+      "React 19 com textarea para input JSON cru, parser que constrói estrutura em árvore e componente recursivo TreeView para navegação colapsável. Engine de transformação client-side em TypeScript: pretty-print, minify, exportação CSV e inferência de tipos TypeScript a partir de dados reais. Tailwind v4 com paleta emerald/teal e Framer Motion para animações.",
+      "React 19 with textarea for raw JSON input, parser that builds tree structure and recursive TreeView component for collapsible navigation. Client-side transform engine in TypeScript: pretty-print, minify, CSV export and TypeScript type inference from real data. Tailwind v4 with emerald/teal palette and Framer Motion for animations."
     ),
     results: [
       b("100% client-side — zero backend, zero latency de rede, funciona offline", "100% client-side — zero backend, zero network latency, works offline"),
-      b("Editor CodeMirror 6 com syntax highlighting, validation e autocomplete JSON", "CodeMirror 6 editor with syntax highlighting, validation and JSON autocomplete"),
-      b("Grafo ReactFlow — visualização interativa da estrutura JSON com nós expansíveis", "ReactFlow graph — interactive JSON structure visualization with expandable nodes"),
-      b("Diff mode side-by-side — compara duas versões com highlight de mudanças", "Side-by-side diff mode — compare two versions with change highlighting"),
-      b("Gerador TypeScript — infere tipos a partir de dados reais (não genéricos)", "TypeScript generator — infers types from real data (not generic)"),
+      b("Árvore colapsável — navegação visual da estrutura JSON com expand/colapse por nó", "Collapsible tree — visual JSON structure navigation with per-node expand/collapse"),
+      b("Transformações — pretty-print, minify, exportação CSV e geração de tipos TypeScript", "Transformations — pretty-print, minify, CSV export and TypeScript type generation"),
+      b("Stats em tempo real — contagem de keys, profundidade máxima e tamanho em bytes", "Real-time stats — key count, max depth and byte size"),
     ],
     keyFeatures: [
-      b("CodeMirror 6 com JSON mode, lint e autocomplete", "CodeMirror 6 with JSON mode, lint and autocomplete"),
-      b("ReactFlow graph visualization com drag-zoom-pan", "ReactFlow graph visualization with drag-zoom-pan"),
-      b("react-virtuoso para árvores com 10K+ nós sem travar", "react-virtuoso for trees with 10K+ nodes without freezing"),
-      b("Jq-like transform engine: filter, map, flatten, pick, rename", "Jq-like transform engine: filter, map, flatten, pick, rename"),
-      b("REST client integrado — testa APIs direto do editor", "Integrated REST client — test APIs right from the editor"),
+      b("Parser JSON robusto — detecta erros de sintaxe com linha e coluna", "Robust JSON parser — detects syntax errors with line and column"),
+      b("Árvore colapsável recursiva — navegação visual de objetos e arrays aninhados", "Recursive collapsible tree — visual navigation of nested objects and arrays"),
+      b("Inferência de tipos TypeScript — gera interfaces a partir de dados JSON reais", "TypeScript type inference — generates interfaces from real JSON data"),
+      b("Exportação CSV — converte arrays de objetos para CSV com headers automáticos", "CSV export — converts object arrays to CSV with automatic headers"),
     ],
   },
   kakapo: {
@@ -1465,43 +1450,43 @@ async def api_merge(files: list[UploadFile] = File(...)):
       "Online Markdown→PDF converters insert watermarks or limit pages. Desktop tools (Pandoc) require installation. The challenge: converter with real-time preview, professional themes and quality PDF rendering — without infra cost."
     ),
     approach: b(
-      "Frontend React 19 com editor Markdown e preview live (rendered HTML). Backend FastAPI + WeasyPrint para renderização PDF com CSS Paged Media — suporte a margins, headers/footers, page breaks e fontes customizadas. Cloudflared para túnel serverless gratuito via Google Colab. Paleta ink/ivory com acentos dourados.",
-      "React 19 frontend with Markdown editor and live preview (rendered HTML). FastAPI + WeasyPrint backend for PDF rendering with CSS Paged Media — margins, headers/footers, page breaks and custom fonts support. Cloudflared for free serverless tunneling via Google Colab. Ink/ivory palette with golden accents."
+      "Frontend React 19 com editor Markdown em textarea e preview live split-pane via conversão client-side. Backend FastAPI + WeasyPrint para renderização PDF com CSS Paged Media — suporte a @page, @bottom-center, string-set, page breaks e fontes DejaVu. Cloudflared para túnel serverless gratuito via Google Colab. Paleta ink/ivory com acentos dourados.",
+      "React 19 frontend with textarea Markdown editor and live split-pane preview via client-side conversion. FastAPI + WeasyPrint backend for PDF rendering with CSS Paged Media — @page, @bottom-center, string-set, page breaks and DejaVu fonts. Cloudflared for free serverless tunneling via Google Colab. Ink/ivory palette with golden accents."
     ),
     results: [
       b("Preview em tempo real — Markdown editado aparece renderizado instantaneamente", "Real-time preview — edited Markdown appears rendered instantly"),
       b("WeasyPrint para PDF profissional — CSS Paged Media, page breaks, headers/footers", "WeasyPrint for professional PDF — CSS Paged Media, page breaks, headers/footers"),
       b("Túnel serverless gratuito — cloudflared + Google Colab", "Free serverless tunnel — cloudflared + Google Colab"),
-      b("Temas customizáveis — academic, modern, minimal", "Customizable themes — academic, modern, minimal"),
-      b("Exportação PDF com tipografia profissional (Playfair Display + Inter)", "PDF export with professional typography (Playfair Display + Inter)"),
+      b("CSS Paged Media — @page, @bottom-center com número de página e título", "CSS Paged Media — @page, @bottom-center with page number and title"),
+      b("Template profissional único — tipografia DejaVu Sans, layout ink/ivory", "Single professional template — DejaVu Sans typography, ink/ivory layout"),
     ],
     keyFeatures: [
       b("WeasyPrint: CSS Paged Media com @page, @bottom-center, string-set", "WeasyPrint: CSS Paged Media with @page, @bottom-center, string-set"),
-      b("Live preview split-pane — Markdown left, rendered right", "Live preview split-pane — Markdown left, rendered right"),
-      b("Temas: academic (serif), modern (sans), minimal (mono)", "Themes: academic (serif), modern (sans), minimal (mono)"),
-      b("Cloudflared tunnel — zero account, zero token, instant URL", "Cloudflared tunnel — zero account, zero token, instant URL"),
+      b("Live preview split-pane — textarea Markdown left, HTML rendered right", "Live preview split-pane — Markdown textarea left, rendered HTML right"),
+      b("Template profissional único — DejaVu Serif/Sans com layout editorial ink/ivory", "Single professional template — DejaVu Serif/Sans with editorial ink/ivory layout"),
+      b("Cloudflared tunnel — zero account, zero token, instant public URL", "Cloudflared tunnel — zero account, zero token, instant public URL"),
     ],
   },
   cegonha: {
     challenge: b(
-      "Geradores de currículo online (Canva, Novoresume) inserem marca d'água ou limitam seções. Templates Word são inconsistentes entre versões. O desafio: gerador com preview em tempo real, templates editáveis e exportação PDF limpa — sem watermark, sem limite.",
-      "Online resume generators (Canva, Novoresume) insert watermarks or limit sections. Word templates are inconsistent across versions. The challenge: generator with real-time preview, editable templates and clean PDF export — no watermark, no limits."
+      "Geradores de currículo online (Canva, Novoresume) inserem marca d'água ou limitam seções. Templates Word são inconsistentes entre versões. O desafio: gerador com formulários estruturados, múltiplos estilos de template e exportação PDF limpa — sem watermark, sem limite.",
+      "Online resume generators (Canva, Novoresume) insert watermarks or limit sections. Word templates are inconsistent across versions. The challenge: generator with structured forms, multiple template styles and clean PDF export — no watermark, no limits."
     ),
     approach: b(
-      "React 19 com formulários dinâmicos e drag-reorder para reordenar seções. Preview em tempo real que reflete edições instantaneamente. Exportação PDF client-side com tipografia editorial (Playfair Display + Inter). Paleta sage green com design premium — cada template é uma composição tipográfica, não um formulário genérico.",
-      "React 19 with dynamic forms and drag-reorder to reorder sections. Real-time preview that reflects edits instantly. Client-side PDF export with editorial typography (Playfair Display + Inter). Sage green palette with premium design — each template is a typographic composition, not a generic form."
+      "React 19 com formulários estruturados para cada seção do currículo (dados pessoais, experiência, projetos, educação, skills). Backend FastAPI + reportlab para geração de PDF com 3 estilos de template (modern, classic, minimal). Paleta sage green — cada template é uma composição tipográfica, não um formulário genérico. Suporte bilíngue (pt/en).",
+      "React 19 with structured forms for each resume section (personal data, experience, projects, education, skills). FastAPI + reportlab backend for PDF generation with 3 template styles (modern, classic, minimal). Sage green palette — each template is a typographic composition, not a generic form. Bilingual support (pt/en)."
     ),
     results: [
-      b("Preview em tempo real — cada edição reflete instantaneamente no currículo", "Real-time preview — every edit reflects instantly on the resume"),
-      b("Drag-reorder de seções — reordene experiência, educação, skills com drag", "Section drag-reorder — reorder experience, education, skills with drag"),
-      b("Exportação PDF limpa — sem marca d'água, sem limite de seções", "Clean PDF export — no watermark, no section limits"),
-      b("Tipografia editorial — Playfair Display + Inter, composição premium", "Editorial typography — Playfair Display + Inter, premium composition"),
+      b("3 templates — modern, classic, minimal — cada um com composição tipográfica distinta", "3 templates — modern, classic, minimal — each with distinct typographic composition"),
+      b("Exportação PDF server-side — FastAPI + reportlab, sem marca d'água, sem limites", "Server-side PDF export — FastAPI + reportlab, no watermark, no limits"),
+      b("Formulários estruturados — seções fixas cobrindo dados pessoais, experiência, projetos, educação e skills", "Structured forms — fixed sections covering personal data, experience, projects, education and skills"),
+      b("Suporte bilíngue — interface e templates em português e inglês", "Bilingual support — interface and templates in Portuguese and English"),
     ],
     keyFeatures: [
-      b("Dynamic forms — adicione/remova seções sem limite", "Dynamic forms — add/remove sections without limits"),
-      b("Drag-reorder — reordene seções com drag-and-drop", "Drag-reorder — reorder sections with drag-and-drop"),
-      b("Client-side PDF — sem backend para geração do PDF", "Client-side PDF — no backend for PDF generation"),
-      b("Sage green palette com editorial dividers", "Sage green palette with editorial dividers"),
+      b("3 estilos de template — modern, classic, minimal com design editorial", "3 template styles — modern, classic, minimal with editorial design"),
+      b("PDF via reportlab — canvas programático, tipografia DejaVu Sans, sem marca d'água", "PDF via reportlab — programmatic canvas, DejaVu Sans typography, no watermark"),
+      b("Formulários estruturados — 13 campos cobrindo todas as seções de um currículo completo", "Structured forms — 13 fields covering all sections of a complete resume"),
+      b("Sage green palette com editorial dividers e suporte bilíngue", "Sage green palette with editorial dividers and bilingual support"),
     ],
   },
 };
