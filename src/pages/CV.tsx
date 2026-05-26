@@ -175,24 +175,27 @@ export default function CV() {
   transition: box-shadow 0.3s, border-color 0.3s;
 }
 html.dark-mode .cv-sheet {
-  box-shadow: 0 4px 48px rgba(0,0,0,0.4);
-  border-color: #2a2a2a;
+background: #1a1a1a !important;
+box-shadow: 0 4px 48px rgba(0,0,0,0.4);
+border-color: #2a2a2a;
+color: #e5e5e5;
 }
-html.dark-mode .cv-name { color: #1a1a1a !important; }
-html.dark-mode .cv-heading { color: #1a1a1a !important; border-bottom-color: #d4cfc5 !important; }
-html.dark-mode .cv-title { color: #5c6e60 !important; }
-html.dark-mode .cv-pcd { color: #8a9b8e !important; }
-html.dark-mode .cv-contact, html.dark-mode .cv-contact a { color: #5c6e60 !important; }
-html.dark-mode .cv-body, html.dark-mode .cv-list, html.dark-mode .cv-skill-items { color: #5c6e60 !important; }
-html.dark-mode .cv-entry-title { color: #1a1a1a !important; }
-html.dark-mode .cv-entry-org { color: #5c6e60 !important; }
-html.dark-mode .cv-entry-date, html.dark-mode .cv-tech, html.dark-mode .cv-skill-proof, html.dark-mode .cv-cert-context { color: #8a9b8e !important; }
-html.dark-mode .cv-status { color: #8a9b8e !important; border-color: #d4cfc5 !important; }
-html.dark-mode .cv-rule { border-top-color: #456a4b !important; }
-html.dark-mode .cv-ats-note { background: #1a1a1a !important; border-color: #2a2a2a !important; color: #cccccc !important; }
+html.dark-mode .cv-name { color: #fafafa !important; }
+html.dark-mode .cv-heading { color: #fafafa !important; border-bottom-color: #333 !important; }
+html.dark-mode .cv-title { color: #cccccc !important; }
+html.dark-mode .cv-pcd { color: #b0b0b0 !important; }
+html.dark-mode .cv-contact, html.dark-mode .cv-contact a { color: #cccccc !important; }
+html.dark-mode .cv-body, html.dark-mode .cv-list, html.dark-mode .cv-skill-items { color: #cccccc !important; }
+html.dark-mode .cv-entry-title { color: #fafafa !important; }
+html.dark-mode .cv-entry-org { color: #cccccc !important; }
+html.dark-mode .cv-entry-date, html.dark-mode .cv-tech, html.dark-mode .cv-skill-proof, html.dark-mode .cv-cert-context { color: #b0b0b0 !important; }
+html.dark-mode .cv-status { color: #b0b0b0 !important; border-color: #333 !important; }
+html.dark-mode .cv-rule { border-top-color: #555 !important; }
+html.dark-mode .cv-ats-note { background: #111 !important; border-color: #2a2a2a !important; color: #cccccc !important; }
 html.dark-mode .cv-btn { border-color: #2a2a2a !important; color: #e5e5e5 !important; background: transparent !important; }
 html.dark-mode .cv-btn:hover { border-color: #e5e5e5 !important; }
-html.dark-mode .cv-btn-filled { background: #e5e5e5 !important; color: #0a0a0a !important; border-color: #e5e5e5 !important; }
+html.dark-mode .cv-btn-filled { background: rgba(255,255,255,0.12) !important; color: #fafafa !important; border-color: rgba(255,255,255,0.2) !important; }
+html.dark-mode .cv-btn-filled:hover { background: rgba(255,255,255,0.18) !important; color: #fafafa !important; }
   .cv-actions {
     display: flex;
     justify-content: space-between;
@@ -237,15 +240,14 @@ html.dark-mode .cv-btn-filled { background: #e5e5e5 !important; color: #0a0a0a !
           border-color: var(--color-text-2);
           color: var(--color-text-2);
         }
-        .cv-btn-filled {
-          background: var(--color-text-2);
-          color: #fff;
-          border-color: var(--color-text-2);
-        }
-        .cv-btn-filled:hover {
-          opacity: 0.9;
-          color: #fff;
-        }
+.cv-btn-filled {
+background: var(--color-text-2);
+color: var(--color-bg);
+border-color: var(--color-text-2);
+}
+.cv-btn-filled:hover {
+color: var(--color-bg);
+}
         .cv-name {
           font-family: var(--font-serif);
           font-size: 1.75rem;

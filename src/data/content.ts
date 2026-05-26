@@ -36,18 +36,18 @@ subtitle: b(
 "Full-Stack · Python · React · Cloud",
 "Full-Stack · Python · React · Cloud"
 ),
-bio: b(
-"Engenheiro de Computação focado em IA e full-stack. Construo pipelines de agentes autônomos, migro centenas de GB para Azure Cosmos DB e entrego soluções do frontend ao backend.",
-"Computer Engineering student focused on AI and full-stack systems. I build autonomous agent pipelines, migrate hundreds of GB to Azure Cosmos DB, and deliver end-to-end solutions."
-),
+    bio: b(
+      "Estudante de Engenharia de Computação (5º período) buscando vaga de Jovem Aprendiz/Trainee. Experiência em migração de dados Azure Cosmos DB, automação com IA (GPT-4.1) e full-stack (Python/React).",
+      "Computer Engineering student (5th semester) seeking Trainee/Jovem Aprendiz role. Experience in Azure Cosmos DB migration, AI automation (GPT-4.1), and full-stack (Python/React)."
+    ),
   bioExtended: b(
-    `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente centenas de imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, Orca e em breve ForestAI de novo.`,
-    `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — self-directed learning, extra afternoon classes to keep evolving. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch with Thonny IDE, manually annotating hundreds of drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, Orca, and soon ForestAI again.`
+`Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, Orca e em breve ForestAI de novo.`,
+`My first Python contact was in 2022 at UFOP (Industrial Chemistry) — self-directed learning, extra afternoon classes to keep evolving. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch with Thonny IDE, manually annotating drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, Orca, and soon ForestAI again.`
   ),
   bioHighlights: [
     b(
-      "IA & Automação: Construção de pipelines agentic (GPT-4.1 tool calling, ReAct loops) e integração de LLMs em fluxos de trabalho reais — do HelloSocial na Paware ao HarpIA pessoal.",
-      "AI & Automation: Building agentic pipelines (GPT-4.1 tool calling, ReAct loops) and integrating LLMs into real workflows — from HelloSocial at Paware to personal HarpIA project."
+"IA & Automação: Construção de pipelines orquestrados por LLM (GPT-4.1, multi-modelo) e integração de LLMs em fluxos de trabalho reais — do HelloSocial na Paware ao HarpIA pessoal.",
+  "AI & Automation: Building LLM-orchestrated pipelines (GPT-4.1, multi-model) and integrating LLMs into real workflows — from HelloSocial at Paware to personal HarpIA project."
     ),
 b(
 "Interação com Cloud e Backend: Experiência prática em Azure Cloud, migração de centenas de GB para Cosmos DB e construção de APIs robustas com Python/FastAPI.",
@@ -92,8 +92,8 @@ b(
       "Resolved cross-platform MIME type issue (Android native vs iPhone requiring octet-stream — with extensive testing on iOS devices). This validation layer became the backbone of the final Azure Cosmos DB migration."
       ),
       b(
-        "Arquitetei pipeline agentic de geração de imagens para o HelloSocial — agente GPT-4.1 com tool calling, até 10 iterações de raciocínio, integração Flux Kontext Pro + DALL-E 3 + Placid/Canva. Fallback SQLite/PIL local quando API paga não era necessária.",
-        "Architected agentic image-generation pipeline for HelloSocial — GPT-4.1 agent with tool calling, up to 10 reasoning iterations, integrating Flux Kontext Pro + DALL-E 3 + Placid/Canva APIs. Fallback to SQLite/local PIL when paid APIs weren't needed."
+"Arquitetei pipeline de geração de imagens para o HelloSocial — pipeline multi-etapa com GPT-4.1 (geração, curadoria, composição, validação), integração Flux Kontext Pro + DALL-E 3 + Placid/Canva. Fallback SQLite/PIL local quando API paga não era necessária.",
+  "Architected image-generation pipeline for HelloSocial — multi-step pipeline with GPT-4.1 (generation, curation, composition, validation), integrating Flux Kontext Pro + DALL-E 3 + Placid/Canva APIs. Fallback to SQLite/local PIL when paid APIs weren't needed."
       ),
     ],
   },
@@ -256,12 +256,12 @@ code: `class OllamaClient:
     skills: [
       b("Ciberseguran\u00e7a", "Cybersecurity"), b("Metodologias \u00c1geis", "Agile Methodologies"),
       "Testes de API", b("Ingl\u00eas Fluente", "Fluent English"),
-      "NiceGUI", "PyInstaller / Inno Setup", "xlwings / COM", "Linux (CachyOS/Hyprland)",
+      "FastAPI + Jinja2", "PyInstaller / Inno Setup", "xlwings / COM", "Linux (CachyOS/Hyprland)",
     ],
     color: "#6A5A4A",
       storyProof: b(
-      "Inglês fluente para docs e reuniões com equipe EUA. Orca com NiceGUI + Rich CLI. PyInstaller + Inno Setup para instalador do Fennec. CachyOS/Hyprland setup própria.",
-      "Fluent English for documentation and meetings with US team. Orca with NiceGUI + Rich CLI. PyInstaller + Inno Setup for Fennec installer. Custom CachyOS/Hyprland rice."
+"Inglês fluente para docs e reuniões com equipe EUA. Orca com FastAPI + Jinja2 + Rich CLI. PyInstaller + Inno Setup para instalador do Fennec. CachyOS/Hyprland setup própria.",
+  "Fluent English for documentation and meetings with US team. Orca with FastAPI + Jinja2 + Rich CLI. PyInstaller + Inno Setup for Fennec installer. Custom CachyOS/Hyprland rice."
     ),
     storyProjectIds: ["orca", "fennec"],
   },
@@ -292,8 +292,8 @@ export const projects: Project[] = [
     year: "2026",
     category: b("IA Criativa · Automação · Multi-Modelo", "Creative AI · Automation · Multi-Model"),
     description: b(
-"Motor de automação criativa com 7+ modelos de IA (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext Pro, Nano Banana (Gemini), Sora, Veo 3.1). Pipeline agentic autônomo: copywriting, busca de imagens, composição de designs e geração de vídeo. Stack leve por padrão (SQLite + PIL local), com fallback para APIs pagas quando necessário.",
-"Creative automation engine with 7+ AI models (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext Pro, Nano Banana (Gemini), Sora, Veo 3.1). Autonomous agentic pipeline: copywriting, image search, design compositing, and video generation. Lightweight stack by default (SQLite + local PIL), with fallback to paid APIs when needed."
+"Motor de automação criativa com 7+ modelos de IA (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext Pro, Nano Banana (Gemini), Sora, Veo 3.1). Pipeline orquestrado por LLM: copywriting, busca de imagens, composição de designs e geração de vídeo. Stack leve por padrão (SQLite + PIL local), com fallback para APIs pagas quando necessário.",
+  "Creative automation engine with 7+ AI models (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext Pro, Nano Banana (Gemini), Sora, Veo 3.1). LLM-orchestrated pipeline: copywriting, image search, design compositing, and video generation. Lightweight stack by default (SQLite + local PIL), with fallback to paid APIs when needed."
     ),
     tech: ["Python", "GPT-4.1", "DALL-E 3", "Flux 2.0 Pro", "Sora", "Veo 3.1", "Pillow", "aiohttp", "SQLite", "Azure Cosmos DB"],
     color: "#FFB800",
@@ -310,10 +310,10 @@ export const projects: Project[] = [
     year: "2026",
     category: b("Motor de Planejamento · Floresta · Logística", "Planning Engine · Forestry · Logistics"),
     description: b(
-      "Motor de planejamento operacional para restauração florestal em larga escala. Gera dossiês executivos, cronogramas de atividades, gerência tarifas/equipes/territórios. Interface NiceGUI + CLI.",
-      "Operational planning engine for large-scale forest restoration. Generates executive dossiers, activity schedules, manages tariffs/crews/territories. NiceGUI + CLI interface."
+"Motor de planejamento operacional para restauração florestal em larga escala. Gera dossiês executivos, cronogramas de atividades, gerência tarifas/equipes/territórios. Interface FastAPI + Jinja2 + CLI.",
+  "Operational planning engine for large-scale forest restoration. Generates executive dossiers, activity schedules, manages tariffs/crews/territories. FastAPI + Jinja2 + CLI interface."
     ),
-    tech: ["Python 3.10+", "pandas", "openpyxl", "NiceGUI", "Rich", "unittest"],
+    tech: ["Python 3.10+", "pandas", "openpyxl", "FastAPI", "Jinja2", "Rich", "unittest"],
     color: "#2d5a3d",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/orca",
@@ -328,8 +328,8 @@ export const projects: Project[] = [
     year: "2026",
     category: b("Mobile · Offline-First · Flutter + React", "Mobile · Offline-First · Flutter + React"),
     description: b(
-      "App mobile para inventário florestal offline-first com motor de sincronização completo (detecção de conflitos, rollback atômico, UUID remapping). Painel admin React com exportação XLSX/PDF/CSV. ~24K LOC — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente.",
-      "Offline-first forest inventory mobile app with a full sync engine (conflict detection, atomic rollback, UUID remapping). React admin panel with XLSX/PDF/CSV export. ~24K LOC — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed."
+"App mobile para inventário florestal offline-first com serviço de sync custom (detecção de conflitos com resolução manual, rollback transacional em caso de falha, UUID remapping). Painel admin React com exportação XLSX/PDF/CSV — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente.",
+  "Offline-first forest inventory mobile app with custom sync service (conflict detection with manual resolution, transactional rollback on failure, UUID remapping). React admin panel with XLSX/PDF/CSV export — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed."
     ),
     tech: ["Flutter", "Dart", "Drift / SQLite", "PocketBase", "React", "Vite", "Provider", "Workmanager"],
     color: "#2d6b3f",
@@ -450,10 +450,10 @@ export const projects: Project[] = [
   year: "2024",
   category: b("IA · Visão Computacional · PyTorch", "AI · Computer Vision · PyTorch"),
   description: b(
-    "Detecção e classificação de espécies florestais com Deep Learning. Pipeline completo: anotação manual de imagens de drone, treinamento DeepForest/YOLO em GPU local, splits estratificadas. Construído do zero sem IA-assisted coding.",
-    "Forest species detection and classification with Deep Learning. Full pipeline: manual drone image annotation, DeepForest/YOLO training on local GPU, stratified splits. Built from scratch without AI-assisted coding."
-  ),
-  tech: ["Python", "PyTorch", "DeepForest", "YOLO", "OpenCV", "scikit-learn", "TensorBoard"],
+"Detecção e classificação de espécies florestais com Deep Learning. Pipeline completo: anotação manual de imagens de drone, treinamento DeepForest em GPU local, splits estratificadas. Construído do zero sem IA-assisted coding.",
+  "Forest species detection and classification with Deep Learning. Full pipeline: manual annotation of drone imagery, DeepForest training on local GPU, stratified splits. Built from scratch without AI-assisted coding."
+),
+tech: ["Python", "PyTorch", "DeepForest", "OpenCV", "scikit-learn", "TensorBoard"],
   color: "#2a301a",
   icon: null,
   githubUrl: "https://github.com/xAngryBadger/forestai",
@@ -694,8 +694,8 @@ export const stats = [
 ];
 
 export const cvSummary: Bilingual = b(
-"Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 meses de experiência profissional. De Química Industrial para Computação: construí o ForestAI do zero (Stack Overflow + Thonny, sem IA-assisted coding). Na Paware, migrei centenas de GB para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines agentic de IA para o HelloSocial (GPT-4.1 tool calling, DALL-E 3, Flux). Aprendo resolvendo problemas reais — de MIME type cross-platform a agentes ReAct com schema enforcement.",
-"Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 months of professional experience. From Industrial Chemistry to Computer Engineering: built ForestAI from scratch (Stack Overflow + Thonny, no AI-assisted coding). At Paware, migrated hundreds of GB to Azure Cosmos DB (Meritage Homes, USA) and architected agentic AI pipelines for HelloSocial (GPT-4.1 tool calling, DALL-E 3, Flux). I learn by solving real problems — from cross-platform MIME types to ReAct agents with schema enforcement."
+"Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 meses de experiência profissional. De Química Industrial para Computação: construí o ForestAI do zero (Stack Overflow + Thonny, sem IA-assisted coding). Na Paware, migrei centenas de GB para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines orquestrados por LLM para o HelloSocial (GPT-4.1, DALL-E 3, Flux). Aprendo resolvendo problemas reais — de MIME type cross-platform a agentes ReAct com schema enforcement.",
+  "Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 months of professional experience. From Industrial Chemistry to Computer Engineering: built ForestAI from scratch (Stack Overflow + Thonny, no AI-assisted coding). At Paware, migrated hundreds of GB to Azure Cosmos DB (Meritage Homes, USA) and architected LLM-orchestrated pipelines for HelloSocial (GPT-4.1, DALL-E 3, Flux). I learn by solving real problems — from cross-platform MIME types to ReAct agents with schema enforcement."
 );
 
 export type CvProject = {
@@ -715,8 +715,8 @@ export const cvProjects: CvProject[] = [
     tier: 1,
     bullets: [
       b(
-        "Motor de automação criativa com 7+ modelos de IA — agente GPT-4.1 com tool calling, pipeline agentic autônomo (copywriting, busca de imagens, composição de designs, geração de vídeo). Stack leve por padrão (SQLite + PIL local) com fallback para APIs pagas.",
-        "Creative automation engine with 7+ AI models — GPT-4.1 agent with tool calling, autonomous agentic pipeline (copywriting, image search, design compositing, video generation). Lightweight stack by default (SQLite + local PIL) with fallback to paid APIs."
+"Motor de automação criativa com 7+ modelos de IA — pipeline orquestrado por LLM multi-etapa: copywriting, busca de imagens, composição de designs, geração de vídeo. Stack leve por padrão (SQLite + PIL local) com fallback para APIs pagas.",
+  "Creative automation engine with 7+ AI models — multi-model pipeline with GPT-4.1: copywriting, image search, design compositing, video generation. Lightweight stack by default (SQLite + local PIL) with fallback to paid APIs."
       ),
       b(
         "6.900+ LOC Python async com testes de segurança e zero hardcoded secrets. Backend swap: SQLite local para Azure Cosmos DB + Blob Storage, alternado via env var. Pronto para cron com file-locking e recuperação de lotes travados.",
@@ -732,16 +732,16 @@ export const cvProjects: CvProject[] = [
     tier: 1,
     bullets: [
       b(
-        "App Flutter offline-first para inventário florestal com motor de sincronização custom — detecção de remapping em cascata pela FK chain (Propriedade → UT → Parcela → Planta → Foto) e rollback atômico via transações Drift.",
-        "Flutter offline-first app for forest inventory with custom sync engine — cascading remap detection through FK chain (Propriedade → UT → Parcela → Planta → Foto) and atomic rollback via Drift transactions."
+"App Flutter offline-first para inventário florestal com serviço de sync custom — remapping de UUIDs em cascata pelas tabelas relacionadas e rollback transacional em caso de falha.",
+  "Flutter offline-first app for forest inventory with custom sync service — cascading UUID remapping across related tables and transactional rollback on failure."
       ),
       b(
-        "~24K LOC — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente. Painel admin React com auth, fotos, relatórios e exportação XLSX/PDF/CSV.",
-        "~24K LOC — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed. React admin panel with auth, photos, reports, and XLSX/PDF/CSV export."
+"Arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente. Painel admin React com auth, fotos, relatórios e exportação XLSX/PDF/CSV.",
+  "Architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed. React admin panel with auth, photos, reports, and XLSX/PDF/CSV export."
       ),
       b(
-        "Backoff exponencial com jitter, auth retry wrapper com refresh transparente em 401s, ngrok bypass para desenvolvimento.",
-        "Exponential backoff with jitter, auth retry wrapper with transparent 401 refresh, ngrok bypass for development."
+"Backoff exponencial (2s, 4s, 8s), auth retry wrapper com refresh transparente em 401s, ngrok bypass para desenvolvimento.",
+  "Exponential backoff (2s, 4s, 8s), auth retry wrapper with transparent 401 refresh, ngrok bypass for development."
       ),
     ],
     tech: ["Flutter", "Dart", "Drift/SQLite", "React", "PocketBase", "TypeScript"],
@@ -757,8 +757,8 @@ export const cvProjects: CvProject[] = [
         "Forest species detection and classification with Deep Learning — built from scratch without AI-assisted coding. Stack Overflow + Thonny IDE only."
       ),
       b(
-        "Anotação manual de centenas de imagens de drone da Fundação Renova (bounding boxes), treinamento DeepForest/YOLO em GPU local, splits estratificadas. Interpretação de curvas no TensorBoard — detectando memorização vs generalização. O jeito difícil construiu a intuição que fez cada framework subsequente clicar mais rápido.",
-        "Manual annotation of hundreds of drone images from Fundação Renova (bounding boxes), DeepForest/YOLO training on local GPU, stratified splits. TensorBoard curve interpretation — detecting memorization vs generalization. The hard way built the intuition that made every subsequent framework click faster."
+"Anotação manual de imagens de drone da Fundação Renova (bounding boxes), treinamento DeepForest em GPU local, splits estratificadas. Interpretação de curvas no TensorBoard — detectando memorização vs generalização. O jeito difícil construiu a intuição que fez cada framework subsequente clicar mais rápido.",
+  "Manual annotation of drone images from Fundação Renova (bounding boxes), DeepForest training on local GPU, stratified splits. TensorBoard curve interpretation — detecting memorization vs generalization. The hard way built the intuition that made every subsequent framework click faster."
       ),
     ],
     tech: ["PyTorch", "DeepForest", "OpenCV", "scikit-learn", "TensorBoard"],
@@ -795,11 +795,11 @@ export const cvProjects: CvProject[] = [
         "Operational planning engine for large-scale forest restoration — automatic generation of executive dossiers with crew allocation, territory mapping, and schedules."
       ),
       b(
-        "Gerenciamento de tarifas e custos operacionais. Interface NiceGUI + CLI Rich com suite de testes unitários.",
-        "Tariff and operational cost management. NiceGUI + Rich CLI interface with unit test suite."
+"Gerenciamento de tarifas e custos operacionais. Interface FastAPI + Jinja2 + CLI Rich com suite de testes unitários.",
+  "Tariff and operational cost management. FastAPI + Jinja2 + Rich CLI interface with unit test suite."
       ),
     ],
-    tech: ["Python", "pandas", "NiceGUI", "Rich CLI", "openpyxl", "unittest"],
+    tech: ["Python", "pandas", "FastAPI", "Jinja2", "Rich CLI", "openpyxl", "unittest"],
   },
   {
     id: "mainecoon",
@@ -910,8 +910,8 @@ export const caseStudies: Record<string, {
       "Creating visual content for digital marketing requires copy + image + composition — repeated dozens of times per campaign. Each asset takes ~15 min manually; 50 posts = ~12h of human work. The challenge: automate this pipeline while controlling cost (paid APIs only when needed) and maintaining consistent visual quality."
     ),
     approach: b(
-      "Pipeline agentic com modelo por tarefa: GPT-4.1 para copy e orquestração (tool calling), Flux para geração de imagens com identidade visual consistente, DALL-E 3 quando o prompt exige composição livre. Compositor PIL local como stack leve padrão (zero custo de API) — só aciona APIs pagas quando o template exige renderização que PIL não resolve. Backend dual: SQLite local para desenvolvimento e uso pessoal, Azure Cosmos DB + Blob Storage para escala.",
-      "Agentic pipeline with model-per-task: GPT-4.1 for copy and orchestration (tool calling), Flux for image generation with consistent visual identity, DALL-E 3 when the prompt requires free composition. Local PIL compositor as default lightweight stack (zero API cost) — only triggers paid APIs when the template requires rendering that PIL can't handle. Dual backend: local SQLite for development and personal use, Azure Cosmos DB + Blob Storage for scale."
+"Pipeline orquestrado por LLM com modelo por tarefa: GPT-4.1 para copy e orquestração, Flux para geração de imagens com identidade visual consistente, DALL-E 3 quando o prompt exige composição livre. Compositor PIL local como stack leve padrão (zero custo de API) — só aciona APIs pagas quando o template exige renderização que PIL não resolve. Backend dual: SQLite local para desenvolvimento e uso pessoal, Azure Cosmos DB + Blob Storage para escala.",
+  "LLM-orchestrated pipeline with model-per-task: GPT-4.1 for copy and orchestration, Flux for image generation with consistent visual identity, DALL-E 3 when the prompt requires free composition. Local PIL compositor as default lightweight stack (zero API cost) — only triggers paid APIs when the template requires rendering that PIL can't handle. Dual backend: local SQLite for development and personal use, Azure Cosmos DB + Blob Storage for scale."
     ),
     results: [
       b("Pipeline completo: copywriting → busca de imagens → composição → output final em ~30s por asset", "Full pipeline: copywriting → image search → composition → final output in ~30s per asset"),
@@ -929,7 +929,7 @@ export const caseStudies: Record<string, {
     codeSnippets: [
       {
         language: "python",
-        title: b("Pipeline Agentic — Tool Calling", "Agentic Pipeline — Tool Calling"),
+        title: b("Pipeline Orquestrado por LLM — GPT-4.1", "LLM-Orchestrated Pipeline — GPT-4.1"),
         code: `async def run_agent(self, batch: Batch) -> Batch:
     messages = [{"role": "system", "content": self.system_prompt}]
     tools = self._build_tool_schema(batch)
@@ -977,19 +977,21 @@ export const caseStudies: Record<string, {
       "Forest restoration projects span hundreds of territories, dozens of crews with different tariffs, seasonal windows per biome, and 40+ page executive dossiers. Manually planning a 500 ha project takes ~3 weeks — with tariff misapplication between crew types and schedule conflicts that only surface in the field."
     ),
     approach: b(
-      "Motor de planejamento Python que modela o domínio como pipeline: territories.allocate → tariffs.apply → scheduler.build_timeline → Dossier(). Pandas para transforms numéricos (alocação, tarifação, custos), openpyxl para exportação Excel dos dossiês. NiceGUI para visualização web interativa + Rich CLI para automação batch.",
-      "Python planning engine that models the domain as a pipeline: territories.allocate → tariffs.apply → scheduler.build_timeline → Dossier(). Pandas for numerical transforms (allocation, tariffing, costs), openpyxl for Excel dossier export. NiceGUI for interactive web visualization + Rich CLI for batch automation."
+"Motor de planejamento Python que modela o domínio como pipeline: territories.allocate → tariffs.apply → scheduler.build_timeline → Dossier(). Pandas para transforms numéricos (alocação, tarifação, custos), openpyxl para exportação Excel dos dossiês. FastAPI + Jinja2 para visualização web interativa + Rich CLI para automação batch.",
+  "Python planning engine that models the domain as a pipeline: territories.allocate → tariffs.apply → scheduler.build_timeline → Dossier(). Pandas for numerical transforms (allocation, tariffing, costs), openpyxl for Excel dossier export. FastAPI + Jinja2 for interactive web visualization + Rich CLI for batch automation."
     ),
     results: [
       b("Dossiê executivo completo (cronograma + custos + mapa de territórios) gerado em ~45 min vs. ~3 semanas manual", "Complete executive dossier (schedule + costs + territory map) generated in ~45 min vs. ~3 weeks manually"),
       b("Motor de tarifação com regras por tipo de equipe e região — elimina erros de aplicação manual", "Tariff engine with rules per crew type and region — eliminates manual application errors"),
       b("Pipeline modular: cada etapa (alocação, tarifação, scheduling) é testável independentemente", "Modular pipeline: each step (allocation, tariffing, scheduling) is independently testable"),
-      b("NiceGUI para inspeção visual + CLI Rich para automação batch (mesmo engine, duas interfaces)", "NiceGUI for visual inspection + Rich CLI for batch automation (same engine, two interfaces)"),
+      b("FastAPI + Jinja2 para inspeção visual + CLI Rich para automação batch (mesmo engine, duas interfaces)",
+  "FastAPI + Jinja2 for visual inspection + Rich CLI for batch automation (same engine, two interfaces)"),
     ],
     keyFeatures: [
       b("Pipeline pandas: allocate → apply tariffs → build timeline → export dossier", "Pandas pipeline: allocate → apply tariffs → build timeline → export dossier"),
       b("Exportação openpyxl com formatação profissional (headers, bordas, seções)", "openpyxl export with professional formatting (headers, borders, sections)"),
-      b("NiceGUI web para exploração interativa + Rich CLI para automação", "NiceGUI web for interactive exploration + Rich CLI for automation"),
+      b("FastAPI + Jinja2 web para exploração interativa + Rich CLI para automação",
+  "FastAPI + Jinja2 web for interactive exploration + Rich CLI for automation"),
       b("Testes que capturam misapplication de tarifas entre limites de tipo de equipe", "Tests that catch tariff misapplication across crew type boundaries"),
     ],
     codeSnippets: [
@@ -1035,19 +1037,22 @@ def plan(input_path: str, output_dir: str = "./output"):
       "Forest inventory in the field requires an app that works without internet for days, syncs when connected, and resolves conflicts between simultaneous edits from field agents and office managers. Firebase/Supabase require connectivity; generic collection apps don't model the forest hierarchy (Propriedade > UT > Parcela > Planta > Foto)."
     ),
     approach: b(
-      "App Flutter offline-first com Drift/SQLite local e motor de sync custom (arquitetura e lógica de conflito desenhados manualmente — UI e boilerplate com apoio de LLM e revisão humana). UUID remapping para conciliar IDs cliente-servidor com cascade por FK chain. PocketBase como backend leve (deploy simples, sem vendor lock-in). Painel admin React para gestão centralizada.",
-      "Flutter offline-first app with local Drift/SQLite and custom sync engine (architecture and conflict logic hand-designed — UI and boilerplate LLM-assisted with human review). UUID remapping to reconcile client-server IDs with FK chain cascade. PocketBase as lightweight backend (simple deploy, no vendor lock-in). React admin panel for centralized management."
+"App Flutter offline-first com Drift/SQLite local e serviço de sync custom (arquitetura e lógica de conflito desenhados manualmente — UI e boilerplate com apoio de LLM e revisão humana). UUID remapping para conciliar IDs cliente-servidor com remapping em cascata pelas tabelas relacionadas. PocketBase como backend leve (deploy simples, sem vendor lock-in). Painel admin React para gestão centralizada.",
+  "Flutter offline-first app with local Drift/SQLite and custom sync service (architecture and conflict logic hand-designed — UI and boilerplate LLM-assisted with human review). UUID remapping to reconcile client-server IDs with cascading remapping across related tables. PocketBase as lightweight backend (simple deploy, no vendor lock-in). React admin panel for centralized management."
     ),
     results: [
-      b("Motor de sync com detecção de conflitos e rollback atômico — sem corrupção de dados em falhas parciais", "Sync engine with conflict detection and atomic rollback — no data corruption on partial failures"),
-      b("UUID remapping em cascade: Propriedade → UT → Parcela → Planta → Foto (5 níveis de FK)", "Cascade UUID remapping: Propriedade → UT → Parcela → Planta → Foto (5 FK levels)"),
+      b("Motor de sync com detecção de conflitos com resolução manual e rollback transacional em caso de falha — sem corrupção de dados em falhas parciais",
+  "Sync service with conflict detection with manual resolution and transactional rollback on failure — no data corruption on partial failures"),
+      b("UUID remapping em cascata pelas tabelas relacionadas: Propriedade → UT → Parcela → Planta → Foto (5 níveis de FK)",
+  "Cascading UUID remapping across related tables: Propriedade → UT → Parcela → Planta → Foto (5 FK levels)"),
       b("Exportação XLSX/PDF com filtragem por usuário e data", "XLSX/PDF export with user and date filtering"),
       b("Modo alto contraste para uso em campo com sol direto", "High contrast mode for field use in direct sunlight"),
       b("Painel admin React com auth, fotos, relatórios e exportação", "React admin panel with auth, photos, reports, and export"),
     ],
     keyFeatures: [
-      b("5-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto", "5-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto"),
-      b("Sync: exponential backoff with jitter, auth retry wrapper, ngrok bypass", "Sync: exponential backoff with jitter, auth retry wrapper, ngrok bypass"),
+      b("5-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto — cascading UUID remapping", "5-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto — cascading UUID remapping"),
+      b("Sync: backoff exponencial (2s, 4s, 8s), auth retry wrapper, ngrok bypass",
+  "Sync: exponential backoff (2s, 4s, 8s), auth retry wrapper, ngrok bypass"),
       b("Design system 'Deep Forest Industrial' (332 LOC)", "'Deep Forest Industrial' design system (332 LOC)"),
       b("Backup/restore SQLite com padrão pending-restore-on-next-boot", "SQLite backup/restore with pending-restore-on-next-boot pattern"),
       b("Species lookup com busca accent-normalized a partir de XLSX", "Species lookup with accent-normalized search from XLSX"),
@@ -1056,7 +1061,7 @@ def plan(input_path: str, output_dir: str = "./output"):
     codeSnippets: [
       {
         language: "dart",
-        title: b("Motor de Sincronização — Sync Engine", "Sync Engine — Core Loop"),
+        title: b("Serviço de Sincronização — Sync Service", "Sync Service — Core Loop"),
         code: `class SyncEngine {
   final PocketBaseClient _pb;
   final DriftDatabase _db;
@@ -1096,7 +1101,7 @@ def plan(input_path: str, output_dir: str = "./output"):
     b.update(propriedade)
       ..where((t) => t.uuid.equals(localUuid))
       ..write(PropriedadeCompanion.serverId(remoteId));
-    // Cascade remap through FK chain:
+        // Cascading remap through related tables:
     // Propriedade → UT → Parcela → Planta → Foto
     for (final table in _fkChain) {
       b.update(table)
@@ -1196,19 +1201,19 @@ gallery: [
       "Drone-based forest inventories generate thousands of images — identifying species manually takes weeks and is error-prone. Commercial detection tools are black boxes with no control over thresholds, splits, or architecture. I needed an open pipeline where every decision (dataset split, augmentation, confidence threshold) was explicitly configurable and auditable."
     ),
     approach: b(
-      "Pipeline de detecção e classificação com DeepForest + YOLO, treinado em GPU local. Anotação manual de centenas de imagens de drone da Fundação Renova (bounding boxes) — sem auto-labeling. Splits estratificados por espécie e área para evitar vazamento de dados. Monitoramento via TensorBoard: curvas de loss, mAP, e análise explícita de memorização vs generalização. Stack Overflow + Thonny IDE — zero IA-assisted coding.",
-      "Detection and classification pipeline with DeepForest + YOLO, trained on local GPU. Manual annotation of hundreds of drone images from Fundação Renova (bounding boxes) — no auto-labeling. Stratified splits by species and area to prevent data leakage. Monitoring via TensorBoard: loss curves, mAP, and explicit analysis of memorization vs generalization. Stack Overflow + Thonny IDE — zero AI-assisted coding."
+"Pipeline de detecção e classificação com DeepForest, treinado em GPU local. Anotação manual de imagens de drone da Fundação Renova (bounding boxes) — sem auto-labeling. Splits estratificados por espécie e área para evitar vazamento de dados. Monitoramento via TensorBoard: curvas de loss, mAP, e análise explícita de memorização vs generalização. Stack Overflow + Thonny IDE — zero IA-assisted coding.",
+  "Detection and classification pipeline with DeepForest, trained on local GPU. Manual annotation of drone images from Fundação Renova (bounding boxes) — no auto-labeling. Stratified splits by species and area to prevent data leakage. Monitoring via TensorBoard: loss curves, mAP, and explicit analysis of memorization vs generalization. Stack Overflow + Thonny IDE — zero AI-assisted coding."
     ),
     results: [
-      b("Pipeline de detecção de espécies com DeepForest + YOLO treinado em GPU local", "Species detection pipeline with DeepForest + YOLO trained on local GPU"),
-      b("Anotação manual de centenas de imagens de drone — bounding boxes desenhados à mão", "Manual annotation of hundreds of drone images — hand-drawn bounding boxes"),
+b("Pipeline de detecção de espécies com DeepForest treinado em GPU local", "Species detection pipeline with DeepForest trained on local GPU"),
+b("Anotação manual de imagens de drone — bounding boxes desenhados à mão", "Manual annotation of drone imagery — hand-drawn bounding boxes"),
       b("Splits estratificados por espécie e área — sem vazamento de dados entre treino/validação", "Stratified splits by species and area — no data leakage between train/validation"),
       b("Interpretação de curvas TensorBoard — detecção de memorização vs generalização", "TensorBoard curve interpretation — detecting memorization vs generalization"),
       b("Construído do zero sem IA-assisted coding — Stack Overflow + Thonny IDE apenas", "Built from scratch without AI-assisted coding — Stack Overflow + Thonny IDE only"),
     ],
     keyFeatures: [
-      b("DeepForest para detecção de copas com fine-tuning em dataset de drone", "DeepForest for crown detection with fine-tuning on drone dataset"),
-      b("YOLO para classificação de espécies com augmentations geográficos", "YOLO for species classification with geographic augmentations"),
+b("DeepForest para detecção de copas com fine-tuning em dataset de drone", "DeepForest for crown detection with fine-tuning on drone dataset"),
+b("Classificação de espécies com augmentations geográficos", "Species classification with geographic augmentations"),
       b("TensorBoard monitoring: loss, mAP, grad-cam por época", "TensorBoard monitoring: loss, mAP, grad-cam per epoch"),
       b("Stratified split por espécie + área geográfica — generalização real", "Stratified split by species + geographic area — real generalization"),
     ],

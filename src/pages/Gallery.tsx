@@ -113,41 +113,41 @@ function Lightbox({
           border: "1px solid rgba(255,255,255,0.08)",
           transition: "all 0.3s",
         }}
-        onMouseEnter={(e) => {
-          const el = e.currentTarget as HTMLElement;
-          el.style.background = "var(--color-accent)";
-          el.style.color = "var(--color-bg-ivory)";
-          el.style.borderColor = "var(--color-accent)";
-        }}
-        onMouseLeave={(e) => {
-          const el = e.currentTarget as HTMLElement;
-          el.style.background = "rgba(255,255,255,0.06)";
-          el.style.color = "rgba(255,255,255,0.4)";
-          el.style.borderColor = "rgba(255,255,255,0.08)";
-        }}
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
+onMouseEnter={(e) => {
+const el = e.currentTarget as HTMLElement;
+el.style.background = "rgba(255,255,255,0.12)";
+el.style.color = "rgba(255,255,255,0.9)";
+el.style.borderColor = "rgba(255,255,255,0.2)";
+}}
+onMouseLeave={(e) => {
+const el = e.currentTarget as HTMLElement;
+el.style.background = "rgba(255,255,255,0.06)";
+el.style.color = "rgba(255,255,255,0.4)";
+el.style.borderColor = "rgba(255,255,255,0.08)";
+}}
+>
+<ChevronLeft className="w-5 h-5" />
+</button>
 
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setIdx((i) => (i + 1) % images.length);
-        }}
-        aria-label={t({ pt: "Próximo", en: "Next" })}
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full"
-        style={{
-          background: "rgba(255,255,255,0.06)",
-          color: "rgba(255,255,255,0.4)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          transition: "all 0.3s",
-        }}
-        onMouseEnter={(e) => {
-          const el = e.currentTarget as HTMLElement;
-          el.style.background = "var(--color-accent)";
-          el.style.color = "var(--color-bg-ivory)";
-          el.style.borderColor = "var(--color-accent)";
-        }}
+<button
+onClick={(e) => {
+e.stopPropagation();
+setIdx((i) => (i + 1) % images.length);
+}}
+aria-label={t({ pt: "Próximo", en: "Next" })}
+className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full"
+style={{
+background: "rgba(255,255,255,0.06)",
+color: "rgba(255,255,255,0.4)",
+border: "1px solid rgba(255,255,255,0.08)",
+transition: "all 0.3s",
+}}
+onMouseEnter={(e) => {
+const el = e.currentTarget as HTMLElement;
+el.style.background = "rgba(255,255,255,0.12)";
+el.style.color = "rgba(255,255,255,0.9)";
+el.style.borderColor = "rgba(255,255,255,0.2)";
+}}
         onMouseLeave={(e) => {
           const el = e.currentTarget as HTMLElement;
           el.style.background = "rgba(255,255,255,0.06)";

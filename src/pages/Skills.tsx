@@ -393,13 +393,13 @@ function ReActDemo() {
     };
   }, []);
 
-  const phaseColor: Record<string, string> = {
-    idle: "var(--color-text-3)",
-    thinking: "#8B6914",
-    acting: "#456A4B",
-    observing: "#6B5B3D",
-    responding: "var(--color-accent)",
-  };
+const phaseColor: Record<string, string> = {
+idle: "var(--color-text-3)",
+thinking: "#8B6914",
+acting: "var(--color-accent)",
+observing: "#6B5B3D",
+responding: "var(--color-accent)",
+};
 
   const phaseIcons: Record<string, string> = {
     idle: "◇",
@@ -499,7 +499,7 @@ el.style.backgroundColor = "var(--color-accent-06)";
                 style={{
                   fontSize: "0.72rem",
                   lineHeight: "1.65",
-                  color: phase === "acting" ? "#456A4B" : "var(--color-text-2)",
+                  color: phase === "acting" ? "var(--color-accent)" : "var(--color-text-2)",
                 }}
               >
                 {displayedText}
@@ -533,7 +533,7 @@ function PipelineDemo() {
   const nodes = [
     { id: "req", label: "POST /webhook", sublabel: "FastAPI", color: "var(--color-text-2)" },
     { id: "auth", label: "validate_token()", sublabel: "Auth Middleware", color: "#6B5B3D" },
-    { id: "db", label: "cosmos.read()", sublabel: "Azure Cosmos DB", color: "#456A4B" },
+    { id: "db", label: "cosmos.read()", sublabel: "Azure Cosmos DB", color: "var(--color-accent)" },
     { id: "res", label: "200 OK + JSON", sublabel: "Response", color: "var(--color-text-2)" },
   ];
 
