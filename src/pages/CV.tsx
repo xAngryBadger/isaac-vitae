@@ -170,8 +170,8 @@ export default function CV() {
   margin: 0 auto;
   background: #fffdf3;
   padding: 3rem;
-  border: 1px solid var(--color-border);
-  color: #2d3a2f;
+  border: 1.5px solid #b0a898;
+  color: #1e2a20;
   transition: box-shadow 0.3s, border-color 0.3s;
 }
 html.dark-mode .cv-sheet {
@@ -258,29 +258,29 @@ color: var(--color-bg);
         }
 .cv-title {
   font-family: var(--font-serif);
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-text-2);
-    margin: 0 0 0.25rem;
-  }
-  .cv-pcd {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--color-text-3);
-    margin: 0 0 1rem;
-  }
-        .cv-contact {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.75rem;
-          font-family: var(--font-mono);
-          font-size: 0.7rem;
-          color: var(--color-text-2);
-          margin-bottom: 1rem;
-        }
-        .cv-contact a {
-          color: var(--color-text-2);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3d4f41;
+  margin: 0 0 0.25rem;
+}
+.cv-pcd {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #4a5c4e;
+  margin: 0 0 1rem;
+}
+.cv-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #3d4f41;
+  margin-bottom: 1rem;
+}
+.cv-contact a {
+  color: #3d4f41;
           text-decoration: none;
         }
         .cv-contact a:hover {
@@ -338,19 +338,19 @@ color: var(--color-bg);
           color: var(--color-text-2);
           margin: 0;
         }
-        .cv-entry-date {
-          font-family: var(--font-mono);
-          font-size: 0.7rem;
-          color: var(--color-text-3);
-          white-space: nowrap;
-        }
-        .cv-status {
-          font-family: var(--font-mono);
-          font-size: 0.65rem;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          color: var(--color-text-3);
-          border: 1px solid var(--color-border);
+.cv-entry-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #4a5c4e;
+  white-space: nowrap;
+}
+.cv-status {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #4a5c4e;
+  border: 1px solid #b0a898;
           padding: 0.1rem 0.4rem;
           display: inline-block;
           margin-top: 0.15rem;
@@ -374,10 +374,10 @@ color: var(--color-bg);
           color: var(--color-text);
           font-weight: 600;
         }
-  .cv-tech {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--color-text-3);
+.cv-tech {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #4a5c4e;
     letter-spacing: 0.02em;
     margin: 0;
   }
@@ -418,15 +418,15 @@ color: var(--color-bg);
   .cv-skill-items {
     color: var(--color-text-2);
   }
-  .cv-skill-proof {
-    font-size: 0.75rem;
-    font-style: italic;
-    color: var(--color-text-3);
-  }
-  .cv-cert-context {
-    color: var(--color-text-3);
-    font-size: 0.8rem;
-  }
+.cv-skill-proof {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #4a5c4e;
+}
+.cv-cert-context {
+  color: #4a5c4e;
+  font-size: 0.8rem;
+}
 
         @media (max-width: 640px) {
           .cv-sheet { padding: 1.5rem; }

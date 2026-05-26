@@ -422,7 +422,7 @@ export const projects: Project[] = [
     tech: ["Node.js", "mineflayer", "NVIDIA NIM API", "Reinforcement Learning", "pathfinder"],
     color: "#2a2a1a",
   icon: "/images/projects/mainecoon.png",
-    githubUrl: "https://github.com/Anorak001/MinePal",
+    githubUrl: null,
     featured: false,
     inProgress: true,
     hasCaseStudy: false,
@@ -804,7 +804,7 @@ export const cvProjects: CvProject[] = [
   {
     id: "mainecoon",
     name: "MaineCoon",
-    url: "github.com/Anorak001/MinePal",
+    url: null,
     tier: 2,
     bullets: [
       b(
