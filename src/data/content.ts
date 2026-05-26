@@ -298,7 +298,7 @@ export const projects: Project[] = [
     tech: ["Python", "GPT-4.1", "DALL-E 3", "Flux 2.0 Pro", "Sora", "Veo 3.1", "Pillow", "aiohttp", "SQLite", "Azure Cosmos DB"],
     color: "#FFB800",
   icon: null,
-  githubUrl: "https://github.com/xAngryBadger/harpia",
+  githubUrl: "https://github.com/xAngryBadger/harpIA",
     featured: true,
     inProgress: false,
     hasCaseStudy: true,
@@ -334,7 +334,7 @@ export const projects: Project[] = [
     tech: ["Flutter", "Dart", "Drift / SQLite", "PocketBase", "React", "Vite", "Provider", "Workmanager"],
     color: "#2d6b3f",
     icon: "/images/projects/flora-sensus-logo.png",
-    githubUrl: "https://github.com/xAngryBadger/flora-sensus",
+    githubUrl: "https://github.com/xAngryBadger/urutau-app",
     featured: true,
     inProgress: false,
     hasCaseStudy: true,
@@ -456,7 +456,7 @@ export const projects: Project[] = [
 tech: ["Python", "PyTorch", "DeepForest", "OpenCV", "scikit-learn", "TensorBoard"],
   color: "#2a301a",
   icon: null,
-  githubUrl: "https://github.com/xAngryBadger/forestai",
+  githubUrl: "https://github.com/xAngryBadger/ForestAi",
   featured: true,
   inProgress: true,
   hasCaseStudy: true,
@@ -711,7 +711,7 @@ export const cvProjects: CvProject[] = [
   {
     id: "harpia",
     name: "HarpIA",
-    url: "github.com/xAngryBadger/harpia",
+    url: "github.com/xAngryBadger/harpIA",
     tier: 1,
     bullets: [
       b(
@@ -728,7 +728,7 @@ export const cvProjects: CvProject[] = [
   {
     id: "florasensus",
     name: "Flora Sensus",
-    url: "github.com/xAngryBadger/flora-sensus",
+    url: "github.com/xAngryBadger/urutau-app",
     tier: 1,
     bullets: [
       b(
@@ -749,7 +749,7 @@ export const cvProjects: CvProject[] = [
   {
     id: "forestai",
     name: "ForestAI",
-    url: "github.com/xAngryBadger/forestai",
+    url: "github.com/xAngryBadger/ForestAi",
     tier: 1,
     bullets: [
       b(
