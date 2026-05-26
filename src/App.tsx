@@ -60,12 +60,12 @@ function DocumentTitle() {
 }
 
 function AppContent() {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(() => sessionStorage.getItem("preloader-done") === "true");
   const isFirstMount = useRef(true);
   const location = useLocation();
   const { playRouteChange } = useSounds();
 
-  const handlePreloaderDone = useCallback(() => setLoaded(true), []);
+  const handlePreloaderDone = useCallback(() => { sessionStorage.setItem("preloader-done", "true"); setLoaded(true); }, []);
 
   useEffect(() => {
     const lenis = (window as unknown as { lenis?: { scrollTo: (pos: number, opts?: { immediate?: boolean }) => void } }).lenis;

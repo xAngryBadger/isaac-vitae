@@ -278,8 +278,8 @@ export function SidebarNav({ open, onClose }: { open: boolean; onClose: () => vo
 
       <div
         className="fixed top-0 left-0 h-full z-[151] overflow-y-auto border-r flex flex-col"
-        style={{
-          width: "360px",
+      style={{
+        width: "min(360px, 85vw)",
           backgroundColor: "var(--color-bg-card)",
           borderColor: "var(--color-border)",
           transform: open ? "translateX(0)" : "translateX(-100%)",

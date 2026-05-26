@@ -18,8 +18,8 @@ const galleryImages = [
   { src: "https://picsum.photos/seed/minecraft-bot/1200/750", caption: { pt: "MaineCoon — LLM no Minecraft", en: "MaineCoon — LLM in Minecraft" }, project: "mainecoon" },
   { src: "https://picsum.photos/seed/finance-dash/1200/750", caption: { pt: "Finance Tracker — Análise Visual", en: "Finance Tracker — Visual Analytics" }, project: "finance-tracker" },
   { src: "https://picsum.photos/seed/forest-vision/1200/750", caption: { pt: "ForestAI — Detecção de Espécies", en: "ForestAI — Species Detection" }, project: "forestai" },
-  { src: "https://picsum.photos/seed/dev-setup1/1200/750", caption: { pt: "CachyOS + Hyprland — Rice", en: "CachyOS + Hyprland — Rice" }, project: "rice" },
-  { src: "https://picsum.photos/seed/dev-terminal/1200/750", caption: { pt: "Terminal & Tooling — Workflow", en: "Terminal & Tooling — Workflow" }, project: "rice" },
+  { src: "https://picsum.photos/seed/dev-setup1/1200/750", caption: { pt: "CachyOS + Hyprland — Rice", en: "CachyOS + Hyprland — Rice" }, project: null },
+  { src: "https://picsum.photos/seed/dev-terminal/1200/750", caption: { pt: "Terminal & Tooling — Workflow", en: "Terminal & Tooling — Workflow" }, project: null },
   { src: "https://picsum.photos/seed/capivara-pdf/1200/750", caption: { pt: "Capivara — Suíte PDF Completa", en: "Capivara — Full PDF Suite" }, project: "capivara" },
   { src: "https://picsum.photos/seed/tarsier-json/1200/750", caption: { pt: "Tarsier — Editor JSON Visual", en: "Tarsier — Visual JSON Editor" }, project: "tarsier" },
   { src: "https://picsum.photos/seed/kakapo-editor/1200/750", caption: { pt: "Kakapo — Editor de Imagens", en: "Kakapo — Image Editor" }, project: "kakapo" },
@@ -63,12 +63,13 @@ function Lightbox({
       onClick={onClose}
     >
       <div className="relative max-w-[92vw] max-h-[88vh]" onClick={(e) => e.stopPropagation()}>
-        <img
-          src={images[idx].src.replace("1200/750", "1920/1200")}
-          alt={t(images[idx].caption)}
-          className="max-w-full max-h-[85vh] object-contain"
-          style={{ animation: "lightboxIn 0.5s var(--ease-spring-1)", borderRadius: "4px" }}
-        />
+                <img
+                  src={images[idx].src.replace("1200/750", "1920/1200")}
+                  alt={t(images[idx].caption)}
+                  className="max-w-full max-h-[85vh] object-contain"
+                  style={{ animation: "lightboxIn 0.5s var(--ease-spring-1)", borderRadius: "4px" }}
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                />
         <div
           className="absolute bottom-0 inset-x-0 px-6 py-4 flex items-end justify-between"
           style={{
@@ -365,12 +366,13 @@ scrollTrigger: { trigger: ".gallery-header", start: SCROLL_START, once: true },
               onClick={() => setLightbox(i)}
             >
               <img
-                src={g.src.replace("1200/750", "1400/875")}
-                alt={t(g.caption)}
-                className="gallery-card-img w-full object-cover"
-                style={{ aspectRatio: "16 / 10", display: "block", willChange: "transform" }}
-                loading="lazy"
-              />
+                  src={g.src.replace("1200/750", "1400/875")}
+                  alt={t(g.caption)}
+                  className="gallery-card-img w-full object-cover"
+                  style={{ aspectRatio: "16 / 10", display: "block", willChange: "transform" }}
+                  loading="lazy"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                />
 
               <div
                 className="gallery-card-counter absolute top-4 left-4"

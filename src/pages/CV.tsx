@@ -357,7 +357,7 @@ color: var(--color-bg);
         }
         .cv-status[data-active="true"] {
           color: var(--color-text-2);
-          border-color: var(--color-text-2)-30);
+          border-color: color-mix(in srgb, var(--color-text-2) 70%, transparent);
         }
         .cv-list {
           list-style: disc;

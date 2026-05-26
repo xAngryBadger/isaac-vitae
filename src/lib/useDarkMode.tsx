@@ -27,6 +27,8 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
       document.documentElement.classList.remove('dark-mode');
     }
     localStorage.setItem(DARK_MODE_KEY, isEnabled ? 'true' : 'false');
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.setAttribute('content', isEnabled ? '#0a0a0a' : '#456A4B');
   }, [isEnabled]);
 
   const toggle = useCallback(() => {

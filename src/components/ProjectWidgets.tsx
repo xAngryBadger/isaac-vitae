@@ -354,23 +354,23 @@ export function SysVisorWidget({ className }: { className?: string }) {
 export function ForgeUSBWidget({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <rect x="30" y="8" width="60" height="24" rx="3" stroke="#A8611A" strokeWidth="1.5" fill="#A8611A08" />
-      <rect x="36" y="12" width="24" height="16" rx="2" stroke="#A8611A50" strokeWidth="0.75" fill="#A8611A10" />
-      <rect x="40" y="16" width="16" height="2" rx="1" fill="#A8611A30" />
-      <rect x="40" y="20" width="12" height="2" rx="1" fill="#A8611A20" />
-      <rect x="66" y="14" width="8" height="4" rx="1" fill="#A8611A30" />
-      <rect x="66" y="22" width="8" height="4" rx="1" fill="#A8611A20" />
-      <rect x="78" y="14" width="8" height="4" rx="1" fill="#A8611A15" />
-      <rect x="78" y="22" width="8" height="4" rx="1" fill="#A8611A12" />
-      <path d="M60 32 L60 44" stroke="#A8611A40" strokeWidth="1" />
-      <path d="M56 40 L60 44 L64 40" stroke="#A8611A40" strokeWidth="1" fill="none" />
-      <rect x="20" y="48" width="80" height="24" rx="4" stroke="#A8611A" strokeWidth="1.5" fill="#A8611A06" />
-      <rect x="40" y="52" width="14" height="6" rx="2" stroke="#A8611A50" strokeWidth="0.75" fill="#A8611A10" />
-      <rect x="58" y="52" width="14" height="6" rx="2" stroke="#A8611A50" strokeWidth="0.75" fill="#A8611A10" />
-      <path d="M44 55 L50 55" stroke="#A8611A60" strokeWidth="0.75" />
-      <path d="M62 55 L68 55" stroke="#A8611A60" strokeWidth="0.75" />
-      <rect x="30" y="62" width="60" height="4" rx="2" fill="#A8611A12" />
-      <rect x="30" y="62" width="24" height="4" rx="2" fill="#A8611A25" />
+      <rect x="30" y="8" width="60" height="24" rx="3" stroke="#456A4B" strokeWidth="1.5" fill="#456A4B08" />
+      <rect x="36" y="12" width="24" height="16" rx="2" stroke="#456A4B50" strokeWidth="0.75" fill="#456A4B10" />
+      <rect x="40" y="16" width="16" height="2" rx="1" fill="#456A4B30" />
+      <rect x="40" y="20" width="12" height="2" rx="1" fill="#456A4B20" />
+      <rect x="66" y="14" width="8" height="4" rx="1" fill="#456A4B30" />
+      <rect x="66" y="22" width="8" height="4" rx="1" fill="#456A4B20" />
+      <rect x="78" y="14" width="8" height="4" rx="1" fill="#456A4B15" />
+      <rect x="78" y="22" width="8" height="4" rx="1" fill="#456A4B12" />
+      <path d="M60 32 L60 44" stroke="#456A4B40" strokeWidth="1" />
+      <path d="M56 40 L60 44 L64 40" stroke="#456A4B40" strokeWidth="1" fill="none" />
+      <rect x="20" y="48" width="80" height="24" rx="4" stroke="#456A4B" strokeWidth="1.5" fill="#456A4B06" />
+      <rect x="40" y="52" width="14" height="6" rx="2" stroke="#456A4B50" strokeWidth="0.75" fill="#456A4B10" />
+      <rect x="58" y="52" width="14" height="6" rx="2" stroke="#456A4B50" strokeWidth="0.75" fill="#456A4B10" />
+      <path d="M44 55 L50 55" stroke="#456A4B60" strokeWidth="0.75" />
+      <path d="M62 55 L68 55" stroke="#456A4B60" strokeWidth="0.75" />
+      <rect x="30" y="62" width="60" height="4" rx="2" fill="#456A4B12" />
+      <rect x="30" y="62" width="24" height="4" rx="2" fill="#456A4B25" />
     </svg>
   );
 }

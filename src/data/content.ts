@@ -36,10 +36,10 @@ subtitle: b(
 "Full-Stack · Python · React · Cloud",
 "Full-Stack · Python · React · Cloud"
 ),
-    bio: b(
-      "Estudante de Engenharia de Computação (5º período) buscando vaga de Jovem Aprendiz/Trainee. Experiência em migração de dados Azure Cosmos DB, automação com IA (GPT-4.1) e full-stack (Python/React).",
-      "Computer Engineering student (5th semester) seeking Trainee/Jovem Aprendiz role. Experience in Azure Cosmos DB migration, AI automation (GPT-4.1), and full-stack (Python/React)."
-    ),
+  bio: b(
+    `Estudante de Engenharia de Computação (${getCurrentSemesterInline().pt}) buscando vaga de Jovem Aprendiz/Trainee. Experiência em migração de dados Azure Cosmos DB, automação com IA (GPT-4.1) e full-stack (Python/React).`,
+    `Computer Engineering student (${getCurrentSemesterInline().en}) seeking Trainee/Jovem Aprendiz role. Experience in Azure Cosmos DB migration, AI automation (GPT-4.1), and full-stack (Python/React).`
+  ),
   bioExtended: b(
 `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, Orca e em breve ForestAI de novo.`,
 `My first Python contact was in 2022 at UFOP (Industrial Chemistry) — self-directed learning, extra afternoon classes to keep evolving. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch with Thonny IDE, manually annotating drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, Orca, and soon ForestAI again.`
@@ -333,8 +333,8 @@ export const projects: Project[] = [
     ),
     tech: ["Flutter", "Dart", "Drift / SQLite", "PocketBase", "React", "Vite", "Provider", "Workmanager"],
     color: "#2d6b3f",
-  icon: null,
-  githubUrl: "https://github.com/xAngryBadger/flora-sensus",
+    icon: "/images/projects/flora-sensus-logo.png",
+    githubUrl: "https://github.com/xAngryBadger/flora-sensus",
     featured: true,
     inProgress: false,
     hasCaseStudy: true,
@@ -422,7 +422,7 @@ export const projects: Project[] = [
     tech: ["Node.js", "mineflayer", "NVIDIA NIM API", "Reinforcement Learning", "pathfinder"],
     color: "#2a2a1a",
   icon: "/images/projects/mainecoon.png",
-  githubUrl: "https://github.com/xAngryBadger/minepal",
+    githubUrl: "https://github.com/Anorak001/MinePal",
     featured: false,
     inProgress: true,
     hasCaseStudy: false,
@@ -609,7 +609,7 @@ playground: true,
        "Resume generator with structured forms, 3 template styles and server-side PDF export. FastAPI + reportlab backend for clean PDF generation, no watermark. Sage green palette with editorial typography. Bilingual support (pt/en)."
     ),
 tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "reportlab"],
-  color: "#456A4B",
+    color: "#2D6A4F",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/cegonha",
     demoUrl: "https://xangrybadger.github.io/cegonha/",
@@ -629,7 +629,7 @@ id: "diskvisor",
       "Disk usage analyzer with D3 sunburst, parallel scan (jwalk), collapsible file tree and interactive breadcrumb. Tauri 2 + Rust."
     ),
     tech: ["Tauri 2", "React 19", "D3.js", "jwalk (Rust)", "TypeScript", "Vite"],
-    color: "#456A4B",
+    color: "#1B4332",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/diskvisor",
     featured: false,
@@ -665,7 +665,7 @@ id: "diskvisor",
       "Bootable USB maker with sysfs device listing, auto-unmount and dd write. ISO selection with browse dialog. Tauri 2 + Rust."
     ),
     tech: ["Tauri 2", "React 19", "sysfs (Rust)", "dd", "Tailwind CSS v4", "TypeScript"],
-    color: "#A8611A",
+    color: "#BC6C25",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/forge-usb",
     featured: false,
@@ -688,7 +688,7 @@ export const courses: Course[] = [
 ];
 
 export const stats = [
-  { value: 10, suffix: "+", label: b("Projetos", "Projects") },
+  { value: 20, suffix: "+", label: b("Projetos", "Projects") },
   { value: 10, suffix: "mo+", label: b("Experiência Profissional", "Professional Experience") },
   { value: 7, suffix: "+", label: b("Modelos de IA", "AI Models") },
 ];
@@ -804,7 +804,7 @@ export const cvProjects: CvProject[] = [
   {
     id: "mainecoon",
     name: "MaineCoon",
-    url: "github.com/xAngryBadger/minepal",
+    url: "github.com/Anorak001/MinePal",
     tier: 2,
     bullets: [
       b(
@@ -821,8 +821,8 @@ export const cvProjects: CvProject[] = [
     tier: 2,
     bullets: [
       b(
-        "Plataforma de criação e agendamento de posts com IA — projeto na Paware que inspirou o HarpIA. Pipeline de geração de imagens com Flux Kontext Pro e DALL-E 3, agentes de copy e template. PIX via Mercado Pago (AguaQuality). Canva + Placid (HelloSocial/Paware). Pexels API para busca automática de imagens no HarpIA.",
-        "AI-powered social media post creation and scheduling platform — project at Paware that inspired HarpIA. Image generation pipeline with Flux Kontext Pro and DALL-E 3, copy and template agents. PIX via Mercado Pago (AguaQuality). Canva + Placid (HelloSocial/Paware). Pexels API for automatic image search in HarpIA."
+      "Plataforma de criação e agendamento de posts com IA — projeto na Paware que inspirou o HarpIA. Pipeline de geração de imagens com Flux Kontext Pro e DALL-E 3, agentes de copy e template. Canva Connect API + Placid para composição de templates.",
+      "AI-powered social media post creation and scheduling platform — project at Paware that inspired HarpIA. Image generation pipeline with Flux Kontext Pro and DALL-E 3, copy and template agents. Canva Connect API + Placid for template composition."
       ),
     ],
     tech: ["Python", "FastAPI", "Azure OpenAI", "Flux", "Canva API", "React"],
@@ -855,7 +855,7 @@ export const cvProjects: CvProject[] = [
         "100% client-side JSON workbench with collapsible tree, transformations (pretty-print, minify, CSV, TypeScript types) and stats. Zero backend — everything runs in the browser."
       ),
 ],
-      tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "reportlab"],
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion"],
     },
     {
       id: "oilbird",
@@ -1347,7 +1347,7 @@ export const variants = {
       b("15 ferramentas PDF: converter, comprimir, mesclar, dividir, rotacionar, marca d'água, numeração, cabeçalho/rodapé, proteção, desbloqueio, OCR, PDF→DOCX, PDF→imagens, PDF/A", "15 PDF tools: convert, compress, merge, split, rotate, watermark, page numbers, header/footer, protect, unlock, OCR, PDF→DOCX, PDF→images, PDF/A"),
       b("Backend zero custo — cloudflared + Google Colab (zero conta, zero token)", "Zero-cost backend — cloudflared + Google Colab (zero account, zero token)"),
       b("StreamingResponse em todos os endpoints — zero temp files, tudo in-memory", "StreamingResponse on all endpoints — zero temp files, all in-memory"),
-      b("pypdf 6+ compat — PdfWriter-based merge (PdfMerger removido)", "pypdf 6+ compat — PdfWriter-based merge (PdfMerger removed)"),
+      b("pypdf 4+ compat — PdfWriter-based merge (PdfMerger removido)", "pypdf 4+ compat — PdfWriter-based merge (PdfMerger removed)"),
       b("Lazy imports: PyMuPDF, pytesseract, pikepdf só carregam quando chamados", "Lazy imports: PyMuPDF, pytesseract, pikepdf only load when called"),
     ],
     keyFeatures: [
