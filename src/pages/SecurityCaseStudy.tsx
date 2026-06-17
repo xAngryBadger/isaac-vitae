@@ -4,9 +4,10 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { securityDisclosures, securityCaseStudies } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
-import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
+import { EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
 import { ArrowLeft, Shield } from "lucide-react";
 import { InlineAnnotation } from "../components/InlineAnnotation";
+import { SplitText } from "../components/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,12 +27,12 @@ const annotations: Record<string, Record<string, { pt: string; en: string }>> = 
     "opt-in": { pt: "Modelo onde a proteção é desativada por padrão e deve ser explicitamente habilitada — o oposto de secure-by-default.", en: "Model where protection is off by default and must be explicitly enabled — opposite of secure-by-default." },
   },
   "metajobs-base44": {
-    "PII": { pt: "Personally Identifiable Information — dados que podem identificar um indivíduo (nome, e-mail, CPF, telefone).", en: "Personally Identifiable Information — data that can identify an individual (name, email, CPF, phone)." },
-    "CWE-306": { pt: "Missing Authentication for Critical Function — funcionalidade que requer autenticação acessível sem ela.", en: "Missing Authentication for Critical Function — functionality requiring auth accessible without it." },
+    "PII": { pt: "Personally Identifiable Information — dados que pueden identificar un individuo (nombre, email, CPF, teléfono).", en: "Personally Identifiable Information — data that can identify an individual (name, email, CPF, phone)." },
+    "CWE-306": { pt: "Missing Authentication for Critical Function — funcionalidad que requiere autenticación accesible sin ella.", en: "Missing Authentication for Critical Function — functionality requiring auth accessible without it." },
   },
   "mogi-guacu-backup": {
-    "backup-dump": { pt: "Exportação completa do banco de dados em formato SQL — contém todos os registros, incluindo dados sensíveis.", en: "Complete database export in SQL format — contains all records including sensitive data." },
-    "CWE-538": { pt: "Exposição de informações em arquivo e diretório — backup files left accessible in public directories.", en: "File and Directory Information Exposure — backup files left accessible in public directories." },
+    "backup-dump": { pt: "Exportación completa de la base de datos en formato SQL — contiene todos los registros, incluyendo datos sensibles.", en: "Complete database export in SQL format — contains all records including sensitive data." },
+    "CWE-538": { pt: "Exposición de información en archivo y directorio — los archivos de respaldo quedan accesibles en directorios públicos.", en: "File and Directory Information Exposure — backup files left accessible in public directories." },
   },
 };
 
@@ -52,12 +53,17 @@ export default function SecurityCaseStudy() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".cs-hero > *", {
-        y: 30, opacity: 0, stagger: 0.1, duration: 0.8, ease: EASE_PRIMARY,
+        y: 30, opacity: 0, stagger: 0.1, duration: 0.8, ease: EASE_SECONDARY,
         scrollTrigger: { trigger: ".cs-hero", start: SCROLL_START, once: true },
       });
 
-      gsap.from(".cs-section", {
-        y: 40, opacity: 0, stagger: 0.15, duration: 0.9, ease: EASE_SECONDARY,
+      gsap.from(".cs-section .section-label", {
+        opacity: 0, y: 20, duration: 0.6, ease: EASE_SECONDARY,
+        scrollTrigger: { trigger: ".cs-section .section-label", start: SCROLL_START, once: true },
+      });
+
+      gsap.from(".cs-section > *:not(.section-label)", {
+        opacity: 0, y: 30, stagger: 0.1, duration: 0.7, ease: EASE_SECONDARY,
         scrollTrigger: { trigger: ".cs-section", start: SCROLL_START, once: true },
       });
 
@@ -156,13 +162,21 @@ export default function SecurityCaseStudy() {
           </div>
 
           <h1
-            className="font-serif font-bold leading-tight mb-4"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", color: "var(--color-text)" }}
+            className="font-serif font-bold leading-tight mb-4 text-h1"
           >
-            {disclosure.title}
+            <SplitText
+              as="span"
+              className="block"
+              delay={0.3}
+              duration={1.2}
+              stagger={0.06}
+              splitType="words"
+            >
+              {disclosure.title}
+            </SplitText>
           </h1>
 
-          <p className="font-mono text-sm tracking-[0.1em] uppercase mb-6" style={{ color: "var(--color-text-2)" }}>
+          <p className="font-mono text-sm tracking-[0.1em] uppercase mb-6 text-text-2">
             {t(disclosure.organization)} · {disclosure.CWE} · {disclosure.vulnType}
           </p>
 
@@ -171,14 +185,14 @@ export default function SecurityCaseStudy() {
               <span
                 key={badge.key}
                 className="px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider border"
-                style={{ borderColor: "var(--color-accent-30)", color: "var(--color-aqua)", backgroundColor: "var(--color-accent-06)" }}
+                style={{ borderColor: "var(--color-accent-30)", color: "var(--color-teal)", backgroundColor: "var(--color-accent-06)" }}
               >
                 {t(badge)}
               </span>
             ))}
           </div>
 
-          <p className="text-lg leading-relaxed max-w-3xl" style={{ color: "var(--color-text-2)" }} data-selectable>
+          <p className="text-lg leading-relaxed max-w-3xl text-text-2" data-selectable>
             {t(disclosure.description)}
           </p>
         </div>
@@ -186,14 +200,14 @@ export default function SecurityCaseStudy() {
         <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 mb-20">
           <div className="cs-section">
             <span className="section-label">{t({ pt: "O Desafio", en: "The Challenge" })}</span>
-            <p className="text-lg leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>
+            <p className="text-lg leading-relaxed case-study-challenge text-text-2" data-selectable>
               {annotateText(t(cs.challenge))}
             </p>
           </div>
 
           <div className="cs-section">
             <span className="section-label">{t({ pt: "A Abordagem", en: "The Approach" })}</span>
-            <p className="text-lg leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>
+            <p className="text-lg leading-relaxed text-text-2" data-selectable>
               {annotateText(t(cs.approach))}
             </p>
           </div>
@@ -209,7 +223,7 @@ export default function SecurityCaseStudy() {
               <div key={i} className="cs-timeline flex items-start gap-4">
                 <span
                   className="mt-1.5 w-6 h-6 flex items-center justify-center shrink-0 font-mono text-xs border"
-                  style={{ color: "var(--color-aqua)", borderColor: "var(--color-accent-30)" }}
+                  style={{ color: "var(--color-teal)", borderColor: "var(--color-accent-30)" }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -240,7 +254,7 @@ export default function SecurityCaseStudy() {
           <div className="space-y-3">
             {cs.keyFindings.map((f, i) => (
               <div key={i} className="cs-finding flex items-start gap-3">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: "var(--color-aqua)" }} />
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: "var(--color-teal)" }} />
                 <span className="text-sm leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>
                   {annotateText(t(f))}
                 </span>
@@ -254,14 +268,14 @@ export default function SecurityCaseStudy() {
           style={{ borderColor: "var(--color-accent-20)", backgroundColor: "var(--color-accent-04)" }}
         >
           <div className="flex items-start gap-3 mb-3">
-            <Shield className="w-5 h-5 shrink-0" style={{ color: "var(--color-aqua)" }} />
-            <span className="font-mono text-xs tracking-[0.15em] uppercase" style={{ color: "var(--color-aqua)" }}>
+            <Shield className="w-5 h-5 shrink-0" style={{ color: "var(--color-teal)" }} />
+            <span className="font-mono text-xs tracking-[0.15em] uppercase" style={{ color: "var(--color-teal)" }}>
               {t({ pt: "Divulgação Responsável", en: "Responsible Disclosure" })}
             </span>
           </div>
           <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>
             {t({
-              pt: "Todas as vulnerabilidades neste portfólio foram reportadas de forma responsável através dos canais apropriados (CERT.br, CTIR Gov, ouvidorias municipais, contato direto com plataformas). Nenhuma exploração ativa foi realizada — apenas verificação passiva para confirmar a existência da vulnerabilidade. Os dados sensíveis não foram acessados, copiados ou armazenados.",
+              pt: "Todas as vulnerabilidades neste portfólio fueron reportadas de forma responsable a través de los canales apropiados (CERT.br, CTIR Gov, ouvidorias municipales, contacto directo con plataformas). Ninguna exploración activa fue realizada — solo verificación pasiva para confirmar la existencia de la vulnerabilidad. Los datos sensibles no fueron accedidos, copiados ni almacenados.",
               en: "All vulnerabilities in this portfolio were responsibly reported through appropriate channels (CERT.br, CTIR Gov, municipal ombudsmen, direct platform contact). No active exploitation was performed — only passive verification to confirm the vulnerability's existence. Sensitive data was not accessed, copied, or stored.",
             })}
           </p>

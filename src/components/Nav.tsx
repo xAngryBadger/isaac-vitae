@@ -4,7 +4,6 @@ import { Globe, Volume2, VolumeX } from "lucide-react";
 import { useLang } from "../lib/LanguageContext";
 import { useSounds } from "../lib/useSounds";
 import { personal } from "../data/content";
-import { scrambleText } from "../lib/scramble";
 import { DyslexiaToggle } from "./DyslexiaToggle";
 
 const menuLinks = [
@@ -25,13 +24,10 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const progressRef = useRef<HTMLDivElement>(null);
+  const menuBackdropRef = useRef<HTMLDivElement>(null);
   const { t, lang, toggle } = useLang();
   const { enabled: soundsEnabled, playMenuOpen, playMenuClose, toggleSounds } = useSounds();
   const location = useLocation();
-
-  const handleScramble = (e: React.MouseEvent<HTMLElement>) => {
-    scrambleText({ el: e.currentTarget, text: e.currentTarget.dataset.scramble || "", duration: 400, scramblePct: 0.5 });
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,12 +52,24 @@ export default function Nav() {
       playMenuOpen();
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
+      
+      // Trigger clip-reveal animation for menu backdrop
+      if (menuBackdropRef.current) {
+        menuBackdropRef.current.classList.add("clip-reveal-up");
+      }
+      
       const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
       lenis?.stop();
     } else {
       playMenuClose();
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
+      
+      // Remove clip-reveal class when closing
+      if (menuBackdropRef.current) {
+        menuBackdropRef.current.classList.remove("clip-reveal-up");
+      }
+      
       const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
       lenis?.start();
     }
@@ -93,7 +101,7 @@ export default function Nav() {
               style={{ background: "none", border: "none" }}
             >
               <span
-                className="hidden lg:inline font-mono text-xs tracking-[0.15em] uppercase"
+                className="hidden lg:inline font-sans text-xs tracking-[0.15em] uppercase"
                 style={{ color: "var(--color-text-3)", transition: "opacity 0.3s", opacity: menuOpen ? 0 : 1 }}
               >
                 Menu
@@ -114,7 +122,7 @@ export default function Nav() {
 
             <Link
               to="/"
-              className="font-mono text-sm tracking-[0.2em] uppercase custom-cursor-target"
+              className="font-sans text-sm tracking-[0.2em] uppercase custom-cursor-target"
               style={{ color: "var(--color-text)", textDecoration: "none" }}
             >
               Isaac
@@ -125,6 +133,7 @@ export default function Nav() {
       </header>
 
       <div
+        ref={menuBackdropRef}
         className="fixed inset-0 z-[99] flex flex-col justify-center px-10 lg:px-20"
         style={{
           visibility: menuOpen ? "visible" : "hidden",
@@ -136,15 +145,15 @@ export default function Nav() {
           className="absolute inset-0"
           style={{
             backgroundColor: "var(--color-bg-deep)",
-            opacity: menuOpen ? 1 : 0,
-            transition: "opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+            opacity: 0,
+            transition: "opacity 0s",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             backgroundColor: "var(--color-bg)",
-            clipPath: menuOpen ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
+            clipPath: "inset(0 0 100% 0)",
             transition: "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         />
@@ -174,8 +183,6 @@ export default function Nav() {
             <Link
               key={link.href}
               to={link.href}
-              onMouseEnter={handleScramble}
-              data-scramble={t(link.label)}
               className="text-left custom-cursor-target group"
               style={{
                 fontFamily: "var(--font-serif)",
@@ -187,7 +194,7 @@ export default function Nav() {
                 display: "block",
                 opacity: menuOpen ? 1 : 0,
                 transform: menuOpen ? "translateY(0)" : "translateY(100%)",
-                transition: `opacity 0.5s ease ${0.05 * i + 0.2}s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${0.05 * i + 0.2}s`,
+                transition: `opacity 0.6s var(--ease-project) ${0.05 * i + 0.2}s, transform 0.6s var(--ease-project) ${0.05 * i + 0.2}s`,
               }}
             >
               <span

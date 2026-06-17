@@ -4,9 +4,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects, caseStudies } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
-import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
+import { EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
 import { ArrowLeft, ArrowUpRight, Copy, Check, ChevronDown } from "lucide-react";
 import { InlineAnnotation } from "../components/InlineAnnotation";
+import { SplitText } from "../components/SplitText";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function CodeBlock({ language, title, code }: { language: string; title: string; code: string }) {
@@ -138,39 +140,42 @@ export default function ProjectCaseStudy() {
   const cs = slug ? caseStudies[slug] : undefined;
 
   useEffect(() => {
-  const ctx = gsap.context(() => {
-  gsap.from(".cs-hero > *", {
-  y: 30, opacity: 0, stagger: 0.1, duration: 0.8, ease: EASE_PRIMARY,
-  scrollTrigger: { trigger: ".cs-hero", start: SCROLL_START, once: true },
-  });
+    const ctx = gsap.context(() => {
+      gsap.from(".cs-hero > *", {
+        y: 30, opacity: 0, stagger: 0.1, duration: 0.8, ease: EASE_SECONDARY,
+        scrollTrigger: { trigger: ".cs-hero", start: SCROLL_START, once: true },
+      });
 
-  gsap.from(".cs-section", {
-  y: 40, opacity: 0, stagger: 0.15, duration: 0.9, ease: EASE_SECONDARY,
-  scrollTrigger: { trigger: ".cs-section", start: SCROLL_START, once: true },
-  });
+      gsap.from(".cs-section .section-label", {
+        opacity: 0, y: 20, duration: 0.6, ease: EASE_SECONDARY,
+        scrollTrigger: { trigger: ".cs-section .section-label", start: SCROLL_START, once: true },
+      });
 
-  gsap.from(".cs-result", {
-  y: 20, opacity: 0, stagger: 0.08, duration: 0.6, ease: EASE_SECONDARY,
-  scrollTrigger: { trigger: ".cs-result", start: SCROLL_START, once: true },
-  });
+      gsap.from(".cs-section > *:not(.section-label)", {
+        opacity: 0, y: 30, stagger: 0.1, duration: 0.7, ease: EASE_SECONDARY,
+        scrollTrigger: { trigger: ".cs-section", start: SCROLL_START, once: true },
+      });
 
-  gsap.from(".cs-feature", {
-  y: 15, opacity: 0, stagger: 0.06, duration: 0.5, ease: EASE_SECONDARY,
-  scrollTrigger: { trigger: ".cs-feature", start: SCROLL_START, once: true },
-  });
+      gsap.from(".cs-result", {
+        opacity: 0, y: 20, stagger: 0.08, duration: 0.6, ease: EASE_SECONDARY,
+        scrollTrigger: { trigger: ".cs-result", start: SCROLL_START, once: true },
+      });
 
-  gsap.from(".cs-code", {
-  y: 30, opacity: 0, stagger: 0.12, duration: 0.8, ease: EASE_SECONDARY,
-  scrollTrigger: { trigger: ".cs-code", start: SCROLL_START, once: true },
-  });
+      gsap.from(".cs-feature", {
+        opacity: 0, y: 15, stagger: 0.06, duration: 0.5, ease: EASE_SECONDARY,
+        scrollTrigger: { trigger: ".cs-feature", start: SCROLL_START, once: true },
+      });
 
-  gsap.from(".cs-gallery-img", {
-  scale: 0.92, opacity: 0, stagger: 0.1, duration: 0.7, ease: EASE_SECONDARY,
-  scrollTrigger: { trigger: ".cs-gallery-img", start: SCROLL_START, once: true },
-  });
+      gsap.from(".cs-code", {
+        opacity: 0, y: 30, stagger: 0.12, duration: 0.8, ease: EASE_SECONDARY,
+        scrollTrigger: { trigger: ".cs-code", start: SCROLL_START, once: true },
+      });
 
-
-  }, sectionRef);
+      gsap.from(".cs-gallery-img", {
+        scale: 0.92, opacity: 0, stagger: 0.1, duration: 0.7, ease: EASE_SECONDARY,
+        scrollTrigger: { trigger: ".cs-gallery-img", start: SCROLL_START, once: true },
+      });
+    }, sectionRef);
     return () => ctx.revert();
   }, []);
 
@@ -204,37 +209,37 @@ forestai: "forestai",
   const annotations: Record<string, Record<string, { pt: string; en: string }>> = {
     harpia: {
       agentic: { pt: "Agente de IA que decide autonomamente quais ferramentas usar e em que ordem, sem intervenção humana a cada passo.", en: "AI agent that autonomously decides which tools to use and in what order, without human intervention at each step." },
-      "tool-calling": { pt: "Mecanismo da OpenAI onde o modelo pode invocar funções externas (APIs, banco de dados) durante o raciocínio.", en: "OpenAI mechanism where the model can invoke external functions (APIs, databases) during reasoning." },
-      "flux-kontext": { pt: "Modelo de edição de imagens da Black Forest Labs — gera variações e edições preservando identidade visual.", en: "Image editing model by Black Forest Labs — generates variations and edits while preserving visual identity." },
-      "pil-compositor": { pt: "Compositor de imagens usando Python Imaging Library — gera designs localmente sem custo de API.", en: "Image compositor using Python Imaging Library — generates designs locally with no API cost." },
-      "schema-enforcement": { pt: "Validação estrita de que as respostas do LLM seguem um schema JSON pré-definido antes de serem processadas.", en: "Strict validation that LLM responses follow a pre-defined JSON schema before being processed." },
+      "tool-calling": { pt: "Mecanismo da OpenAI donde el modelo puede invocar funciones externas (APIs, base de datos) durante el razonamiento.", en: "OpenAI mechanism where the model can invoke external functions (APIs, databases) during reasoning." },
+      "flux-kontext": { pt: "Modelo de edición de imágenes de Black Forest Labs — genera variaciones y ediciones preservando identidad visual.", en: "Image editing model by Black Forest Labs — generates variations and edits while preserving visual identity." },
+      "pil-compositor": { pt: "Compositor de imágenes usando Python Imaging Library — genera diseños localmente sin costo de API.", en: "Image compositor using Python Imaging Library — generates designs locally with no API cost." },
+      "schema-enforcement": { pt: "Validación estricta de que las respuestas del LLM siguen un schema JSON predefinido antes de ser procesadas.", en: "Strict validation that LLM responses follow a pre-defined JSON schema before being processed." },
     },
     orca: {
-      dossie: { pt: "Documento executivo completo com cronograma, custos, equipes e territórios para uma área de restauração.", en: "Complete executive document with schedule, costs, crews and territories for a restoration area." },
-      nicegui: { pt: "Framework Python para interfaces web baseado em FastAPI + Vue.js — roda no navegador sem frontend separado.", en: "Python framework for web interfaces based on FastAPI + Vue.js — runs in the browser without a separate frontend." },
-      "rich-cli": { pt: "Biblioteca Python para saídas de terminal ricas — tabelas, progress bars, árvores e highlight de syntax.", en: "Python library for rich terminal output — tables, progress bars, trees and syntax highlighting." },
+      dossie: { pt: "Documento ejecutivo completo con cronograma, costos, equipos y territorios para un área de restauración.", en: "Complete executive document with schedule, costs, crews and territories for a restoration area." },
+      nicegui: { pt: "Framework Python para interfaces web basado en FastAPI + Vue.js — funciona en el navegador sin frontend separado.", en: "Python framework for web interfaces based on FastAPI + Vue.js — runs in the browser without a separate frontend." },
+      "rich-cli": { pt: "Biblioteca Python para salidas de terminal ricas — tablas, barras de progreso, árboles y resaltado de sintaxis.", en: "Python library for rich terminal output — tables, progress bars, trees and syntax highlighting." },
     },
     "flora-sensus": {
-      "offline-first": { pt: "Arquitetura onde o app funciona totalmente sem internet e sincroniza quando conectado.", en: "Architecture where the app works fully without internet and syncs when connected." },
-      "uuid-remapping": { pt: "Técnica para conciliar IDs temporários do cliente com IDs definitivos do servidor após sincronização.", en: "Technique to reconcile temporary client IDs with definitive server IDs after synchronization." },
-      drift: { pt: "ORM/SQLite para Flutter/Dart — tipo Prisma mas para apps mobile, com queries tipadas e migrations.", en: "ORM/SQLite for Flutter/Dart — like Prisma but for mobile apps, with typed queries and migrations." },
-      "atomic-rollback": { pt: "Reversão completa de todas as operações de uma transação se qualquer passo falhar — tudo ou nada.", en: "Complete reversal of all operations in a transaction if any step fails — all or nothing." },
+      "offline-first": { pt: "Arquitectura donde la aplicación funciona totalmente sin internet y se sincroniza cuando está conectada.", en: "Architecture where the app works fully without internet and syncs when connected." },
+      "uuid-remapping": { pt: "Técnica para reconciliar IDs temporales del cliente con IDs definitivos del servidor después de la sincronización.", en: "Technique to reconcile temporary client IDs with definitive server IDs after synchronization." },
+      drift: { pt: "ORM/SQLite para Flutter/Dart — tipo Prisma pero para aplicaciones móviles, con consultas tipadas y migraciones.", en: "ORM/SQLite for Flutter/Dart — like Prisma but for mobile apps, with typed queries and migrations." },
+      "atomic-rollback": { pt: "Reversión completa de todas las operaciones de una transacción si cualquier paso falla — todo o nada.", en: "Complete reversal of all operations in a transaction if any step fails — all or nothing." },
     },
     "fennec-excel": {
-      react: { pt: "Padrão de agente de IA que alterna entre pensamento (Reasoning) e ação (Acting) em loop iterativo.", en: "AI agent pattern that alternates between thinking (Reasoning) and acting (Acting) in an iterative loop." },
-      ollama: { pt: "Runtime para rodar LLMs localmente — sem custo de API, sem dados na nuvem, 100% offline.", en: "Runtime to run LLMs locally — no API cost, no cloud data, 100% offline." },
-      xlwings: { pt: "Biblioteca Python que controla o Excel diretamente via COM/Windows API — como VBA mas em Python.", en: "Python library that controls Excel directly via COM/Windows API — like VBA but in Python." },
+      react: { pt: "Patrón de agente de IA que alterna entre pensamiento (Reasoning) y acción (Acting) en bucle iterativo.", en: "AI agent pattern that alternates between thinking (Reasoning) and acting (Acting) in an iterative loop." },
+      ollama: { pt: "Runtime para ejecutar LLMs localmente — sin costo de API, sin datos en la nube, 100% offline.", en: "Runtime to run LLMs locally — no API cost, no cloud data, 100% offline." },
+      xlwings: { pt: "Biblioteca de Python que controla Excel directamente mediante COM/Windows API — como VBA pero en Python.", en: "Python library that controls Excel directly via COM/Windows API — like VBA but in Python." },
     },
   inovesa: {
-    lenis: { pt: "Biblioteca JS de smooth scrolling — substitui o scroll nativo com animações fluidas e sincronizáveis.", en: "JS smooth scrolling library — replaces native scroll with fluid, syncable animations." },
-    parallax: { pt: "Efeito visual onde diferentes camadas se movem em velocidades distintas ao rolar, criando profundidade.", en: "Visual effect where different layers move at different speeds on scroll, creating depth." },
-    "motion-system": { pt: "Sistema centralizado de springs, variantes e easings reutilizáveis para animações consistentes no app todo.", en: "Centralized system of reusable springs, variants and easings for consistent animations across the app." },
+    lenis: { pt: "Biblioteca JS de desplazamiento suave — reemplaza el desplazamiento nativo con animaciones fluidas y sincronizables.", en: "JS smooth scrolling library — replaces native scroll with fluid, syncable animations." },
+    parallax: { pt: "Efecto visual donde diferentes capas se mueven a velocidades distintas al desplazarse, creando profundidad.", en: "Visual effect where different layers move at different speeds on scroll, creating depth." },
+    "motion-system": { pt: "Sistema centralizado de muelles, variantes y easings reutilizables para animaciones consistentes en toda la aplicación.", en: "Centralized system of reusable springs, variants and easings for consistent animations across the app." },
   },
   forestai: {
-    deepforest: { pt: "Framework open-source para detecção de copas de árvores em imagens aéreas — baseado em Retinanet/Faster R-CNN.", en: "Open-source framework for tree crown detection in aerial imagery — based on Retinanet/Faster R-CNN." },
-    "bounding-box": { pt: "Retângulo que marca a posição de um objeto na imagem — coordenadas (x, y, largura, altura) usadas para treinar modelos de detecção.", en: "Rectangle marking an object's position in an image — (x, y, width, height) coordinates used to train detection models." },
-    "stratified-split": { pt: "Divisão do dataset garantindo que cada subconjunto mantém a mesma proporção de classes — evita viés no treino.", en: "Dataset split ensuring each subset maintains the same class proportions — prevents training bias." },
-    tensorboard: { pt: "Ferramenta de visualização do TensorFlow para monitorar métricas de treino (loss, accuracy, mAP) em tempo real.", en: "TensorFlow visualization tool for monitoring training metrics (loss, accuracy, mAP) in real-time." },
+    deepforest: { pt: "Framework de código abierto para la detección de copas de árboles en imágenes aéreas — basado en Retinanet/Faster R-CNN.", en: "Open-source framework for tree crown detection in aerial imagery — based on Retinanet/Faster R-CNN." },
+    "bounding-box": { pt: "Rectángulo que marca la posición de un objeto en la imagen — coordenadas (x, y, ancho, altura) utilizados para entrenar modelos de detección.", en: "Rectangle marking an object's position in an image — (x, y, width, height) coordinates used to train detection models." },
+    "stratified-split": { pt: "División del conjunto de datos garantizando que cada subconjunto mantenga la misma proporción de clases — evita sesgo en el entrenamiento.", en: "Dataset split ensuring each subset maintains the same class proportions — prevents training bias." },
+    tensorboard: { pt: "Herramienta de visualización de TensorFlow para monitorear métricas de entrenamiento (pérdida, precisión, mAP) en tiempo real.", en: "TensorFlow visualization tool for monitoring training metrics (loss, accuracy, mAP) in real-time." },
   },
   };
 
@@ -273,8 +278,8 @@ forestai: "forestai",
   };
 
   return (
-  <div ref={sectionRef} className="section-root">
-  <div className="section-container">
+    <div ref={sectionRef} className="section-root">
+      <div className="section-container">
         <Link
           to="/projects"
           className="cs-hero inline-flex items-center gap-2 font-mono text-xs tracking-[0.15em] uppercase mb-12 custom-cursor-target"
@@ -285,10 +290,10 @@ forestai: "forestai",
         </Link>
 
         <div className="cs-hero mb-20">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="highlight-date font-mono text-xs tracking-[0.15em] uppercase" style={{ color: "var(--color-text-3)" }}>
-            {project.year}
-          </span>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="highlight-date font-mono text-xs tracking-[0.15em] uppercase" style={{ color: "var(--color-text-3)" }}>
+              {project.year}
+            </span>
             {project.inProgress && (
               <span
                 className="font-mono text-[9px] tracking-[0.1em] uppercase px-2 py-0.5"
@@ -299,38 +304,46 @@ forestai: "forestai",
             )}
           </div>
           <h1
-            className="font-serif font-bold leading-tight mb-4"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", color: "var(--color-text)" }}
+            className="font-serif font-bold leading-tight mb-4 text-h1"
           >
-            {project.title}
+            <SplitText
+              as="span"
+              className="block"
+              delay={0.3}
+              duration={1.2}
+              stagger={0.06}
+              splitType="words"
+            >
+              {project.title}
+            </SplitText>
           </h1>
-          <p className="font-mono text-sm tracking-[0.1em] uppercase mb-8" style={{ color: "var(--color-text-2)" }}>
+          <p className="font-mono text-sm tracking-[0.1em] uppercase mb-8 text-text-2">
             {t(project.category)}
           </p>
-          <p className="text-lg leading-relaxed max-w-3xl" style={{ color: "var(--color-text-2)" }} data-selectable>
+          <p className="text-lg leading-relaxed max-w-3xl text-text-2" data-selectable>
             {t(project.description)}
           </p>
         </div>
 
-      <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 mb-20">
-  <div className="cs-section">
-    <span className="section-label">{t({ pt: "O Desafio", en: "The Challenge" })}</span>
-    <p className="text-lg leading-relaxed case-study-challenge" style={{ color: "var(--color-text-2)" }} data-selectable>
-      {annotateText(t(cs.challenge))}
-    </p>
-  </div>
+        <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 mb-20">
+          <div className="cs-section">
+            <span className="section-label">{t({ pt: "O Desafio", en: "The Challenge" })}</span>
+            <p className="text-lg leading-relaxed case-study-challenge text-text-2" data-selectable>
+              {annotateText(t(cs.challenge))}
+            </p>
+          </div>
 
-  <div className="cs-section">
-    <span className="section-label">{t({ pt: "A Abordagem", en: "The Approach" })}</span>
-    <p className="text-lg leading-relaxed" style={{ color: "var(--color-text-2)" }} data-selectable>
-      {annotateText(t(cs.approach))}
-    </p>
-  </div>
+          <div className="cs-section">
+            <span className="section-label">{t({ pt: "A Abordagem", en: "The Approach" })}</span>
+            <p className="text-lg leading-relaxed text-text-2" data-selectable>
+              {annotateText(t(cs.approach))}
+            </p>
+          </div>
         </div>
 
         {cs.codeSnippets && cs.codeSnippets.length > 0 && (
           <div className="cs-section mb-20">
-            <span className="section-label mb-8 block">
+            <span className="section-label mb-8 block text-label">
               {t({ pt: "Código-Fonte", en: "Source Code" })}
             </span>
             <div className="space-y-6">
@@ -385,28 +398,30 @@ forestai: "forestai",
 
         {cs.gallery && cs.gallery.length > 0 && (
           <div className="cs-section mb-20">
-            <span className="section-label mb-8 block">
+            <span className="section-label mb-8 block text-label">
               {t({ pt: "Galeria", en: "Gallery" })}
             </span>
             <GalleryGrid images={cs.gallery} />
           </div>
         )}
 
-      <div className="cs-section">
-        <span className="section-label">{t({ pt: "Tecnologias", en: "Technologies" })}</span>
-        <div className="flex flex-wrap gap-2">
-          {project.tech.map((tech) => (
-            <span
-              key={tech}
-              className="tech-pill"
-            >
-              {tech}
-            </span>
-          ))}
+        <div
+          className="cs-section"
+        >
+          <span className="section-label">{t({ pt: "Tecnologias", en: "Technologies" })}</span>
+          <div className="flex flex-wrap gap-2">
+            {project.tech.map((tech) => (
+              <span
+                key={tech}
+                className="tech-pill"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div
+        <div
           style={{ borderColor: "var(--color-border)" }}
         >
           <Link to="/projects" className="clip-btn">

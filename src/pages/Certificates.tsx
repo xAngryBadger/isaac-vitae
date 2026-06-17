@@ -3,7 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { courses, education } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
-import { EASE_PRIMARY, SCROLL_START } from "../lib/scroll-anim";
+import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
+import { SplitText } from "../components/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,9 +24,14 @@ export default function Certificates() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".cert-header > *", {
-        y: 60, opacity: 0, stagger: 0.12, duration: 1.2, ease: EASE_PRIMARY,
-        scrollTrigger: { trigger: ".cert-header", start: SCROLL_START, once: true },
+      gsap.from(".section-label", {
+        opacity: 0, y: 24, clipPath: "inset(0 0 100% 0)", duration: 0.9, ease: EASE_PRIMARY,
+        scrollTrigger: { trigger: ".section-label", start: SCROLL_START, once: true },
+      });
+
+      gsap.from(".section-lede", {
+        opacity: 0, y: 20, duration: 1, ease: EASE_SECONDARY,
+        scrollTrigger: { trigger: ".section-lede", start: SCROLL_START, once: true },
       });
 
       gsap.from(".cert-group", {
@@ -59,15 +65,17 @@ export default function Certificates() {
             className="font-serif font-bold leading-tight mb-6"
             style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "var(--color-text)" }}
           >
-            <span className="italic" style={{ color: "var(--color-text-2)" }}>
-              {t({ pt: "Credenciais", en: "Credentials" })}
-            </span>
+            <SplitText as="span" className="inline" splitType="words" stagger={0.08} delay={0.3}>
+              <span className="italic" style={{ color: "var(--color-text-2)" }}>
+                {t({ pt: "Credenciais", en: "Credentials" })}
+              </span>
+            </SplitText>
           </h2>
           <div
             className="w-16 mb-6"
             style={{ height: "1.34px", background: "var(--color-accent)" }}
           />
-          <p className="text-secondary" style={{ lineHeight: "1.8", maxWidth: "36rem" }}>
+          <p className="section-lede text-secondary" style={{ lineHeight: "1.8", maxWidth: "36rem" }}>
             {t({ pt: "Certificações e cursos complementares que reforçam minha base em networking, segurança e idiomas.", en: "Certifications and complementary courses that reinforce my foundation in networking, security, and languages." })}
           </p>
         </div>

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { type SecurityDisclosure } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 
-export default function SecurityCard({ disclosure, onScramble }: { disclosure: SecurityDisclosure; onScramble: (e: React.MouseEvent<HTMLElement>, text: string) => void }) {
+export default function SecurityCard({ disclosure }: { disclosure: SecurityDisclosure }) {
   const { t } = useLang();
   const [hovered, setHovered] = useState(false);
 
@@ -45,11 +45,10 @@ export default function SecurityCard({ disclosure, onScramble }: { disclosure: S
           <span className="sec-category-badge">{categoryLabel}</span>
         </div>
 
-        <h3
-          className="font-serif font-bold text-lg leading-snug mb-2"
-          style={{ color: "var(--color-text)" }}
-          onMouseEnter={(e) => onScramble(e, disclosure.title)}
-        >
+         <h3
+           className="font-serif font-bold text-lg leading-snug mb-2"
+           style={{ color: "var(--color-text)" }}
+         >
           {disclosure.title}
         </h3>
 

@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { experiences } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
+import { SplitText } from "../components/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,9 +14,9 @@ const { t } = useLang();
 
 useEffect(() => {
 const ctx = gsap.context(() => {
-gsap.from(".exp-label, .exp-title", {
-y: 40, opacity: 0, stagger: 0.15, duration: 0.8, ease: EASE_PRIMARY,
-scrollTrigger: { trigger: ".exp-title", start: SCROLL_START, once: true },
+gsap.from(".exp-label", {
+  opacity: 0, y: 24, clipPath: "inset(0 0 100% 0)", duration: 0.9, ease: EASE_PRIMARY,
+  scrollTrigger: { trigger: ".exp-label", start: SCROLL_START, once: true },
 });
 
 gsap.from(".timeline-line-fill", {
@@ -45,7 +46,9 @@ return () => ctx.revert();
             className="exp-title font-serif font-bold leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
           >
-            {t({ pt: "Onde construí ", en: "Where I built " })}
+            <SplitText as="span" className="inline" splitType="words" stagger={0.08} delay={0.3}>
+              {t({ pt: "Onde construí ", en: "Where I built " })}
+            </SplitText>
             <span className="italic" style={{ color: "var(--color-text-2)" }}>
               {t({ pt: "expertise real.", en: "real expertise." })}
             </span>

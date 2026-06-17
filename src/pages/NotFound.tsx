@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useLang } from "../lib/LanguageContext";
 import { ArrowLeft } from "lucide-react";
 import { gsap } from "gsap";
+import { SplitText } from "../components/SplitText";
+import { EASE_PRIMARY, EASE_SECONDARY } from "../lib/scroll-anim";
 
 export default function NotFound() {
   const { t } = useLang();
@@ -10,9 +12,11 @@ export default function NotFound() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".notfound-404", { scale: 0.8, opacity: 0, duration: 0.8, ease: "expo.out" });
-      gsap.from(".notfound-msg", { y: 20, opacity: 0, duration: 0.6, delay: 0.3, ease: "power3.out" });
-      gsap.from(".notfound-btn", { y: 10, opacity: 0, duration: 0.5, delay: 0.5, ease: "power3.out" });
+      gsap.from(".notfound-404", {
+        opacity: 0, y: 24, clipPath: "inset(0 0 100% 0)", duration: 0.9, ease: EASE_PRIMARY,
+      });
+      gsap.from(".notfound-msg", { y: 20, opacity: 0, duration: 0.6, delay: 0.3, ease: EASE_SECONDARY });
+      gsap.from(".notfound-btn", { y: 10, opacity: 0, duration: 0.5, delay: 0.5, ease: EASE_SECONDARY });
     }, ref);
     return () => ctx.revert();
   }, []);
@@ -24,7 +28,9 @@ export default function NotFound() {
           className="notfound-404 font-serif font-bold italic block mb-4"
           style={{ fontSize: "clamp(6rem, 15vw, 12rem)", color: "var(--color-accent)", lineHeight: 1 }}
         >
-          404
+          <SplitText as="span" className="inline" splitType="chars" stagger={0.08} delay={0.3} duration={1}>
+            404
+          </SplitText>
         </span>
         <p className="notfound-msg font-mono text-xs tracking-[0.2em] uppercase mb-2" style={{ color: "var(--color-text-3)" }}>
           {t({ pt: "Página não encontrada.", en: "Page not found." })}

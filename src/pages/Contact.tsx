@@ -6,6 +6,7 @@ import { useLang } from "../lib/LanguageContext";
 import { Mail, Phone, MapPin, Linkedin, Github, Send, CheckCircle, AlertCircle, FileDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
+import { SplitText } from "../components/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,9 +23,9 @@ export default function Contact() {
 
 useEffect(() => {
 const ctx = gsap.context(() => {
-gsap.from(".contact-label, .contact-title", {
-y: 40, opacity: 0, stagger: 0.12, duration: 0.8, ease: EASE_PRIMARY,
-scrollTrigger: { trigger: ".contact-title", start: SCROLL_START, once: true },
+gsap.from(".contact-label", {
+  opacity: 0, y: 24, clipPath: "inset(0 0 100% 0)", duration: 0.9, ease: EASE_PRIMARY,
+  scrollTrigger: { trigger: ".contact-label", start: SCROLL_START, once: true },
 });
 
 gsap.from(".contact-info-item", {
@@ -102,7 +103,9 @@ return () => ctx.revert();
             className="contact-title font-serif font-bold leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
           >
-            {t({ pt: "Vamos construir ", en: "Let's build " })}
+            <SplitText as="span" className="inline" splitType="words" stagger={0.08} delay={0.3}>
+              {t({ pt: "Vamos construir ", en: "Let's build " })}
+            </SplitText>
             <span className="italic" style={{ color: "var(--color-text-2)" }}>
               {t({ pt: "algo juntos.", en: "something together." })}
             </span>

@@ -7,7 +7,8 @@ import { skillGroups, projects } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import { Cpu, Server, Cloud, Brain, Plug, Wrench, Code2, ChevronDown, ArrowRight, Terminal, Layers, Activity, GitBranch } from "lucide-react";
 import { Link } from "react-router-dom";
-import { EASE_PRIMARY, SCROLL_START } from "../lib/scroll-anim";
+import { SplitText } from "../components/SplitText";
+import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
@@ -989,14 +990,31 @@ export default function Skills() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-gsap.from(".skills-header > *", {
-y: 60,
-opacity: 0,
-stagger: 0.12,
-duration: 1.2,
-ease: EASE_PRIMARY,
-scrollTrigger: { trigger: ".skills-header", start: SCROLL_START, once: true },
-});
+      gsap.from(".skills-header .section-label", {
+        opacity: 0,
+        y: 24,
+        clipPath: "inset(0 0 100% 0)",
+        duration: 0.9,
+        ease: EASE_PRIMARY,
+        scrollTrigger: { trigger: ".skills-header", start: SCROLL_START, once: true },
+      });
+
+      gsap.from(".skills-header h2", {
+        opacity: 0,
+        y: 32,
+        duration: 1.1,
+        stagger: 0.06,
+        ease: EASE_PRIMARY,
+        scrollTrigger: { trigger: ".skills-header", start: SCROLL_START, once: true },
+      });
+
+      gsap.from(".skills-header p", {
+        opacity: 0,
+        y: 20,
+        duration: 1,
+        ease: EASE_SECONDARY,
+        scrollTrigger: { trigger: ".skills-header", start: SCROLL_START, once: true },
+      });
 
         gsap.utils.toArray<HTMLElement>(".skill-story-card").forEach((card) => {
           gsap.from(card, {
@@ -1004,7 +1022,7 @@ scrollTrigger: { trigger: ".skills-header", start: SCROLL_START, once: true },
             opacity: 0,
             scale: 0.96,
             duration: 1,
-    ease: EASE_PRIMARY,
+    ease: EASE_SECONDARY,
     scrollTrigger: { trigger: card, start: SCROLL_START, once: true },
           });
         });
@@ -1013,7 +1031,7 @@ gsap.from(".skills-playground", {
 y: 80,
 opacity: 0,
 duration: 1.2,
-ease: EASE_PRIMARY,
+ease: EASE_SECONDARY,
 scrollTrigger: { trigger: ".skills-playground", start: SCROLL_START, once: true },
 });
     }, sectionRef);
@@ -1033,10 +1051,12 @@ className="absolute inset-0 pointer-events-none dot-grid-bg"
             className="font-serif font-bold leading-tight mb-4"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
           >
-            {t({ pt: "A história das minhas ", en: "Story of my " })}
-            <span className="italic" style={{ color: "var(--color-text-2)" }}>
+            <SplitText splitType="words" stagger={0.08} delay={0.3} className="inline">
+              {t({ pt: "A história das minhas ", en: "Story of my " })}
+            </SplitText>
+            <SplitText splitType="words" stagger={0.08} delay={0.55} className="inline italic" as="span">
               {t({ pt: "habilidades.", en: "skills." })}
-            </span>
+            </SplitText>
           </h2>
           <p className="text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
         {t({ pt: "Não porcentagens — prova. Cada grupo de habilidades respaldado por projetos reais e o código que entrega.", en: "Not percentages — proof. Each skill group backed by real projects and the code that ships." })}

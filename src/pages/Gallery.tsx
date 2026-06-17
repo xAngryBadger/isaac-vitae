@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLang } from "../lib/LanguageContext";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { EASE_PRIMARY, SCROLL_START } from "../lib/scroll-anim";
+import { SplitText } from "../components/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -177,14 +178,15 @@ export default function Gallery() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-gsap.from(".gallery-header > *", {
-y: 60,
-opacity: 0,
-stagger: 0.12,
-duration: 1.2,
-ease: EASE_PRIMARY,
-scrollTrigger: { trigger: ".gallery-header", start: SCROLL_START, once: true },
-});
+      gsap.from(".section-label", {
+        opacity: 0, y: 24, clipPath: "inset(0 0 100% 0)", duration: 0.9, ease: EASE_PRIMARY,
+        scrollTrigger: { trigger: ".section-label", start: SCROLL_START, once: true },
+      });
+
+      gsap.from(".section-lede", {
+        opacity: 0, y: 20, duration: 1, ease: "var(--ease-quart-out)",
+        scrollTrigger: { trigger: ".section-lede", start: SCROLL_START, once: true },
+      });
 
       const cards = gsap.utils.toArray<HTMLElement>(".gallery-card");
       cards.forEach((card) => {
@@ -319,12 +321,14 @@ scrollTrigger: { trigger: ".gallery-header", start: SCROLL_START, once: true },
           className="font-serif font-bold leading-tight mb-4"
           style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
         >
-          {t({ pt: "Imagens dos ", en: "Project " })}
+          <SplitText as="span" className="inline" splitType="words" stagger={0.08} delay={0.3}>
+            {t({ pt: "Imagens dos ", en: "Project " })}
+          </SplitText>
           <span className="italic" style={{ color: "var(--color-text-2)" }}>
             {t({ pt: "projetos.", en: "gallery." })}
           </span>
         </h2>
-      <p className="text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
+      <p className="section-lede text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
         {t({ pt: "Clique para expandir. Role para navegar.", en: "Click to expand. Scroll to navigate." })}
       </p>
       <p
