@@ -1497,3 +1497,498 @@ async def api_merge(files: list[UploadFile] = File(...)):
   },
 };
 
+export type SecurityDisclosure = {
+  id: string;
+  slug: string;
+  title: string;
+  organization: Bilingual;
+  vulnType: string;
+  CWE: string;
+  status: "fixed" | "open" | "uncertain";
+  discoveryDate: string;
+  verifiedDate: string;
+  description: Bilingual;
+  category: "gov" | "platform" | "cve";
+  severity: "critical" | "high" | "medium";
+  hasCaseStudy: boolean;
+};
+
+export type SecurityCaseStudy = {
+  challenge: Bilingual;
+  approach: Bilingual;
+  timeline: Bilingual[];
+  impact: Bilingual[];
+  keyFindings: Bilingual[];
+  codeSnippets?: CodeSnippet[];
+  gallery?: GalleryImage[];
+};
+
+export const securityDisclosures: SecurityDisclosure[] = [
+  {
+    id: "fnas-mds-siafi",
+    slug: "fnas-mds-siafi",
+    title: "FNAS/MDS SIAFI Financial Data",
+    organization: b("Ministério do Desenvolvimento Social", "Ministry of Social Development"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "fixed",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Directory listing expôs dados financeiros SIAFI na infraestrutura FNAS/MDS. WAF agora bloqueia acesso.",
+      "Directory listing exposed SIAFI financial data on FNAS/MDS infrastructure. WAF now blocks access."
+    ),
+    category: "gov",
+    severity: "critical",
+    hasCaseStudy: true,
+  },
+  {
+    id: "ibiracu-es",
+    slug: "ibiracu-es",
+    title: "Ibiraçu/ES Municipal Portal",
+    organization: b("Prefeitura de Ibiraçu", "Ibiraçu City Hall"),
+    vulnType: "DOM-XSS + Directory Listing",
+    CWE: "CWE-79 + CWE-548",
+    status: "fixed",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "DOM-XSS e directorylisting no portal municipal. Ouvidoria confirmou correção.",
+      "DOM-XSS and directory listing on municipal portal. Ombudsman confirmed fix."
+    ),
+    category: "gov",
+    severity: "high",
+    hasCaseStudy: true,
+  },
+  {
+    id: "crmv-rs",
+    slug: "crmv-rs",
+    title: "CRMV-RS Payroll/Ethics Docs",
+    organization: b("Conselho Regional de Medicina Veterinária RS", "Regional Council of Veterinary Medicine RS"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "fixed",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Listing expôs folhas de pagamento e documentos éticos. Corrigido com 403 Forbidden.",
+      "Listing exposed payroll and ethics documents. Fixed with 403 Forbidden."
+    ),
+    category: "gov",
+    severity: "medium",
+    hasCaseStudy: true,
+  },
+  {
+    id: "cau-sc",
+    slug: "cau-sc",
+    title: "CAU/SC Payroll/Curricula",
+    organization: b("Conselho de Arquitetura SC", "Architecture Council SC"),
+    vulnType: "Directory Listing + Vulnerable Plugin",
+    CWE: "CWE-548",
+    status: "fixed",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Listing expôs folhas e currículos com plugin vulnerável. Corrigido com 403 Forbidden.",
+      "Listing exposed payroll and curricula with vulnerable plugin. Fixed with 403 Forbidden."
+    ),
+    category: "gov",
+    severity: "high",
+    hasCaseStudy: true,
+  },
+  {
+    id: "metajobs-base44",
+    slug: "metajobs-base44",
+    title: "metajobs.base44.app Candidate PII",
+    organization: b("Base44 Platform", "Base44 Platform"),
+    vulnType: "Missing Authentication",
+    CWE: "CWE-306",
+    status: "fixed",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "PII de candidatos (nomes, e-mails, telefones, currículos) acessível sem autenticação. Corrigido com 403.",
+      "Candidate PII (names, emails, phones, resumes) accessible without auth. Fixed with 403."
+    ),
+    category: "platform",
+    severity: "critical",
+    hasCaseStudy: true,
+  },
+  {
+    id: "mogi-guacu-backup",
+    slug: "mogi-guacu-backup",
+    title: "Mogi Guaçu/SP Backup Dump",
+    organization: b("Prefeitura de Mogi Guaçu", "Mogi Guaçu City Hall"),
+    vulnType: "Backup Exposure",
+    CWE: "CWE-538",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Dump de backup SQL + VPN tar exposto publicamente. Ainda sem correção.",
+      "SQL backup dump + VPN tar exposed publicly. Still open."
+    ),
+    category: "gov",
+    severity: "critical",
+    hasCaseStudy: true,
+  },
+  {
+    id: "cau-se",
+    slug: "cau-se",
+    title: "CAU/SE Payroll with CPFs",
+    organization: b("Conselho de Arquitetura SE", "Architecture Council SE"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Folhas de pagamento com CPFs expostas via directory listing. Ainda sem correção.",
+      "Payroll with CPFs exposed via directory listing. Still open."
+    ),
+    category: "gov",
+    severity: "critical",
+    hasCaseStudy: true,
+  },
+  {
+    id: "economia-painel",
+    slug: "economia-painel",
+    title: "Ministério da Economia Painel",
+    organization: b("Ministério da Economia", "Ministry of Economy"),
+    vulnType: "Directory Listing + Apache EOL",
+    CWE: "CWE-548 + CWE-1104",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Directory listing em servidor Apache end-of-life. Infraestrutura federal criticamente desatualizada.",
+      "Directory listing on end-of-life Apache server. Critically outdated federal infrastructure."
+    ),
+    category: "gov",
+    severity: "high",
+    hasCaseStudy: true,
+  },
+  {
+    id: "valiprev",
+    slug: "valiprev",
+    title: "VALIPREV Benefit Processes",
+    organization: b("Instituto de Previdência Valinhos", "Valinhos Social Security Institute"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Processos de benefícios previdenciários expostos. Ainda sem correção.",
+      "Social security benefit processes exposed. Still open."
+    ),
+    category: "gov",
+    severity: "high",
+    hasCaseStudy: true,
+  },
+  {
+    id: "base44-systemic",
+    slug: "base44-systemic",
+    title: "Base44 Platform: Systemic Auth Failure",
+    organization: b("Base44 Platform", "Base44 Platform"),
+    vulnType: "Systemic Authentication Bypass",
+    CWE: "CWE-306",
+    status: "fixed",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Análise cross-app revelou padrão sistêmico: páginas públicas por default, RLS bypassado sem auth context. 3 apps confirmados afetados.",
+      "Cross-app analysis revealed systemic pattern: pages public by default, RLS bypassed without auth context. 3 confirmed affected apps."
+    ),
+    category: "platform",
+    severity: "critical",
+    hasCaseStudy: true,
+  },
+  {
+    id: "educbarueri",
+    slug: "educbarueri",
+    title: "educbarueri FUNDEB Docs",
+    organization: b("Barueri/SP", "Barueri/SP"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b("Documentos FUNDEB expostos.", "FUNDEB documents exposed."),
+    category: "gov",
+    severity: "medium",
+    hasCaseStudy: false,
+  },
+  {
+    id: "sisprev-brodowski",
+    slug: "sisprev-brodowski",
+    title: "SISPREV-Brodowski Payroll",
+    organization: b("Brodowski/SP", "Brodowski/SP"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b("Folhas com CPFs expostas.", "Payroll with CPFs exposed."),
+    category: "gov",
+    severity: "high",
+    hasCaseStudy: false,
+  },
+  {
+    id: "aroeira",
+    slug: "aroeira",
+    title: "Aroeira User Data",
+    organization: b("Prorural PE", "Prorural PE"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b("Dados de usuários expostos.", "User data exposed."),
+    category: "gov",
+    severity: "medium",
+    hasCaseStudy: false,
+  },
+  {
+    id: "campo-bom",
+    slug: "campo-bom",
+    title: "Campo Bom SAMU Schedules",
+    organization: b("Campo Bom/RS", "Campo Bom/RS"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b("Escalas SAMU expostas.", "SAMU schedules exposed."),
+    category: "gov",
+    severity: "medium",
+    hasCaseStudy: false,
+  },
+  {
+    id: "mentoriadom",
+    slug: "mentoriadom",
+    title: "mentoriadom Admin Panel",
+    organization: b("Base44 Platform", "Base44 Platform"),
+    vulnType: "SPA Admin Sitemap Visible",
+    CWE: "CWE-548",
+    status: "uncertain",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b("Rotas de painel admin visíveis. Status incerto.", "Admin panel routes visible. Uncertain status."),
+    category: "platform",
+    severity: "medium",
+    hasCaseStudy: false,
+  },
+  {
+    id: "saf-sus",
+    slug: "saf-sus",
+    title: "SAF/SUS Unauth File Upload",
+    organization: b("Ministério da Saúde", "Ministry of Health"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "uncertain",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b("Upload de arquivo sem autenticação no SAF/SUS. Status incerto.", "Unauthenticated file upload on SAF/SUS. Uncertain status."),
+    category: "gov",
+    severity: "high",
+    hasCaseStudy: false,
+  },
+  {
+    id: "gestorcontratospro-base44",
+    slug: "gestorcontratospro-base44",
+    title: "gestorcontratospro.base44.app",
+    organization: b("Base44 Platform", "Base44 Platform"),
+    vulnType: "Missing Authentication",
+    CWE: "CWE-306",
+    status: "fixed",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b("Dados de contratos e PII acessíveis sem auth. Corrigido.", "Contract data and PII accessible without auth. Fixed."),
+    category: "platform",
+    severity: "high",
+    hasCaseStudy: false,
+  },
+];
+
+export const securityCaseStudies: Record<string, SecurityCaseStudy> = {
+  "fnas-mds-siafi": {
+    challenge: b(
+      "Infraestrutura FNAS/MDS expôs directory listing com dados financeiros SIAFI — transações governamentais sensíveis acessíveis sem autenticação por qualquer cidadão.",
+      "FNAS/MDS infrastructure exposed directory listing with SIAFI financial data — sensitive government transactions accessible without authentication by any citizen."
+    ),
+    approach: b(
+      "Verificação passiva confirmou acesso não autenticado. Documentação com screenshots e headers HTTP. Notificação via CERT.br + CTIR Gov simultaneamente. Acompanhamento pós-fix com verificação de 403/WAF.",
+      "Passive verification confirmed unauthenticated access. Documentation with screenshots and HTTP headers. Notification via CERT.br + CTIR Gov simultaneously. Post-fix follow-up verifying 403/WAF."
+    ),
+    timeline: [
+      b("Descoberta: acesso não autenticado confirmado", "Discovery: unauthenticated access confirmed"),
+      b("Documentação: screenshots, headers, timestamps", "Documentation: screenshots, headers, timestamps"),
+      b("Notificação: CERT.br + CTIR Gov simultâneo", "Notification: CERT.br + CTIR Gov simultaneous"),
+      b("Correção: WAF implementado bloqueando acesso", "Fix: WAF implemented blocking access"),
+      b("Verificação: 16/06 — 403 Forbidden confirmado", "Verification: 16/06 — 403 Forbidden confirmed"),
+    ],
+    impact: [
+      b("Dados financeiros SIAFI de programas sociais federais expostos", "SIAFI financial data from federal social programs exposed"),
+      b("Risco de LGPD Art. 46 — dados governamentais sem proteção adequada", "LGPD Art. 46 risk — government data without adequate protection"),
+    ],
+    keyFindings: [
+      b("Directory Listing (CWE-548) em servidor governamental federal", "Directory Listing (CWE-548) on federal government server"),
+      b("Sem WAF ou controle de acesso antes da notificação", "No WAF or access control before notification"),
+      b("Correção via WAF — acesso bloqueado com 403", "Fix via WAF — access blocked with 403"),
+    ],
+  },
+  "ibiracu-es": {
+    challenge: b(
+      "Portal municipal de Ibiraçu/ES apresentava DOM-XSS e directory listing simultâneos — dupla vulnerabilidade permitindo execução de scripts e acesso a arquivos sensíveis.",
+      "Ibiraçu/ES municipal portal had simultaneous DOM-XSS and directory listing — dual vulnerability allowing script execution and access to sensitive files."
+    ),
+    approach: b(
+      "Teste passivo identificou XSS em parâmetros DOM. Directory listing confirmou exposição de arquivos. Notificação à Ouvidoria municipal. Correção confirmada pela Ouvidoria.",
+      "Passive testing identified XSS in DOM parameters. Directory listing confirmed file exposure. Notification to municipal ombudsman. Fix confirmed by ombudsman."
+    ),
+    timeline: [
+      b("Descoberta: DOM-XSS + directory listing simultâneos", "Discovery: simultaneous DOM-XSS + directory listing"),
+      b("Notificação: Ouvidoria municipal contatada", "Notification: municipal ombudsman contacted"),
+      b("Correção: Ouvidoria confirmou fix", "Fix: ombudsman confirmed fix"),
+      b("Verificação: 16/06 — corrigido", "Verification: 16/06 — fixed"),
+    ],
+    impact: [
+      b("Portal municipal com dupla vulnerabilidade (XSS + listing)", "Municipal portal with dual vulnerability (XSS + listing)"),
+      b("Dados de cidadões potencialmente acessíveis via XSS", "Citizen data potentially accessible via XSS"),
+    ],
+    keyFindings: [
+      b("CWE-79 (DOM-XSS) + CWE-548 (Directory Listing) simultâneos", "Simultaneous CWE-79 (DOM-XSS) + CWE-548 (Directory Listing)"),
+      b("Correção confirmada pela Ouvidoria — canal direto eficiente", "Fix confirmed by ombudsman — direct channel efficient"),
+    ],
+  },
+  "crmv-rs": {
+    challenge: b("CRMV-RS expôs folhas de pagamento e documentos éticos via directory listing.", "CRMV-RS exposed payroll and ethics documents via directory listing."),
+    approach: b("Verificação passiva + notificação CERT.br. Correção com 403 Forbidden.", "Passive verification + CERT.br notification. Fixed with 403 Forbidden."),
+    timeline: [
+      b("Descoberta: listing de documentos sensíveis", "Discovery: sensitive document listing"),
+      b("Notificação via CERT.br", "Notification via CERT.br"),
+      b("Correção: 403 Forbidden", "Fix: 403 Forbidden"),
+    ],
+    impact: [b("Documentos internos e folhas de pagamento expostos", "Internal documents and payroll exposed")],
+    keyFindings: [b("CWE-548 corrigido com bloqueio de acesso", "CWE-548 fixed with access blocking")],
+  },
+  "cau-sc": {
+    challenge: b("CAU/SC expôs folhas de pagamento e currículos com plugin WordPress vulnerável.", "CAU/SC exposed payroll and curricula with vulnerable WordPress plugin."),
+    approach: b("Identificação de plugin vulnerável + directory listing. Notificação CERT.br. Correção com 403 Forbidden.", "Vulnerable plugin identification + directory listing. CERT.br notification. Fixed with 403 Forbidden."),
+    timeline: [
+      b("Descoberta: plugin vulnerável + listing", "Discovery: vulnerable plugin + listing"),
+      b("Notificação CERT.br", "CERT.br notification"),
+      b("Correção: 403 Forbidden", "Fix: 403 Forbidden"),
+    ],
+    impact: [b("Dados de profissionais e folhas de pagamento expostos", "Professional data and payroll exposed")],
+    keyFindings: [b("Plugin WordPress + CWE-548 combinados", "WordPress plugin + CWE-548 combined")],
+  },
+  "metajobs-base44": {
+    challenge: b(
+      "Plataforma metajobs.base44.app expôs PII de candidatos — nomes, e-mails, telefones e currículos — acessível sem autenticação. Análise posterior revelou padrão sistêmico na plataforma.",
+      "metajobs.base44.app platform exposed candidate PII — names, emails, phones and resumes — accessible without authentication. Further analysis revealed systemic platform pattern."
+    ),
+    approach: b(
+      "Verificação confirmou acesso não autenticado a dados de candidatos. Notificação CERT.br. Análise cross-app revelou que o padrão afeta toda a plataforma Base44 (ver case study base44-systemic). Corrigido com 403 Forbidden.",
+      "Verification confirmed unauthenticated access to candidate data. CERT.br notification. Cross-app analysis revealed pattern affecting entire Base44 platform (see base44-systemic case study). Fixed with 403 Forbidden."
+    ),
+    timeline: [
+      b("Descoberta: PII de candidatos sem autenticação", "Discovery: candidate PII without authentication"),
+      b("Análise: padrão sistêmico identificado na plataforma", "Analysis: systemic pattern identified on platform"),
+      b("Notificação: CERT.br + Base44", "Notification: CERT.br + Base44"),
+      b("Correção: 403 Forbidden", "Fix: 403 Forbidden"),
+    ],
+    impact: [
+      b("PII de candidatos (nomes, e-mails, telefones, currículos) exposto", "Candidate PII (names, emails, phones, resumes) exposed"),
+      b("Mesmo padrão em outros apps Base44", "Same pattern across other Base44 apps"),
+    ],
+    keyFindings: [
+      b("CWE-306 (Missing Authentication) — dados acessíveis sem login", "CWE-306 (Missing Authentication) — data accessible without login"),
+      b("Caso seminal que motivou análise sistêmica da plataforma", "Seminal case that motivated systemic platform analysis"),
+    ],
+  },
+  "mogi-guacu-backup": {
+    challenge: b(
+      "Prefeitura de Mogi Guaçu expôs dump de backup SQL completo e arquivo tar de configuração VPN. Acesso não autenticado a infraestrutura crítica municipal.",
+      "Mogi Guaçu city hall exposed complete SQL backup dump and VPN configuration tar file. Unauthenticated access to critical municipal infrastructure."
+    ),
+    approach: b(
+      "Verificação confirmou backup SQL completo e VPN tar acessíveis publicamente. Notificação CERT.br + CTIR Gov. Ainda sem correção conforme verificação de 16/06.",
+      "Verification confirmed complete SQL backup and VPN tar publicly accessible. CERT.br + CTIR Gov notification. Still open as of 16/06 verification."
+    ),
+    timeline: [
+      b("Descoberta: backup SQL + VPN tar expostos", "Discovery: SQL backup + VPN tar exposed"),
+      b("Notificação: CERT.br + CTIR Gov", "Notification: CERT.br + CTIR Gov"),
+      b("Status: ainda sem correção", "Status: still open"),
+    ],
+    impact: [
+      b("Backup SQL completo da base municipal", "Complete SQL backup of municipal database"),
+      b("Configuração VPN exposta — risco de acesso à rede interna", "VPN configuration exposed — risk of internal network access"),
+    ],
+    keyFindings: [
+      b("CWE-538 (File and Directory Information Exposure) — backup dump", "CWE-538 (File and Directory Information Exposure) — backup dump"),
+      b("VPN tar exposto — potencial acesso à infraestrutura interna", "VPN tar exposed — potential access to internal infrastructure"),
+    ],
+  },
+  "cau-se": {
+    challenge: b("CAU/SE expôs folhas de pagamento com CPFs via directory listing. Dados pessoais sensíveis acessíveis.", "CAU/SE exposed payroll with CPFs via directory listing. Sensitive personal data accessible."),
+    approach: b("Verificação + CERT.br. Ainda sem correção.", "Verification + CERT.br. Still open."),
+    timeline: [
+      b("Descoberta: CPFs em folhas de pagamento", "Discovery: CPFs in payroll"),
+      b("Notificação CERT.br", "CERT.br notification"),
+      b("Status: aberto", "Status: open"),
+    ],
+    impact: [b("CPFs — dados pessoais sensíveis conforme LGPD — expostos", "CPFs — sensitive personal data per LGPD — exposed")],
+    keyFindings: [b("CWE-548 com exposição de dados pessoais (CPF)", "CWE-548 with personal data exposure (CPF)")],
+  },
+  "economia-painel": {
+    challenge: b("Ministério da Economia executando Apache end-of-life com directory listing habilitado. Infraestrutura federal criticamente desatualizada.", "Ministry of Economy running end-of-life Apache with directory listing enabled. Critically outdated federal infrastructure."),
+    approach: b("Identificação de versão EOL via headers + listing. Notificação CERT.br + CTIR Gov. Ainda sem correção.", "EOL version identification via headers + listing. CERT.br + CTIR Gov notification. Still open."),
+    timeline: [
+      b("Descoberta: Apache EOL + directory listing", "Discovery: Apache EOL + directory listing"),
+      b("Notificação: CERT.br + CTIR Gov", "Notification: CERT.br + CTIR Gov"),
+      b("Status: aberto", "Status: open"),
+    ],
+    impact: [b("Servidor federal com software sem suporte — risco de exploração known-vulnerabilities", "Federal server with unsupported software — known-vulnerability exploitation risk")],
+    keyFindings: [b("CWE-1104 (Use of Unmaintained Third Party Components) + CWE-548", "CWE-1104 (Use of Unmaintained Third Party Components) + CWE-548")],
+  },
+  "valiprev": {
+    challenge: b("VALIPREV (Instituto de Previdência de Valinhos) expôs processos de benefícios previdenciários via directory listing.", "VALIPREV (Valinhos Social Security Institute) exposed social security benefit processes via directory listing."),
+    approach: b("Verificação + CERT.br. Ainda sem correção.", "Verification + CERT.br. Still open."),
+    timeline: [
+      b("Descoberta: processos previdenciários expostos", "Discovery: benefit processes exposed"),
+      b("Notificação CERT.br", "CERT.br notification"),
+      b("Status: aberto", "Status: open"),
+    ],
+    impact: [b("Dados de beneficiários de previdência expostos", "Social security beneficiary data exposed")],
+    keyFindings: [b("CWE-548 em dados previdenciários", "CWE-548 in social security data")],
+  },
+  "base44-systemic": {
+    challenge: b(
+      "Análise de múltiplos apps Base44 revelou padrão sistêmico de falha de autenticação: páginas públicas por default, RLS do PostgreSQL bypassado quando auth.uid() é null. A plataforma inteira é afetada, não apenas apps individuais.",
+      "Analysis of multiple Base44 apps revealed systemic authentication failure pattern: pages public by default, PostgreSQL RLS bypassed when auth.uid() is null. The entire platform is affected, not just individual apps."
+    ),
+    approach: b(
+      "Cross-app analysis correlacionando metajobs, gestorcontratospro e mentoriadom. Root cause: decisão arquitetural da plataforma — páginas públicas sem auth por default, RLS só ativa com contexto de autenticação. Documentação como systemic analysis. Notificação CERT.br + contato direto com Base44.",
+      "Cross-app analysis correlating metajobs, gestorcontratospro and mentoriadom. Root cause: platform architectural decision — public pages without auth by default, RLS only active with auth context. Documented as systemic analysis. CERT.br notification + direct Base44 contact."
+    ),
+    timeline: [
+      b("Descoberta inicial: metajobs.base44.app PII exposto", "Initial discovery: metajobs.base44.app PII exposed"),
+      b("Investigação: mesmo padrão em gestorcontratospro", "Investigation: same pattern in gestorcontratospro"),
+      b("Análise: root cause é arquitetura da plataforma, não app individual", "Analysis: root cause is platform architecture, not individual app"),
+      b("Notificação: CERT.br + Base44", "Notification: CERT.br + Base44"),
+      b("Correção: auth required em apps afetados", "Fix: auth required on affected apps"),
+    ],
+    impact: [
+      b("3+ apps afetados com PII exposto", "3+ affected apps with exposed PII"),
+      b("Root cause sistêmico — qualquer app Base44 pode estar afetado", "Systemic root cause — any Base44 app may be affected"),
+    ],
+    keyFindings: [
+      b("Plataforma serve páginas sem auth por default (opt-in para proteção)", "Platform serves pages without auth by default (opt-in for protection)"),
+      b("PostgreSQL RLS bypassado quando auth.uid() = null", "PostgreSQL RLS bypassed when auth.uid() = null"),
+      b("CWE-306 (Missing Authentication) como padrão de plataforma", "CWE-306 (Missing Authentication) as platform pattern"),
+    ],
+  },
+};
+

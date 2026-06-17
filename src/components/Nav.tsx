@@ -5,7 +5,6 @@ import { useLang } from "../lib/LanguageContext";
 import { useSounds } from "../lib/useSounds";
 import { personal } from "../data/content";
 import { scrambleText } from "../lib/scramble";
-import { DarkModeToggle } from "./DarkModeToggle";
 import { DyslexiaToggle } from "./DyslexiaToggle";
 
 const menuLinks = [
@@ -19,6 +18,7 @@ const menuLinks = [
   { label: { pt: "Currículo", en: "Resume" }, href: "/cv", num: "08" },
   { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "09" },
   { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "10" },
+  { label: { pt: "Segurança", en: "Security" }, href: "/security", num: "11" },
 ];
 
 export default function Nav() {
@@ -217,8 +217,6 @@ export default function Nav() {
             <Globe className="w-3 h-3" />
             {lang === "pt" ? "EN" : "PT"}
           </button>
-          <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
-          <DarkModeToggle />
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
           <DyslexiaToggle />
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />

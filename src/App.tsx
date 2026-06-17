@@ -19,9 +19,10 @@ import Gallery from "./pages/Gallery";
 import Certificates from "./pages/Certificates";
 import CV from "./pages/CV";
 import Playground from "./pages/Playground";
+import Security from "./pages/Security";
+import SecurityCaseStudy from "./pages/SecurityCaseStudy";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider, useLang } from "./lib/LanguageContext";
-import { DarkModeProvider } from "./lib/useDarkMode";
 import { useSounds } from "./lib/useSounds";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -37,6 +38,7 @@ const pageTitles: Record<string, { pt: string; en: string }> = {
   "/contact": { pt: "Contato — Isaac Nathan", en: "Contact — Isaac Nathan" },
   "/cv": { pt: "Currículo — Isaac Nathan", en: "Resume — Isaac Nathan" },
   "/playground": { pt: "Playground — Isaac Nathan", en: "Playground — Isaac Nathan" },
+  "/security": { pt: "Segurança — Isaac Nathan", en: "Security — Isaac Nathan" },
 };
 
 function DocumentTitle() {
@@ -50,6 +52,9 @@ function DocumentTitle() {
       document.title = title[lang];
     } else if (path.startsWith("/projects/")) {
       const slug = path.replace("/projects/", "");
+      document.title = `${slug} — Isaac Nathan`;
+    } else if (path.startsWith("/security/")) {
+      const slug = path.replace("/security/", "");
       document.title = `${slug} — Isaac Nathan`;
     } else {
       document.title = lang === "pt" ? "Página não encontrada — Isaac Nathan" : "Page not found — Isaac Nathan";
@@ -135,6 +140,8 @@ function AppContent() {
                 <Route path="/experience" element={<Experience />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
+                <Route path="/security" element={<Security />} />
+                <Route path="/security/:slug" element={<SecurityCaseStudy />} />
                 <Route path="/skills" element={<Skills />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/certificates" element={<Certificates />} />
@@ -155,9 +162,7 @@ function AppContent() {
 export default function App() {
 return (
 <LanguageProvider>
-<DarkModeProvider>
 <AppContent />
-</DarkModeProvider>
 </LanguageProvider>
 );
 }

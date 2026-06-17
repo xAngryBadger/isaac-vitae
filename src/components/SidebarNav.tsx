@@ -2,10 +2,9 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useLang } from "../lib/LanguageContext";
 import { useSounds } from "../lib/useSounds";
-import { useDarkMode } from "../lib/useDarkMode";
 import { useDyslexiaFont } from "../lib/useDyslexiaFont";
 import { projects, caseStudies, skillGroups, personal } from "../data/content";
-import { X, ChevronRight, Search, Globe, Volume2, VolumeX, Sun, Type } from "lucide-react";
+import { X, ChevronRight, Search, Globe, Volume2, VolumeX, Type } from "lucide-react";
 
 type Bilingual = { pt: string; en: string };
 
@@ -69,7 +68,7 @@ export function SidebarNav({ open, onClose }: { open: boolean; onClose: () => vo
   const navigate = useNavigate();
   const { lang, toggle: toggleLang } = useLang();
   const { enabled: soundsEnabled, toggleSounds } = useSounds();
-  const { isEnabled: darkEnabled, toggle: toggleDark } = useDarkMode();
+
   const { isEnabled: dyslexiaEnabled, toggle: toggleDyslexia } = useDyslexiaFont();
   const [navExpanded, setNavExpanded] = useState(false);
   const [query, setQuery] = useState("");
@@ -471,18 +470,6 @@ export function SidebarNav({ open, onClose }: { open: boolean; onClose: () => vo
             >
               {soundsEnabled ? <Volume2 className="w-2.5 h-2.5" /> : <VolumeX className="w-2.5 h-2.5" />}
               {soundsEnabled ? "ON" : "OFF"}
-            </button>
-
-            <button
-              onClick={toggleDark}
-              className="flex items-center gap-1 text-[10px]"
-              style={{ color: "var(--color-text-3)", background: "none", border: "1px solid var(--color-border)", padding: "2px 8px", borderRadius: "4px", cursor: "pointer" }}
-              title={darkEnabled
-                ? (lang === "pt" ? "Modo claro" : "Light mode")
-                : (lang === "pt" ? "Modo escuro" : "Dark mode")
-              }
-            >
-              <Sun className="w-2.5 h-2.5" />
             </button>
 
             <button

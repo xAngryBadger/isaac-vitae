@@ -174,28 +174,28 @@ export default function CV() {
   color: #1e2a20;
   transition: box-shadow 0.3s, border-color 0.3s;
 }
-html.dark-mode .cv-sheet {
+  .cv-sheet {
 background: #1a1a1a !important;
 box-shadow: 0 4px 48px rgba(0,0,0,0.4);
 border-color: #2a2a2a;
 color: #e5e5e5;
 }
-html.dark-mode .cv-name { color: #fafafa !important; }
-html.dark-mode .cv-heading { color: #fafafa !important; border-bottom-color: #333 !important; }
-html.dark-mode .cv-title { color: #cccccc !important; }
-html.dark-mode .cv-pcd { color: #b0b0b0 !important; }
-html.dark-mode .cv-contact, html.dark-mode .cv-contact a { color: #cccccc !important; }
-html.dark-mode .cv-body, html.dark-mode .cv-list, html.dark-mode .cv-skill-items { color: #cccccc !important; }
-html.dark-mode .cv-entry-title { color: #fafafa !important; }
-html.dark-mode .cv-entry-org { color: #cccccc !important; }
-html.dark-mode .cv-entry-date, html.dark-mode .cv-tech, html.dark-mode .cv-skill-proof, html.dark-mode .cv-cert-context { color: #b0b0b0 !important; }
-html.dark-mode .cv-status { color: #b0b0b0 !important; border-color: #333 !important; }
-html.dark-mode .cv-rule { border-top-color: #555 !important; }
-html.dark-mode .cv-ats-note { background: #111 !important; border-color: #2a2a2a !important; color: #cccccc !important; }
-html.dark-mode .cv-btn { border-color: #2a2a2a !important; color: #e5e5e5 !important; background: transparent !important; }
-html.dark-mode .cv-btn:hover { border-color: #e5e5e5 !important; }
-html.dark-mode .cv-btn-filled { background: rgba(255,255,255,0.12) !important; color: #fafafa !important; border-color: rgba(255,255,255,0.2) !important; }
-html.dark-mode .cv-btn-filled:hover { background: rgba(255,255,255,0.18) !important; color: #fafafa !important; }
+.cv-name { color: #fafafa !important; }
+.cv-heading { color: #fafafa !important; border-bottom-color: #333 !important; }
+.cv-title { color: #cccccc !important; }
+.cv-pcd { color: #b0b0b0 !important; }
+.cv-contact, .cv-contact a { color: #cccccc !important; }
+.cv-body, .cv-list, .cv-skill-items { color: #cccccc !important; }
+.cv-entry-title { color: #fafafa !important; }
+.cv-entry-org { color: #cccccc !important; }
+.cv-entry-date, .cv-tech, .cv-skill-proof, .cv-cert-context { color: #b0b0b0 !important; }
+.cv-status { color: #b0b0b0 !important; border-color: #333 !important; }
+.cv-rule { border-top-color: #555 !important; }
+.cv-ats-note { background: #111 !important; border-color: #2a2a2a !important; color: #cccccc !important; }
+.cv-btn { border-color: #2a2a2a !important; color: #e5e5e5 !important; background: transparent !important; }
+.cv-btn:hover { border-color: #e5e5e5 !important; }
+.cv-btn-filled { background: rgba(255,255,255,0.12) !important; color: #fafafa !important; border-color: rgba(255,255,255,0.2) !important; }
+.cv-btn-filled:hover { background: rgba(255,255,255,0.18) !important; color: #fafafa !important; }
   .cv-actions {
     display: flex;
     justify-content: space-between;
