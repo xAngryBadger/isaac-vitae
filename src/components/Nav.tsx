@@ -25,6 +25,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const progressRef = useRef<HTMLDivElement>(null);
   const menuBackdropRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
   const { t, lang, toggle } = useLang();
   const { enabled: soundsEnabled, playMenuOpen, playMenuClose, toggleSounds } = useSounds();
   const location = useLocation();
@@ -52,32 +53,40 @@ export default function Nav() {
       playMenuOpen();
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
-      
-      // Trigger clip-reveal animation for menu backdrop
+
       if (menuBackdropRef.current) {
         menuBackdropRef.current.classList.add("clip-reveal-up");
       }
-      
+
       const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
       lenis?.stop();
     } else {
       playMenuClose();
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
-      
-      // Remove clip-reveal class when closing
+
       if (menuBackdropRef.current) {
         menuBackdropRef.current.classList.remove("clip-reveal-up");
       }
-      
+
       const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
       lenis?.start();
+      hamburgerRef.current?.focus();
     }
     return () => {
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
     };
   }, [menuOpen, playMenuOpen, playMenuClose]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   return (
     <>
@@ -94,8 +103,10 @@ export default function Nav() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <button
+              ref={hamburgerRef}
               onClick={() => setMenuOpen((v) => !v)}
               aria-expanded={menuOpen}
+              aria-controls="primary-menu"
               aria-label={menuOpen ? t({ pt: "Fechar menu", en: "Close menu" }) : t({ pt: "Abrir menu", en: "Open menu" })}
               className="flex items-center gap-3 p-2 custom-cursor-target"
               style={{ background: "none", border: "none" }}
@@ -133,6 +144,7 @@ export default function Nav() {
       </header>
 
       <div
+        id="primary-menu"
         ref={menuBackdropRef}
         className="fixed inset-0 z-[99] flex flex-col justify-center px-10 lg:px-20"
         style={{
@@ -140,6 +152,12 @@ export default function Nav() {
           pointerEvents: menuOpen ? "auto" : "none",
           transition: "visibility 0s " + (menuOpen ? "0s" : "0.8s"),
         }}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) setMenuOpen(false);
+        }}
+        role="dialog"
+        aria-modal={menuOpen}
+        aria-label={t({ pt: "Menu principal", en: "Primary menu" })}
       >
         <div
           className="absolute inset-0"
@@ -158,31 +176,12 @@ export default function Nav() {
           }}
         />
 
-        <button
-          onClick={() => setMenuOpen(false)}
-          className="absolute top-6 right-6 lg:top-10 lg:right-10 z-10 custom-cursor-target"
-          style={{ background: "none", border: "none", color: "var(--color-text-3)", cursor: "pointer" }}
-          aria-label="Close menu"
-        >
-          <span
-            className="block w-6 h-px transition-all duration-300"
-            style={{ backgroundColor: "var(--color-text)", transform: "translateY(6px) rotate(45deg)" }}
-          />
-          <span
-            className="block w-4 h-px transition-all duration-300"
-            style={{ backgroundColor: "var(--color-text)", opacity: 0 }}
-          />
-          <span
-            className="block w-6 h-px transition-all duration-300"
-            style={{ backgroundColor: "var(--color-text)", transform: "translateY(-6px) rotate(-45deg)" }}
-          />
-        </button>
-
         <nav className="relative z-10 flex flex-col gap-4 lg:gap-6">
           {menuLinks.map((link, i) => (
             <Link
               key={link.href}
               to={link.href}
+              tabIndex={menuOpen ? 0 : -1}
               className="text-left custom-cursor-target group"
               style={{
                 fontFamily: "var(--font-serif)",
@@ -218,6 +217,7 @@ export default function Nav() {
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
           <button
             onClick={toggle}
+            tabIndex={menuOpen ? 0 : -1}
             className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target flex items-center gap-1"
             style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
           >
@@ -229,6 +229,7 @@ export default function Nav() {
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
           <button
             onClick={toggleSounds}
+            tabIndex={menuOpen ? 0 : -1}
             className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target flex items-center gap-1"
             style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
           >
