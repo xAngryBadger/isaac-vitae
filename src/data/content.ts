@@ -31,11 +31,11 @@ export type Education = {
 export const personal = {
   name: "Isaac Nathan",
   fullName: "Isaac Nathan da Silva Barbosa",
-title: b("Engenharia de Computação + IA", "Computer Engineering + AI"),
-subtitle: b(
-"Full-Stack · Python · React · Cloud",
-"Full-Stack · Python · React · Cloud"
-),
+  title: b("Engenharia de Computação + IA · Security Researcher", "Computer Engineering + AI · Security Researcher"),
+  subtitle: b(
+    "Full-Stack · Python · React · Cloud · Threat Intel",
+    "Full-Stack · Python · React · Cloud · Threat Intel"
+  ),
   bio: b(
     `Estudante de Engenharia de Computação (${getCurrentSemesterInline().pt}) buscando vaga de Jovem Aprendiz/Trainee. Experiência em migração de dados Azure Cosmos DB, automação com IA (GPT-4.1) e full-stack (Python/React).`,
     `Computer Engineering student (${getCurrentSemesterInline().en}) seeking Trainee/Jovem Aprendiz role. Experience in Azure Cosmos DB migration, AI automation (GPT-4.1), and full-stack (Python/React).`
@@ -77,6 +77,30 @@ b(
 };
 
 export const experiences: Experience[] = [
+  {
+    company: "Security Researcher (Independent / Responsible Disclosure)",
+    role: b("Security Researcher & Threat Intelligence", "Security Researcher & Threat Intelligence"),
+    period: b("Mar 2026 — Presente", "Mar 2026 — Present"),
+    current: true,
+    highlights: [
+      b(
+        "20+ vulnerabilidades em infraestrutura governamental/setorial brasileira — 5 correções confirmadas via CERT.br/CTIR Gov (Mar–Jun 2026). Três ondas de divulgação responsável: zero retenção, notificação multi-canal, verificação pós-fix.",
+        "20+ vulnerabilities in Brazilian government/sector infrastructure — 5 fixes confirmed via CERT.br/CTIR Gov (Mar–Jun 2026). Three responsible disclosure waves: zero retention, multi-channel notification, post-fix verification."
+      ),
+      b(
+        "Takedown de phishing Microsoft/OneDrive: derrubei origin server (procorereviews.com) via flood controlado de ~10k requests (HTTP 521 sustentado). Infra rotacionada (kochcnfvontainer.vu) mapeada, IOCs extraídos, reportada ao CERT.br/Cloudflare.",
+        "Microsoft/OneDrive phishing takedown: toppled origin server (procorereviews.com) via controlled ~10k-request flood (sustained HTTP 521). Rotated infra (kochcnfvontainer.vu) mapped, IOCs extracted, reported to CERT.br/Cloudflare."
+      ),
+      b(
+        "Reversão de 3 JS ofuscados com Base91 customizado (3 alfabetos únicos, 176 strings). Pipeline: Browser → JS download → Custom Base91 decoder (Python) → IOC extraction → CERT.br/Cloudflare report.",
+        "Reversed 3 JS files obfuscated with custom Base91 (3 unique alphabets, 176 strings). Pipeline: Browser → JS download → Custom Base91 decoder (Python) → IOC extraction → CERT.br/Cloudflare report."
+      ),
+      b(
+        "Metodologia NIST CSF + LGPD: Passive Recon (Dorking, Shodan, CT logs) → Exposure Verification → Documentation → Secure Deletion (shred) → Notificação multi-canal → Follow-up pós-fix.",
+        "Methodology NIST CSF + LGPD: Passive Recon (Dorking, Shodan, CT logs) → Exposure Verification → Documentation → Secure Deletion (shred) → Multi-channel Notification → Post-fix Follow-up."
+      ),
+    ],
+  },
   {
     company: "Paware Softwares",
     role: b("Desenvolvedor Full-Stack com foco em IA", "Full-Stack Developer with AI focus"),
@@ -252,6 +276,46 @@ code: `class OllamaClient:
     storyProjectIds: ["aguaquality", "hellosocial", "harpia"],
   },
   {
+    label: b("Segurança Ofensiva", "Offensive Security"),
+    skills: [
+      "OSINT", "Google Dorking", "Shodan", "Certificate Transparency", "Passive DNS",
+      "Nmap", "Wireshark", "Burp Suite", "SNMP Enum", "WordPress Audit",
+      "Directory Listing", "Auth Bypass", "Base91 Decoder", "JS Deobfuscation",
+    ],
+    color: "#8B3A3A",
+    storyProof: b(
+      "Pipeline Threat Intel do zero — Browser → JS download → Base91 decoder custom (3 alfabetos, 176 strings) → IOC extraction (PageConfig, tokens, OneDrive redirect) → CERT.br/Cloudflare. Takedown de phishing Microsoft/OneDrive via flood controlado.",
+      "Threat Intel pipeline built from scratch — Browser → JS download → Custom Base91 decoder (3 unique alphabets, 176 strings) → IOC extraction (PageConfig, tokens, OneDrive redirect) → CERT.br/Cloudflare. Microsoft/OneDrive phishing takedown via controlled flood."
+    ),
+    storyProjectIds: ["security-disclosures"],
+  },
+  {
+    label: b("Segurança Defensiva", "Defensive Security"),
+    skills: [
+      "LGPD", "WAF Verification", "TLP Protocol", "Responsible Disclosure (CERT.br/CTIR Gov)",
+      "CVE Analysis", "Post-Fix Verification", "NIST CSF", "OWASP Top 10", "MITRE ATT&CK (awareness)",
+    ],
+    color: "#2E5C3A",
+    storyProof: b(
+      "20+ vulnerabilidades reportadas via CERT.br/CTIR Gov com verificação pós-fix — 3 ondas de divulgação responsável (Mar–Jun 2026), zero retenção, notificação multi-canal. Documentação com screenshots, headers HTTP, timeline e closure documentada.",
+      "20+ vulnerabilities reported via CERT.br/CTIR Gov with post-fix verification — 3 responsible disclosure waves (Mar–Jun 2026), zero retention, multi-channel notification. Documentation with screenshots, HTTP headers, timeline, and documented closure."
+    ),
+    storyProjectIds: ["security-disclosures"],
+  },
+  {
+    label: b("Threat Intelligence", "Threat Intelligence"),
+    skills: [
+      "IOC Extraction", "Base91/JS Deobfuscation", "IOC Sharing (AbuseIPDB, URLhaus)",
+      "Phishing Infra Takedown", "Pipeline (Browser → JS → Decoder → IOC → CERT.br)",
+    ],
+    color: "#6B4423",
+    storyProof: b(
+      "Infra de phishing rotacionada mapeada, IOCs compartilhados em AbuseIPDB/URLhaus, takedowns via Cloudflare. 5 fixes confirmados (Mar–Jun 2026). Metodologia transparente: passive verification only, não acessou dados sensíveis, sempre via canais apropriados.",
+      "Rotated phishing infrastructure mapped, IOCs shared on AbuseIPDB/URLhaus, takedowns via Cloudflare. 5 confirmed fixes (Mar–Jun 2026). Transparent methodology: passive verification only, never accessed sensitive data, always via appropriate channels."
+    ),
+    storyProjectIds: ["security-disclosures"],
+  },
+  {
     label: b("Outros", "Other"),
     skills: [
       b("Ciberseguran\u00e7a", "Cybersecurity"), b("Metodologias \u00c1geis", "Agile Methodologies"),
@@ -286,6 +350,23 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: "security-disclosures",
+    title: "Security Disclosures & Threat Intel",
+    year: "2026",
+    category: b("Segurança · Threat Intel · Responsible Disclosure", "Security · Threat Intel · Responsible Disclosure"),
+    description: b(
+      "20+ vulnerabilidades em infraestrutura governamental/setorial brasileira — 5 fixes confirmados via CERT.br/CTIR Gov (Mar–Jun 2026). 3 ondas de divulgação responsável: zero retenção, notificação multi-canal (CERT.br + CTIR Gov + direto), verificação pós-fix. Takedown de phishing Microsoft/OneDrive origin (procorereviews.com) via flood controlado, infra rotacionada mapeada. Pipeline Threat Intel custom: Browser → JS download → Custom Base91 decoder (3 alfabetos, 176 strings) → IOC extraction → CERT.br/Cloudflare report.",
+      "20+ vulnerabilities in Brazilian government/sector infrastructure — 5 fixes confirmed via CERT.br/CTIR Gov (Mar–Jun 2026). 3 responsible disclosure waves: zero retention, multi-channel notification (CERT.br + CTIR Gov + direct), post-fix verification. Microsoft/OneDrive phishing origin takedown (procorereviews.com) via controlled flood, rotated infrastructure mapped. Custom Threat Intel pipeline: Browser → JS download → Custom Base91 decoder (3 unique alphabets, 176 strings) → IOC extraction → CERT.br/Cloudflare report."
+    ),
+    tech: ["OSINT", "Nmap", "Burp Suite", "Shodan", "Base91 Decoder", "CERT.br / CTIR Gov", "LGPD", "NIST CSF"],
+    color: "#3d1f1f",
+    icon: null,
+    githubUrl: "https://github.com/xAngryBadger/security-disclosures",
+    featured: true,
+    inProgress: true,
+    hasCaseStudy: false,
+  },
   {
     id: "harpia",
     title: "HarpIA",
@@ -685,6 +766,10 @@ export const courses: Course[] = [
   { name: b("Introdução à Cibersegurança", "Intro to Cybersecurity"), issuer: "Cisco Networking Academy", hours: "", category: "security", prominent: true, context: b("Base em segurança de redes e ameaças cibernéticas", "Foundation in network security and cyber threats") },
   { name: b("Segurança em TI", "IT Security"), issuer: b("Fundação Bradesco", "Bradesco Foundation"), hours: "", category: "security", prominent: true, context: b("Complemento em proteção de infraestrutura e dados corporativos", "Complement in corporate infrastructure and data protection") },
   { name: b("Inglês Fluente", "Fluent English"), issuer: "KUMON", hours: b("3 anos", "3 years"), category: "languages", prominent: true, context: b("Habilitação para documentação técnica e reuniões com equipes internacionais", "Enables technical documentation and meetings with international teams") },
+  { name: b("eJPTv2 / eCPPTv2 / OSCP", "eJPTv2 / eCPPTv2 / OSCP"), issuer: b("INE / eLearnSecurity", "INE / eLearnSecurity"), hours: "", category: "security", prominent: true, context: b("Em andamento / Planejado 2026 — Hands-on pentesting, AD, pivoting, evasion.", "In progress / Planned 2026 — Hands-on pentesting, AD, pivoting, evasion.") },
+  { name: b("eWPTX / eWPTXv2", "eWPTX / eWPTXv2"), issuer: b("eLearnSecurity", "eLearnSecurity"), hours: "", category: "security", prominent: true, context: b("Planejado 2026 — Web app pentesting avançado (WAF bypass, auth bypass, business logic).", "Planned 2026 — Advanced web app pentesting (WAF bypass, auth bypass, business logic).") },
+  { name: b("Cloud Security (AZ-500 / CCSP)", "Cloud Security (AZ-500 / CCSP)"), issuer: b("Microsoft / (ISC)²", "Microsoft / (ISC)²"), hours: "", category: "security", prominent: true, context: b("Planejado 2026 — Azure security, identity, data, governance.", "Planned 2026 — Azure security, identity, data, governance.") },
+  { name: b("MITRE ATT&CK Defender (MAD)", "MITRE ATT&CK Defender (MAD)"), issuer: "MITRE", hours: "", category: "security", prominent: true, context: b("Planejado 2026 — ATT&CK mapping, detection engineering, threat-informed defense.", "Planned 2026 — ATT&CK mapping, detection engineering, threat-informed defense.") },
 ];
 
 export const stats = [
