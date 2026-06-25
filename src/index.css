@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
 @theme {
@@ -45,8 +45,8 @@
   --color-sec-uncertain: #f9e2af;/* Yellow */
   
   /* === FONT-EDITORIAL PAIRING === */
-  --font-serif: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;  /* titles */
-  --font-sans: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;   /* body */
+  --font-serif: 'Quicksand', ui-sans-serif, system-ui, sans-serif;  /* titles */
+  --font-sans: 'Quicksand', ui-sans-serif, system-ui, sans-serif;   /* body */
   --font-mono: 'Fira Code', 'Courier New', monospace;
   
   /* === EASING === */
@@ -136,6 +136,20 @@ img::selection { background: transparent; }
 }
 .clip-reveal-up {
   animation: clip-reveal-up 0.7s var(--ease-project) forwards;
+}
+
+/* Menu curtain fix: animate background div instead of menu backdrop */
+#primary-menu.clip-reveal-up {
+  animation: none;
+  opacity: 1;
+}
+#primary-menu.clip-reveal-up > div:nth-child(1) {
+  opacity: 1 !important;
+  transition: opacity 0.5s var(--ease-project) !important;
+}
+#primary-menu.clip-reveal-up > div:nth-child(2) {
+  clip-path: inset(0 0 0 0) !important;
+  transition: clip-path 0.8s var(--ease-project) !important;
 }
 
 /* fade-up */
