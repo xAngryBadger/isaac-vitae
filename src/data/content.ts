@@ -67,7 +67,6 @@ b(
     "Outside the Terminal: Advanced Linux user with custom environment (CachyOS/Hyprland). Outside of code, I value moments of rest and outdoor activities."
   ),
   email: "isaacnathandasilva@gmail.com",
-  securityEmail: "security@isaac-vitae.dev",
   phone: "+55 (31) 99441-7786",
   location: b("Mariana, MG — Brasil", "Mariana, MG — Brazil"),
   linkedin: "https://www.linkedin.com/in/isaac-nathan-da-silva-barbosa-815b212ab/",
@@ -89,8 +88,8 @@ export const experiences: Experience[] = [
         "Lead developer and architect of end-to-end solutions for forest inventory and logistics operations."
       ),
       b(
-        "Construção e deploy do Flora Sensus — app Flutter offline-first com motor de sincronização custom, operando em áreas sem cobertura de rede.",
-        "Built and deployed Flora Sensus — Flutter offline-first app with custom sync engine, operating in no-coverage areas."
+        "Construção e deploy do Urutau — app Flutter offline-first com motor de sincronização custom, operando em áreas sem cobertura de rede.",
+        "Built and deployed Urutau — Flutter offline-first app with custom sync engine, operating in no-coverage areas."
       ),
       b(
         "Desenvolvimento do Orca — motor de planejamento operacional (Python/FastAPI) para restauração florestal em larga escala, com geração automática de dossiês executivos, alocação de equipes e cronogramas otimizados.",
@@ -124,7 +123,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Pesquisador de Segurança Independente · Responsible Disclosure",
-    role: b("Pesquisador de Segurança · Part-time", "Security Researcher · Part-time"),
+    role: b("Pesquisador de Segurança Independente", "Independent Security Researcher"),
     period: b("Mar 2026 — Presente", "Mar 2026 — Present"),
     current: true,
     highlights: [
@@ -201,8 +200,8 @@ export const skillGroups: SkillGroup[] = [
     skills: ["React 19", "TypeScript", "Flutter/Dart", "Vite", "Tailwind CSS"],
     color: "var(--color-accent-sapphire)",
     storyProof: b(
-      "React 19 + TypeScript → HarpIA frontend, Flora Sensus admin panel, Inovesa institutional site, this portfolio. Flutter/Dart for offline-first Flora Sensus mobile app.",
-      "React 19 + TypeScript → HarpIA frontend, Flora Sensus admin panel, Inovesa institutional site, this portfolio. Flutter/Dart for offline-first Flora Sensus mobile app."
+      "React 19 + TypeScript → HarpIA frontend, Urutau admin panel, Inovesa institutional site, this portfolio. Flutter/Dart for offline-first Urutau mobile app.",
+      "React 19 + TypeScript → HarpIA frontend, Urutau admin panel, Inovesa institutional site, this portfolio. Flutter/Dart for offline-first Urutau mobile app."
     ),
     storySnippet: {
       language: "tsx",
@@ -212,7 +211,7 @@ export const skillGroups: SkillGroup[] = [
   return { push: syncWithBackoff, pending }
 };`,
     },
-    storyProjectIds: ["harpia", "florasensus", "inovesa"],
+    storyProjectIds: ["harpia", "urutau", "inovesa"],
   },
   {
     label: "IA & ML",
@@ -266,10 +265,10 @@ export const skillGroups: SkillGroup[] = [
     skills: ["Drift/SQLite", "UUID remapping", "rollback transacional", "PocketBase"],
     color: "var(--color-sec-fixed)",
     storyProof: b(
-      "Flora Sensus offline-first sync: cascading UUID remapping across related tables, transactional rollback on failure, exponential backoff (2s/4s/8s). PocketBase backend with auth retry wrapper.",
-      "Flora Sensus offline-first sync: cascading UUID remapping across related tables, transactional rollback on failure, exponential backoff (2s/4s/8s). PocketBase backend with auth retry wrapper."
+      "Urutau offline-first sync: cascading UUID remapping across related tables, transactional rollback on failure, exponential backoff (2s/4s/8s). PocketBase backend with auth retry wrapper.",
+      "Urutau offline-first sync: cascading UUID remapping across related tables, transactional rollback on failure, exponential backoff (2s/4s/8s). PocketBase backend with auth retry wrapper."
     ),
-    storyProjectIds: ["florasensus"],
+    storyProjectIds: ["urutau"],
   },
 ];
 
@@ -347,22 +346,22 @@ export const projects: Project[] = [
     caseStudySlug: "orca",
   },
   {
-    id: "florasensus",
-    title: "Flora Sensus",
+    id: "urutau",
+    title: "Urutau",
     year: "2026",
     category: b("Mobile · Offline-First · Flutter + React", "Mobile · Offline-First · Flutter + React"),
     description: b(
-"App mobile para inventário florestal offline-first com serviço de sync custom (detecção de conflitos com resolução manual, rollback transacional em caso de falha, UUID remapping). Painel admin React com exportação XLSX/PDF/CSV — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente.",
-  "Offline-first forest inventory mobile app with custom sync service (conflict detection with manual resolution, transactional rollback on failure, UUID remapping). React admin panel with XLSX/PDF/CSV export — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed."
+"App mobile para inventário florestal offline-first (Urutau) com serviço de sync custom (detecção de conflitos com resolução manual, rollback transacional em caso de falha, UUID remapping). Painel admin React com exportação XLSX/PDF/CSV — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente.",
+  "Offline-first forest inventory mobile app (Urutau) with custom sync service (conflict detection with manual resolution, transactional rollback on failure, UUID remapping). React admin panel with XLSX/PDF/CSV export — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed."
     ),
     tech: ["Flutter", "Dart", "Drift / SQLite", "PocketBase", "React", "Vite", "Provider", "Workmanager"],
     color: "#2d6b3f",
-    icon: "/images/projects/flora-sensus-logo.png",
+    icon: "/images/projects/urutau-logo.png",
     githubUrl: "https://github.com/xAngryBadger/urutau-app",
     featured: true,
     inProgress: false,
     hasCaseStudy: true,
-    caseStudySlug: "flora-sensus",
+    caseStudySlug: "urutau",
   },
   {
     id: "fennec",
@@ -732,14 +731,14 @@ export type CvProject = {
 
 export const cvProjects: CvProject[] = [
   {
-    id: "flora-sensus",
-    name: "Flora Sensus",
+    id: "urutau",
+    name: "Urutau",
     url: "github.com/xAngryBadger/urutau-app",
     tier: 1,
     bullets: [
       b(
-        "App Flutter offline-first para inventário florestal com serviço de sync custom — remapping de UUIDs em cascata pelas tabelas relacionadas e rollback transacional em caso de falha.",
-        "Flutter offline-first app for forest inventory with custom sync service — cascading UUID remapping across related tables and transactional rollback on failure."
+        "App Flutter offline-first para inventário florestal (Urutau) com serviço de sync custom — remapping de UUIDs em cascata pelas tabelas relacionadas e rollback transacional em caso de falha.",
+        "Flutter offline-first app for forest inventory (Urutau) with custom sync service — cascading UUID remapping across related tables and transactional rollback on failure."
       ),
       b(
         "Arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente. Painel admin React com auth, fotos, relatórios e exportação XLSX/PDF/CSV.",

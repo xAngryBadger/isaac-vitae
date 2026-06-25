@@ -564,3 +564,48 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
   .security-page .sec-wave-item { grid-template-columns: 10px 1fr; }
   .security-page .sec-wave-item-org { grid-column: 1 / -1; padding-left: 1.5rem; }
 }
+
+/* Expandable detail rows */
+.security-page .sec-detail-row { background: var(--color-bg-deep); }
+.security-page .sec-detail-cell { padding: 1.5rem 0; }
+.security-page .sec-detail {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.security-page .sec-detail-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem; margin-bottom: 1.5rem;
+}
+.security-page .sec-detail-section h5 {
+  font-family: var(--font-serif); font-size: 0.85rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--color-accent); margin: 0 0 0.5rem;
+}
+.security-page .sec-detail-section p,
+.security-page .sec-detail-section li {
+  font-size: 0.85rem; line-height: 1.6; color: var(--color-text-2); margin: 0.25rem 0;
+}
+.security-page .sec-detail-section ol,
+.security-page .sec-detail-section ul {
+  margin: 0; padding-left: 1.25rem;
+}
+.security-page .sec-detail-section li { margin: 0.35rem 0; }
+.security-page .sec-detail-timeline { list-style: decimal; }
+.security-page .sec-detail-footer {
+  padding-top: 1rem; border-top: 1px solid var(--sec-border);
+  text-align: right;
+}
+.security-page .sec-detail-link {
+  color: var(--color-accent); text-decoration: none; font-family: var(--font-mono);
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
+  border-bottom: 1px dotted var(--color-accent); transition: color 0.15s;
+}
+.security-page .sec-detail-link:hover { color: var(--color-accent-light); border-color: var(--color-accent-light); }
+.security-page .sec-detail-link:visited { color: var(--color-accent-dark); }
+
+@media (max-width: 640px) {
+  .security-page .sec-table-wrap { border-left: none; border-right: none; }
+  .security-page .sec-wave-items { padding-left: 1.5rem; }
+  .security-page .sec-wave-item { grid-template-columns: 10px 1fr; }
+  .security-page .sec-wave-item-org { grid-column: 1 / -1; padding-left: 1.5rem; }
+  .security-page .sec-detail-grid { grid-template-columns: 1fr; }
+}

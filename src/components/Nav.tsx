@@ -13,11 +13,11 @@ const menuLinks = [
   { label: { pt: "Projetos", en: "Projects" }, href: "/projects", num: "04" },
   { label: { pt: "Habilidades", en: "Skills" }, href: "/skills", num: "05" },
   // { label: { pt: "Galeria", en: "Gallery" }, href: "/gallery", num: "06" },  // Temporarily hidden
-  { label: { pt: "Certificações", en: "Certificates" }, href: "/certificates", num: "07" },
-  { label: { pt: "Currículo", en: "Resume" }, href: "/cv", num: "08" },
-  { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "09" },
-  { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "10" },
-  { label: { pt: "Segurança", en: "Security" }, href: "/security", num: "11" },
+  { label: { pt: "Certificações", en: "Certificates" }, href: "/certificates", num: "06" },
+  { label: { pt: "Currículo", en: "Resume" }, href: "/cv", num: "07" },
+  { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "08" },
+  // { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "09" },  // Temporarily hidden
+  { label: { pt: "Segurança", en: "Security" }, href: "/security", num: "09" },
 ];
 
 export default function Nav() {
@@ -212,13 +212,6 @@ export default function Nav() {
             style={{ color: "var(--color-text-3)", letterSpacing: "0.15em" }}
           >
             {personal.email}
-          </span>
-          <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
-          <span
-            className="font-mono text-xs"
-            style={{ color: "var(--color-accent)", letterSpacing: "0.15em" }}
-          >
-            {personal.securityEmail}
           </span>
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
           <button

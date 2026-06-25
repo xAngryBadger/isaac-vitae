@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { securityDisclosures } from "../data/content";
+import { securityDisclosures, securityCaseStudies } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import { EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
 import { SplitText } from "../components/SplitText";
@@ -23,6 +23,7 @@ export default function Security() {
   const [sortKey, setSortKey] = useState<SortKey>("discoveryDate");
   const [sortDir, setSortDir] = useState<SortDir>("asc");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const counts = {
     active: securityDisclosures.filter((d) => d.status === "open").length,
@@ -200,42 +201,103 @@ export default function Security() {
                     d.severity === "critical" ? "var(--color-sec-open)"
                     : d.severity === "high" ? "var(--color-sec-uncertain)"
                     : "var(--color-text-3)";
+                  const cs = d.slug ? securityCaseStudies[d.slug] : null;
+                  const isExpanded = expandedId === d.id;
                   return (
-                    <tr key={d.id}>
-                      <td className="col-title">
-                        {d.hasCaseStudy ? (
-                          <Link to={`/security/${d.slug}`} className="sec-row-link">{d.title}</Link>
-                        ) : (
-                          <span>{d.title}</span>
-                        )}
-                      </td>
-                      <td className="col-org">{t(d.organization)}</td>
-                      <td className="col-type font-mono">{d.vulnType}</td>
-                      <td className="col-cwe font-mono">{d.CWE}</td>
-                      <td className="col-sev font-mono" style={{ color: sevColor }}>
-                        {d.severity.toUpperCase()}
-                      </td>
-                      <td className="col-status">
-                        <span className={`sec-badge sec-badge--${d.status}`}>
-                          {d.status === "fixed"
-                            ? t({ pt: "Corrigido", en: "Fixed" })
-                            : d.status === "open"
-                              ? t({ pt: "Aberto", en: "Open" })
-                              : t({ pt: "Incerto", en: "Uncertain" })}
-                        </span>
-                      </td>
-                      <td className="col-lgpd font-mono">
-                        {d.lgpdArticles?.length
-                          ? d.lgpdArticles.map((a, i) => (
-                              <span key={a + i}>
-                                <abbr title={t({ pt: `Lei Geral de Proteção de Dados — ${a}`, en: `Brazilian General Data Protection Law — ${a}` })}>{a}</abbr>
-                                {i < d.lgpdArticles.length - 1 ? ", " : ""}
-                              </span>
-                            ))
-                          : "—"}
-                      </td>
-                      <td className="col-date font-mono">{d.verifiedDate}</td>
-                    </tr>
+                    <>
+                      <tr
+                        key={d.id}
+                        onClick={() => setExpandedId(isExpanded ? null : d.id)}
+                        style={{ cursor: cs ? "pointer" : "default" }}
+                      >
+                        <td className="col-title">
+                          {d.hasCaseStudy ? (
+                            <Link
+                              to={`/security/${d.slug}`}
+                              className="sec-row-link"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {d.title}
+                            </Link>
+                          ) : (
+                            <span>{d.title}</span>
+                          )}
+                        </td>
+                        <td className="col-org">{t(d.organization)}</td>
+                        <td className="col-type font-mono">{d.vulnType}</td>
+                        <td className="col-cwe font-mono">{d.CWE}</td>
+                        <td className="col-sev font-mono" style={{ color: sevColor }}>
+                          {d.severity.toUpperCase()}
+                        </td>
+                        <td className="col-status">
+                          <span className={`sec-badge sec-badge--${d.status}`}>
+                            {d.status === "fixed"
+                              ? t({ pt: "Corrigido", en: "Fixed" })
+                              : d.status === "open"
+                                ? t({ pt: "Aberto", en: "Open" })
+                                : t({ pt: "Incerto", en: "Uncertain" })}
+                          </span>
+                        </td>
+                        <td className="col-lgpd font-mono">
+                          {d.lgpdArticles?.length
+                            ? d.lgpdArticles.map((a, i) => (
+                                <span key={a + i}>
+                                  <abbr title={t({ pt: `Lei Geral de Proteção de Dados — ${a}`, en: `Brazilian General Data Protection Law — ${a}` })}>{a}</abbr>
+                                  {i < d.lgpdArticles.length - 1 ? ", " : ""}
+                                </span>
+                              ))
+                            : "—"}
+                        </td>
+                        <td className="col-date font-mono">{d.verifiedDate}</td>
+                      </tr>
+                      {cs && isExpanded && (
+                        <tr key={`${d.id}-detail`} className="sec-detail-row">
+                          <td colSpan={9} className="sec-detail-cell">
+                            <div className="sec-detail">
+                              <div className="sec-detail-grid">
+                                <div className="sec-detail-section">
+                                  <h5>{t({ pt: "Desafio", en: "Challenge" })}</h5>
+                                  <p>{t(cs.challenge)}</p>
+                                </div>
+                                <div className="sec-detail-section">
+                                  <h5>{t({ pt: "Abordagem", en: "Approach" })}</h5>
+                                  <p>{t(cs.approach)}</p>
+                                </div>
+                                <div className="sec-detail-section">
+                                  <h5>{t({ pt: "Linha do Tempo", en: "Timeline" })}</h5>
+                                  <ol className="sec-detail-timeline">
+                                    {cs.timeline.map((step, i) => (
+                                      <li key={i}>{t(step)}</li>
+                                    ))}
+                                  </ol>
+                                </div>
+                                <div className="sec-detail-section">
+                                  <h5>{t({ pt: "Impacto", en: "Impact" })}</h5>
+                                  <ul className="sec-detail-list">
+                                    {cs.impact.map((item, i) => (
+                                      <li key={i}>{t(item)}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                                <div className="sec-detail-section">
+                                  <h5>{t({ pt: "Achados-Chave", en: "Key Findings" })}</h5>
+                                  <ul className="sec-detail-list">
+                                    {cs.keyFindings.map((f, i) => (
+                                      <li key={i}>{t(f)}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                              <div className="sec-detail-footer">
+                                <Link to={`/security/${d.slug}`} className="sec-detail-link">
+                                  {t({ pt: "Ver case study completo →", en: "View full case study →" })}
+                                </Link>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      )}
+                    </>
                   );
                 })}
               </tbody>
