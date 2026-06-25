@@ -250,7 +250,7 @@ color: var(--color-bg);
 }
         .cv-name {
           font-family: var(--font-serif);
-          font-size: 1.75rem;
+          font-size: 1.4rem;
           font-weight: 700;
           color: var(--color-text);
           margin: 0 0 0.25rem;
@@ -258,7 +258,7 @@ color: var(--color-bg);
         }
 .cv-title {
   font-family: var(--font-serif);
-  font-size: 0.8rem;
+  font-size: 0.64rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #3d4f41;
@@ -266,7 +266,7 @@ color: var(--color-bg);
 }
 .cv-pcd {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.56rem;
   color: #4a5c4e;
   margin: 0 0 1rem;
 }
@@ -275,7 +275,7 @@ color: var(--color-bg);
   flex-wrap: wrap;
   gap: 0.75rem;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.56rem;
   color: #3d4f41;
   margin-bottom: 1rem;
 }
@@ -296,7 +296,7 @@ color: var(--color-bg);
         }
         .cv-heading {
           font-family: var(--font-serif);
-          font-size: 1rem;
+          font-size: 0.8rem;
           font-weight: 700;
           color: var(--color-text);
           text-transform: uppercase;
@@ -306,7 +306,7 @@ color: var(--color-bg);
           margin-bottom: 0.75rem;
         }
         .cv-body {
-          font-size: 0.85rem;
+          font-size: 0.68rem;
           line-height: 1.6;
           color: var(--color-text-2);
           margin: 0;
@@ -327,7 +327,7 @@ color: var(--color-bg);
         }
         .cv-entry-title {
           font-family: var(--font-serif);
-          font-size: 0.95rem;
+          font-size: 0.76rem;
           font-weight: 600;
           color: var(--color-text);
           margin: 0;
@@ -340,21 +340,21 @@ color: var(--color-bg);
         }
 .cv-entry-date {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.56rem;
   color: #4a5c4e;
   white-space: nowrap;
 }
 .cv-status {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.52rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #4a5c4e;
   border: 1px solid #b0a898;
-          padding: 0.1rem 0.4rem;
-          display: inline-block;
-          margin-top: 0.15rem;
-        }
+  padding: 0.1rem 0.4rem;
+  display: inline-block;
+  margin-top: 0.15rem;
+}
         .cv-status[data-active="true"] {
           color: var(--color-text-2);
           border-color: color-mix(in srgb, var(--color-text-2) 70%, transparent);
@@ -363,7 +363,7 @@ color: var(--color-bg);
           list-style: disc;
           margin: 0;
           padding-left: 1.25rem;
-          font-size: 0.85rem;
+          font-size: 0.68rem;
           line-height: 1.7;
           color: var(--color-text-2);
         }
@@ -376,14 +376,14 @@ color: var(--color-bg);
         }
 .cv-tech {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.56rem;
   color: #4a5c4e;
-    letter-spacing: 0.02em;
-    margin: 0;
-  }
+  letter-spacing: 0.02em;
+  margin: 0;
+}
   .cv-project-url {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.56rem;
     font-weight: 400;
     color: var(--color-text-2);
     text-decoration: none;
@@ -396,19 +396,17 @@ color: var(--color-bg);
     display: flex;
     gap: 0.75rem;
     margin-bottom: 0.6rem;
-    font-size: 0.85rem;
+    font-size: 0.68rem;
     line-height: 1.5;
   }
   .cv-skill-label {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.56rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--color-text-2);
     white-space: nowrap;
-    min-width: 6rem;
-    padding-top: 0.1rem;
   }
   .cv-skill-content {
     display: flex;
@@ -419,13 +417,13 @@ color: var(--color-bg);
     color: var(--color-text-2);
   }
 .cv-skill-proof {
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   font-style: italic;
   color: #4a5c4e;
 }
 .cv-cert-context {
   color: #4a5c4e;
-  font-size: 0.8rem;
+  font-size: 0.64rem;
 }
 
         @media (max-width: 640px) {
