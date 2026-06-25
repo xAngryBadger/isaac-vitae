@@ -1,5 +1,5 @@
 import type { Bilingual } from "../lib/LanguageContext";
-import { getCurrentSemesterPeriod, getCurrentSemesterInline } from "../lib/semester";
+import { getCurrentSemesterInline } from "../lib/semester";
 
 const b = (pt: string, en: string): Bilingual => ({ pt, en });
 
@@ -31,14 +31,14 @@ export type Education = {
 export const personal = {
   name: "Isaac Nathan",
   fullName: "Isaac Nathan da Silva Barbosa",
-  title: b("Engenharia de Computação + IA · Security Researcher", "Computer Engineering + AI · Security Researcher"),
+  title: b("Engenheiro de Software Full-Stack & Mobile · IA · Segurança Aplicada", "Full-Stack & Mobile Software Engineer · AI · Applied Security"),
   subtitle: b(
-    "Full-Stack · Python · React · Cloud · Threat Intel",
-    "Full-Stack · Python · React · Cloud · Threat Intel"
+    "Engenheiro de Computação (5º período) — construo produtos ponta a ponta",
+    "Computer Engineer (5th semester) — building end-to-end products"
   ),
   bio: b(
-    `Estudante de Engenharia de Computação (${getCurrentSemesterInline().pt}) buscando vaga de Jovem Aprendiz/Trainee. Experiência em migração de dados Azure Cosmos DB, automação com IA (GPT-4.1) e full-stack (Python/React).`,
-    `Computer Engineering student (${getCurrentSemesterInline().en}) seeking Trainee/Jovem Aprendiz role. Experience in Azure Cosmos DB migration, AI automation (GPT-4.1), and full-stack (Python/React).`
+    "Engenheiro de Computação (5º período) com trajetória prática em desenvolvimento Full-Stack, Mobile e orquestração de IA. Construo produtos de ponta a ponta — de apps offline-first em Flutter para operações florestais de campo até motores de otimização logística com FastAPI e pandas. Migrei +500 GB de dados legados para Azure Cosmos DB em produção internacional. Arquitetei pipelines agentic com 9+ modelos de IA (GPT-4.1, Flux, DALL-E 3, Sora, Veo). Na pesquisa independente de segurança, reportei 20+ vulnerabilidades em infraestrutura governamental brasileira com 5 correções confirmadas via CERT.br/CTIR Gov. Aprendo resolvendo problemas de produção sob restrições severas — não seguindo tutoriais.",
+    "Computer Engineer (5th semester) with hands-on experience in Full-Stack, Mobile development, and AI orchestration. Building end-to-end products — from offline-first Flutter apps for field forestry operations to logistics optimization engines with FastAPI and pandas. Migrated +500 GB of legacy data to Azure Cosmos DB in international production. Architected agentic pipelines with 9+ AI models (GPT-4.1, Flux, DALL-E 3, Sora, Veo). In independent security research, reported 20+ vulnerabilities in Brazilian government infrastructure with 5 fixes confirmed via CERT.br/CTIR Gov. I learn by solving production problems under severe constraints — not by following tutorials."
   ),
   bioExtended: b(
 `Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, Orca e em breve ForestAI de novo.`,
@@ -78,46 +78,62 @@ b(
 
 export const experiences: Experience[] = [
   {
-    company: "Security Researcher (Independent / Responsible Disclosure)",
-    role: b("Security Researcher & Threat Intelligence", "Security Researcher & Threat Intelligence"),
-    period: b("Mar 2026 — Presente", "Mar 2026 — Present"),
+    company: "Inovesa Florestal",
+    role: b("Engenheiro de Software Full-Stack & Mobile · Autônomo", "Full-Stack & Mobile Software Engineer · Freelance"),
+    period: b("Mai 2026 — Presente", "May 2026 — Present"),
     current: true,
     highlights: [
       b(
-        "20+ vulnerabilidades em infraestrutura governamental/setorial brasileira — 5 correções confirmadas via CERT.br/CTIR Gov (Mar–Jun 2026). Três ondas de divulgação responsável: zero retenção, notificação multi-canal, verificação pós-fix.",
-        "20+ vulnerabilities in Brazilian government/sector infrastructure — 5 fixes confirmed via CERT.br/CTIR Gov (Mar–Jun 2026). Three responsible disclosure waves: zero retention, multi-channel notification, post-fix verification."
+        "Desenvolvedor principal e arquiteto de soluções ponta a ponta para operações de inventário e logística florestal.",
+        "Lead developer and architect of end-to-end solutions for forest inventory and logistics operations."
       ),
       b(
-        "Takedown de phishing Microsoft/OneDrive: derrubei origin server (procorereviews.com) via flood controlado de ~10k requests (HTTP 521 sustentado). Infra rotacionada (kochcnfvontainer.vu) mapeada, IOCs extraídos, reportada ao CERT.br/Cloudflare.",
-        "Microsoft/OneDrive phishing takedown: toppled origin server (procorereviews.com) via controlled ~10k-request flood (sustained HTTP 521). Rotated infra (kochcnfvontainer.vu) mapped, IOCs extracted, reported to CERT.br/Cloudflare."
+        "Construção e deploy do Flora Sensus — app Flutter offline-first com motor de sincronização custom, operando em áreas sem cobertura de rede.",
+        "Built and deployed Flora Sensus — Flutter offline-first app with custom sync engine, operating in no-coverage areas."
       ),
       b(
-        "Reversão de 3 JS ofuscados com Base91 customizado (3 alfabetos únicos, 176 strings). Pipeline: Browser → JS download → Custom Base91 decoder (Python) → IOC extraction → CERT.br/Cloudflare report.",
-        "Reversed 3 JS files obfuscated with custom Base91 (3 unique alphabets, 176 strings). Pipeline: Browser → JS download → Custom Base91 decoder (Python) → IOC extraction → CERT.br/Cloudflare report."
+        "Desenvolvimento do Orca — motor de planejamento operacional (Python/FastAPI) para restauração florestal em larga escala, com geração automática de dossiês executivos, alocação de equipes e cronogramas otimizados.",
+        "Developed Orca — operational planning engine (Python/FastAPI) for large-scale forest restoration, with automatic executive dossier generation, team allocation and optimized schedules."
       ),
       b(
-        "Metodologia NIST CSF + LGPD: Passive Recon (Dorking, Shodan, CT logs) → Exposure Verification → Documentation → Secure Deletion (shred) → Notificação multi-canal → Follow-up pós-fix.",
-        "Methodology NIST CSF + LGPD: Passive Recon (Dorking, Shodan, CT logs) → Exposure Verification → Documentation → Secure Deletion (shred) → Multi-channel Notification → Post-fix Follow-up."
+        "Painéis administrativos React/TS com auth, relatórios e exportação multi-formato (XLSX, PDF, CSV).",
+        "React/TS admin panels with auth, reports and multi-format export (XLSX, PDF, CSV)."
       ),
     ],
   },
   {
     company: "Paware Softwares",
-    role: b("Desenvolvedor Full-Stack com foco em IA", "Full-Stack Developer with AI focus"),
+    role: b("Desenvolvedor Full-Stack & Engenheiro de IA", "Full-Stack Developer & AI Engineer"),
     period: b("Out 2025 — Mai 2026", "Oct 2025 — May 2026"),
     current: false,
-highlights: [
-b(
-"Migrei centenas de GB de datasets legados do Google Drive para Azure Cosmos DB destinados à Meritage Homes (EUA) — pipeline com extração automatizada por cookies, compressão, renomeação e injeção em painéis para embedding via agente WhatsApp com limites rígidos de tamanho de arquivo. Containerizei com Docker para ambientes reproduzíveis e escrevi camada de validação de schema com rollback automático.",
-"Migrated hundreds of GB of legacy datasets from Google Drive to Azure Cosmos DB for Meritage Homes (USA) — pipeline with automated cookie-based extraction, compression, renaming, and injection into panels for WhatsApp agent embedding with strict file size limits. Containerized with Docker for reproducible environments and wrote schema validation layer with automated rollback."
-),
+    highlights: [
       b(
-      "Resolvi problema cross-platform de MIME types (Android nativo vs iPhone exigindo octet-stream — com testes extensivos em dispositivos iOS). Essa validação virou o backbone da migração final para Azure Cosmos DB.",
-      "Resolved cross-platform MIME type issue (Android native vs iPhone requiring octet-stream — with extensive testing on iOS devices). This validation layer became the backbone of the final Azure Cosmos DB migration."
+        "Migrei +500 GB de dados legados (Meritage Homes, EUA) para Azure Cosmos DB — pipeline de extração automatizada, validação estrita de schema e rollback automático, com zero downtime.",
+        "Migrated +500 GB legacy data (Meritage Homes, USA) to Azure Cosmos DB — automated extraction pipeline, strict schema validation and auto rollback, zero downtime."
       ),
       b(
-"Arquitetei pipeline de geração de imagens para o HelloSocial — pipeline multi-etapa com GPT-4.1 (geração, curadoria, composição, validação), integração Flux Kontext Pro + DALL-E 3 + Placid/Canva. Fallback SQLite/PIL local quando API paga não era necessária.",
-  "Architected image-generation pipeline for HelloSocial — multi-step pipeline with GPT-4.1 (generation, curation, composition, validation), integrating Flux Kontext Pro + DALL-E 3 + Placid/Canva APIs. Fallback to SQLite/local PIL when paid APIs weren't needed."
+        "Resolvi inconsistências cross-platform de MIME types (Android nativo vs iOS octet-stream), criando camada de abstração que eliminou falhas de ingestão no Cosmos DB.",
+        "Resolved cross-platform MIME type inconsistencies (Android native vs iOS octet-stream), creating abstraction layer that eliminated Cosmos DB ingestion failures."
+      ),
+      b(
+        "Arquitetei pipeline assíncrono de geração de mídia (HelloSocial) — orquestração de GPT-4.1, Flux Kontext Pro, DALL-E 3 e APIs de design (Canva/Placid) com fallback para SQLite + PIL local.",
+        "Architected async media generation pipeline (HelloSocial) — orchestration of GPT-4.1, Flux Kontext Pro, DALL-E 3 and design APIs (Canva/Placid) with local SQLite + PIL fallback."
+      ),
+    ],
+  },
+  {
+    company: "Pesquisador de Segurança Independente · Responsible Disclosure",
+    role: b("Pesquisador de Segurança · Part-time", "Security Researcher · Part-time"),
+    period: b("Mar 2026 — Presente", "Mar 2026 — Present"),
+    current: true,
+    highlights: [
+      b(
+        "20+ vulnerabilidades reportadas em infraestrutura governamental e setorial brasileira — 5 correções confirmadas via CERT.br/CTIR Gov. Três ondas de divulgação (Mar–Jun 2026).",
+        "20+ vulnerabilities reported in Brazilian government/sectoral infrastructure — 5 fixes confirmed via CERT.br/CTIR Gov. Three disclosure waves (Mar–Jun 2026)."
+      ),
+      b(
+        "Takedown de infraestrutura de phishing Microsoft/OneDrive. Pipeline de engenharia reversa: decodificação Base91 customizada (3 alfabetos, 176 strings) → extração de IOCs → report CERT.br/Cloudflare.",
+        "Microsoft/OneDrive phishing infrastructure takedown. Reverse engineering pipeline: custom Base91 decoding (3 alphabets, 176 strings) → IOC extraction → CERT.br/Cloudflare report."
       ),
     ],
   },
@@ -128,12 +144,8 @@ b(
     current: false,
     highlights: [
       b(
-        "Aprendi Arduino e LEGO em <2 semanas e ministrei aulas de robótica para crianças/adolescentes, conectando teoria a aplicações reais.",
-        "Learned Arduino and LEGO in under 2 weeks and taught robotics to children/teens, connecting theory to real applications."
-      ),
-      b(
-        "Conciliei manhãs aqui com trabalho noturno na Paware.",
-        "Balanced mornings here with evening work at Paware."
+        "Domínio de Arduino e LEGO em <2 semanas. Aulas de robótica e programação para crianças/adolescentes, conciliando com trabalho noturno.",
+        "Mastered Arduino and LEGO in <2 weeks. Robotics and programming classes for children/adolescents, balancing with night work."
       ),
     ],
   },
@@ -141,25 +153,18 @@ b(
 
 export const education: Education[] = [
   {
-    degree: b("Química Industrial", "Industrial Chemistry"),
-    institution: "UFOP",
-    period: "2022",
-    status: b("Primeiros passos em Python — Thonny IDE", "First steps in Python — Thonny IDE"),
-    statusActive: false,
+    degree: b("Engenharia de Computação", "Computer Engineering"),
+    institution: "Cruzeiro do Sul",
+    period: "2024 — 2029",
+    status: b("5º período (cursando)", "5th semester (in progress)"),
+    statusActive: true,
   },
   {
     degree: b("Engenharia Química", "Chemical Engineering"),
     institution: "UFSJ — Campus Alto Paraopeba",
     period: "2022 — 2024",
-    status: b("Período de transição — estudo autodirigido em IA", "Transition period — self-directed AI study"),
+    status: b("Transição para Computação", "Transition to Computer Engineering"),
     statusActive: false,
-  },
-  {
-    degree: b("Engenharia de Computação", "Computer Engineering"),
-    institution: "Cruzeiro do Sul",
-    period: "2024 — 2029",
-    status: getCurrentSemesterPeriod(),
-    statusActive: true,
   },
 ];
 
@@ -174,160 +179,96 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    label: "Frontend",
-    skills: ["React 19", "TypeScript", "JavaScript", "Tailwind CSS v4", "Flutter", "Vite", "React Native", "Expo"],
-    color: "#A8611A",
+    label: "Backend & Data",
+    skills: ["Python", "FastAPI", "Node.js", "SQL", "pandas", "openpyxl"],
+    color: "var(--color-accent-teal)",
     storyProof: b(
-      "React 19 + TypeScript \u2192 HarpIA frontend, Flora Sensus admin panel, Inovesa site institucional, este portf\u00f3lio.",
-      "React 19 + TypeScript \u2192 HarpIA frontend, Flora Sensus admin panel, Inovesa institutional site, this very portfolio."
+      "Python/FastAPI powering Orca planning engine, HarpIA pipelines, and Paware's Cosmos DB migration. pandas/openpyxl for executive dossier generation in Orca.",
+      "Python/FastAPI powering Orca planning engine, HarpIA pipelines, and Paware's Cosmos DB migration. pandas/openpyxl for executive dossier generation in Orca."
+    ),
+    storySnippet: {
+      language: "python",
+      code: `async def optimize_schedule(crews: Crew[], sites: Site[]) -> Schedule:
+    model = LinearProgram("Orca Scheduler")
+    # ... constraint building with pandas DataFrames
+    return model.solve()`,
+    },
+    storyProjectIds: ["orca", "harpia", "paware-migration"],
+  },
+  {
+    label: "Frontend & Mobile",
+    skills: ["React 19", "TypeScript", "Flutter/Dart", "Vite", "Tailwind CSS"],
+    color: "var(--color-accent-sapphire)",
+    storyProof: b(
+      "React 19 + TypeScript → HarpIA frontend, Flora Sensus admin panel, Inovesa institutional site, this portfolio. Flutter/Dart for offline-first Flora Sensus mobile app.",
+      "React 19 + TypeScript → HarpIA frontend, Flora Sensus admin panel, Inovesa institutional site, this portfolio. Flutter/Dart for offline-first Flora Sensus mobile app."
     ),
     storySnippet: {
       language: "tsx",
-      code: `const useParallax = (range: [number, number]) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useTransform(scrollYProgress, [0, 1], range);
-  return { ref, style: { y } };
+      code: `const useOfflineSync = () => {
+  const [pending, setPending] = useState<Mutation[]>([])
+  // UUID remapping + transactional rollback on failure
+  return { push: syncWithBackoff, pending }
 };`,
     },
     storyProjectIds: ["harpia", "florasensus", "inovesa"],
   },
   {
-    label: "Backend",
-    skills: ["Python", "FastAPI", "Node.js", "Express", "Java", "SQL"],
-    color: "#456A4B",
+    label: "IA & ML",
+    skills: ["PyTorch", "DeepForest", "Azure OpenAI", "Ollama", "LLM Agents (ReAct)"],
+    color: "var(--color-accent-peach)",
     storyProof: b(
-"FastAPI + Azure Cosmos DB → HarpIA pipeline, AguaQuality IoT backend, HelloSocial (Paware). Python async como linguagem de produção.",
-"FastAPI + Azure Cosmos DB → HarpIA pipeline, AguaQuality IoT backend, HelloSocial (Paware). Python async as production language."
+      "HarpIA orchestrates 9+ models (GPT-4.1, Flux, DALL-E 3, Sora, Veo). ForestAI uses PyTorch + DeepForest for species detection. Fennec Excel runs ReAct agents locally via Ollama.",
+      "HarpIA orchestrates 9+ models (GPT-4.1, Flux, DALL-E 3, Sora, Veo). ForestAI uses PyTorch + DeepForest for species detection. Fennec Excel runs ReAct agents locally via Ollama."
     ),
     storySnippet: {
       language: "python",
-      code: `@router.post("/webhook/pix")
-async def pix_webhook(payload: PixPayload):
-    async with get_cosmos_tx() as tx:
-        order = await tx.read("orders", payload.ref)
-        if order["status"] == "paid":
-            await relay.toggle(order["device_id"], ON)
-            await tx.patch("orders", order["id"],
-                {"status": "confirmed"})`,
+      code: `class ReActAgent:
+  async def step(self, thought: str) -> Action:
+      prompt = f"{SYSTEM_PROMPT}\nThought: {thought}\nAction:"
+      return parse(await self.llm(prompt))`,
     },
-    storyProjectIds: ["harpia", "aguaquality", "hellosocial"],
+    storyProjectIds: ["harpia", "forestai", "fennec"],
   },
   {
     label: "Cloud & Infra",
-    skills: ["Azure", "Azure Cosmos DB", "Docker", "Git / GitHub", "PocketBase"],
-    color: "#6B5B3D",
+    skills: ["Azure Cosmos DB", "Docker", "Terraform", "AWS (ECS)", "Git", "Linux"],
+    color: "var(--color-accent)",
     storyProof: b(
-      "Migra\u00e7\u00e3o de bases para Azure Cosmos DB (Meritage Homes, EUA). Docker para agentes de IA. PocketBase como backend para Flora Sensus.",
-      "Database migration to Azure Cosmos DB (Meritage Homes, USA). Docker for AI agents. PocketBase as backend for Flora Sensus."
+      "Migrated 500+ GB to Azure Cosmos DB for Meritage Homes (USA) with zero downtime. Docker containers for AI agents. Terraform for infra-as-code. Custom CachyOS/Hyprland Linux rice.",
+      "Migrated 500+ GB to Azure Cosmos DB for Meritage Homes (USA) with zero downtime. Docker containers for AI agents. Terraform for infra-as-code. Custom CachyOS/Hyprland Linux rice."
     ),
     storySnippet: {
-      language: "python",
-code: `async def cosmos_upsert(db: CosmosClient, coll: str, doc: dict):
-  container = db.get_container_client(coll)
-    try:
-        existing = await container.read_item(
-            doc["id"], partition_key=doc["pk"])
-        return await container.replace_item(
-            doc["id"], {**existing, **doc})
-    except CosmosResourceNotFoundError:
-        return await container.create_item(doc)`,
+      language: "hcl",
+      code: `resource "azurerm_cosmosdb_account" "main" {
+  name                = "paware-cosmos"
+  resource_group_name = var.rg_name
+  location            = var.location
+  kind                = "GlobalDocumentDB"
+  consistency_policy { consistency_level = "Session" }
+}`,
     },
-    storyProjectIds: ["harpia", "florasensus", "aguaquality"],
+    storyProjectIds: ["paware-migration", "harpia", "florasensus"],
   },
   {
-    label: b("IA & Data", "AI & Data"),
-    skills: [
-      "PyTorch", "DeepForest", "Azure OpenAI", "DALL-E 3", "Flux",
-      "GPT-4.1 (Agentes)", "NVIDIA NIM API", "Gemini SDK",
-      "scikit-learn", "OpenCV", "Ollama",
-    ],
-    color: "#8B6914",
+    label: "Segurança",
+    skills: ["OSINT", "Eng. Reversa (JS/Base91)", "NIST CSF", "OWASP", "Threat Intel"],
+    color: "var(--color-sec-open)",
     storyProof: b(
-      "7+ modelos de IA integrados no HarpIA. Agente ReAct com Ollama no Fennec Excel. Detec\u00e7\u00e3o de esp\u00e9cies com PyTorch + DeepForest no ForestAI.",
-      "7+ AI models integrated in HarpIA. ReAct agent with Ollama in Fennec Excel. Species detection with PyTorch + DeepForest in ForestAI."
-    ),
-    storySnippet: {
-      language: "python",
-code: `class OllamaClient:
-  async def chat(self, messages: list[dict]) -> str:
-    async with aiohttp.ClientSession() as s:
-      async with s.post(
-                f"{self.base}/api/chat",
-                json={"model": self.model,
-                      "messages": messages,
-                      "stream": False},
-            ) as r:
-                return (await r.json())["message"]["content"]`,
-    },
-    storyProjectIds: ["harpia", "fennec", "forestai"],
-  },
-  {
-    label: b("Integra\u00e7\u00f5es", "Integrations"),
-    skills: [
-      "Mercado Pago PIX", "Canva Connect API", "Placid API", "Templated.io",
-      "Pexels API", "Sora / Veo (Video AI)",
-    ],
-    color: "#4A6741",
-    storyProof: b(
-"PIX via Mercado Pago para AguaQuality. Canva Connect + Placid para HelloSocial (Paware). Pexels API para busca automática de imagens no HarpIA.",
-"PIX via Mercado Pago for AguaQuality. Canva Connect + Placid for HelloSocial (Paware). Pexels API for automatic image search in HarpIA."
-    ),
-    storyProjectIds: ["aguaquality", "hellosocial", "harpia"],
-  },
-  {
-    label: b("Segurança Ofensiva", "Offensive Security"),
-    skills: [
-      "OSINT", "Google Dorking", "Shodan", "Certificate Transparency", "Passive DNS",
-      "Nmap", "Wireshark", "Burp Suite", "SNMP Enum", "WordPress Audit",
-      "Directory Listing", "Auth Bypass", "Base91 Decoder", "JS Deobfuscation",
-    ],
-    color: "#8B3A3A",
-    storyProof: b(
-      "Pipeline Threat Intel do zero — Browser → JS download → Base91 decoder custom (3 alfabetos, 176 strings) → IOC extraction (PageConfig, tokens, OneDrive redirect) → CERT.br/Cloudflare. Takedown de phishing Microsoft/OneDrive via flood controlado.",
-      "Threat Intel pipeline built from scratch — Browser → JS download → Custom Base91 decoder (3 unique alphabets, 176 strings) → IOC extraction (PageConfig, tokens, OneDrive redirect) → CERT.br/Cloudflare. Microsoft/OneDrive phishing takedown via controlled flood."
+      "20+ vulnerabilities reported to CERT.br/CTIR Gov (5 fixes confirmed). Custom Base91 decoder (3 alphabets, 176 strings) for phishing JS deobfuscation. NIST CSF methodology for responsible disclosure.",
+      "20+ vulnerabilities reported to CERT.br/CTIR Gov (5 fixes confirmed). Custom Base91 decoder (3 alphabets, 176 strings) for phishing JS deobfuscation. NIST CSF methodology for responsible disclosure."
     ),
     storyProjectIds: ["security-disclosures"],
   },
   {
-    label: b("Segurança Defensiva", "Defensive Security"),
-    skills: [
-      "LGPD", "WAF Verification", "TLP Protocol", "Responsible Disclosure (CERT.br/CTIR Gov)",
-      "CVE Analysis", "Post-Fix Verification", "NIST CSF", "OWASP Top 10", "MITRE ATT&CK (awareness)",
-    ],
-    color: "#2E5C3A",
+    label: "Sync & Offline",
+    skills: ["Drift/SQLite", "UUID remapping", "rollback transacional", "PocketBase"],
+    color: "var(--color-sec-fixed)",
     storyProof: b(
-      "20+ vulnerabilidades reportadas via CERT.br/CTIR Gov com verificação pós-fix — 3 ondas de divulgação responsável (Mar–Jun 2026), zero retenção, notificação multi-canal. Documentação com screenshots, headers HTTP, timeline e closure documentada.",
-      "20+ vulnerabilities reported via CERT.br/CTIR Gov with post-fix verification — 3 responsible disclosure waves (Mar–Jun 2026), zero retention, multi-channel notification. Documentation with screenshots, HTTP headers, timeline, and documented closure."
+      "Flora Sensus offline-first sync: cascading UUID remapping across related tables, transactional rollback on failure, exponential backoff (2s/4s/8s). PocketBase backend with auth retry wrapper.",
+      "Flora Sensus offline-first sync: cascading UUID remapping across related tables, transactional rollback on failure, exponential backoff (2s/4s/8s). PocketBase backend with auth retry wrapper."
     ),
-    storyProjectIds: ["security-disclosures"],
-  },
-  {
-    label: b("Threat Intelligence", "Threat Intelligence"),
-    skills: [
-      "IOC Extraction", "Base91/JS Deobfuscation", "IOC Sharing (AbuseIPDB, URLhaus)",
-      "Phishing Infra Takedown", "Pipeline (Browser → JS → Decoder → IOC → CERT.br)",
-    ],
-    color: "#6B4423",
-    storyProof: b(
-      "Infra de phishing rotacionada mapeada, IOCs compartilhados em AbuseIPDB/URLhaus, takedowns via Cloudflare. 5 fixes confirmados (Mar–Jun 2026). Metodologia transparente: passive verification only, não acessou dados sensíveis, sempre via canais apropriados.",
-      "Rotated phishing infrastructure mapped, IOCs shared on AbuseIPDB/URLhaus, takedowns via Cloudflare. 5 confirmed fixes (Mar–Jun 2026). Transparent methodology: passive verification only, never accessed sensitive data, always via appropriate channels."
-    ),
-    storyProjectIds: ["security-disclosures"],
-  },
-  {
-    label: b("Outros", "Other"),
-    skills: [
-      b("Ciberseguran\u00e7a", "Cybersecurity"), b("Metodologias \u00c1geis", "Agile Methodologies"),
-      "Testes de API", b("Ingl\u00eas Fluente", "Fluent English"),
-      "FastAPI + Jinja2", "PyInstaller / Inno Setup", "xlwings / COM", "Linux (CachyOS/Hyprland)",
-    ],
-    color: "#6A5A4A",
-      storyProof: b(
-"Inglês fluente para docs e reuniões com equipe EUA. Orca com FastAPI + Jinja2 + Rich CLI. PyInstaller + Inno Setup para instalador do Fennec. CachyOS/Hyprland setup própria.",
-  "Fluent English for documentation and meetings with US team. Orca with FastAPI + Jinja2 + Rich CLI. PyInstaller + Inno Setup for Fennec installer. Custom CachyOS/Hyprland rice."
-    ),
-    storyProjectIds: ["orca", "fennec"],
+    storyProjectIds: ["florasensus"],
   },
 ];
 
@@ -757,19 +698,14 @@ id: "diskvisor",
 ];
 
 export const courses: Course[] = [
-  { name: "Python Essentials 1", issuer: "Cisco Networking Academy", hours: "", category: "python", prominent: true, context: b("Fundamentos de programação com Python — lógica, estruturas e primeiros scripts.", "Programming fundamentals with Python — logic, structures, and first scripts.") },
-  { name: "Python Essentials 2", issuer: "Cisco Networking Academy", hours: "", category: "python", prominent: true, context: b("Expansão para Python avançado — orientação a objetos, bibliotecas e preparação para certificação.", "Advanced Python expansion — OOP, libraries, and certification prep.") },
-  { name: b("Data Science Essentials with Python", "Data Science Essentials with Python"), issuer: "Cisco Networking Academy", hours: "", category: "data", prominent: true, context: b("Análise de dados com Pandas e Matplotlib — aprendizado prático e baseado em projetos.", "Data analysis with Pandas and Matplotlib — hands-on, project-based learning.") },
-  { name: b("Data Analytics Essentials", "Data Analytics Essentials"), issuer: "Cisco Networking Academy", hours: "", category: "data", prominent: true, context: b("Ferramentas essenciais de analytics reconhecidas pelo mercado.", "Essential analytics tools recognized by the industry.") },
-  { name: b("IA para Otimização de Processos e Tomada de Decisão", "AI for Process Optimization & Decision-Making"), issuer: b("Escola Virtual Gov · Enap · Serpro", "Escola Virtual Gov · Enap · Serpro"), hours: "71h", category: "ai", prominent: true, context: b("Programa do Núcleo de IA do Governo (PBIA) — uso estratégico de IA na gestão pública, análise de dados e segurança da informação.", "Program by the Gov AI Nucleus (PBIA) — strategic use of AI in public management, data analysis, and information security.") },
-  { name: "Networking Basics", issuer: "Cisco Networking Academy", hours: "120h", category: "networking", prominent: true, context: b("Concluído durante Engenharia de Computação na Cruzeiro do Sul", "Completed during Computer Engineering at Cruzeiro do Sul") },
-  { name: b("Introdução à Cibersegurança", "Intro to Cybersecurity"), issuer: "Cisco Networking Academy", hours: "", category: "security", prominent: true, context: b("Base em segurança de redes e ameaças cibernéticas", "Foundation in network security and cyber threats") },
-  { name: b("Segurança em TI", "IT Security"), issuer: b("Fundação Bradesco", "Bradesco Foundation"), hours: "", category: "security", prominent: true, context: b("Complemento em proteção de infraestrutura e dados corporativos", "Complement in corporate infrastructure and data protection") },
-  { name: b("Inglês Fluente", "Fluent English"), issuer: "KUMON", hours: b("3 anos", "3 years"), category: "languages", prominent: true, context: b("Habilitação para documentação técnica e reuniões com equipes internacionais", "Enables technical documentation and meetings with international teams") },
-  { name: b("eJPTv2 / eCPPTv2 / OSCP", "eJPTv2 / eCPPTv2 / OSCP"), issuer: b("INE / eLearnSecurity", "INE / eLearnSecurity"), hours: "", category: "security", prominent: true, context: b("Em andamento / Planejado 2026 — Hands-on pentesting, AD, pivoting, evasion.", "In progress / Planned 2026 — Hands-on pentesting, AD, pivoting, evasion.") },
-  { name: b("eWPTX / eWPTXv2", "eWPTX / eWPTXv2"), issuer: b("eLearnSecurity", "eLearnSecurity"), hours: "", category: "security", prominent: true, context: b("Planejado 2026 — Web app pentesting avançado (WAF bypass, auth bypass, business logic).", "Planned 2026 — Advanced web app pentesting (WAF bypass, auth bypass, business logic).") },
-  { name: b("Cloud Security (AZ-500 / CCSP)", "Cloud Security (AZ-500 / CCSP)"), issuer: b("Microsoft / (ISC)²", "Microsoft / (ISC)²"), hours: "", category: "security", prominent: true, context: b("Planejado 2026 — Azure security, identity, data, governance.", "Planned 2026 — Azure security, identity, data, governance.") },
-  { name: b("MITRE ATT&CK Defender (MAD)", "MITRE ATT&CK Defender (MAD)"), issuer: "MITRE", hours: "", category: "security", prominent: true, context: b("Planejado 2026 — ATT&CK mapping, detection engineering, threat-informed defense.", "Planned 2026 — ATT&CK mapping, detection engineering, threat-informed defense.") },
+  { name: "Python Essentials 1 & 2", issuer: "Cisco Networking Academy", hours: "", category: "tech", prominent: true },
+  { name: "Data Science Essentials (pandas, Matplotlib)", issuer: "Cisco Networking Academy", hours: "", category: "tech", prominent: true },
+  { name: "Data Analytics Essentials", issuer: "Cisco Networking Academy", hours: "", category: "tech", prominent: true },
+  { name: "Networking Basics (120h)", issuer: "Cisco Networking Academy", hours: "120h", category: "tech", prominent: true },
+  { name: "Introdução à Cibersegurança", issuer: "Cisco Networking Academy", hours: "", category: "security", prominent: true },
+  { name: "Segurança em TI", issuer: "Fundação Bradesco", hours: "", category: "security", prominent: true },
+  { name: "IA para Otimização de Processos (71h)", issuer: "Escola Virtual Gov / Enap / Serpro", hours: "71h", category: "ai", prominent: true },
+  { name: "Inglês Fluente (3 anos)", issuer: "KUMON", hours: "", category: "language", prominent: true }
 ];
 
 export const stats = [
@@ -794,42 +730,59 @@ export type CvProject = {
 
 export const cvProjects: CvProject[] = [
   {
+    id: "flora-sensus",
+    name: "Flora Sensus",
+    url: "github.com/xAngryBadger/urutau-app",
+    tier: 1,
+    bullets: [
+      b(
+        "App Flutter offline-first para inventário florestal com serviço de sync custom — remapping de UUIDs em cascata pelas tabelas relacionadas e rollback transacional em caso de falha.",
+        "Flutter offline-first app for forest inventory with custom sync service — cascading UUID remapping across related tables and transactional rollback on failure."
+      ),
+      b(
+        "Arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente. Painel admin React com auth, fotos, relatórios e exportação XLSX/PDF/CSV.",
+        "Architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed. React admin panel with auth, photos, reports, and XLSX/PDF/CSV export."
+      ),
+      b(
+        "Backoff exponencial (2s, 4s, 8s), auth retry wrapper com refresh transparente em 401s, ngrok bypass para desenvolvimento.",
+        "Exponential backoff (2s, 4s, 8s), auth retry wrapper with transparent 401 refresh, ngrok bypass for development."
+      ),
+    ],
+    tech: ["Flutter", "Dart", "Drift/SQLite", "React", "PocketBase", "TypeScript"],
+  },
+  {
+    id: "orca",
+    name: "Orca",
+    url: "github.com/xAngryBadger/orca",
+    tier: 1,
+    bullets: [
+      b(
+        "Motor de planejamento operacional para restauração florestal em larga escala — dossiês executivos automáticos, cronogramas otimizados, gestão de tarifas/equipes/territórios.",
+        "Operational planning engine for large-scale forest restoration — automatic executive dossiers, optimized schedules, tariff/crew/territory management."
+      ),
+      b(
+        "FastAPI + Jinja2 + Rich CLI com testes unitários. Geração de planilhas executivas (openpyxl) e PDFs profissionais. Pipeline de validação de dados de entrada com pandas.",
+        "FastAPI + Jinja2 + Rich CLI with unit tests. Executive spreadsheet generation (openpyxl) and professional PDFs. Input data validation pipeline with pandas."
+      ),
+    ],
+    tech: ["Python", "FastAPI", "pandas", "openpyxl", "Jinja2", "Rich"],
+  },
+  {
     id: "harpia",
     name: "HarpIA",
     url: "github.com/xAngryBadger/harpIA",
     tier: 1,
     bullets: [
       b(
-"Motor de automação criativa com 7+ modelos de IA — pipeline orquestrado por LLM multi-etapa: copywriting, busca de imagens, composição de designs, geração de vídeo. Stack leve por padrão (SQLite + PIL local) com fallback para APIs pagas.",
-  "Creative automation engine with 7+ AI models — multi-model pipeline with GPT-4.1: copywriting, image search, design compositing, video generation. Lightweight stack by default (SQLite + local PIL) with fallback to paid APIs."
+        "Motor de automação criativa com 9+ modelos de IA (GPT-4.1, Flux, DALL-E 3, Sora, Veo, Nano Banana) — pipeline orquestrado por LLM multi-etapa: copywriting, busca de imagens, composição de designs, geração de vídeo.",
+        "Creative automation engine with 9+ AI models (GPT-4.1, Flux, DALL-E 3, Sora, Veo, Nano Banana) — multi-model pipeline with GPT-4.1: copywriting, image search, design compositing, video generation."
       ),
       b(
-        "6.900+ LOC Python async com testes de segurança e zero hardcoded secrets. Backend swap: SQLite local para Azure Cosmos DB + Blob Storage, alternado via env var. Pronto para cron com file-locking e recuperação de lotes travados.",
-        "6,900+ LOC async Python with security tests and zero hardcoded secrets. Backend swap: local SQLite to Azure Cosmos DB + Blob Storage, toggled via env var. Cron-ready with file-locking and stuck batch recovery."
+        "Stack leve por padrão (SQLite + PIL local) com fallback para APIs pagas. Backend swap: SQLite local para Azure Cosmos DB + Blob Storage, alternado via env var. Pronto para cron com file-locking e recuperação de lotes travados.",
+        "Lightweight stack by default (SQLite + local PIL) with fallback to paid APIs. Backend swap: local SQLite to Azure Cosmos DB + Blob Storage, toggled via env var. Cron-ready with file-locking and stuck batch recovery."
       ),
     ],
-    tech: ["Python", "GPT-4.1", "DALL-E 3", "Flux 2.0 Pro", "Sora", "Veo 3.1", "Azure Cosmos DB", "SQLite"],
-  },
-  {
-    id: "florasensus",
-    name: "Flora Sensus",
-    url: "github.com/xAngryBadger/urutau-app",
-    tier: 1,
-    bullets: [
-      b(
-"App Flutter offline-first para inventário florestal com serviço de sync custom — remapping de UUIDs em cascata pelas tabelas relacionadas e rollback transacional em caso de falha.",
-  "Flutter offline-first app for forest inventory with custom sync service — cascading UUID remapping across related tables and transactional rollback on failure."
-      ),
-      b(
-"Arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente. Painel admin React com auth, fotos, relatórios e exportação XLSX/PDF/CSV.",
-  "Architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed. React admin panel with auth, photos, reports, and XLSX/PDF/CSV export."
-      ),
-      b(
-"Backoff exponencial (2s, 4s, 8s), auth retry wrapper com refresh transparente em 401s, ngrok bypass para desenvolvimento.",
-  "Exponential backoff (2s, 4s, 8s), auth retry wrapper with transparent 401 refresh, ngrok bypass for development."
-      ),
-    ],
-    tech: ["Flutter", "Dart", "Drift/SQLite", "React", "PocketBase", "TypeScript"],
+    tech: ["Python", "GPT-4.1", "Flux", "DALL-E 3", "Sora", "Veo", "Azure Cosmos DB", "SQLite", "PIL"],
   },
   {
     id: "forestai",
@@ -842,131 +795,32 @@ export const cvProjects: CvProject[] = [
         "Forest species detection and classification with Deep Learning — built from scratch without AI-assisted coding. Stack Overflow + Thonny IDE only."
       ),
       b(
-"Anotação manual de imagens de drone da Fundação Renova (bounding boxes), treinamento DeepForest em GPU local, splits estratificadas. Interpretação de curvas no TensorBoard — detectando memorização vs generalização. O jeito difícil construiu a intuição que fez cada framework subsequente clicar mais rápido.",
-  "Manual annotation of drone images from Fundação Renova (bounding boxes), DeepForest training on local GPU, stratified splits. TensorBoard curve interpretation — detecting memorization vs generalization. The hard way built the intuition that made every subsequent framework click faster."
+        "Anotação manual de imagens de drone da Fundação Renova (bounding boxes), treinamento DeepForest em GPU local, splits estratificadas. Interpretação de curvas no TensorBoard — detectando memorização vs generalização. O jeito difícil construiu a intuição que fez cada framework subsequente clicar mais rápido.",
+        "Manual annotation of drone images from Fundação Renova (bounding boxes), DeepForest training on local GPU, stratified splits. TensorBoard curve interpretation — detecting memorization vs generalization. The hard way built the intuition that made every subsequent framework click faster."
       ),
     ],
     tech: ["PyTorch", "DeepForest", "OpenCV", "scikit-learn", "TensorBoard"],
   },
   {
-    id: "fennec",
-    name: "Fennec Excel",
-    url: "github.com/xAngryBadger/Sahara-Fenneck",
+    id: "security-disclosures",
+    name: "Security Disclosures & Threat Intel",
+    url: "github.com/xAngryBadger/security-disclosures",
     tier: 1,
     bullets: [
       b(
-        "Assistente de IA local para Excel via agente ReAct (Ollama/qwen2.5). Comando em linguagem natural para filtrar, ordenar, renomear abas e manipular planilhas com checkpoint automático antes de cada alteração.",
-        "Local AI assistant for Excel via ReAct agent (Ollama/qwen2.5). Natural language commands to filter, sort, rename sheets and manipulate spreadsheets with auto-checkpoint before every change."
+        "20+ vulnerabilidades em infraestrutura governamental/setorial brasileira — 5 correções confirmadas via CERT.br/CTIR Gov (Mar–Jun 2026). Três ondas de divulgação responsável: zero retenção, notificação multi-canal, verificação pós-fix.",
+        "20+ vulnerabilities in Brazilian government/sector infrastructure — 5 fixes confirmed via CERT.br/CTIR Gov (Mar–Jun 2026). Three responsible disclosure waves: zero retention, multi-channel notification, post-fix verification."
       ),
       b(
-        "6+ integrações OAuth (Gmail, Teams, Calendar, Drive, Outlook, Trello) com confirmação do usuário antes de modificações.",
-        "6+ OAuth integrations (Gmail, Teams, Calendar, Drive, Outlook, Trello) with user confirmation before modifications."
+        "Takedown de phishing Microsoft/OneDrive: origin server (procorereviews.com) derrubado via flood controlado (~10k requests, HTTP 521 sustentado). Infra rotacionada mapeada, IOCs extraídos, reportada ao CERT.br/Cloudflare.",
+        "Microsoft/OneDrive phishing takedown: origin server (procorereviews.com) toppled via controlled flood (~10k requests, sustained HTTP 521). Rotated infrastructure mapped, IOCs extracted, reported to CERT.br/Cloudflare."
       ),
       b(
-        "Design visual feito à mão com paleta pastel e mascote original (Fennec). Instalador nativo Windows (Inno Setup + PyInstaller). Interface bilíngue PT/EN.",
-        "Hand-crafted visual design with pastel palette and original mascot (Fennec). Native Windows installer (Inno Setup + PyInstaller). Bilingual PT/EN interface."
+        "Pipeline Threat Intel custom: Browser → JS download → Custom Base91 decoder (3 alfabetos, 176 strings) → IOC extraction (PageConfig, tokens, OneDrive redirect) → CERT.br/Cloudflare report.",
+        "Custom Threat Intel pipeline: Browser → JS download → Custom Base91 decoder (3 unique alphabets, 176 strings) → IOC extraction (PageConfig, tokens, OneDrive redirect) → CERT.br/Cloudflare report."
       ),
     ],
-    tech: ["Python", "Ollama", "CustomTkinter", "xlwings/COM", "PyInstaller", "Inno Setup"],
-  },
-  {
-    id: "orca",
-    name: "Orca",
-    url: "github.com/xAngryBadger/orca",
-    tier: 2,
-    bullets: [
-      b(
-        "Motor de planejamento operacional para restauração florestal em larga escala — geração automática de dossiês executivos com alocação de equipes, territórios e cronogramas.",
-        "Operational planning engine for large-scale forest restoration — automatic generation of executive dossiers with crew allocation, territory mapping, and schedules."
-      ),
-      b(
-"Gerenciamento de tarifas e custos operacionais. Interface FastAPI + Jinja2 + CLI Rich com suite de testes unitários.",
-  "Tariff and operational cost management. FastAPI + Jinja2 + Rich CLI interface with unit test suite."
-      ),
-    ],
-    tech: ["Python", "pandas", "FastAPI", "Jinja2", "Rich CLI", "openpyxl", "unittest"],
-  },
-  {
-    id: "mainecoon",
-    name: "MaineCoon",
-    url: null,
-    tier: 2,
-    bullets: [
-      b(
-        "Bot de Minecraft com comandos em linguagem natural via LLM (NVIDIA NIM API) — minerar, craftar, seguir, navegar e interagir pelo chat. Módulo de reinforcement learning para comportamento autônomo.",
-        "Minecraft bot with natural language commands via LLM (NVIDIA NIM API) — mine, craft, follow, navigate, and interact via chat. Reinforcement learning module for autonomous behavior."
-      ),
-    ],
-    tech: ["Node.js", "mineflayer", "NVIDIA NIM API", "Reinforcement Learning"],
-  },
-  {
-    id: "hellosocial",
-    name: "HelloSocial",
-    url: null,
-    tier: 2,
-    bullets: [
-      b(
-      "Plataforma de criação e agendamento de posts com IA — projeto na Paware que inspirou o HarpIA. Pipeline de geração de imagens com Flux Kontext Pro e DALL-E 3, agentes de copy e template. Canva Connect API + Placid para composição de templates.",
-      "AI-powered social media post creation and scheduling platform — project at Paware that inspired HarpIA. Image generation pipeline with Flux Kontext Pro and DALL-E 3, copy and template agents. Canva Connect API + Placid for template composition."
-      ),
-    ],
-    tech: ["Python", "FastAPI", "Azure OpenAI", "Flux", "Canva API", "React"],
-  },
-  {
-    id: "capivara",
-    name: "Capivara",
-    url: "github.com/xAngryBadger/capivara",
-    tier: 2,
-    bullets: [
-      b(
-        "Suíte PDF completa com 15 ferramentas — DOCX/XLSX→PDF, PDF→DOCX, compressão, merge, split, rotação, marca d'água, numeração, cabeçalho/rodapé, proteção, desbloqueio, OCR, PDF→imagens, PDF/A. Frontend React 19 com hash routing e grid de ferramentas, backend FastAPI com StreamingResponse.",
-        "Full PDF suite with 15 tools — DOCX/XLSX→PDF, PDF→DOCX, compress, merge, split, rotate, watermark, page numbers, header/footer, protect, unlock, OCR, PDF→images, PDF/A. React 19 frontend with hash routing and tool grid, FastAPI backend with StreamingResponse."
-      ),
-      b(
-        "Túnel serverless gratuito via cloudflared + Google Colab — zero conta, zero token. Lazy imports para deps pesadas (PyMuPDF, pytesseract, pikepdf). pypdf 4+ com PdfWriter-based merge (PdfMerger removido).",
-        "Free serverless tunneling via cloudflared + Google Colab — zero account, zero token. Lazy imports for heavy deps (PyMuPDF, pytesseract, pikepdf). pypdf 4+ with PdfWriter-based merge (PdfMerger removed)."
-      ),
-    ],
-    tech: ["React 19", "TypeScript", "FastAPI", "pypdf", "reportlab", "PyMuPDF", "cloudflared"],
-  },
-  {
-    id: "tarsier",
-    name: "Tarsier",
-    url: "github.com/xAngryBadger/tarsier",
-    tier: 2,
-    bullets: [
-      b(
-        "Workbench JSON 100% client-side com árvore colapsável, transformações (pretty-print, minify, CSV, tipos TypeScript) e stats. Zero backend — tudo roda no browser.",
-        "100% client-side JSON workbench with collapsible tree, transformations (pretty-print, minify, CSV, TypeScript types) and stats. Zero backend — everything runs in the browser."
-      ),
-],
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion"],
-    },
-    {
-      id: "oilbird",
-    name: "Oilbird",
-    url: "github.com/xAngryBadger/oilbird",
-    tier: 2,
-    bullets: [
-      b(
-        "Conversor Markdown → PDF com preview live split-pane e renderização WeasyPrint profissional. Backend FastAPI + WeasyPrint com CSS Paged Media (@page, headers/footers), túnel cloudflared gratuito via Google Colab.",
-        "Markdown → PDF converter with live split-pane preview and professional WeasyPrint rendering. FastAPI + WeasyPrint backend with CSS Paged Media (@page, headers/footers), free cloudflared tunnel via Google Colab."
-      ),
-    ],
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "WeasyPrint", "cloudflared"],
-  },
-  {
-    id: "cegonha",
-    name: "Cegonha",
-    url: "github.com/xAngryBadger/cegonha",
-    tier: 2,
-    bullets: [
-      b(
-        "Gerador de currículo com formulários estruturados, 3 estilos de template (modern, classic, minimal) e exportação PDF server-side via FastAPI + reportlab. Paleta sage green com tipografia editorial. Suporte bilíngue (pt/en).",
-        "Resume generator with structured forms, 3 template styles (modern, classic, minimal) and server-side PDF export via FastAPI + reportlab. Sage green palette with editorial typography. Bilingual support (pt/en)."
-      ),
-    ],
-    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "reportlab"],
+    tech: ["OSINT", "Base91 Decoder", "NIST CSF", "CERT.br / CTIR Gov", "LGPD", "Cloudflare", "AbuseIPDB", "URLhaus"],
   },
 ];
 
