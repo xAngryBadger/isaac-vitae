@@ -123,38 +123,36 @@ function AppContent() {
       {!loaded && <Preloader onDone={handlePreloaderDone} />}
       {loaded && (
         <>
-          <DocumentTitle />
-          <CustomCursor />
-          <Nav />
-          <div className="lg:ml-[300px] min-h-screen">
-            <AnimatePresence mode="wait">
-              <motion.main
-                key={location.pathname}
-                initial={firstRender ? false : { opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <Routes location={location}>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/experience" element={<Experience />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
-                  <Route path="/security" element={<Security />} />
-                  <Route path="/security/:slug" element={<SecurityCaseStudy />} />
-                  <Route path="/skills" element={<Skills />} />
-                  <Route path="/gallery" element={<Gallery />} />
-                  <Route path="/certificates" element={<Certificates />} />
-                  <Route path="/cv" element={<CV />} />
-                  <Route path="/playground" element={<Playground />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </motion.main>
-            </AnimatePresence>
-            <Footer />
-          </div>
+      <DocumentTitle />
+      <CustomCursor />
+      <Nav />
+          <AnimatePresence mode="wait">
+            <motion.main
+              key={location.pathname}
+              initial={firstRender ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Routes location={location}>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
+                <Route path="/security" element={<Security />} />
+                <Route path="/security/:slug" element={<SecurityCaseStudy />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/certificates" element={<Certificates />} />
+                <Route path="/cv" element={<CV />} />
+                <Route path="/playground" element={<Playground />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </motion.main>
+          </AnimatePresence>
+          <Footer />
         </>
       )}
     </>
