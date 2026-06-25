@@ -12,7 +12,7 @@ const menuLinks = [
   { label: { pt: "Experiência", en: "Experience" }, href: "/experience", num: "03" },
   { label: { pt: "Projetos", en: "Projects" }, href: "/projects", num: "04" },
   { label: { pt: "Habilidades", en: "Skills" }, href: "/skills", num: "05" },
-  { label: { pt: "Galeria", en: "Gallery" }, href: "/gallery", num: "06" },
+  // { label: { pt: "Galeria", en: "Gallery" }, href: "/gallery", num: "06" },  // Temporarily hidden
   { label: { pt: "Certificações", en: "Certificates" }, href: "/certificates", num: "07" },
   { label: { pt: "Currículo", en: "Resume" }, href: "/cv", num: "08" },
   { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "09" },
