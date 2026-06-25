@@ -50,7 +50,7 @@ function Tier1Card({ proj }: { proj: Project }) {
         }}
       />
 
-      <div className="relative z-10 p-8 flex flex-col md:flex-row items-center gap-6 lg:p-10">
+      <div className="relative z-10 p-6 flex flex-col md:flex-row items-center gap-6 lg:p-8">
         <div className="shrink-0 w-28 h-28 lg:w-36 lg:h-36 flex items-center justify-center rounded-lg">
           <ProjectIcon project={proj} className="w-20 h-20 lg:w-28 lg:h-28" />
         </div>
@@ -72,7 +72,7 @@ function Tier1Card({ proj }: { proj: Project }) {
 
           <h3
             className="font-serif font-bold text-xl lg:text-2xl leading-snug mb-2"
-            style={{ color: "var(--color-text)" }}
+            style={{ color: "var(--color-text)", lineHeight: 1.3 }}
           >
             {proj.title}
           </h3>
@@ -145,7 +145,7 @@ function Tier2Card({ proj }: { proj: Project }) {
         }}
       />
 
-      <div className="relative z-10 p-8 flex flex-col">
+      <div className="relative z-10 p-6 flex flex-col">
         <div className="flex items-center gap-2 flex-wrap mb-2">
           <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "var(--color-sage)" }}>
             {proj.year}
@@ -154,7 +154,7 @@ function Tier2Card({ proj }: { proj: Project }) {
 
         <h3
           className="font-serif font-bold text-lg leading-snug mb-2"
-          style={{ color: "var(--color-text)" }}
+          style={{ color: "var(--color-text)", lineHeight: 1.3 }}
         >
           {proj.title}
         </h3>
@@ -235,7 +235,7 @@ function Tier3Card({ proj }: { proj: Project }) {
 
   return (
     <div
-      className="proj-card relative z-10 p-6 overflow-hidden border"
+      className="proj-card relative z-10 p-5 overflow-hidden border"
       style={{
         borderColor: hovered ? "var(--color-border-accent)" : "var(--color-border)",
         backgroundColor: "var(--color-bg-card)",
@@ -278,7 +278,7 @@ function Tier3Card({ proj }: { proj: Project }) {
 
       <h3
         className="font-serif font-bold text-base leading-snug mb-1"
-        style={{ color: "var(--color-text)" }}
+        style={{ color: "var(--color-text)", lineHeight: 1.4 }}
       >
         {proj.title}
       </h3>
