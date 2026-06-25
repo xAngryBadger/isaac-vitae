@@ -29,16 +29,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const pageTitles: Record<string, { pt: string; en: string }> = {
   "/": { pt: "Isaac Nathan — Portfólio", en: "Isaac Nathan — Portfolio" },
-  "/about": { pt: "Sobre — Isaac Nathan", en: "About — Isaac Nathan" },
-  "/experience": { pt: "Experiência — Isaac Nathan", en: "Experience — Isaac Nathan" },
-  "/projects": { pt: "Projetos — Isaac Nathan", en: "Projects — Isaac Nathan" },
-  "/skills": { pt: "Habilidades — Isaac Nathan", en: "Skills — Isaac Nathan" },
-  "/gallery": { pt: "Galeria — Isaac Nathan", en: "Gallery — Isaac Nathan" },
-  "/certificates": { pt: "Certificações — Isaac Nathan", en: "Certificates — Isaac Nathan" },
-  "/contact": { pt: "Contato — Isaac Nathan", en: "Contact — Isaac Nathan" },
-  "/cv": { pt: "Currículo — Isaac Nathan", en: "Resume — Isaac Nathan" },
-  "/playground": { pt: "Playground — Isaac Nathan", en: "Playground — Isaac Nathan" },
-  "/security": { pt: "Segurança — Isaac Nathan", en: "Security — Isaac Nathan" },
+  "/about": { pt: "Sobre", en: "About" },
+  "/experience": { pt: "Experiência", en: "Experience" },
+  "/projects": { pt: "Projetos", en: "Projects" },
+  "/skills": { pt: "Habilidades", en: "Skills" },
+  "/gallery": { pt: "Galeria", en: "Gallery" },
+  "/certificates": { pt: "Certificações", en: "Certificates" },
+  "/contact": { pt: "Contato", en: "Contact" },
+  "/cv": { pt: "Currículo", en: "Resume" },
+  "/playground": { pt: "Playground", en: "Playground" },
+  "/security": { pt: "Segurança", en: "Security" },
 };
 
 function DocumentTitle() {
@@ -52,12 +52,12 @@ function DocumentTitle() {
       document.title = title[lang];
     } else if (path.startsWith("/projects/")) {
       const slug = path.replace("/projects/", "");
-      document.title = `${slug} — Isaac Nathan`;
+      document.title = `${slug} — Projects`;
     } else if (path.startsWith("/security/")) {
       const slug = path.replace("/security/", "");
-      document.title = `${slug} — Isaac Nathan`;
+      document.title = `${slug} — Security`;
     } else {
-      document.title = lang === "pt" ? "Página não encontrada — Isaac Nathan" : "Page not found — Isaac Nathan";
+      document.title = lang === "pt" ? "Página não encontrada" : "Page not found";
     }
   }, [location.pathname, lang]);
 

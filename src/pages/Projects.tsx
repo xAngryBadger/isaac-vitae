@@ -26,9 +26,18 @@ function Tier1Card({ proj }: { proj: Project }) {
   const { t } = useLang();
   const [hovered, setHovered] = useState(false);
 
+  // Use demoUrl if available and no case study, otherwise use case study route
+  const href = proj.demoUrl && !proj.hasCaseStudy
+    ? proj.demoUrl
+    : `/projects/${proj.caseStudySlug}`;
+
+  const isExternal = proj.demoUrl && !proj.hasCaseStudy && proj.demoUrl.startsWith("http");
+
   return (
     <Link
-      to={`/projects/${proj.caseStudySlug}`}
+      to={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="proj-card group relative overflow-hidden custom-cursor-target"
       style={{
         borderColor: hovered ? "var(--color-border-accent)" : "var(--color-border)",
@@ -110,7 +119,10 @@ function Tier1Card({ proj }: { proj: Project }) {
             className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.08em] uppercase"
             style={{ color: proj.color, opacity: hovered ? 1 : 0.6, transition: "opacity 0.3s var(--ease-project)" }}
           >
-            {t({ pt: "Ver case study", en: "View case study" })} <ArrowUpRight className="w-3 h-3" />
+            {proj.demoUrl && !proj.hasCaseStudy
+              ? t({ pt: "Abrir projeto", en: "Open project" })
+              : t({ pt: "Ver case study", en: "View case study" })}
+            <ArrowUpRight className="w-3 h-3" />
           </span>
         </div>
       </div>

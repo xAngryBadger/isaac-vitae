@@ -137,7 +137,6 @@ export default function Nav() {
               style={{ color: "var(--color-text)", textDecoration: "none" }}
             >
               Isaac
-              <span style={{ color: "var(--color-text-3)" }}>.</span>
             </Link>
           </div>
         </div>
@@ -185,7 +184,7 @@ export default function Nav() {
               className="text-left custom-cursor-target group"
               style={{
                 fontFamily: "var(--font-menu)",
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                fontSize: "clamp(1rem, 2.5vw, 1.75rem)",
                 color: "var(--color-text)",
                 background: "none",
                 border: "none",
@@ -213,6 +212,13 @@ export default function Nav() {
             style={{ color: "var(--color-text-3)", letterSpacing: "0.15em" }}
           >
             {personal.email}
+          </span>
+          <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
+          <span
+            className="font-mono text-xs"
+            style={{ color: "var(--color-accent)", letterSpacing: "0.15em" }}
+          >
+            {personal.securityEmail}
           </span>
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
           <button

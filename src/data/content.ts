@@ -67,6 +67,7 @@ b(
     "Outside the Terminal: Advanced Linux user with custom environment (CachyOS/Hyprland). Outside of code, I value moments of rest and outdoor activities."
   ),
   email: "isaacnathandasilva@gmail.com",
+  securityEmail: "security@isaac-vitae.dev",
   phone: "+55 (31) 99441-7786",
   location: b("Mariana, MG — Brasil", "Mariana, MG — Brazil"),
   linkedin: "https://www.linkedin.com/in/isaac-nathan-da-silva-barbosa-815b212ab/",
@@ -304,6 +305,7 @@ export const projects: Project[] = [
     color: "#3d1f1f",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/security-disclosures",
+    demoUrl: "/security",
     featured: true,
     inProgress: true,
     hasCaseStudy: false,
