@@ -184,7 +184,7 @@ export default function Nav() {
               tabIndex={menuOpen ? 0 : -1}
               className="text-left custom-cursor-target group"
               style={{
-                fontFamily: "var(--font-serif)",
+                fontFamily: "var(--font-menu)",
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
                 color: "var(--color-text)",
                 background: "none",
