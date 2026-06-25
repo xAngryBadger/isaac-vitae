@@ -363,7 +363,7 @@ export default function Security() {
             </li>
             <li>
               {t({ pt: "Canal seguro:", en: "Secure channel:" })}{" "}
-              <a href="mailto:security@isaac-vitae.dev">security@isaac-vitae.dev</a>
+              <a href="mailto:isaacnathandasilva@gmail.com">isaacnathandasilva@gmail.com</a>
             </li>
             <li>
               {t({ pt: "Reportado via:", en: "Reported via:" })}{" "}
