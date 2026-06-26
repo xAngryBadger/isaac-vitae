@@ -710,3 +710,25 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 .timeline-container:hover .timeline-marker {
   z-index: 10;
 }
+
+.cv-dropcap::first-letter {
+  font-family: var(--font-serif);
+  font-size: 4em;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.1em;
+  color: var(--color-accent);
+}
+@media print {
+  .cv-summary {
+    max-width: 70ch;
+  }
+  .section-root {
+    padding: 0.5in !important;
+  }
+  .cv-footnote-ref::after {
+    content: " [" attr(href) "]";
+    font-size: 0.85em;
+    color: var(--color-text-2);
+  }
+}

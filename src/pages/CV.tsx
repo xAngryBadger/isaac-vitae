@@ -57,7 +57,7 @@ export default function CV() {
 
         <section className="cv-section">
           <h2 className="cv-heading">{t({ pt: "Resumo", en: "Summary" })}</h2>
-          <p className="cv-body">{cvSummary[lang]}</p>
+          <p className="cv-body cv-dropcap cv-summary">{cvSummary[lang]}</p>
         </section>
 
         <section className="cv-section">
@@ -89,7 +89,7 @@ export default function CV() {
                 <h3 className="cv-entry-title">
                   {proj.name}
                   {proj.url && (
-                    <a href={`https://${proj.url}`} target="_blank" rel="noopener noreferrer" className="cv-project-url">
+                    <a href={`https://${proj.url}`} target="_blank" rel="noopener noreferrer" className="cv-project-url cv-footnote-ref">
                       {proj.url}
                     </a>
                   )}
