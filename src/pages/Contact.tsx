@@ -7,6 +7,7 @@ import { Mail, Phone, MapPin, Linkedin, Github, Send, CheckCircle, AlertCircle, 
 import { Link } from "react-router-dom";
 import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
 import { SplitText } from "../components/SplitText";
+import { useMagneticHover } from "../lib/useMagneticHover";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +21,7 @@ export default function Contact() {
   const { t } = useLang();
   const [formState, setFormState] = useState<FormState>("idle");
   const formRef = useRef<HTMLFormElement>(null);
+  const submitMagnetic = useMagneticHover(0.35);
 
 useEffect(() => {
 const ctx = gsap.context(() => {
@@ -228,20 +230,21 @@ return () => ctx.revert();
                   onBlur={(e) => { (e.target as HTMLElement).style.borderColor = "var(--color-border)"; }}
                 />
               </div>
-              <button
-                type="submit"
-                className="clip-btn-filled"
-                disabled={formState === "sending" || formState === "sent" || formState === "rate-limited"}
-              >
-                {formState === "idle" && (
-                  <>{t({ pt: "Enviar Mensagem", en: "Send Message" })} <Send className="w-4 h-4" /></>
-                )}
-                {formState === "sending" && (
-                  <>{t({ pt: "Enviando...", en: "Sending..." })}</>
-                )}
-                {formState === "sent" && (
-                  <><CheckCircle className="w-4 h-4" /> {t({ pt: "Enviado!", en: "Sent!" })}</>
-                )}
+              <span ref={submitMagnetic} className="magnetic-hover inline-block">
+                <button
+                  type="submit"
+                  className="clip-btn-filled"
+                  disabled={formState === "sending" || formState === "sent" || formState === "rate-limited"}
+                >
+                  {formState === "idle" && (
+                    <>{t({ pt: "Enviar Mensagem", en: "Send Message" })} <Send className="w-4 h-4" /></>
+                  )}
+                  {formState === "sending" && (
+                    <>{t({ pt: "Enviando...", en: "Sending..." })}</>
+                  )}
+                  {formState === "sent" && (
+                    <><CheckCircle className="w-4 h-4" /> {t({ pt: "Enviado!", en: "Sent!" })}</>
+                  )}
           {formState === "error" && (
             <><AlertCircle className="w-4 h-4" /> {t({ pt: "Erro — use o email abaixo", en: "Error — use the email below" })}</>
           )}
@@ -249,6 +252,7 @@ return () => ctx.revert();
             <><AlertCircle className="w-4 h-4" /> {t({ pt: "Aguarde um momento...", en: "Wait a moment..." })}</>
           )}
         </button>
+              </span>
         {(formState === "error" || formState === "idle") && (
           <a
             href={`mailto:${personal.email}`}
