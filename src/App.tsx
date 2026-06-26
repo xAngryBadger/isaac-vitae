@@ -148,34 +148,43 @@ function PageTransition({ children }: { children: React.ReactNode }) {
   );
 }
 
+  useEffect(() => {
+    const h1 = document.querySelector("h1");
+    h1?.setAttribute("tabindex", "-1");
+    h1?.focus();
+  }, [location.pathname]);
+
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to content</a>
       {!loaded && <Preloader onDone={handlePreloaderDone} />}
       {loaded && (
         <>
           <DocumentTitle />
           <CustomCursor />
           <Nav />
-          <AnimatePresence mode="wait">
-            <Suspense fallback={<RouteFallback />}>
-              <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-                <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-                <Route path="/experience" element={<PageTransition><Experience /></PageTransition>} />
-                <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
-                <Route path="/projects/:slug" element={<PageTransition><ProjectCaseStudy /></PageTransition>} />
-                <Route path="/security" element={<PageTransition><Security /></PageTransition>} />
-                <Route path="/security/:slug" element={<PageTransition><SecurityCaseStudy /></PageTransition>} />
-                <Route path="/skills" element={<PageTransition><Skills /></PageTransition>} />
-                <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
-                <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
-                <Route path="/cv" element={<PageTransition><CV /></PageTransition>} />
-                <Route path="/playground" element={<PageTransition><Playground /></PageTransition>} />
-                <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-                <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
-              </Routes>
-            </Suspense>
-          </AnimatePresence>
+          <main id="main-content">
+            <AnimatePresence mode="wait">
+              <Suspense fallback={<RouteFallback />}>
+                <Routes location={location} key={location.pathname}>
+                  <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+                  <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+                  <Route path="/experience" element={<PageTransition><Experience /></PageTransition>} />
+                  <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+                  <Route path="/projects/:slug" element={<PageTransition><ProjectCaseStudy /></PageTransition>} />
+                  <Route path="/security" element={<PageTransition><Security /></PageTransition>} />
+                  <Route path="/security/:slug" element={<PageTransition><SecurityCaseStudy /></PageTransition>} />
+                  <Route path="/skills" element={<PageTransition><Skills /></PageTransition>} />
+                  <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
+                  <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
+                  <Route path="/cv" element={<PageTransition><CV /></PageTransition>} />
+                  <Route path="/playground" element={<PageTransition><Playground /></PageTransition>} />
+                  <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+                  <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+                </Routes>
+              </Suspense>
+            </AnimatePresence>
+          </main>
           <Footer />
         </>
       )}

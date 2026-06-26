@@ -353,8 +353,36 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 @media (pointer: fine) { html { cursor: none; } .clip-btn, .clip-btn-filled { cursor: none; } }
 @media (pointer: coarse) { .cursor-dot, .cursor-ring, .scroll-progress { display: none !important; } .clip-btn, .clip-btn-filled { cursor: pointer; } .custom-cursor-target { cursor: auto !important; } }
 
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0.5rem 1rem;
+  z-index: 9999;
+  font-family: var(--font-mono);
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split-text-char { transform: none !important; opacity: 1 !important; }
+  .split-text-line { transform: none !important; opacity: 1 !important; }
+  .draw-stroke-line, .draw-stroke path { stroke-dashoffset: 0 !important; animation: none !important; }
+  .clip-reveal, .clip-reveal-up, .clip-reveal-exit, .clip-reveal-enter { clip-path: none !important; opacity: 1 !important; }
+  .fade-up { transform: none !important; opacity: 1 !important; animation: none !important; }
+  .scale-materialize { transform: none !important; opacity: 1 !important; animation: none !important; }
+  .blur-sharpen { filter: none !important; opacity: 1 !important; animation: none !important; }
+  .typewriter { border-right: none !important; animation: none !important; width: auto !important; }
+  .magnetic-hover { transform: none !important; transition: none !important; }
+  .parallax-bg, .parallax-fg { transform: none !important; will-change: auto !important; }
 }
 
 /* TagFilter - bubble pills */
