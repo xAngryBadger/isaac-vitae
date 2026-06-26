@@ -4,13 +4,29 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { projects } from "../data/content"
 import { useLang } from "../lib/LanguageContext"
 import { scrambleText } from "../lib/scramble"
-import { ArrowUpRight, Github, Monitor, Globe } from "lucide-react"
+import { ArrowUpRight, Github, Monitor, Globe, Sparkles } from "lucide-react"
 import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim"
-import { SplitText } from "../components/SplitText"
 
 gsap.registerPlugin(ScrollTrigger)
 
 type DemoProject = typeof projects[number] & { playground: boolean }
+
+const VERB_BY_ID: Record<string, string> = {
+  "notion-editor": "scramble-text",
+  "linear-app-ui": "split-line",
+  "capivara": "carousel-3d",
+  "tarsier": "odometer-roll",
+  "kakapo": "parallax-tilt",
+  "oilbird": "draw-stroke",
+  "cegonha": "pipeline-flow",
+  "diskvisor": "window-cluster",
+  "sysvisor": "thermal-pulse",
+  "forge-usb": "boot-progress",
+}
+
+function getVerbName(id: string): string {
+  return VERB_BY_ID[id] ?? "motion-verb"
+}
 
 function getCategoryIcon(_playground: boolean, id: string) {
   if (id === "diskvisor" || id === "sysvisor" || id === "forge-usb") return <Monitor className="w-4 h-4" />
@@ -77,6 +93,17 @@ function PlaygroundCard({ proj }: { proj: DemoProject }) {
         <p className="text-[10px] font-mono uppercase tracking-wider mb-3" style={{ color: "var(--color-text-3)" }}>
           {t(proj.category)}
         </p>
+
+        <div className="mb-3 inline-flex items-center gap-1.5 px-2 py-0.5 text-[9px] font-mono lowercase tracking-[0.12em] rounded"
+          style={{
+            border: `1px dashed ${proj.color}45`,
+            color: proj.color,
+            backgroundColor: `${proj.color}08`,
+          }}
+        >
+          <Sparkles className="w-2.5 h-2.5" />
+          {getVerbName(proj.id)}
+        </div>
 
         <p
           className="text-xs leading-relaxed mb-4 flex-1"
@@ -185,27 +212,46 @@ export default function Playground() {
   return (
     <div ref={sectionRef} className="section-root">
       <div className="section-container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <span className="playground-label section-label">
-              {t({ pt: "Playground", en: "Playground" })}
-            </span>
-            <h2
-              className="playground-title font-serif font-bold leading-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
+        <div className="flex flex-col items-start gap-5 mb-12">
+          <span className="playground-label section-label">
+            {t({ pt: "Verb playground", en: "Verb playground" })}
+          </span>
+          <h1
+            className="playground-title leading-tight"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2.4rem, 5vw, 4.25rem)",
+              color: "var(--color-text)",
+              letterSpacing: "0.01em",
+            }}
+          >
+            <span className="block">{t({ pt: "Verb playground", en: "Verb playground" })}</span>
+            <svg
+              className="draw-stroke-line mt-3"
+              style={{ "--stroke-length": "360", width: "min(360px, 80%)", height: "28px" } as React.CSSProperties}
+              viewBox="0 0 360 28"
+              preserveAspectRatio="xMinYMid meet"
+              aria-hidden="true"
             >
-              <SplitText as="span" className="inline" splitType="words" stagger={0.08} delay={0.3}>
-                {t({ pt: "Demos que ", en: "Demos that " })}
-              </SplitText>
-              <span className="italic" style={{ color: "var(--color-text-2)" }}>
-                {t({ pt: "provam versatilidade.", en: "prove versatility." })}
-              </span>
-            </h2>
-          </div>
-          <p className="section-lede max-w-xs text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
+              <path
+                d="M2 22 Q 90 4 180 14 T 358 10"
+                fill="none"
+                stroke="var(--color-accent)"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+              />
+            </svg>
+          </h1>
+          <p
+            className="section-lede max-w-xl text-sm italic"
+            style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}
+          >
+            {t({ pt: "Onde ideias gesticulam.", en: "Where ideas gesticulate." })}
+          </p>
+          <p className="section-lede max-w-xl text-sm" style={{ color: "var(--color-text-2)", lineHeight: "1.8" }}>
             {t({
-              pt: "Projetos de showcase — de WebGL a Tauri desktop. Cada um demonstra uma faceta diferente do frontend.",
-              en: "Showcase projects — from WebGL to Tauri desktop. Each demonstrates a different facet of frontend engineering.",
+              pt: "Cada demo abaixo é um verbo de movimento: scramble-text, split-line, carousel-3d, odometer-roll. Os verbos se combinam para construir a gramática visual da página.",
+              en: "Each demo below is a motion verb: scramble-text, split-line, carousel-3d, odometer-roll. The verbs compose to build the visual grammar of the page.",
             })}
           </p>
         </div>
@@ -216,7 +262,7 @@ export default function Playground() {
             style={{ color: "var(--color-text-3)" }}
           >
             <Globe className="w-3 h-3 inline mr-2" />
-            {t({ pt: "Web Apps", en: "Web Apps" })}
+            {t({ pt: "Web verbs", en: "Web verbs" })}
           </h3>
           <div className="playground-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {webProjects.map((proj) => (
@@ -231,7 +277,7 @@ export default function Playground() {
             style={{ color: "var(--color-text-3)" }}
           >
             <Monitor className="w-3 h-3 inline mr-2" />
-            {t({ pt: "Desktop (Tauri 2 + Rust)", en: "Desktop (Tauri 2 + Rust)" })}
+            {t({ pt: "Desktop verbs (Tauri 2 + Rust)", en: "Desktop verbs (Tauri 2 + Rust)" })}
           </h3>
           <div className="playground-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {desktopProjects.map((proj) => (
