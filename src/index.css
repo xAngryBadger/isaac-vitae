@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Fira+Code:wght@400;500;600;700&family=Libre+Caslon+Display:wght@400;700&family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
 @theme {
@@ -45,10 +45,11 @@
   --color-sec-uncertain: #f9e2af;/* Yellow */
   
   /* === FONT-EDITORIAL PAIRING === */
-  --font-serif: 'Quicksand', ui-sans-serif, system-ui, sans-serif;  /* titles */
+  --font-serif: 'Libre Caslon Display', Georgia, serif;  /* titles */
   --font-sans: 'Quicksand', ui-sans-serif, system-ui, sans-serif;   /* body */
   --font-mono: 'Fira Code', 'Courier New', monospace;
   --font-menu: 'Playfair Display', Georgia, serif;  /* menu only */
+  --font-display: 'Cinzel Decorative', Georgia, serif;  /* display */
 
   /* === EASING === */
   --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
