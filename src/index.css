@@ -652,3 +652,10 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 .blur-sharpen {
   animation: blur-sharpen 1.2s var(--ease-project) forwards;
 }
+
+.parallax-bg {
+  will-change: transform;
+}
+.parallax-fg {
+  will-change: transform, opacity;
+}

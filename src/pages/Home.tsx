@@ -36,11 +36,11 @@ const { t } = useLang();
       tl.from(".hero-social", { opacity: 0, y: 10, duration: 0.45, stagger: 0.08 }, 1.15);
     }, containerRef);
 
-    const onScroll = () => {
-      const y = window.scrollY;
-      gsap.set(".hero-bg-gradient", { y: y * 0.3 });
-      gsap.set(".hero-content", { opacity: 1 - y / (window.innerHeight * 0.7) });
-    };
+const onScroll = () => {
+  const y = window.scrollY;
+  gsap.set(".hero-bg-gradient", { y: y * 0.3 });
+  gsap.set(".hero-content", { y: y * 0.15, opacity: 1 - y / (window.innerHeight * 0.7) });
+};
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
@@ -51,14 +51,17 @@ const { t } = useLang();
 
   return (
     <section ref={containerRef} className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-      <div className="hero-bg-gradient absolute inset-0 blur-sharpen"
-        style={{
-          backgroundImage:
-          "radial-gradient(ellipse at 70% 20%, var(--color-bg-elevated) 0%, transparent 50%)",
-        }}
-      />
+  <div className="hero-bg-gradient absolute inset-0 blur-sharpen parallax-bg"
+    data-speed="0.3"
+    style={{
+      backgroundImage: `url(${import.meta.env.BASE_URL}images/foto-isaac.jpg)`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  />
+  <div className="absolute inset-0" style={{ backgroundColor: "rgba(29,32,33,0.55)" }} />
 
-      {/* Corner decorations */}
+  {/* Corner decorations */}
       <div className="absolute top-8 left-8 lg:top-12 lg:left-12 pointer-events-none">
         <div className="corner-dot w-1.5 h-1.5 rounded-full mb-2" style={{ backgroundColor: "var(--color-text-3)" }} />
         <div className="corner-line-h h-px w-16 lg:w-24 origin-left" style={{ backgroundColor: "var(--color-border-2)" }} />
@@ -84,7 +87,7 @@ const { t } = useLang();
       <HeroCorners className="absolute inset-0 pointer-events-none" />
 
       {/* Content */}
-      <div className="hero-content relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
+      <div className="hero-content parallax-fg relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
         <div className="hero-avatar mx-auto mb-8">
           <div
             className="w-24 h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden mx-auto"
