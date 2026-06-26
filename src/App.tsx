@@ -115,42 +115,44 @@ function AppContent() {
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  const firstRender = isFirstMount.current;
-  if (loaded && isFirstMount.current) isFirstMount.current = false;
+function PageTransition({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ clipPath: "inset(100% 0 0 0)" }}
+      animate={{ clipPath: "inset(0 0 0 0)", transition: { duration: 0.6, ease: "var(--ease-project)" } as any }}
+      exit={{ clipPath: "inset(0 0 100% 0)", transition: { duration: 0.6, ease: "var(--ease-project)" } as any }}
+      style={{ position: "relative", width: "100%" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
   return (
     <>
       {!loaded && <Preloader onDone={handlePreloaderDone} />}
       {loaded && (
         <>
-      <DocumentTitle />
-      <CustomCursor />
-      <Nav />
+          <DocumentTitle />
+          <CustomCursor />
+          <Nav />
           <AnimatePresence mode="wait">
-            <motion.main
-              key={location.pathname}
-              initial={firstRender ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <Routes location={location}>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/experience" element={<Experience />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
-                <Route path="/security" element={<Security />} />
-                <Route path="/security/:slug" element={<SecurityCaseStudy />} />
-                <Route path="/skills" element={<Skills />} />
-                <Route path="/gallery" element={<Gallery />} />
-                <Route path="/certificates" element={<Certificates />} />
-                <Route path="/cv" element={<CV />} />
-                <Route path="/playground" element={<Playground />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </motion.main>
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+              <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+              <Route path="/experience" element={<PageTransition><Experience /></PageTransition>} />
+              <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+              <Route path="/projects/:slug" element={<PageTransition><ProjectCaseStudy /></PageTransition>} />
+              <Route path="/security" element={<PageTransition><Security /></PageTransition>} />
+              <Route path="/security/:slug" element={<PageTransition><SecurityCaseStudy /></PageTransition>} />
+              <Route path="/skills" element={<PageTransition><Skills /></PageTransition>} />
+              <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
+              <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
+              <Route path="/cv" element={<PageTransition><CV /></PageTransition>} />
+              <Route path="/playground" element={<PageTransition><Playground /></PageTransition>} />
+              <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+              <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+            </Routes>
           </AnimatePresence>
           <Footer />
         </>

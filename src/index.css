@@ -140,6 +140,16 @@ img::selection { background: transparent; }
   animation: clip-reveal-up 0.7s var(--ease-project) forwards;
 }
 
+/* Page transition keyframes */
+@keyframes clip-reveal-exit {
+  from { clip-path: inset(0 0 0 0); }
+  to { clip-path: inset(0 0 100% 0); }
+}
+@keyframes clip-reveal-enter {
+  from { clip-path: inset(100% 0 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
 /* Menu curtain fix: animate background div instead of menu backdrop */
 #primary-menu.clip-reveal-up {
   animation: none;
