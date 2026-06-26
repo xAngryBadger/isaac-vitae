@@ -34,11 +34,11 @@ export default function About() {
         }
       });
 
-      // Bio text - fade-up
-      gsap.from(".about-bio > *", {
-        opacity: 0, y: 30, stagger: 0.1, duration: 0.7, ease: EASE_SECONDARY,
-        scrollTrigger: { trigger: ".about-bio", start: SCROLL_START, once: true },
-      });
+// Bio text (extended) - fade-up (SplitText handles bio animation)
+gsap.from(".about-bio > p:last-child", {
+  opacity: 0, y: 30, duration: 0.7, ease: EASE_SECONDARY,
+  scrollTrigger: { trigger: ".about-bio", start: SCROLL_START, once: true },
+});
 
       // Highlights - fade-up
       gsap.from(".about-highlight", {
@@ -78,19 +78,24 @@ export default function About() {
         </div>
 
         <div className="max-w-3xl">
-          {/* Bio text */}
-          <div className="about-bio space-y-5" data-selectable>
-            <p 
-              className="text-body leading-body text-text-2 max-w-3xl"
-            >
-              {t(personal.bio)}
-            </p>
-            <p 
-              className="text-body leading-body text-text-2"
-            >
-              {t(personal.bioExtended)}
-            </p>
-          </div>
+{/* Bio text */}
+<div className="about-bio space-y-5" data-selectable>
+  <SplitText
+    as="p"
+    className="text-body leading-body text-text-2 max-w-3xl"
+    splitType="lines"
+    delay={0.3}
+    duration={0.8}
+    stagger={0.05}
+  >
+    {t(personal.bio)}
+  </SplitText>
+  <p
+    className="text-body leading-body text-text-2"
+  >
+    {t(personal.bioExtended)}
+  </p>
+</div>
 
           <div className="mt-10 space-y-4">
             {personal.bioHighlights.map((h, i) => (
@@ -105,10 +110,27 @@ export default function About() {
                 </p>
               </div>
             ))}
-          </div>
+</div>
 
-          <div
-            className="about-personal mt-10 p-6 border card-hover"
+<svg
+  className="draw-stroke-line"
+  style={{ "--stroke-length": "400", width: "100%", height: "60px" } as React.CSSProperties}
+  viewBox="0 0 400 60"
+  preserveAspectRatio="xMidYMid meet"
+  aria-hidden="true"
+>
+  <line
+    x1="0"
+    y1="30"
+    x2="400"
+    y2="30"
+    stroke="var(--color-accent)"
+    strokeWidth="1"
+  />
+</svg>
+
+<div
+  className="about-personal mt-10 p-6 border card-hover"
             style={{ borderColor: "var(--color-border)", backgroundColor: "var(--color-bg-card)" }}
             data-selectable
           >
