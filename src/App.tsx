@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, Suspense, lazy } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import Lenis from "lenis";
@@ -12,16 +12,36 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
-import ProjectCaseStudy from "./pages/ProjectCaseStudy";
 import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
-import Gallery from "./pages/Gallery";
-import Certificates from "./pages/Certificates";
 import CV from "./pages/CV";
-import Playground from "./pages/Playground";
-import Security from "./pages/Security";
-import SecurityCaseStudy from "./pages/SecurityCaseStudy";
 import NotFound from "./pages/NotFound";
+
+const Gallery = lazy(() => import("./pages/Gallery"));
+const Certificates = lazy(() => import("./pages/Certificates"));
+const Playground = lazy(() => import("./pages/Playground"));
+const Security = lazy(() => import("./pages/Security"));
+const ProjectCaseStudy = lazy(() => import("./pages/ProjectCaseStudy"));
+const SecurityCaseStudy = lazy(() => import("./pages/SecurityCaseStudy"));
+
+const RouteFallback = () => (
+  <div
+    aria-label="Loading"
+    style={{
+      minHeight: "60vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontFamily: "var(--font-mono)",
+      fontSize: "0.75rem",
+      letterSpacing: "0.2em",
+      textTransform: "uppercase",
+      color: "var(--color-text-3)",
+    }}
+  >
+    <span>carregando</span>
+  </div>
+);
 import { LanguageProvider, useLang } from "./lib/LanguageContext";
 import { useSounds } from "./lib/useSounds";
 
@@ -137,22 +157,24 @@ function PageTransition({ children }: { children: React.ReactNode }) {
           <CustomCursor />
           <Nav />
           <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-              <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-              <Route path="/experience" element={<PageTransition><Experience /></PageTransition>} />
-              <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
-              <Route path="/projects/:slug" element={<PageTransition><ProjectCaseStudy /></PageTransition>} />
-              <Route path="/security" element={<PageTransition><Security /></PageTransition>} />
-              <Route path="/security/:slug" element={<PageTransition><SecurityCaseStudy /></PageTransition>} />
-              <Route path="/skills" element={<PageTransition><Skills /></PageTransition>} />
-              <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
-              <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
-              <Route path="/cv" element={<PageTransition><CV /></PageTransition>} />
-              <Route path="/playground" element={<PageTransition><Playground /></PageTransition>} />
-              <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-              <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
-            </Routes>
+            <Suspense fallback={<RouteFallback />}>
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+                <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+                <Route path="/experience" element={<PageTransition><Experience /></PageTransition>} />
+                <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+                <Route path="/projects/:slug" element={<PageTransition><ProjectCaseStudy /></PageTransition>} />
+                <Route path="/security" element={<PageTransition><Security /></PageTransition>} />
+                <Route path="/security/:slug" element={<PageTransition><SecurityCaseStudy /></PageTransition>} />
+                <Route path="/skills" element={<PageTransition><Skills /></PageTransition>} />
+                <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
+                <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
+                <Route path="/cv" element={<PageTransition><CV /></PageTransition>} />
+                <Route path="/playground" element={<PageTransition><Playground /></PageTransition>} />
+                <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+                <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+              </Routes>
+            </Suspense>
           </AnimatePresence>
           <Footer />
         </>
