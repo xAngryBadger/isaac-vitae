@@ -2,47 +2,47 @@
 @import 'tailwindcss';
 
 @theme {
-  /* === CATPPUCCIN MOCHA PALETTE === */
-  --color-bg: #1e1e2e;           /* Base */
-  --color-bg-deep: #181825;      /* Mantle */
-  --color-bg-card: #1e1e2e;      /* Base */
-  --color-bg-elevated: #313244;  /* Surface0 */
+  /* === GRUVBOX NOCTALIA DARK PALETTE === */
+  --color-bg: #1d2021;
+  --color-bg-deep: #282828;
+  --color-bg-card: #1d2021;
+  --color-bg-elevated: #32302f;
   
-  --color-text: #cdd6f4;         /* Text */
-  --color-text-2: #a6adc8;       /* Subtext0 */
-  --color-text-3: #8b8d98;       /* Subtext1 — 4.97:1 on bg, WCAG AA */
+  --color-text: #ebdbb2;
+  --color-text-2: #d5c4a1;
+  --color-text-3: #b8aa95;
   
-  --color-accent: #ec4899;       /* Pink-500 - primary accent */
-  --color-accent-light: #f9a8d4; /* Pink-300 - lighter accent */
-  --color-accent-dark: #cba6f7;  /* Mauve */
-  --color-accent-peach: #fab387; /* Peach - warm highlight */
-  --color-accent-teal: #94e2d5;  /* Teal - success/secured */
-  --color-accent-sapphire: #89dceb; /* Sapphire - info */
+  --color-accent: #fe8019;
+  --color-accent-light: #ffb347;
+  --color-accent-dark: #e67300;
+  --color-accent-peach: #ffcc99;
+  --color-accent-teal: #fe8019;
+  --color-accent-sapphire: #fe8019;
   
-  --color-accent-bg: rgba(236, 72, 153, 0.12);
-  --color-accent-04: rgba(236, 72, 153, 0.04);
-  --color-accent-08: rgba(236, 72, 153, 0.08);
-  --color-accent-10: rgba(236, 72, 153, 0.1);
-  --color-accent-12: rgba(236, 72, 153, 0.12);
-  --color-accent-15: rgba(236, 72, 153, 0.15);
-  --color-accent-20: rgba(236, 72, 153, 0.2);
-  --color-accent-25: rgba(236, 72, 153, 0.25);
-  --color-accent-30: rgba(236, 72, 153, 0.3);
-  --color-accent-50: rgba(236, 72, 153, 0.5);
+  --color-accent-bg: rgba(254, 128, 25, 0.12);
+  --color-accent-04: rgba(254, 128, 25, 0.04);
+  --color-accent-08: rgba(254, 128, 25, 0.08);
+  --color-accent-10: rgba(254, 128, 25, 0.1);
+  --color-accent-12: rgba(254, 128, 25, 0.12);
+  --color-accent-15: rgba(254, 128, 25, 0.15);
+  --color-accent-20: rgba(254, 128, 25, 0.2);
+  --color-accent-25: rgba(254, 128, 25, 0.25);
+  --color-accent-30: rgba(254, 128, 25, 0.3);
+  --color-accent-50: rgba(254, 128, 25, 0.5);
   
-  --color-peach-bg: rgba(250, 179, 135, 0.12);
-  --color-teal-bg: rgba(148, 226, 213, 0.12);
+  --color-peach-bg: rgba(254, 128, 25, 0.12);
+  --color-teal-bg: rgba(254, 128, 25, 0.12);
   
-  --color-border: #313244;       /* Surface0 */
-  --color-border-2: #45475a;     /* Surface1 */
-  --color-border-accent: rgba(236, 72, 153, 0.3);
-  --color-border-peach: rgba(250, 179, 135, 0.3);
-  --color-border-teal: rgba(148, 226, 213, 0.3);
+  --color-border: #504945;
+  --color-border-2: #665c54;
+  --color-border-accent: rgba(254, 128, 25, 0.30);
+  --color-border-peach: rgba(254, 128, 25, 0.30);
+  --color-border-teal: rgba(254, 128, 25, 0.30);
   
-  /* Security semantic colors - Catppuccin variants */
-  --color-sec-fixed: #a6e3a1;    /* Green */
-  --color-sec-open: #f38ba8;     /* Red */
-  --color-sec-uncertain: #f9e2af;/* Yellow */
+  /* Security semantic colors - Gruvbox variants */
+  --color-sec-fixed: #b8bb26;
+  --color-sec-open: #fb4934;
+  --color-sec-uncertain: #fabd2f;
   
   /* === FONT-EDITORIAL PAIRING === */
   --font-serif: 'Libre Caslon Display', Georgia, serif;  /* titles */
@@ -172,16 +172,7 @@ img::selection { background: transparent; }
   animation: scale-materialize 0.5s var(--ease-spring-soft) forwards;
 }
 
-/* draw-stroke */
-@keyframes draw-stroke {
-  from { stroke-dashoffset: var(--stroke-length, 100); }
-  to { stroke-dashoffset: 0; }
-}
-.draw-stroke path {
-  stroke-dasharray: var(--stroke-length, 100);
-  stroke-dashoffset: var(--stroke-length, 100);
-  animation: draw-stroke 1.4s var(--ease-quart-in-out) forwards;
-}
+
 
 /* Section label */
 .section-label {
@@ -228,7 +219,7 @@ img::selection { background: transparent; }
   cursor: pointer; font-family: var(--font-sans); font-size: var(--text-label); letter-spacing: var(--tracking-label); text-transform: uppercase;
   transition: background 0.3s var(--ease-project);
 }
-.clip-btn-filled:hover { background: rgba(245, 194, 231, 0.25); }
+.clip-btn-filled:hover { background: rgba(254, 128, 25, 0.25); }
 
 :focus-visible {
   outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 2px;
@@ -270,7 +261,7 @@ button[aria-controls="primary-menu"] *:focus-visible {
 }
 .card-hover:hover {
   border-color: var(--color-border-accent);
-  box-shadow: 0 8px 32px rgba(245, 194, 231, 0.08);
+  box-shadow: 0 8px 32px rgba(254, 128, 25, 0.08);
   transform: translateY(-4px) rotateX(1.5deg) rotateY(-1.5deg);
 }
 
@@ -374,8 +365,8 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
    ============================================================ */
 
 .security-page {
-  --sec-border: rgba(205, 214, 244, 0.08);
-  --sec-border-strong: rgba(205, 214, 244, 0.18);
+  --sec-border: rgba(235, 219, 178, 0.08);
+  --sec-border-strong: rgba(235, 219, 178, 0.18);
 }
 
 .security-page .sec-header { max-width: 56rem; margin-bottom: 3rem; }
@@ -443,7 +434,7 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 
 .security-page .sec-table-wrap {
   overflow-x: auto; border: 1px solid var(--sec-border-strong);
-  background: rgba(24, 24, 37, 0.4);
+  background: rgba(29, 29, 33, 0.4);
 }
 .security-page .sec-table {
   width: 100%; min-width: 900px; border-collapse: collapse;
@@ -467,7 +458,7 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
   vertical-align: top;
 }
 .security-page .sec-table tbody tr:last-child td { border-bottom: none; }
-.security-page .sec-table tbody tr:hover td { background: rgba(236, 72, 153, 0.04); }
+.security-page .sec-table tbody tr:hover td { background: rgba(254, 128, 25, 0.04); }
 
 .security-page .col-title { width: 26%; }
 .security-page .col-org { width: 18%; color: var(--color-text-2); }
@@ -480,7 +471,7 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 
 .security-page .sec-row-link {
   color: var(--color-text); text-decoration: none;
-  border-bottom: 1px dotted rgba(236, 72, 153, 0.4);
+  border-bottom: 1px dotted rgba(254, 128, 25, 0.4);
   transition: color 0.15s, border-color 0.15s;
 }
 .security-page .sec-row-link:hover { color: var(--color-accent); border-color: var(--color-accent); }
