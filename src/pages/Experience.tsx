@@ -63,9 +63,21 @@ return () => ctx.revert();
           <div
             className="timeline-line-fill absolute left-[19px] lg:left-[23px] top-0 bottom-0 w-px"
             style={{ backgroundColor: "var(--color-accent)" }}
-          />
+      />
 
-          {experiences.map((exp, i) => (
+      <svg
+        className="absolute left-[19px] lg:left-[23px] top-0 bottom-0 w-0 pointer-events-none overflow-visible"
+      >
+        <line
+          x1="0" y1="0" x2="0" y2="800"
+          stroke="var(--color-accent)"
+          strokeWidth="2"
+          className="draw-stroke-line"
+          style={{ "--stroke-length": 800 } as React.CSSProperties}
+        />
+      </svg>
+
+      {experiences.map((exp, i) => (
             <div key={i} className="exp-card relative pl-14 lg:pl-16 pb-16 last:pb-0">
               <div
                 className="timeline-marker absolute left-2.5 lg:left-3.5 top-2 w-4 h-4 rounded-full border-2"

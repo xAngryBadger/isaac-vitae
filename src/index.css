@@ -608,6 +608,17 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 .security-page .sec-detail-grid { grid-template-columns: 1fr; }
 }
 
+@keyframes draw-stroke-line {
+  from { stroke-dashoffset: var(--stroke-length, 1000); }
+  to { stroke-dashoffset: 0; }
+}
+
+.draw-stroke-line {
+  stroke-dasharray: var(--stroke-length, 1000);
+  stroke-dashoffset: var(--stroke-length, 1000);
+  animation: draw-stroke-line 2s var(--ease-quart-in-out) forwards;
+}
+
 @keyframes blur-sharpen {
   from { filter: blur(10px); opacity: 0; }
   to { filter: blur(0); opacity: 1; }
