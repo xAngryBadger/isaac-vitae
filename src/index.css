@@ -653,6 +653,30 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
   animation: blur-sharpen 1.2s var(--ease-project) forwards;
 }
 
+.project-grid {
+  display: grid;
+  gap: 2rem;
+}
+.project-card-num {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  opacity: 0.4;
+  transition: opacity 0.3s var(--ease-project);
+  line-height: 1;
+  color: var(--color-accent);
+}
+.project-card:hover .project-card-num {
+  opacity: 1;
+}
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  cursor: grab;
+}
+.carousel-track:active {
+  cursor: grabbing;
+}
+
 .parallax-bg {
   will-change: transform;
 }
