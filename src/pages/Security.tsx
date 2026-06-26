@@ -315,9 +315,9 @@ export default function Security() {
           </h3>
           <ol className="sec-wave-list">
             {waveTitles.map((w, idx) => (
-              <li key={w.date} id={`wave-${idx + 1}`} className="sec-wave">
-                <div className="sec-wave-head">
-                  <span className="sec-wave-num font-mono">0{idx + 1}</span>
+ <li key={w.date} id={`wave-${idx + 1}`} className="sec-wave">
+          <div className="sec-wave-head">
+            <span className="sec-wave-num font-serif">{String(idx + 1).padStart(3, "0")}</span>
                   <div>
                     <h4 className="sec-wave-title">{t({ pt: w.pt, en: w.en })}</h4>
                     <p className="sec-wave-desc">{t(w.desc)}</p>
