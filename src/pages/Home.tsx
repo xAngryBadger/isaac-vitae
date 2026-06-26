@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 import { personal } from "../data/content";
@@ -7,10 +7,12 @@ import { ArrowDown, Github, Linkedin, FileDown } from "lucide-react";
 import { EASE_PRIMARY, EASE_SECONDARY } from "../lib/scroll-anim";
 import { SplitText } from "../components/SplitText";
 import { HeroCorners } from "../components/HeroCorners";
+import { useMagneticHover } from "../lib/useMagneticHover";
 
 export default function Home() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { t } = useLang();
+const containerRef = useRef<HTMLDivElement>(null);
+const magneticRef = useMagneticHover(0.3);
+const { t } = useLang();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -140,31 +142,34 @@ export default function Home() {
           {t(personal.bio)}
         </p>
 
-        {/* CTA buttons */}
-        <div className="hero-cta flex flex-wrap justify-center gap-4 mb-10">
-          <Link
-            to="/projects"
-            className="clip-btn-filled group"
-          >
-            <span>
-              {t({ pt: "Ver Projetos", en: "View Projects" })}
-            </span>
-            <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
-          </Link>
-          <a
-            href={`mailto:${personal.email}`}
-            className="clip-btn"
-          >
-            {t({ pt: "Falar Comigo", en: "Talk to Me" })}
-          </a>
-          <Link
-            to="/cv"
-            className="clip-btn"
-          >
-            <FileDown className="w-4 h-4" />
-            {t({ pt: "Currículo", en: "Resume" })}
-          </Link>
-        </div>
+{/* CTA buttons */}
+<div className="hero-cta flex flex-wrap justify-center gap-4 mb-10">
+<Link
+  to="/projects"
+  ref={magneticRef as React.RefObject<HTMLAnchorElement>}
+  className="clip-btn-filled group magnetic-hover"
+>
+  <span>
+    {t({ pt: "Ver Projetos", en: "View Projects" })}
+  </span>
+  <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+</Link>
+<a
+  href={`mailto:${personal.email}`}
+  ref={magneticRef as React.RefObject<HTMLAnchorElement>}
+  className="clip-btn magnetic-hover"
+>
+  {t({ pt: "Falar Comigo", en: "Talk to Me" })}
+</a>
+<Link
+  to="/cv"
+  ref={magneticRef as React.RefObject<HTMLAnchorElement>}
+  className="clip-btn magnetic-hover"
+>
+  <FileDown className="w-4 h-4" />
+  {t({ pt: "Currículo", en: "Resume" })}
+</Link>
+</div>
 
         {/* Social links */}
         <div className="flex items-center justify-center gap-6">

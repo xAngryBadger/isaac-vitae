@@ -163,6 +163,12 @@ img::selection { background: transparent; }
   animation: fade-up 0.7s var(--ease-project) forwards;
 }
 
+/* magnetic-hover */
+.magnetic-hover {
+	display: inline-flex;
+	transition: transform 0.4s var(--ease-quart-out);
+}
+
 /* scale-materialize */
 @keyframes scale-materialize {
   from { opacity: 0; transform: scale(0.92); }
