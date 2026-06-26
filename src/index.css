@@ -659,3 +659,16 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 .parallax-fg {
   will-change: transform, opacity;
 }
+
+.timeline-track {
+  cursor: grab;
+}
+.timeline-track:active {
+  cursor: grabbing;
+}
+.timeline-track > .exp-card {
+  transform: translateZ(0);
+}
+.timeline-container:hover .timeline-marker {
+  z-index: 10;
+}
