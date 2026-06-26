@@ -597,7 +597,16 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 @media (max-width: 640px) {
   .security-page .sec-table-wrap { border-left: none; border-right: none; }
   .security-page .sec-wave-items { padding-left: 1.5rem; }
-  .security-page .sec-wave-item { grid-template-columns: 10px 1fr; }
-  .security-page .sec-wave-item-org { grid-column: 1 / -1; padding-left: 1.5rem; }
-  .security-page .sec-detail-grid { grid-template-columns: 1fr; }
+.security-page .sec-wave-item { grid-template-columns: 10px 1fr; }
+.security-page .sec-wave-item-org { grid-column: 1 / -1; padding-left: 1.5rem; }
+.security-page .sec-detail-grid { grid-template-columns: 1fr; }
+}
+
+@keyframes blur-sharpen {
+  from { filter: blur(10px); opacity: 0; }
+  to { filter: blur(0); opacity: 1; }
+}
+
+.blur-sharpen {
+  animation: blur-sharpen 1.2s var(--ease-project) forwards;
 }

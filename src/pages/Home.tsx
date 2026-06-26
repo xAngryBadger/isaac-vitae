@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <section ref={containerRef} className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-      <div className="hero-bg-gradient absolute inset-0"
+      <div className="hero-bg-gradient absolute inset-0 blur-sharpen"
         style={{
           backgroundImage:
           "radial-gradient(ellipse at 70% 20%, var(--color-bg-elevated) 0%, transparent 50%)",
