@@ -19,6 +19,7 @@ export const TagFilter: React.FC<TagFilterProps> = ({ tags, selectedTags, onTagC
       {tags.map(tag => (
         <button
           key={tag}
+          type="button"
           className={`tag ${selectedTags.includes(tag) ? 'active' : ''}`}
           onClick={() => toggleTag(tag)}
         >

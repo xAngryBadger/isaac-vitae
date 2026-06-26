@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -155,6 +155,7 @@ export default function Security() {
             {(["all", "fixed", "open", "uncertain"] as StatusFilter[]).map((f) => (
               <button
                 key={f}
+                type="button"
                 onClick={() => setStatusFilter(f)}
                 className={`sec-filter ${statusFilter === f ? "active" : ""}`}
               >
@@ -204,9 +205,8 @@ export default function Security() {
                   const cs = d.slug ? securityCaseStudies[d.slug] : null;
                   const isExpanded = expandedId === d.id;
                   return (
-                    <>
+                    <React.Fragment key={d.id}>
                       <tr
-                        key={d.id}
                         onClick={() => setExpandedId(isExpanded ? null : d.id)}
                         style={{ cursor: cs ? "pointer" : "default" }}
                       >
@@ -297,7 +297,7 @@ export default function Security() {
                           </td>
                         </tr>
                       )}
-                    </>
+                    </React.Fragment>
                   );
                 })}
               </tbody>

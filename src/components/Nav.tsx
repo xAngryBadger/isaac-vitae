@@ -16,7 +16,6 @@ const menuLinks = [
   { label: { pt: "Certificações", en: "Certificates" }, href: "/certificates", num: "06" },
   { label: { pt: "Currículo", en: "Resume" }, href: "/cv", num: "07" },
   { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "08" },
-  // { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "09" },  // Temporarily hidden
   { label: { pt: "Segurança", en: "Security" }, href: "/security", num: "09" },
 ];
 

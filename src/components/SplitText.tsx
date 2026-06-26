@@ -29,6 +29,15 @@ export function SplitText({
   useEffect(() => {
     if (!ref.current) return;
     
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    
+    if (prefersReducedMotion) {
+      if (ref.current) {
+        ref.current.style.opacity = "1";
+      }
+      return;
+    }
+    
     const split = new SplitType(ref.current, { 
       types: splitType === "chars" ? "chars" : splitType === "words" ? "words" : "lines",
       charClass: "split-char",

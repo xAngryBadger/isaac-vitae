@@ -350,6 +350,10 @@ export default function Projects() {
     ? projects.filter(p => selectedTags.every(tag => p.tech.includes(tag)))
     : projects;
 
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [filteredProjects]);
+
   const featured = filteredProjects.filter((p) => p.featured);
   const caseStudies = filteredProjects.filter((p) => !p.featured && p.hasCaseStudy);
   const others = filteredProjects.filter((p) => !p.featured && !p.hasCaseStudy);

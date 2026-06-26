@@ -30,6 +30,7 @@ function CodeReveal({ language, code, color }: { language: string; code: string;
   return (
     <div className="mt-4">
       <button
+        type="button"
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 group"
         style={{
@@ -461,6 +462,7 @@ overflow: "hidden",
         <div style={{ padding: "1rem 1.25rem", minHeight: "60px" }}>
           {phase === "idle" ? (
             <button
+              type="button"
               onClick={runCycle}
               style={{
                 fontFamily: "var(--font-mono)",
@@ -673,6 +675,7 @@ borderRadius: "2px",
         </div>
 
         <button
+          type="button"
           onClick={run}
           disabled={running}
           style={{
@@ -755,6 +758,7 @@ background: "var(--color-bg)",
         {tabs.map((tab) => (
           <button
             key={tab.key}
+            type="button"
             onClick={() => setActive(tab.key)}
             style={{
               fontFamily: "var(--font-mono)",
