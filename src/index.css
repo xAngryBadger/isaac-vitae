@@ -163,6 +163,21 @@ img::selection { background: transparent; }
   animation: fade-up 0.7s var(--ease-project) forwards;
 }
 
+@keyframes typewriter-cursor {
+  0%, 100% { border-right-color: var(--color-accent); }
+  50% { border-right-color: transparent; }
+}
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--color-accent);
+  white-space: nowrap;
+  animation: typewriter 2s steps(40, end) forwards, typewriter-cursor 0.8s step-end infinite;
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
 /* magnetic-hover */
 .magnetic-hover {
 	display: inline-flex;

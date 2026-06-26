@@ -6,6 +6,7 @@ import { securityDisclosures, securityCaseStudies } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import { EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
 import { SplitText } from "../components/SplitText";
+import { OdometerDigit } from "../components/OdometerDigit";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,7 +102,7 @@ export default function Security() {
             {t({ pt: "Segurança · Disclosure Report", en: "Security · Disclosure Report" })}
           </span>
 
-          <h2 className="sec-title font-serif font-bold leading-tight text-h2">
+          <h2 className="sec-title typewriter font-serif font-bold leading-tight text-h2">
             <SplitText as="span" className="block" delay={0.3} duration={1.0} stagger={0.06} splitType="words">
               {t({ pt: "Vulnerabilidades que ", en: "Vulnerabilities that " })}
             </SplitText>
@@ -122,19 +123,19 @@ export default function Security() {
 
         <div className="sec-stat-row">
           <div className="sec-stat">
-            <span className="sec-stat-value" style={{ color: "var(--color-sec-open)" }}>{counts.active}</span>
+            <span className="sec-stat-value" style={{ color: "var(--color-sec-open)" }}><OdometerDigit target={counts.active} /></span>
             <span className="sec-stat-label">{t({ pt: "Abertos", en: "Open" })}</span>
           </div>
           <div className="sec-stat">
-            <span className="sec-stat-value" style={{ color: "var(--color-sec-uncertain)" }}>{counts.pending}</span>
+            <span className="sec-stat-value" style={{ color: "var(--color-sec-uncertain)" }}><OdometerDigit target={counts.pending} /></span>
             <span className="sec-stat-label">{t({ pt: "Incertos", en: "Uncertain" })}</span>
           </div>
           <div className="sec-stat">
-            <span className="sec-stat-value" style={{ color: "var(--color-sec-fixed)" }}>{counts.remediated}</span>
+            <span className="sec-stat-value" style={{ color: "var(--color-sec-fixed)" }}><OdometerDigit target={counts.remediated} /></span>
             <span className="sec-stat-label">{t({ pt: "Corrigidos", en: "Remediated" })}</span>
           </div>
           <div className="sec-stat">
-            <span className="sec-stat-value" style={{ color: "var(--color-accent)" }}>{counts.total}</span>
+            <span className="sec-stat-value" style={{ color: "var(--color-accent)" }}><OdometerDigit target={counts.total} /></span>
             <span className="sec-stat-label">{t({ pt: "Total", en: "Total" })}</span>
           </div>
         </div>

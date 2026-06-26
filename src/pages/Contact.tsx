@@ -99,8 +99,8 @@ return () => ctx.revert();
     <div className="section-container">
         <div className="max-w-3xl mb-20">
           <span className="contact-label section-label">{t({ pt: "Contato", en: "Contact" })}</span>
-          <h2
-            className="contact-title font-serif font-bold leading-tight"
+<h2
+  className="contact-title typewriter font-serif font-bold leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
           >
             <SplitText as="span" className="inline" splitType="words" stagger={0.08} delay={0.3}>

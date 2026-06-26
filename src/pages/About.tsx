@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { personal, stats } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import { EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
+import { OdometerDigit } from "../components/OdometerDigit";
 import { SplitText } from "../components/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -45,22 +46,7 @@ export default function About() {
         scrollTrigger: { trigger: ".about-highlight", start: SCROLL_START, once: true },
       });
 
-      // Personal section - fade-up
-      gsap.from(".about-personal", {
-        opacity: 0, y: 20, duration: 0.7, ease: EASE_SECONDARY,
-        scrollTrigger: { trigger: ".about-personal", start: SCROLL_START, once: true },
-      });
-
-      // Stats odometer
-      document.querySelectorAll(".stat-num").forEach((el) => {
-        const target = parseInt((el as HTMLElement).dataset.target || "0");
-        gsap.to({ v: 0 }, {
-          v: target, duration: 1.5, ease: EASE_SECONDARY,
-          scrollTrigger: { trigger: el, start: SCROLL_START, once: true },
-          onUpdate: function () { el.textContent = String(Math.round(this.targets()[0].v)); },
-        });
-      });
-    }, sectionRef);
+}, sectionRef);
     return () => ctx.revert();
   }, []);
 
@@ -141,7 +127,7 @@ export default function About() {
             {stats.map((s) => (
               <div key={t(s.label)} className="text-center">
                 <div className="font-serif font-bold mb-1 text-h3">
-                  <span className="stat-num" data-target={s.value}>0</span>
+                  <span className="stat-num"><OdometerDigit target={s.value} /></span>
                   <span>{t(s.suffix)}</span>
                 </div>
                 <div className="font-mono text-xs uppercase tracking-wider text-text-3">
