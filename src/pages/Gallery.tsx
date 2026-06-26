@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const galleryImages = [
   { src: "https://picsum.photos/seed/harpia-ai/1200/750", caption: { pt: "HarpIA — Pipeline de IA Criativa", en: "HarpIA — Creative AI Pipeline" }, project: "harpia" },
   { src: "https://picsum.photos/seed/orca-forest/1200/750", caption: { pt: "Orca — Planejamento Florestal", en: "Orca — Forest Planning" }, project: "orca" },
-  { src: "https://picsum.photos/seed/flora-mobile/1200/750", caption: { pt: "Flora Sensus — Inventário Offline", en: "Flora Sensus — Offline Inventory" }, project: "florasensus" },
+  { src: "https://picsum.photos/seed/flora-mobile/1200/750", caption: { pt: "Urutau — Inventário Offline", en: "Urutau — Offline Inventory" }, project: "urutau" },
   { src: "https://picsum.photos/seed/fennec-desert/1200/750", caption: { pt: "Fennec Excel — IA Local & Planilhas", en: "Fennec Excel — Local AI & Spreadsheets" }, project: "fennec" },
   { src: "https://picsum.photos/seed/inovesa-web/1200/750", caption: { pt: "Inovesa — Site Institucional", en: "Inovesa — Institutional Website" }, project: "inovesa" },
   { src: "https://picsum.photos/seed/agua-station/1200/750", caption: { pt: "AguaQuality — Gestão IoT", en: "AguaQuality — IoT Management" }, project: "aguaquality" },

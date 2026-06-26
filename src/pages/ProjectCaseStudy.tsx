@@ -198,7 +198,7 @@ export default function ProjectCaseStudy() {
 const githubSlugMap: Record<string, string> = {
 harpia: "harpia",
 orca: "orca",
-"flora-sensus": "flora-sensus",
+  "urutau": "urutau",
 "fennec-excel": "Sahara-Fenneck",
 inovesa: "",
 forestai: "forestai",
@@ -219,7 +219,7 @@ forestai: "forestai",
       nicegui: { pt: "Framework Python para interfaces web basado en FastAPI + Vue.js — funciona en el navegador sin frontend separado.", en: "Python framework for web interfaces based on FastAPI + Vue.js — runs in the browser without a separate frontend." },
       "rich-cli": { pt: "Biblioteca Python para salidas de terminal ricas — tablas, barras de progreso, árboles y resaltado de sintaxis.", en: "Python library for rich terminal output — tables, progress bars, trees and syntax highlighting." },
     },
-    "flora-sensus": {
+    "urutau": {
       "offline-first": { pt: "Arquitectura donde la aplicación funciona totalmente sin internet y se sincroniza cuando está conectada.", en: "Architecture where the app works fully without internet and syncs when connected." },
       "uuid-remapping": { pt: "Técnica para reconciliar IDs temporales del cliente con IDs definitivos del servidor después de la sincronización.", en: "Technique to reconcile temporary client IDs with definitive server IDs after synchronization." },
       drift: { pt: "ORM/SQLite para Flutter/Dart — tipo Prisma pero para aplicaciones móviles, con consultas tipadas y migraciones.", en: "ORM/SQLite for Flutter/Dart — like Prisma but for mobile apps, with typed queries and migrations." },

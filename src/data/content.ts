@@ -971,7 +971,7 @@ def plan(input_path: str, output_dir: str = "./output"):
       },
     ],
   },
-  "flora-sensus": {
+  "urutau": {
     challenge: b(
       "Inventário florestal em campo requer app que funciona sem internet por dias, sincroniza quando conectado, e resolve conflitos entre edições simultâneas de agentes em campo e gestores no escritório. Firebase/Supabase exigem conexão; apps de coleta genéricos não modelam a hierarquia florestal (Propriedade > UT > Parcela > Planta > Foto).",
       "Forest inventory in the field requires an app that works without internet for days, syncs when connected, and resolves conflicts between simultaneous edits from field agents and office managers. Firebase/Supabase require connectivity; generic collection apps don't model the forest hierarchy (Propriedade > UT > Parcela > Planta > Foto)."
@@ -2015,6 +2015,63 @@ export const securityDisclosures: SecurityDisclosure[] = [
     severity: "critical",
     hasCaseStudy: true,
     lgpdArticles: ["Art. 5", "Art. 48", "Art. 46"],
+  },
+  {
+    id: "montesantodeminas-mg",
+    slug: "montesantodeminas-mg",
+    title: "Montesanto de Minas/MG Municipal Portal",
+    organization: b("Prefeitura de Montesanto de Minas", "Montesanto de Minas City Hall"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Portal municipal com directory listing exposto. Dados administrativos acessíveis sem autenticação. Ainda sem correção.",
+      "Municipal portal with exposed directory listing. Administrative data accessible without authentication. Still open."
+    ),
+    category: "gov",
+    severity: "medium",
+    hasCaseStudy: false,
+    lgpdArticles: ["Art. 5", "Art. 6 III"],
+  },
+  {
+    id: "matinhos-pr",
+    slug: "matinhos-pr",
+    title: "Matinhos/PR Municipal Portal",
+    organization: b("Prefeitura de Matinhos", "Matinhos City Hall"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Portal municipal com directory listing exposto. Documentos administrativos acessíveis. Ainda sem correção.",
+      "Municipal portal with exposed directory listing. Administrative documents accessible. Still open."
+    ),
+    category: "gov",
+    severity: "medium",
+    hasCaseStudy: false,
+    lgpdArticles: ["Art. 5", "Art. 6 III"],
+  },
+  {
+    id: "cruzilia-mg",
+    slug: "cruzilia-mg",
+    title: "Cruzília/MG Municipal Portal",
+    organization: b("Prefeitura de Cruzília", "Cruzília City Hall"),
+    vulnType: "Directory Listing",
+    CWE: "CWE-548",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "16/06/2026",
+    description: b(
+      "Portal municipal com directory listing exposto. Dados administrativos e financeiros acessíveis. Ainda sem correção.",
+      "Municipal portal with exposed directory listing. Administrative and financial data accessible. Still open."
+    ),
+    category: "gov",
+    severity: "medium",
+    hasCaseStudy: false,
+    lgpdArticles: ["Art. 5", "Art. 6 III"],
   },
 ];
 
