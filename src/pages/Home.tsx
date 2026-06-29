@@ -49,17 +49,15 @@ const onScroll = () => {
     };
   }, []);
 
-  return (
+return (
     <section ref={containerRef} className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-  <div className="hero-bg-gradient absolute inset-0 blur-sharpen parallax-bg"
-    data-speed="0.3"
-    style={{
-      backgroundImage: `url(${import.meta.env.BASE_URL}images/foto-isaac.jpg)`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-  />
-  <div className="absolute inset-0" style={{ backgroundColor: "rgba(29,32,33,0.55)" }} />
+      <div className="hero-bg-gradient absolute inset-0 blur-sharpen parallax-bg"
+        data-speed="0.3"
+        style={{
+          backgroundImage:
+          "radial-gradient(ellipse at 70% 20%, var(--color-bg-elevated) 0%, transparent 50%)",
+        }}
+      />
 
   {/* Corner decorations */}
       <div className="absolute top-8 left-8 lg:top-12 lg:left-12 pointer-events-none">
