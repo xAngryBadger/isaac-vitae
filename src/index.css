@@ -631,7 +631,14 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 }
 
 /* Expandable detail rows */
-.security-page .sec-detail-row { background: var(--color-bg-deep); }
+.security-page .sec-detail-row { 
+  background: var(--color-bg-deep); 
+  animation: sec-detail-expand 0.3s var(--ease-project) forwards;
+}
+@keyframes sec-detail-expand {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .security-page .sec-detail-cell { padding: 1.5rem 0; }
 .security-page .sec-detail {
   max-width: 900px;
