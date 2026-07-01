@@ -135,7 +135,7 @@ export default function Nav() {
               className="font-sans text-sm tracking-[0.2em] uppercase custom-cursor-target"
               style={{ color: "var(--color-text)", textDecoration: "none" }}
             >
-              Isaac
+              IN
             </Link>
           </div>
         </div>

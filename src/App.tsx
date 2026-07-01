@@ -48,7 +48,7 @@ import { useSounds } from "./lib/useSounds";
 gsap.registerPlugin(ScrollTrigger);
 
 const pageTitles: Record<string, { pt: string; en: string }> = {
-  "/": { pt: "Isaac Nathan — Portfólio", en: "Isaac Nathan — Portfolio" },
+  "/": { pt: "Portfólio", en: "Portfolio" },
   "/about": { pt: "Sobre", en: "About" },
   "/experience": { pt: "Experiência", en: "Experience" },
   "/projects": { pt: "Projetos", en: "Projects" },
