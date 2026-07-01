@@ -53,7 +53,7 @@ function NumberedGridCard({ proj, num }: { proj: Project; num: number }) {
       <span className="project-card-year absolute top-6 right-5 pointer-events-none select-none z-10 font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: proj.color }}>
         {proj.year}
       </span>
-      <div className="relative z-z-10 p-6 pt-32 md:pt-32 flex flex-col gap-4 lg:p-8">
+      <div className="relative z-10 p-6 pt-32 md:pt-32 flex flex-col gap-4 lg:px-8 lg:pb-8">
         <div className="flex items-center gap-2 flex-wrap">
           {proj.inProgress && (
             <span
