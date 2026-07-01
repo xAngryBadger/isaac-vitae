@@ -2,7 +2,7 @@ import { chromium } from "playwright";
 import { join } from "path";
 import fs from "fs";
 
-const OUT = "/mnt/hdold/ProjetosBadger/isaac-vitae/public/cv";
+const OUT = "/home/badger/ProjetosBadger/isaac-vitae/public/cv";
 const BASE = "http://localhost:3002/isaac-vitae";
 
 async function gen(lang) {
