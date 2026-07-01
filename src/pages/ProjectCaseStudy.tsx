@@ -87,7 +87,7 @@ function CodeBlock({ language, title, code }: { language: string; title: string;
           maxHeight: open ? "600px" : "0",
           opacity: open ? 1 : 0,
           overflow: "hidden",
-          transition: "max-height 0.5s var(--ease-spring-1, ease), opacity 0.4s ease",
+          transition: "max-height 0.5s var(--ease-spring-soft), opacity 0.4s ease",
         }}
       >
         <div className="overflow-x-auto">

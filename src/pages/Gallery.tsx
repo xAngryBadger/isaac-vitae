@@ -68,7 +68,7 @@ function Lightbox({
                   src={images[idx].src.replace("1200/750", "1920/1200")}
                   alt={t(images[idx].caption)}
                   className="max-w-full max-h-[85vh] object-contain"
-                  style={{ animation: "lightboxIn 0.5s var(--ease-spring-1)", borderRadius: "4px" }}
+                  style={{ animation: "lightboxIn 0.5s var(--ease-spring-soft)", borderRadius: "4px" }}
                   onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                 />
         <div
