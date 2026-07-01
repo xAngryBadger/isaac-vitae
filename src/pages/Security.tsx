@@ -209,7 +209,7 @@ export default function Security() {
                     <React.Fragment key={d.id}>
                       <tr
                         onClick={() => setExpandedId(isExpanded ? null : d.id)}
-                        style={{ cursor: cs ? "pointer" : "default" }}
+                        style={{ cursor: "pointer" }}
                       >
                         <td className="col-title">
                           {d.hasCaseStudy ? (
@@ -251,49 +251,33 @@ export default function Security() {
                         </td>
                         <td className="col-date font-mono">{d.verifiedDate}</td>
                       </tr>
-                      {cs && isExpanded && (
+                      {isExpanded && (
                         <tr key={`${d.id}-detail`} className="sec-detail-row">
                           <td colSpan={9} className="sec-detail-cell">
                             <div className="sec-detail">
                               <div className="sec-detail-grid">
                                 <div className="sec-detail-section">
-                                  <h5>{t({ pt: "Desafio", en: "Challenge" })}</h5>
-                                  <p>{t(cs.challenge)}</p>
+                                  <h5>{t({ pt: "Resumo", en: "Summary" })}</h5>
+                                  <p>{t(d.description)}</p>
                                 </div>
-                                <div className="sec-detail-section">
-                                  <h5>{t({ pt: "Abordagem", en: "Approach" })}</h5>
-                                  <p>{t(cs.approach)}</p>
-                                </div>
-                                <div className="sec-detail-section">
-                                  <h5>{t({ pt: "Linha do Tempo", en: "Timeline" })}</h5>
-                                  <ol className="sec-detail-timeline">
-                                    {cs.timeline.map((step, i) => (
-                                      <li key={i}>{t(step)}</li>
-                                    ))}
-                                  </ol>
-                                </div>
-                                <div className="sec-detail-section">
-                                  <h5>{t({ pt: "Impacto", en: "Impact" })}</h5>
-                                  <ul className="sec-detail-list">
-                                    {cs.impact.map((item, i) => (
-                                      <li key={i}>{t(item)}</li>
-                                    ))}
-                                  </ul>
-                                </div>
-                                <div className="sec-detail-section">
-                                  <h5>{t({ pt: "Achados-Chave", en: "Key Findings" })}</h5>
-                                  <ul className="sec-detail-list">
-                                    {cs.keyFindings.map((f, i) => (
-                                      <li key={i}>{t(f)}</li>
-                                    ))}
-                                  </ul>
-                                </div>
+                                {cs && cs.timeline && cs.timeline.length > 0 && (
+                                  <div className="sec-detail-section">
+                                    <h5>{t({ pt: "Linha do Tempo", en: "Timeline" })}</h5>
+                                    <ol className="sec-detail-timeline">
+                                      {cs.timeline.map((step, i) => (
+                                        <li key={i}>{t(step)}</li>
+                                      ))}
+                                    </ol>
+                                  </div>
+                                )}
                               </div>
-                              <div className="sec-detail-footer">
-                                <Link to={`/security/${d.slug}`} className="sec-detail-link">
-                                  {t({ pt: "Ver case study completo →", en: "View full case study →" })}
-                                </Link>
-                              </div>
+                              {d.hasCaseStudy && (
+                                <div className="sec-detail-footer">
+                                  <Link to={`/security/${d.slug}`} className="sec-detail-link">
+                                    {t({ pt: "Ver case study completo →", en: "View full case study →" })}
+                                  </Link>
+                                </div>
+                              )}
                             </div>
                           </td>
                         </tr>

@@ -2119,7 +2119,7 @@ export const securityCaseStudies: Record<string, SecurityCaseStudy> = {
     ],
     impact: [
       b("Portal municipal com dupla vulnerabilidade (XSS + listing)", "Municipal portal with dual vulnerability (XSS + listing)"),
-      b("Dados de cidadões potencialmente acessíveis via XSS", "Citizen data potentially accessible via XSS"),
+      b("Dados de cidadãos potencialmente acessíveis via XSS", "Citizen data potentially accessible via XSS"),
     ],
     keyFindings: [
       b("CWE-79 (DOM-XSS) + CWE-548 (Directory Listing) simultâneos", "Simultaneous CWE-79 (DOM-XSS) + CWE-548 (Directory Listing)"),
