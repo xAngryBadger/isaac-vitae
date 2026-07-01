@@ -375,7 +375,7 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 @media (prefers-reduced-motion: reduce) {
   .split-text-char { transform: none !important; opacity: 1 !important; }
   .split-text-line { transform: none !important; opacity: 1 !important; }
-  .draw-stroke-line, .draw-stroke path { stroke-dashoffset: 0 !important; animation: none !important; }
+  .draw-stroke path { stroke-dashoffset: 0 !important; animation: none !important; }
   .clip-reveal, .clip-reveal-up, .clip-reveal-exit, .clip-reveal-enter { clip-path: none !important; opacity: 1 !important; }
   .fade-up { transform: none !important; opacity: 1 !important; animation: none !important; }
   .scale-materialize { transform: none !important; opacity: 1 !important; animation: none !important; }
@@ -631,22 +631,28 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 }
 
 /* Expandable detail rows */
-.security-page .sec-detail-row { 
-  background: var(--color-bg-deep); 
-  animation: sec-detail-expand 0.3s var(--ease-project) forwards;
+.security-page .sec-detail-row {
+  background: var(--color-bg-deep);
 }
-@keyframes sec-detail-expand {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+.security-page .sec-detail-cell {
+  padding: 0;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s var(--ease-project), opacity 0.3s var(--ease-project), padding 0.4s var(--ease-project);
 }
-.security-page .sec-detail-cell { padding: 1.5rem 0; }
+.security-page .sec-detail-row .sec-detail-cell {
+  padding: 1.25rem 1.5rem;
+  max-height: 800px;
+  opacity: 1;
+}
 .security-page .sec-detail {
   max-width: 900px;
   margin: 0 auto;
 }
 .security-page .sec-detail-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem; margin-bottom: 1.5rem;
+  display: flex; flex-direction: column;
+  gap: 1rem; margin-bottom: 1.5rem;
 }
 .security-page .sec-detail-section h5 {
   font-family: var(--font-serif); font-size: 0.85rem; text-transform: uppercase;
@@ -677,20 +683,8 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 @media (max-width: 640px) {
   .security-page .sec-table-wrap { border-left: none; border-right: none; }
   .security-page .sec-wave-items { padding-left: 1.5rem; }
-.security-page .sec-wave-item { grid-template-columns: 10px 1fr; }
-.security-page .sec-wave-item-org { grid-column: 1 / -1; padding-left: 1.5rem; }
-.security-page .sec-detail-grid { grid-template-columns: 1fr; }
-}
-
-@keyframes draw-stroke-line {
-  from { stroke-dashoffset: var(--stroke-length, 1000); }
-  to { stroke-dashoffset: 0; }
-}
-
-.draw-stroke-line {
-  stroke-dasharray: var(--stroke-length, 1000);
-  stroke-dashoffset: var(--stroke-length, 1000);
-  animation: draw-stroke-line 2s var(--ease-quart-in-out) forwards;
+  .security-page .sec-wave-item { grid-template-columns: 10px 1fr; }
+  .security-page .sec-wave-item-org { grid-column: 1 / -1; padding-left: 1.5rem; }
 }
 
 @keyframes blur-sharpen {
@@ -708,7 +702,7 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
 }
 .project-card-num {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(1.8rem, 4vw, 3rem);
   opacity: 0.4;
   transition: opacity 0.3s var(--ease-project);
   line-height: 1;
@@ -733,17 +727,121 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
   will-change: transform, opacity;
 }
 
-.timeline-track {
-  cursor: grab;
+.exp-archive-list {
+  max-width: 56rem;
 }
-.timeline-track:active {
-  cursor: grabbing;
+.exp-archive-row {
+  border-bottom: 1px solid var(--color-border);
 }
-.timeline-track > .exp-card {
-  transform: translateZ(0);
+.exp-archive-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.25rem 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  transition: background 0.2s;
 }
-.timeline-container:hover .timeline-marker {
-  z-index: 10;
+.exp-archive-btn:hover {
+  background: linear-gradient(90deg, var(--color-accent-08) 0%, transparent 60%);
+}
+.exp-archive-btn:hover .exp-archive-num {
+  opacity: 1;
+}
+.exp-archive-btn:hover .exp-archive-company {
+  color: var(--color-accent);
+}
+.exp-archive-num {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--color-accent);
+  opacity: 0.4;
+  line-height: 1;
+  min-width: 4ch;
+  transition: opacity 0.3s;
+}
+.exp-archive-company {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  flex: 1;
+  transition: color 0.3s;
+}
+.exp-archive-role-sep {
+  opacity: 0.5;
+}
+.exp-archive-role {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text-2);
+}
+.exp-archive-period {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-3);
+  white-space: nowrap;
+}
+.exp-archive-detail {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s, opacity 0.3s;
+}
+.exp-archive-detail.open {
+  max-height: 600px;
+  opacity: 1;
+}
+.exp-archive-detail-inner {
+  padding: 0 0 1.5rem calc(4ch + 1.5rem);
+}
+.exp-archive-current-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.15rem 0.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-accent-30);
+  color: var(--color-accent);
+}
+.exp-archive-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.exp-archive-highlight {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .exp-archive-btn {
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    padding: 1rem 0;
+  }
+  .exp-archive-num {
+    min-width: 3ch;
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+  .exp-archive-period {
+    margin-left: calc(3ch + 1rem);
+    width: calc(100% - 3ch - 1rem);
+  }
+  .exp-archive-detail-inner {
+    padding-left: calc(3ch + 1rem);
+  }
 }
 
 .cv-dropcap::first-letter {
