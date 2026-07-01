@@ -59,9 +59,9 @@ function NumberedGridCard({ proj, num }: { proj: Project; num: number }) {
             <span
               className="font-mono text-[9px] tracking-[0.1em] uppercase px-1.5 py-0.5"
               style={{
-                border: `1px solid rgba(${parseInt(proj.color.slice(1, 3), 16)},${parseInt(proj.color.slice(3, 5), 16)},${parseInt(proj.color.slice(5, 7), 16)},0.3)`,
-                color: proj.color,
-                backgroundColor: `rgba(${parseInt(proj.color.slice(1, 3), 16)},${parseInt(proj.color.slice(3, 5), 16)},${parseInt(proj.color.slice(5, 7), 16)},0.06)`,
+                border: "1px solid var(--color-accent-50)",
+                color: "var(--color-accent)",
+                backgroundColor: "var(--color-accent-08)",
               }}
             >
               {t({ pt: "Em andamento", en: "WIP" })}

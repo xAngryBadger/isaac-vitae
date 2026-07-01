@@ -304,7 +304,8 @@ forestai: "forestai",
             )}
           </div>
           <h1
-            className="font-serif font-bold leading-tight mb-4 text-h1"
+            className="font-serif font-bold leading-h1 tracking-h1 mb-4 text-h1"
+            style={{ letterSpacing: "var(--tracking-h1)" }}
           >
             <SplitText
               as="span"
