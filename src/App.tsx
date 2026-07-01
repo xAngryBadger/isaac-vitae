@@ -43,6 +43,7 @@ const RouteFallback = () => (
   </div>
 );
 import { LanguageProvider, useLang } from "./lib/LanguageContext";
+import { ThemeProvider } from "./lib/ThemeContext";
 import { useSounds } from "./lib/useSounds";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -194,8 +195,10 @@ function PageTransition({ children }: { children: React.ReactNode }) {
 
 export default function App() {
 return (
+<ThemeProvider>
 <LanguageProvider>
 <AppContent />
 </LanguageProvider>
+</ThemeProvider>
 );
 }

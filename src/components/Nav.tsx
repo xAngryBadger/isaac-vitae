@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Globe, Volume2, VolumeX } from "lucide-react";
 import { useLang } from "../lib/LanguageContext";
+import { useTheme } from "../lib/ThemeContext";
 import { useSounds } from "../lib/useSounds";
 import { personal } from "../data/content";
 import { DyslexiaToggle } from "./DyslexiaToggle";
@@ -26,8 +27,31 @@ export default function Nav() {
   const menuBackdropRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const { t, lang, toggle } = useLang();
+  const { theme, setTheme } = useTheme();
   const { enabled: soundsEnabled, playMenuOpen, playMenuClose, toggleSounds } = useSounds();
   const location = useLocation();
+  const [themeOpen, setThemeOpen] = useState(false);
+  const themeRef = useRef<HTMLDivElement>(null);
+
+  const themes = [
+    { id: "default", label: "Default", color: "#fe8019" },
+    { id: "noctalia", label: "Noctalia", color: "#fff59b" },
+    { id: "kanagawa", label: "Kanagawa", color: "#76946a" },
+    { id: "dragon", label: "Dragon", color: "#8a9a7b" },
+    { id: "adw", label: "ADW", color: "#3584e4" },
+    { id: "umbral", label: "Umbral", color: "#8b2e2e" },
+    { id: "hexa34c", label: "Hexa34C", color: "#9ad4a1" },
+  ] as const;
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (themeRef.current && !themeRef.current.contains(e.target as Node)) {
+        setThemeOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -129,6 +153,64 @@ export default function Nav() {
                 style={{ backgroundColor: "var(--color-text)", transform: menuOpen ? "translateY(-6px) rotate(-45deg)" : "none" }}
               />
             </button>
+
+            <div ref={themeRef} className="relative flex items-center">
+              <button
+                onClick={() => setThemeOpen((v) => !v)}
+                className="flex items-center gap-1.5 p-2 custom-cursor-target"
+                style={{ background: "none", border: "none", cursor: "pointer" }}
+                aria-label="Switch theme"
+              >
+                <span
+                  className="block w-2.5 h-2.5 rounded-full transition-transform duration-200"
+                  style={{
+                    backgroundColor: themes.find((t) => t.id === theme)?.color ?? "#fe8019",
+                    transform: themeOpen ? "scale(1.3)" : "scale(1)",
+                  }}
+                />
+                <span
+                  className="font-mono text-[10px] tracking-[0.15em] uppercase"
+                  style={{ color: "var(--color-text-3)" }}
+                >
+                  {theme === "default" ? "TH" : theme.slice(0, 2)}
+                </span>
+              </button>
+              {themeOpen && (
+                <div
+                  className="absolute right-0 top-full mt-1 z-[200] min-w-[140px]"
+                  style={{
+                    backgroundColor: "var(--color-bg-elevated)",
+                    border: "1px solid var(--color-border)",
+                    borderRadius: "4px",
+                    padding: "4px 0",
+                  }}
+                >
+                  {themes.map((th) => (
+                    <button
+                      key={th.id}
+                      onClick={() => { setTheme(th.id as typeof theme); setThemeOpen(false); }}
+                      className="flex items-center gap-2 w-full px-3 py-1.5 custom-cursor-target"
+                      style={{
+                        background: th.id === theme ? "var(--color-accent-08)" : "transparent",
+                        border: "none",
+                        cursor: "pointer",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "11px",
+                        color: th.id === theme ? "var(--color-accent)" : "var(--color-text-2)",
+                        letterSpacing: "0.05em",
+                        textAlign: "left",
+                      }}
+                    >
+                      <span
+                        className="block w-2 h-2 rounded-full flex-shrink-0"
+                        style={{ backgroundColor: th.color }}
+                      />
+                      {th.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <Link
               to="/"
