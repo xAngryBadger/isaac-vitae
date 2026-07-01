@@ -2019,59 +2019,78 @@ export const securityDisclosures: SecurityDisclosure[] = [
   {
     id: "montesantodeminas-mg",
     slug: "montesantodeminas-mg",
-    title: "Montesanto de Minas/MG Municipal Portal",
-    organization: b("Prefeitura de Montesanto de Minas", "Montesanto de Minas City Hall"),
+    title: "Monte Santo de Minas/MG FUNDEB Council Data",
+    organization: b("Prefeitura de Monte Santo de Minas", "Monte Santo de Minas City Hall"),
     vulnType: "Directory Listing",
     CWE: "CWE-548",
     status: "open",
     discoveryDate: "2026",
-    verifiedDate: "16/06/2026",
+    verifiedDate: "25/06/2026",
     description: b(
-      "Portal municipal com directory listing exposto. Dados administrativos acessíveis sem autenticação. Ainda sem correção.",
-      "Municipal portal with exposed directory listing. Administrative data accessible without authentication. Still open."
+      "Cartas de renúncia do Conselho FUNDEB com CPF expostas via directory listing no portal municipal. Reportado via CERT.br + CTIR Gov.",
+      "FUNDEB Council resignation letters with CPF exposed via directory listing on municipal portal. Reported via CERT.br + CTIR Gov."
     ),
     category: "gov",
     severity: "medium",
     hasCaseStudy: false,
-    lgpdArticles: ["Art. 5", "Art. 6 III"],
+    lgpdArticles: ["Art. 5", "Art. 11", "Art. 46"],
   },
   {
     id: "matinhos-pr",
     slug: "matinhos-pr",
-    title: "Matinhos/PR Municipal Portal",
+    title: "Matinhos/PR Multi-System Exposure",
     organization: b("Prefeitura de Matinhos", "Matinhos City Hall"),
-    vulnType: "Directory Listing",
+    vulnType: "Directory Listing + Health/Financial Data",
     CWE: "CWE-548",
     status: "open",
     discoveryDate: "2026",
-    verifiedDate: "16/06/2026",
+    verifiedDate: "25/06/2026",
     description: b(
-      "Portal municipal com directory listing exposto. Documentos administrativos acessíveis. Ainda sem correção.",
-      "Municipal portal with exposed directory listing. Administrative documents accessible. Still open."
+      "Múltiplos diretórios expostos com listas de espera SUS, dados financeiros municipais, RH, licitações e backup de infraestrutura de TI. Reportado via CERT.br + CTIR Gov.",
+      "Multiple exposed directories with SUS waitlists, municipal financial data, HR records, procurements and IT infrastructure backup. Reported via CERT.br + CTIR Gov."
     ),
     category: "gov",
-    severity: "medium",
+    severity: "critical",
     hasCaseStudy: false,
-    lgpdArticles: ["Art. 5", "Art. 6 III"],
+    lgpdArticles: ["Art. 5", "Art. 11", "Art. 46", "Art. 48"],
   },
   {
     id: "cruzilia-mg",
     slug: "cruzilia-mg",
-    title: "Cruzília/MG Municipal Portal",
+    title: "Cruzília/MG Transparency Portal API",
     organization: b("Prefeitura de Cruzília", "Cruzília City Hall"),
-    vulnType: "Directory Listing",
-    CWE: "CWE-548",
+    vulnType: "Excessive Data Exposure + Unauth API",
+    CWE: "CWE-200 + CWE-862",
     status: "open",
     discoveryDate: "2026",
-    verifiedDate: "16/06/2026",
+    verifiedDate: "25/06/2026",
     description: b(
-      "Portal municipal com directory listing exposto. Dados administrativos e financeiros acessíveis. Ainda sem correção.",
-      "Municipal portal with exposed directory listing. Administrative and financial data accessible. Still open."
+      "API JSON sem autenticação expondo ~2.800 registros de servidores com nome, CPF, cargo e salário. Portal da Transparência com dados excessivos violando princípios LGPD. Reportado via CERT.br + CTIR Gov.",
+      "Unauthenticated JSON API exposing ~2,800 employee records with name, CPF, role and salary. Transparency Portal with excessive data violating LGPD principles. Reported via CERT.br + CTIR Gov."
     ),
     category: "gov",
-    severity: "medium",
-    hasCaseStudy: false,
-    lgpdArticles: ["Art. 5", "Art. 6 III"],
+    severity: "high",
+    hasCaseStudy: true,
+    lgpdArticles: ["Art. 5", "Art. 6", "Art. 7", "Art. 11", "Art. 46", "Art. 48"],
+  },
+  {
+    id: "izirh-multivuln",
+    slug: "izirh-multivuln",
+    title: "IZI RH Platform: Multi-Vulnerability Chain",
+    organization: b("IZI RH (izirh.io)", "IZI RH (izirh.io)"),
+    vulnType: "Subdomain Takeover + Hardcoded Secrets + Production Debug",
+    CWE: "CWE-1188 + CWE-798 + CWE-829",
+    status: "open",
+    discoveryDate: "2026",
+    verifiedDate: "23/06/2026",
+    description: b(
+      "Análise estática de bundles JavaScript revelou 7 vulnerabilidades encadeáveis: Subdomain Takeover via CNAME dangling, client secret OAuth hardcodeado em bundle público, import-map-overrides ativo em produção e CSP permissivo. Chain permite Account Takeover e execução de código no contexto do domínio. Reportado via CERT.br — empresa não possuía canal de disclosure responsável.",
+      "Static analysis of JavaScript bundles revealed 7 chainable vulnerabilities: Subdomain Takeover via dangling CNAME, OAuth client secret hardcoded in public bundle, import-map-overrides enabled in production and permissive CSP. Chain allows Account Takeover and code execution in the domain context. Reported via CERT.br — company had no responsible disclosure channel."
+    ),
+    category: "platform",
+    severity: "critical",
+    hasCaseStudy: true,
+    lgpdArticles: ["Art. 46", "Art. 48"],
   },
 ];
 
@@ -2252,6 +2271,59 @@ export const securityCaseStudies: Record<string, SecurityCaseStudy> = {
       b("Plataforma serve páginas sem auth por default (opt-in para proteção)", "Platform serves pages without auth by default (opt-in for protection)"),
       b("PostgreSQL RLS bypassado quando auth.uid() = null", "PostgreSQL RLS bypassed when auth.uid() = null"),
       b("CWE-306 (Missing Authentication) como padrão de plataforma", "CWE-306 (Missing Authentication) as platform pattern"),
+    ],
+  },
+  "cruzilia-mg": {
+    challenge: b(
+      "Portal da Transparência de Cruzília/MG expunha API REST sem qualquer autenticação, retornando dados completos de servidores municipais incluindo CPF, cargo, lotação e remuneração. Dados de 14 meses (~2.800 registros) acessíveis via requisição HTTP simples.",
+      "Cruzília/MG Transparency Portal exposed a REST API without any authentication, returning complete municipal employee data including CPF, role, assignment and salary. 14 months of data (~2,800 records) accessible via simple HTTP request."
+    ),
+    approach: b(
+      "Reconhecimento passivo identificou parâmetro 'format=json' no portal da transparência. Verificação confirmou retorno de dados sem autenticação. Documentação dos headers e volume de dados expostos. Notificação via CERT.br + CTIR Gov simultaneamente.",
+      "Passive recon identified 'format=json' parameter in the transparency portal. Verification confirmed data returned without authentication. Documentation of headers and exposed data volume. Simultaneous notification via CERT.br + CTIR Gov."
+    ),
+    timeline: [
+      b("Descoberta: API JSON sem auth retornando dados de servidores", "Discovery: unauthenticated JSON API returning employee data"),
+      b("Documentação: headers, volume de dados, tipos de campo expostos", "Documentation: headers, data volume, exposed field types"),
+      b("Notificação: CERT.br + CTIR Gov simultâneo", "Notification: CERT.br + CTIR Gov simultaneous"),
+      b("Status: aguardando correção", "Status: awaiting fix"),
+    ],
+    impact: [
+      b("~2.800 registros de servidores públicos expostos sem autenticação", "~2,800 public employee records exposed without authentication"),
+      b("Violação de princípios LGPD: minimização, finalidade, segurança", "LGPD principle violations: minimization, purpose, security"),
+    ],
+    keyFindings: [
+      b("API sem auth em portal governamental municipal", "Unauthenticated API on municipal government portal"),
+      b("Exposição excessiva de dados pessoais (CPF, salário) em portal da transparência", "Excessive personal data exposure (CPF, salary) on transparency portal"),
+      b("CWE-200 + CWE-862 — informação sensível exposta + autorização ausente", "CWE-200 + CWE-862 — sensitive info exposed + missing authorization"),
+    ],
+  },
+  "izirh-multivuln": {
+    challenge: b(
+      "Plataforma IZI RH (izirh.io) apresentava múltiplas vulnerabilidades encadeáveis identificadas via análise estática de bundles JavaScript públicos. A combinação permitia comprometimento total de contas (ATO) e execução de código arbitrário no contexto dos subdomínios da plataforma. A empresa não possuía canal de disclosure responsável — o contato inicial via chat de suporte foi tratado como sugestão de rotina.",
+      "IZI RH platform (izirh.io) presented multiple chainable vulnerabilities identified via static analysis of public JavaScript bundles. The combination allowed full Account Takeover (ATO) and arbitrary code execution in the platform's subdomain context. The company had no responsible disclosure channel — initial contact via support chat was treated as a routine suggestion."
+    ),
+    approach: b(
+      "Análise exclusivamente passiva de bundles JavaScript públicos. Identificação de 7 falhas incluindo Subdomain Takeover via CNAME dangling, credenciais OAuth hardcodeadas, import-map-overrides ativo em produção e CSP permissivo. Documentação da chain de exploração sem execução ativa. Notificação via CERT.br como intermediário devido à ausência de canal de segurança da empresa.",
+      "Exclusively passive analysis of public JavaScript bundles. Identification of 7 flaws including Subdomain Takeover via dangling CNAME, hardcoded OAuth credentials, import-map-overrides enabled in production and permissive CSP. Exploitation chain documented without active execution. Notification via CERT.br as intermediary due to company's lack of security channel."
+    ),
+    timeline: [
+      b("Recon: análise estática de bundles JS públicos", "Recon: static analysis of public JS bundles"),
+      b("Identificação: 7 vulnerabilidades encadeáveis", "Identification: 7 chainable vulnerabilities"),
+      b("Tentativa de contato: chat de suporte — tratado como rotina", "Contact attempt: support chat — treated as routine"),
+      b("Notificação: CERT.br como intermediário", "Notification: CERT.br as intermediary"),
+      b("Status: aguardando correção", "Status: awaiting fix"),
+    ],
+    impact: [
+      b("Chain completa permite Account Takeover em contas de usuários", "Full chain allows Account Takeover on user accounts"),
+      b("Subdomain Takeover permite execução de código no contexto do domínio", "Subdomain Takeover allows code execution in domain context"),
+      b("Client secret OAuth exposto permite acesso não autorizado a APIs Google", "Exposed OAuth client secret allows unauthorized access to Google APIs"),
+    ],
+    keyFindings: [
+      b("V-001: Subdomain Takeover via CNAME dangling (CWE-1188, CVSS 9.1)", "V-001: Subdomain Takeover via dangling CNAME (CWE-1188, CVSS 9.1)"),
+      b("V-003: Google OAuth client secret hardcoded em bundle público (CWE-798, CVSS 8.1)", "V-003: Google OAuth client secret hardcoded in public bundle (CWE-798, CVSS 8.1)"),
+      b("V-006: import-map-overrides ativo em produção (CWE-829, CVSS 8.2)", "V-006: import-map-overrides enabled in production (CWE-829, CVSS 8.2)"),
+      b("Empresa sem canal de disclosure — CERT.br acionado como intermediário", "Company with no disclosure channel — CERT.br engaged as intermediary"),
     ],
   },
 };
