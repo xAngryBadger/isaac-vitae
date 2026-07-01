@@ -109,13 +109,13 @@ return (
             stagger={0.06}
             splitType="words"
           >
-            {personal.name.split(" ")[0]}
+            Portfolio
           </SplitText>
           <span 
             className="block font-serif font-bold leading-h1 tracking-h1 text-h1 italic text-text-2"
             style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}
           >
-            {personal.name.split(" ")[1] ?? ""}
+            {t({ pt: "Engenharia & Segurança", en: "Engineering & Security" })}
           </span>
         </div>
 

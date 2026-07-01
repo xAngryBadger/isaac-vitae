@@ -13,16 +13,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-sm tracking-[0.2em] uppercase" style={{ color: "var(--color-accent)" }}>
-              {personal.name.split(" ")[0]}.
-            </span>
-            <span className="w-px h-4" style={{ backgroundColor: "var(--color-border-2)" }} />
             <span className="font-mono text-xs" style={{ color: "var(--color-text-3)" }}>
               {t(personal.title)}
             </span>
           </div>
           <p className="font-mono text-xs text-center" style={{ color: "var(--color-text-3)" }}>
-            © {new Date().getFullYear()} {personal.name} — {t({ pt: "Feito com React, GSAP & Tailwind", en: "Built with React, GSAP & Tailwind" })}
+            © {new Date().getFullYear()} — {t({ pt: "React, GSAP & Tailwind", en: "React, GSAP & Tailwind" })}
           </p>
           <a
             href={`mailto:${personal.email}`}
