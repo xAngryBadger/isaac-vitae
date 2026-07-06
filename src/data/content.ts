@@ -38,7 +38,7 @@ export const personal = {
     "Computer Engineer (5th semester) — building end-to-end products"
   ),
   bio: b(
-    "Engenheiro de Computação (5º período) com trajetória prática em desenvolvimento Full-Stack, Mobile e orquestração de IA. Construo produtos de ponta a ponta — de apps offline-first em Flutter para operações florestais de campo até motores de otimização logística com FastAPI e pandas. Migrei +500 GB de dados legados para Azure Cosmos DB em produção internacional. Arquitetei pipelines agentic com 9+ modelos de IA (GPT-4.1, Flux, DALL-E 3, Sora, Veo). Na pesquisa independente de segurança, reportei 20+ vulnerabilidades em infraestrutura governamental brasileira com 5 correções confirmadas via CERT.br/CTIR Gov. Aprendo resolvendo problemas de produção sob restrições severas — não seguindo tutoriais.",
+    "Engenheiro de Computação (5º período) com trajetória prática em desenvolvimento Full-Stack, Mobile e orquestração de IA. Construo produtos de ponta a ponta — de apps com suporte offline em Flutter para operações florestais de campo até motores de otimização logística com FastAPI e pandas. Migrei +500 GB de dados legados para Azure Cosmos DB em produção internacional. Arquitetei pipelines orquestrados por agentes com 9+ modelos de IA (GPT-4.1, Flux, DALL-E 3, Sora, Veo). Na pesquisa independente de segurança, reportei 20+ vulnerabilidades em infraestrutura governamental brasileira com 5 correções confirmadas via CERT.br/CTIR Gov. Aprendo resolvendo problemas de produção sob restrições severas — não seguindo tutoriais.",
     "Computer Engineer (5th semester) with hands-on experience in Full-Stack, Mobile development, and AI orchestration. Building end-to-end products — from offline-first Flutter apps for field forestry operations to logistics optimization engines with FastAPI and pandas. Migrated +500 GB of legacy data to Azure Cosmos DB in international production. Architected agentic pipelines with 9+ AI models (GPT-4.1, Flux, DALL-E 3, Sora, Veo). In independent security research, reported 20+ vulnerabilities in Brazilian government infrastructure with 5 fixes confirmed via CERT.br/CTIR Gov. I learn by solving production problems under severe constraints — not by following tutorials."
   ),
   bioExtended: b(
@@ -59,12 +59,12 @@ b(
       "Product Vision (Full Stack): Ability to deliver solutions from scratch — from React/TypeScript frontends to real-time IoT device integration."
     ),
     b(
-      "Diferenciais Técnicos: Usuário avançado de Linux (CachyOS/Hyprland com customização própria), deploy local de modelos (Ollama) e estruturação de dados complexos em JSON para integrações limpas.",
+      "Diferenciais Técnicos: Usuário avançado de Linux (CachyOS/Hyprland com personalização própria), deploy local de modelos (Ollama) e estruturação de dados complexos em JSON para integrações limpas.",
       "Technical Differentiators: Advanced Linux user (CachyOS/Hyprland with custom setup), local model deployment (Ollama), and complex JSON data structuring for clean integrations."
     ),
   ],
   bioPersonal: b(
-    "Fora do Terminal: Usuário avançado de Linux com ambiente customizado (CachyOS/Hyprland). Fora do código, valorizo momentos de descanso e atividades ao ar livre.",
+    "Fora do Terminal: Usuário avançado de Linux com ambiente personalizado (CachyOS/Hyprland). Fora do código, valorizo momentos de descanso e atividades ao ar livre.",
     "Outside the Terminal: Advanced Linux user with custom environment (CachyOS/Hyprland). Outside of code, I value moments of rest and outdoor activities."
   ),
   email: "isaacnathandasilva@gmail.com",
@@ -89,7 +89,7 @@ export const experiences: Experience[] = [
         "Lead developer and architect of end-to-end solutions for forest inventory and logistics operations."
       ),
       b(
-        "Construção e deploy do Urutau — app Flutter offline-first com motor de sincronização custom, operando em áreas sem cobertura de rede.",
+        "Construção e deploy do Urutau — app Flutter com suporte offline com motor de sincronização personalizado, operando em áreas sem cobertura de rede.",
         "Built and deployed Urutau — Flutter offline-first app with custom sync engine, operating in no-coverage areas."
       ),
       b(
@@ -97,7 +97,7 @@ export const experiences: Experience[] = [
         "Developed Orca — operational planning engine (Python/FastAPI) for large-scale forest restoration, with automatic executive dossier generation, team allocation and optimized schedules."
       ),
       b(
-        "Painéis administrativos React/TS com auth, relatórios e exportação multi-formato (XLSX, PDF, CSV).",
+        "Painéis administrativos React/TS com autenticação, relatórios e exportação multi-formato (XLSX, PDF, CSV).",
         "React/TS admin panels with auth, reports and multi-format export (XLSX, PDF, CSV)."
       ),
     ],
@@ -118,11 +118,11 @@ export const experiences: Experience[] = [
         "Architected AI-driven creative pipelines leveraging GPT-4.1, DALL-E 3, and Flux to automate creative asset generation."
       ),
       b(
-        "Construí infraestrutura de chatbot cross-platform (iOS/Android) com roteamento de intenção context-aware.",
+        "Construí infraestrutura de chatbot multiplataforma (iOS/Android) com roteamento de intenção sensível ao contexto.",
         "Developed cross-platform chatbot infrastructure optimized for iOS and Android, featuring context-aware intent routing."
       ),
       b(
-        "Engenhei pipelines de parsing de PDF otimizados para ingestão por LLM, com tradução/transcrição em espanhol e português.",
+        "Projetei pipelines de parsing de PDF otimizados para ingestão por LLM, com tradução/transcrição em espanhol e português.",
         "Engineered PDF parsing pipelines optimized for LLM ingestion, enabling accurate translation and transcription into Spanish and Portuguese."
       ),
       b(
@@ -142,11 +142,11 @@ export const experiences: Experience[] = [
         "Migrated +500 GB legacy data (Meritage Homes, USA) to Azure Cosmos DB — automated extraction pipeline, strict schema validation and auto rollback, zero downtime."
       ),
       b(
-        "Resolvi inconsistências cross-platform de MIME types (Android nativo vs iOS octet-stream), criando camada de abstração que eliminou falhas de ingestão no Cosmos DB.",
+        "Resolvi inconsistências multiplataforma de MIME types (Android nativo vs iOS octet-stream), criando camada de abstração que eliminou falhas de ingestão no Cosmos DB.",
         "Resolved cross-platform MIME type inconsistencies (Android native vs iOS octet-stream), creating abstraction layer that eliminated Cosmos DB ingestion failures."
       ),
       b(
-        "Arquitetei pipeline assíncrono de geração de mídia (HelloSocial) — orquestração de GPT-4.1, Flux Kontext Pro, DALL-E 3 e APIs de design (Canva/Placid) com fallback para SQLite + PIL local.",
+        "Arquitetei pipeline assíncrono de geração de mídia (HelloSocial) — orquestração de GPT-4.1, Flux Kontext Pro, DALL-E 3 e APIs de design (Canva/Placid) com alternativa em SQLite + PIL local.",
         "Architected async media generation pipeline (HelloSocial) — orchestration of GPT-4.1, Flux Kontext Pro, DALL-E 3 and design APIs (Canva/Placid) with local SQLite + PIL fallback."
       ),
     ],
@@ -162,7 +162,7 @@ export const experiences: Experience[] = [
         "20+ vulnerabilities reported in Brazilian government/sectoral infrastructure — 5 fixes confirmed via CERT.br/CTIR Gov. Three disclosure waves (Mar–Jun 2026)."
       ),
       b(
-        "Takedown de infraestrutura de phishing Microsoft/OneDrive. Pipeline de engenharia reversa: decodificação Base91 customizada (3 alfabetos, 176 strings) → extração de IOCs → report CERT.br/Cloudflare.",
+        "Derrubada de infraestrutura de phishing Microsoft/OneDrive. Pipeline de engenharia reversa: decodificação Base91 personalizada (3 alfabetos, 176 cadeias de caracteres) → extração de IOCs → relatório para CERT.br/Cloudflare.",
         "Microsoft/OneDrive phishing infrastructure takedown. Reverse engineering pipeline: custom Base91 decoding (3 alphabets, 176 strings) → IOC extraction → CERT.br/Cloudflare report."
       ),
     ],
@@ -327,7 +327,7 @@ export const projects: Project[] = [
     year: "2026",
     category: b("Segurança · Threat Intel · Responsible Disclosure", "Security · Threat Intel · Responsible Disclosure"),
     description: b(
-      "20+ vulnerabilidades em infraestrutura governamental/setorial brasileira — 5 fixes confirmados via CERT.br/CTIR Gov (Mar–Jun 2026). 3 ondas de divulgação responsável: zero retenção, notificação multi-canal (CERT.br + CTIR Gov + direto), verificação pós-fix. Takedown de phishing Microsoft/OneDrive origin (procorereviews.com) via flood controlado, infra rotacionada mapeada. Pipeline Threat Intel custom: Browser → JS download → Custom Base91 decoder (3 alfabetos, 176 strings) → IOC extraction → CERT.br/Cloudflare report.",
+      "20+ vulnerabilidades em infraestrutura governamental/setorial brasileira — 5 correções confirmadas via CERT.br/CTIR Gov (Mar–Jun 2026). 3 ondas de divulgação responsável: zero retenção, notificação multi-canal (CERT.br + CTIR Gov + direto), verificação pós-correção. Derrubada de phishing Microsoft/OneDrive origin (procorereviews.com) via flood controlado, infra rotacionada mapeada. Pipeline personalizado de Threat Intel: Navegador → download JS → decodificador Base91 personalizado (3 alfabetos, 176 strings) → extração de IOCs → relatório para CERT.br/Cloudflare.",
       "20+ vulnerabilities in Brazilian government/sector infrastructure — 5 fixes confirmed via CERT.br/CTIR Gov (Mar–Jun 2026). 3 responsible disclosure waves: zero retention, multi-channel notification (CERT.br + CTIR Gov + direct), post-fix verification. Microsoft/OneDrive phishing origin takedown (procorereviews.com) via controlled flood, rotated infrastructure mapped. Custom Threat Intel pipeline: Browser → JS download → Custom Base91 decoder (3 unique alphabets, 176 strings) → IOC extraction → CERT.br/Cloudflare report."
     ),
     tech: ["OSINT", "Nmap", "Burp Suite", "Shodan", "Base91 Decoder", "CERT.br / CTIR Gov", "LGPD", "NIST CSF"],
@@ -345,7 +345,7 @@ export const projects: Project[] = [
     year: "2026",
     category: b("IA Criativa · Automação · Multi-Modelo", "Creative AI · Automation · Multi-Model"),
     description: b(
-"Motor de automação criativa com 7+ modelos de IA (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext Pro, Nano Banana (Gemini), Sora, Veo 3.1). Pipeline orquestrado por LLM: copywriting, busca de imagens, composição de designs e geração de vídeo. Stack leve por padrão (SQLite + PIL local), com fallback para APIs pagas quando necessário.",
+"Motor de automação criativa com 7+ modelos de IA (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext Pro, Nano Banana (Gemini), Sora, Veo 3.1). Pipeline orquestrado por LLM: redação publicitária, busca de imagens, composição de designs e geração de vídeo. Stack leve por padrão (SQLite + PIL local), com alternativa em APIs pagas quando necessário.",
   "Creative automation engine with 7+ AI models (GPT-4.1, DALL-E 3, Flux 1.1/2.0/Kontext Pro, Nano Banana (Gemini), Sora, Veo 3.1). LLM-orchestrated pipeline: copywriting, image search, design compositing, and video generation. Lightweight stack by default (SQLite + local PIL), with fallback to paid APIs when needed."
     ),
     tech: ["Python", "GPT-4.1", "DALL-E 3", "Flux 2.0 Pro", "Sora", "Veo 3.1", "Pillow", "aiohttp", "SQLite", "Azure Cosmos DB"],
@@ -363,7 +363,7 @@ export const projects: Project[] = [
     year: "2026",
     category: b("Motor de Planejamento · Floresta · Logística", "Planning Engine · Forestry · Logistics"),
     description: b(
-"Motor de planejamento operacional para restauração florestal em larga escala. Gera dossiês executivos, cronogramas de atividades, gerência tarifas/equipes/territórios. Interface FastAPI + Jinja2 + CLI.",
+"Motor de planejamento operacional para restauração florestal em larga escala. Gera dossiês executivos, cronogramas de atividades, gerencia tarifas/equipes/territórios. Interface FastAPI + Jinja2 + CLI.",
   "Operational planning engine for large-scale forest restoration. Generates executive dossiers, activity schedules, manages tariffs/crews/territories. FastAPI + Jinja2 + CLI interface."
     ),
     tech: ["Python 3.10+", "pandas", "openpyxl", "FastAPI", "Jinja2", "Rich", "unittest"],
@@ -381,7 +381,7 @@ export const projects: Project[] = [
     year: "2026",
     category: b("Mobile · Offline-First · Flutter + React", "Mobile · Offline-First · Flutter + React"),
     description: b(
-"App mobile para inventário florestal offline-first (Urutau) com serviço de sync custom (detecção de conflitos com resolução manual, rollback transacional em caso de falha, UUID remapping). Painel admin React com exportação XLSX/PDF/CSV — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente.",
+"App mobile para inventário florestal com suporte offline (Urutau) com serviço de sincronização personalizado (detecção de conflitos com resolução manual, rollback transacional em caso de falha, remapeamento de UUID). Painel admin React com exportação XLSX/PDF/CSV — arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente.",
   "Offline-first forest inventory mobile app (Urutau) with custom sync service (conflict detection with manual resolution, transactional rollback on failure, UUID remapping). React admin panel with XLSX/PDF/CSV export — architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed."
     ),
     tech: ["Flutter", "Dart", "Drift / SQLite", "PocketBase", "React", "Vite", "Provider", "Workmanager"],
@@ -417,7 +417,7 @@ export const projects: Project[] = [
     year: "2026",
     category: b("Web · Frontend Premium · React 19", "Web · Premium Frontend · React 19"),
     description: b(
-      "Site profissional para empresa de engenharia florestal. React 19 + Motion + Lenis com parallax, scroll suave, formulários animados e multi-página com transições cinematográficas.",
+      "Site profissional para empresa de engenharia florestal. React 19 + Motion + Lenis com parallax, rolagem suave, formulários animados e multi-página com transições cinematográficas.",
       "Professional website for a forestry engineering company. React 19 + Motion + Lenis with parallax, smooth scroll, animated forms, and multi-page with cinematic transitions."
     ),
     tech: ["React 19", "Motion (Framer Motion)", "Lenis", "Tailwind CSS v4", "TypeScript", "Vite 6"],
@@ -435,7 +435,7 @@ export const projects: Project[] = [
     year: "2026",
     category: b("IoT · Pagamentos · Full-Stack", "IoT · Payments · Full-Stack"),
     description: b(
-      "Sistema de gestão de posto de água com controle remoto de válvula via relé WiFi Refoss R11. Integração PIX iniciada (~80% completo). Projeto descontinuado por falta de pagamento do comitente.",
+      "Sistema de gestão de posto de água com controle remoto de válvula via relé WiFi Refoss R11. Integração PIX iniciada (~80% completa). Projeto descontinuado por falta de pagamento do comitente.",
       "Water station management system with remote valve control via Refoss R11 WiFi relay. PIX integration started (~80% complete). Project discontinued due to non-payment."
     ),
     tech: ["Python", "FastAPI", "Azure Cosmos DB", "React", "TypeScript", "Docker"],
@@ -469,7 +469,7 @@ export const projects: Project[] = [
     year: "2026",
     category: b("IA · Jogos · LLM + RL", "AI · Gaming · LLM + RL"),
     description: b(
-      "Bot de Minecraft com comandos em linguagem natural via LLM (NVIDIA NIM). Minerar, construir, seguir, navegar e interagir pelo chat. Módulo de reinforcement learning para comportamento autônomo.",
+      "Bot de Minecraft com comandos em linguagem natural via LLM (NVIDIA NIM). Minerar, construir, seguir, navegar e interagir pelo chat. Módulo de aprendizado por reforço para comportamento autônomo.",
       "Minecraft bot with natural language commands via LLM (NVIDIA NIM). Mine, craft, follow, navigate, and interact via chat. Reinforcement learning module for autonomous behavior."
     ),
     tech: ["Node.js", "mineflayer", "NVIDIA NIM API", "Reinforcement Learning", "pathfinder"],
@@ -503,7 +503,7 @@ export const projects: Project[] = [
   year: "2024",
   category: b("IA · Visão Computacional · PyTorch", "AI · Computer Vision · PyTorch"),
   description: b(
-"Detecção e classificação de espécies florestais com Deep Learning. Pipeline completo: anotação manual de imagens de drone, treinamento DeepForest em GPU local, splits estratificadas. Construído do zero sem IA-assisted coding.",
+"Detecção e classificação de espécies florestais com Deep Learning. Pipeline completo: anotação manual de imagens de drone, treinamento DeepForest em GPU local, divisões estratificadas. Construído do zero sem codificação assistida por IA.",
   "Forest species detection and classification with Deep Learning. Full pipeline: manual annotation of drone imagery, DeepForest training on local GPU, stratified splits. Built from scratch without AI-assisted coding."
 ),
 tech: ["Python", "PyTorch", "DeepForest", "OpenCV", "scikit-learn", "TensorBoard"],
@@ -638,7 +638,7 @@ playground: true,
     year: "2026",
     category: b("Web · Ferramenta · Markdown → PDF", "Web · Tool · Markdown to PDF"),
     description: b(
-"Conversor Markdown → PDF com preview live split-pane e renderização WeasyPrint profissional. Backend FastAPI com CSS Paged Media (@page, headers/footers), cloudflared para túnel serverless gratuito via Google Colab. Paleta ink/ivory com acentos dourados.",
+"Conversor Markdown → PDF com visualização em tempo real com painel dividido e renderização WeasyPrint profissional. Backend FastAPI com CSS Paged Media (@page, headers/footers), cloudflared para túnel serverless gratuito via Google Colab. Paleta ink/ivory com acentos dourados.",
        "Markdown → PDF converter with live split-pane preview and professional WeasyPrint rendering. FastAPI backend with CSS Paged Media (@page, headers/footers), cloudflared for free serverless tunneling via Google Colab. Ink/ivory palette with golden accents."
     ),
     tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "WeasyPrint", "cloudflared"],
@@ -658,7 +658,7 @@ playground: true,
     year: "2026",
     category: b("Web · Ferramenta · Geração de Currículo", "Web · Tool · Resume Generation"),
     description: b(
-"Gerador de currículo com formulários estruturados, 3 estilos de template e exportação PDF server-side. Backend FastAPI + reportlab para geração de PDF limpo, sem marca d'água. Paleta sage green com tipografia editorial. Suporte bilíngue (pt/en).",
+"Gerador de currículo com formulários estruturados, 3 estilos de modelo e exportação PDF no lado do servidor. Backend FastAPI + reportlab para geração de PDF limpo, sem marca d'água. Paleta verde-sálvia com tipografia editorial. Suporte bilíngue (pt/en).",
        "Resume generator with structured forms, 3 template styles and server-side PDF export. FastAPI + reportlab backend for clean PDF generation, no watermark. Sage green palette with editorial typography. Bilingual support (pt/en)."
     ),
 tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "FastAPI", "reportlab"],
@@ -746,7 +746,7 @@ export const stats = [
 ];
 
 export const cvSummary: Bilingual = b(
-"Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 meses de experiência profissional. De Química Industrial para Computação: construí o ForestAI do zero (Stack Overflow + Thonny, sem IA-assisted coding). Na Paware, migrei centenas de GB para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines orquestrados por LLM para o HelloSocial (GPT-4.1, DALL-E 3, Flux). Aprendo resolvendo problemas reais — de MIME type cross-platform a agentes ReAct com schema enforcement.",
+"Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 meses de experiência profissional. De Química Industrial para Computação: construí o ForestAI do zero (Stack Overflow + Thonny, sem codificação assistida por IA). Na Paware, migrei centenas de GB para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines orquestrados por LLM para o HelloSocial (GPT-4.1, DALL-E 3, Flux). Aprendo resolvendo problemas reais — de MIME type multiplataforma a agentes ReAct com schema enforcement.",
   "Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 months of professional experience. From Industrial Chemistry to Computer Engineering: built ForestAI from scratch (Stack Overflow + Thonny, no AI-assisted coding). At Paware, migrated hundreds of GB to Azure Cosmos DB (Meritage Homes, USA) and architected LLM-orchestrated pipelines for HelloSocial (GPT-4.1, DALL-E 3, Flux). I learn by solving real problems — from cross-platform MIME types to ReAct agents with schema enforcement."
 );
 
@@ -767,11 +767,11 @@ export const cvProjects: CvProject[] = [
     tier: 1,
     bullets: [
       b(
-        "App Flutter offline-first para inventário florestal (Urutau) com serviço de sync custom — remapping de UUIDs em cascata pelas tabelas relacionadas e rollback transacional em caso de falha.",
+        "App Flutter com suporte offline para inventário florestal (Urutau) com serviço de sincronização personalizado — remapeamento de UUIDs em cascata pelas tabelas relacionadas e rollback transacional em caso de falha.",
         "Flutter offline-first app for forest inventory (Urutau) with custom sync service — cascading UUID remapping across related tables and transactional rollback on failure."
       ),
       b(
-        "Arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente. Painel admin React com auth, fotos, relatórios e exportação XLSX/PDF/CSV.",
+        "Arquitetura e lógica de sync construídas do zero; código gerado com apoio de LLM (web) e revisado manualmente. Painel admin React com autenticação, fotos, relatórios e exportação XLSX/PDF/CSV.",
         "Architecture and sync logic built from scratch; code generated with LLM assistance (web) and manually reviewed. React admin panel with auth, photos, reports, and XLSX/PDF/CSV export."
       ),
       b(
@@ -805,11 +805,11 @@ export const cvProjects: CvProject[] = [
     tier: 1,
     bullets: [
       b(
-        "Motor de automação criativa com 9+ modelos de IA (GPT-4.1, Flux, DALL-E 3, Sora, Veo, Nano Banana) — pipeline orquestrado por LLM multi-etapa: copywriting, busca de imagens, composição de designs, geração de vídeo.",
+        "Motor de automação criativa com 9+ modelos de IA (GPT-4.1, Flux, DALL-E 3, Sora, Veo, Nano Banana) — pipeline orquestrado por LLM multi-etapa: redação publicitária, busca de imagens, composição de designs, geração de vídeo.",
         "Creative automation engine with 9+ AI models (GPT-4.1, Flux, DALL-E 3, Sora, Veo, Nano Banana) — multi-model pipeline with GPT-4.1: copywriting, image search, design compositing, video generation."
       ),
       b(
-        "Stack leve por padrão (SQLite + PIL local) com fallback para APIs pagas. Backend swap: SQLite local para Azure Cosmos DB + Blob Storage, alternado via env var. Pronto para cron com file-locking e recuperação de lotes travados.",
+        "Stack leve por padrão (SQLite + PIL local) com alternativa em APIs pagas. Backend swap: SQLite local para Azure Cosmos DB + Blob Storage, alternado via env var. Pronto para cron com file-locking e recuperação de lotes travados.",
         "Lightweight stack by default (SQLite + local PIL) with fallback to paid APIs. Backend swap: local SQLite to Azure Cosmos DB + Blob Storage, toggled via env var. Cron-ready with file-locking and stuck batch recovery."
       ),
     ],
@@ -822,11 +822,11 @@ export const cvProjects: CvProject[] = [
     tier: 1,
     bullets: [
       b(
-        "Detecção e classificação de espécies florestais com Deep Learning — construído do zero sem IA-assisted coding. Stack Overflow + Thonny IDE apenas.",
+        "Detecção e classificação de espécies florestais com Deep Learning — construído do zero sem codificação assistida por IA. Stack Overflow + Thonny IDE apenas.",
         "Forest species detection and classification with Deep Learning — built from scratch without AI-assisted coding. Stack Overflow + Thonny IDE only."
       ),
       b(
-        "Anotação manual de imagens de drone da Fundação Renova (bounding boxes), treinamento DeepForest em GPU local, splits estratificadas. Interpretação de curvas no TensorBoard — detectando memorização vs generalização. O jeito difícil construiu a intuição que fez cada framework subsequente clicar mais rápido.",
+        "Anotação manual de imagens de drone da Fundação Renova (bounding boxes), treinamento DeepForest em GPU local, divisões estratificadas. Interpretação de curvas no TensorBoard — detectando memorização vs generalização. O jeito difícil construiu a intuição que fez cada framework subsequente clicar mais rápido.",
         "Manual annotation of drone images from Fundação Renova (bounding boxes), DeepForest training on local GPU, stratified splits. TensorBoard curve interpretation — detecting memorization vs generalization. The hard way built the intuition that made every subsequent framework click faster."
       ),
     ],
@@ -839,15 +839,15 @@ export const cvProjects: CvProject[] = [
     tier: 1,
     bullets: [
       b(
-        "20+ vulnerabilidades em infraestrutura governamental/setorial brasileira — 5 correções confirmadas via CERT.br/CTIR Gov (Mar–Jun 2026). Três ondas de divulgação responsável: zero retenção, notificação multi-canal, verificação pós-fix.",
+        "20+ vulnerabilidades em infraestrutura governamental/setorial brasileira — 5 correções confirmadas via CERT.br/CTIR Gov (Mar–Jun 2026). Três ondas de divulgação responsável: zero retenção, notificação multi-canal, verificação pós-correção.",
         "20+ vulnerabilities in Brazilian government/sector infrastructure — 5 fixes confirmed via CERT.br/CTIR Gov (Mar–Jun 2026). Three responsible disclosure waves: zero retention, multi-channel notification, post-fix verification."
       ),
       b(
-        "Takedown de phishing Microsoft/OneDrive: origin server (procorereviews.com) derrubado via flood controlado (~10k requests, HTTP 521 sustentado). Infra rotacionada mapeada, IOCs extraídos, reportada ao CERT.br/Cloudflare.",
+        "Derrubada de phishing Microsoft/OneDrive: origin server (procorereviews.com) derrubado via flood controlado (~10k requests, HTTP 521 sustentado). Infra rotacionada mapeada, IOCs extraídos, reportada ao CERT.br/Cloudflare.",
         "Microsoft/OneDrive phishing takedown: origin server (procorereviews.com) toppled via controlled flood (~10k requests, sustained HTTP 521). Rotated infrastructure mapped, IOCs extracted, reported to CERT.br/Cloudflare."
       ),
       b(
-        "Pipeline Threat Intel custom: Browser → JS download → Custom Base91 decoder (3 alfabetos, 176 strings) → IOC extraction (PageConfig, tokens, OneDrive redirect) → CERT.br/Cloudflare report.",
+        "Pipeline personalizado de Threat Intel: Navegador → download JS → decodificador Base91 personalizado (3 alfabetos, 176 strings) → extração de IOCs (PageConfig, tokens, OneDrive redirect) → relatório para CERT.br/Cloudflare.",
         "Custom Threat Intel pipeline: Browser → JS download → Custom Base91 decoder (3 unique alphabets, 176 strings) → IOC extraction (PageConfig, tokens, OneDrive redirect) → CERT.br/Cloudflare report."
       ),
     ],
@@ -884,7 +884,7 @@ export const caseStudies: Record<string, {
   "LLM-orchestrated pipeline with model-per-task: GPT-4.1 for copy and orchestration, Flux for image generation with consistent visual identity, DALL-E 3 when the prompt requires free composition. Local PIL compositor as default lightweight stack (zero API cost) — only triggers paid APIs when the template requires rendering that PIL can't handle. Dual backend: local SQLite for development and personal use, Azure Cosmos DB + Blob Storage for scale."
     ),
     results: [
-      b("Pipeline completo: copywriting → busca de imagens → composição → output final em ~30s por asset", "Full pipeline: copywriting → image search → composition → final output in ~30s per asset"),
+      b("Pipeline completo: redação publicitária → busca de imagens → composição → resultado final em ~30s por asset", "Full pipeline: copywriting → image search → composition → final output in ~30s per asset"),
       b("Stack leve por padrão (SQLite + PIL local) — APIs pagas apenas para composições que PIL não resolve", "Lightweight stack by default (SQLite + local PIL) — paid APIs only for compositions PIL can't handle"),
       b("Agente GPT-4.1 com schema enforcement: resposta fora do formato = rejeição automática, não crash", "GPT-4.1 agent with schema enforcement: response outside format = auto-rejection, not crash"),
       b("Backend swap via env var: SQLite local ↔ Azure Cosmos DB + Blob Storage, zero mudança de código", "Backend swap via env var: local SQLite ↔ Azure Cosmos DB + Blob Storage, zero code changes"),
@@ -893,7 +893,7 @@ export const caseStudies: Record<string, {
     keyFeatures: [
       b("Multi-modelo por tarefa: Flux (identidade visual), DALL-E 3 (composição livre), Sora/Veo (vídeo)", "Multi-model per task: Flux (visual identity), DALL-E 3 (free composition), Sora/Veo (video)"),
       b("Compositor PIL: 8 templates de layout, brand colors, badges — zero custo quando suficiente", "PIL compositor: 8 layout templates, brand colors, badges — zero cost when sufficient"),
-      b("APIs de design como fallback: Placid, Templated.io, Canva Connect (quando PIL não basta)", "Design APIs as fallback: Placid, Templated.io, Canva Connect (when PIL isn't enough)"),
+      b("APIs de design como alternativa: Placid, Templated.io, Canva Connect (quando PIL não basta)", "Design APIs as fallback: Placid, Templated.io, Canva Connect (when PIL isn't enough)"),
       b("Segurança: testes de validação de secrets, env-based config, sem credenciais hardcoded", "Security: secret validation tests, env-based config, no hardcoded credentials"),
     ],
     codeSnippets: [
@@ -1007,7 +1007,7 @@ def plan(input_path: str, output_dir: str = "./output"):
       "Forest inventory in the field requires an app that works without internet for days, syncs when connected, and resolves conflicts between simultaneous edits from field agents and office managers. Firebase/Supabase require connectivity; generic collection apps don't model the forest hierarchy (Propriedade > UT > Parcela > Planta > Foto)."
     ),
     approach: b(
-"App Flutter offline-first com Drift/SQLite local e serviço de sync custom (arquitetura e lógica de conflito desenhados manualmente — UI e boilerplate com apoio de LLM e revisão humana). UUID remapping para conciliar IDs cliente-servidor com remapping em cascata pelas tabelas relacionadas. PocketBase como backend leve (deploy simples, sem vendor lock-in). Painel admin React para gestão centralizada.",
+"App Flutter com suporte offline com Drift/SQLite local e serviço de sincronização personalizado (arquitetura e lógica de conflito desenhados manualmente — UI e boilerplate com apoio de LLM e revisão humana). Remapeamento de UUID para conciliar IDs cliente-servidor com remapeamento em cascata pelas tabelas relacionadas. PocketBase como backend leve (deploy simples, sem vendor lock-in). Painel admin React para gestão centralizada.",
   "Flutter offline-first app with local Drift/SQLite and custom sync service (architecture and conflict logic hand-designed — UI and boilerplate LLM-assisted with human review). UUID remapping to reconcile client-server IDs with cascading remapping across related tables. PocketBase as lightweight backend (simple deploy, no vendor lock-in). React admin panel for centralized management."
     ),
     results: [
@@ -1017,7 +1017,7 @@ def plan(input_path: str, output_dir: str = "./output"):
   "Cascading UUID remapping across related tables: Propriedade → UT → Parcela → Planta → Foto (5 FK levels)"),
       b("Exportação XLSX/PDF com filtragem por usuário e data", "XLSX/PDF export with user and date filtering"),
       b("Modo alto contraste para uso em campo com sol direto", "High contrast mode for field use in direct sunlight"),
-      b("Painel admin React com auth, fotos, relatórios e exportação", "React admin panel with auth, photos, reports, and export"),
+      b("Painel admin React com autenticação, fotos, relatórios e exportação", "React admin panel with auth, photos, reports, and export"),
     ],
     keyFeatures: [
       b("5-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto — cascading UUID remapping", "5-tier hierarchy: Propriedade > UT > Parcela > Planta > Foto — cascading UUID remapping"),
@@ -1090,7 +1090,7 @@ gallery: [
   },
   "fennec-excel": {
     challenge: b(
-      "Usuários de Excel precisam ir além de filtro e ordenação — 'quais vendedores ficaram abaixo da meta no trimestre?' exige multi-col filter + formatação condicional que usuários não sabem construir. Copilot requer nuvem e assinatura; Fennec roda IA local (Ollama) com zero custo de API e zero dado na nuvem.",
+      "Usuários de Excel precisam ir além de filtro e ordenação — 'quais vendedores ficaram abaixo da meta no trimestre?' exige filtro multi-coluna + formatação condicional que usuários não sabem construir. Copilot requer nuvem e assinatura; Fennec roda IA local (Ollama) com zero custo de API e zero dados na nuvem.",
       "Excel users need to go beyond filter and sort — 'which sales reps missed Q3 targets?' requires multi-column filter + conditional formatting that users can't build. Copilot requires cloud and subscription; Fennec runs local AI (Ollama) with zero API cost and zero cloud data."
     ),
     approach: b(
@@ -1107,7 +1107,7 @@ gallery: [
     keyFeatures: [
       b("IA local via Ollama (qwen2.5) — sem API, sem nuvem, sem custo por uso", "Local AI via Ollama (qwen2.5) — no API, no cloud, no per-use cost"),
       b("xlwings / COM: manipula Excel ativo (não gera arquivo novo) — o que o usuário vê é o que o agente modificou", "xlwings / COM: manipulates live Excel (not generating new file) — what the user sees is what the agent changed"),
-      b("Interface bilíngue (PT/EN) com tema claro customizado e mascote Fennec", "Bilingual interface (PT/EN) with custom light theme and Fennec mascot"),
+      b("Interface bilíngue (PT/EN) com tema claro personalizado e mascote Fennec", "Bilingual interface (PT/EN) with custom light theme and Fennec mascot"),
       b("Integrações OAuth: Gmail, Outlook, Calendar, Drive, Teams — conectados ao workflow de planilha", "OAuth integrations: Gmail, Outlook, Calendar, Drive, Teams — connected to spreadsheet workflow"),
     ],
     codeSnippets: [
@@ -1162,24 +1162,24 @@ gallery: [
     ],
     gallery: [
       { src: "/images/projects/fennec-mascot.png", alt: b("Mascote Fennec — UI do app", "Fennec mascot — App UI") },
-      { src: "/images/projects/fennec-desert.png", alt: b("Background desértico customizado", "Custom desert background") },
+      { src: "/images/projects/fennec-desert.png", alt: b("Background desértico personalizado", "Custom desert background") },
     ],
   },
   forestai: {
     challenge: b(
-      "Inventários florestais por drone geram milhares de imagens — identificar espécies manualmente leva semanas e é suscetível a erro. Ferramentas comerciais de detecção são caixas-pretas sem controle sobre thresholds, splits ou arquitetura. Precisava de um pipeline aberto onde cada decisão (dataset split, augmentation, threshold de confiança) fosse explicitamente configurável e auditável.",
+      "Inventários florestais por drone geram milhares de imagens — identificar espécies manualmente leva semanas e é suscetível a erro. Ferramentas comerciais de detecção são caixas-pretas sem controle sobre limiares, divisões ou arquitetura. Precisava de um pipeline aberto onde cada decisão (dataset split, augmentation, threshold de confiança) fosse explicitamente configurável e auditável.",
       "Drone-based forest inventories generate thousands of images — identifying species manually takes weeks and is error-prone. Commercial detection tools are black boxes with no control over thresholds, splits, or architecture. I needed an open pipeline where every decision (dataset split, augmentation, confidence threshold) was explicitly configurable and auditable."
     ),
     approach: b(
-"Pipeline de detecção e classificação com DeepForest, treinado em GPU local. Anotação manual de imagens de drone da Fundação Renova (bounding boxes) — sem auto-labeling. Splits estratificados por espécie e área para evitar vazamento de dados. Monitoramento via TensorBoard: curvas de loss, mAP, e análise explícita de memorização vs generalização. Stack Overflow + Thonny IDE — zero IA-assisted coding.",
+"Pipeline de detecção e classificação com DeepForest, treinado em GPU local. Anotação manual de imagens de drone da Fundação Renova (bounding boxes) — sem rotulagem automática. Divisões estratificadas por espécie e área para evitar vazamento de dados. Monitoramento via TensorBoard: curvas de loss, mAP, e análise explícita de memorização vs generalização. Stack Overflow + Thonny IDE — zero codificação assistida por IA.",
   "Detection and classification pipeline with DeepForest, trained on local GPU. Manual annotation of drone images from Fundação Renova (bounding boxes) — no auto-labeling. Stratified splits by species and area to prevent data leakage. Monitoring via TensorBoard: loss curves, mAP, and explicit analysis of memorization vs generalization. Stack Overflow + Thonny IDE — zero AI-assisted coding."
     ),
     results: [
 b("Pipeline de detecção de espécies com DeepForest treinado em GPU local", "Species detection pipeline with DeepForest trained on local GPU"),
 b("Anotação manual de imagens de drone — bounding boxes desenhados à mão", "Manual annotation of drone imagery — hand-drawn bounding boxes"),
-      b("Splits estratificados por espécie e área — sem vazamento de dados entre treino/validação", "Stratified splits by species and area — no data leakage between train/validation"),
+      b("Divisões estratificadas por espécie e área — sem vazamento de dados entre treino/validação", "Stratified splits by species and area — no data leakage between train/validation"),
       b("Interpretação de curvas TensorBoard — detecção de memorização vs generalização", "TensorBoard curve interpretation — detecting memorization vs generalization"),
-      b("Construído do zero sem IA-assisted coding — Stack Overflow + Thonny IDE apenas", "Built from scratch without AI-assisted coding — Stack Overflow + Thonny IDE only"),
+      b("Construído do zero sem codificação assistida por IA — Stack Overflow + Thonny IDE apenas", "Built from scratch without AI-assisted coding — Stack Overflow + Thonny IDE only"),
     ],
     keyFeatures: [
 b("DeepForest para detecção de copas com fine-tuning em dataset de drone", "DeepForest for crown detection with fine-tuning on drone dataset"),
@@ -1231,11 +1231,11 @@ model.trainer.fit(
   },
   inovesa: {
     challenge: b(
-      "Empresas florestais no Brasil têm problema de credibilidade visual — sites parecem de 2005. A Inovesa queria sinalizar engenharia premium através de design premium: motion cinematográfico, scroll suave, e uma ouvidoria que transmita seriedade. O desafio era entregar isso com bundle enxuto — Motion + Lenis + React 19 pesa se não for controlado.",
+      "Empresas florestais no Brasil têm problema de credibilidade visual — sites parecem de 2005. A Inovesa queria sinalizar engenharia premium através de design premium: motion cinematográfico, rolagem suave, e uma ouvidoria que transmita seriedade. O desafio era entregar isso com bundle enxuto — Motion + Lenis + React 19 pesa se não for controlado.",
       "Forestry companies in Brazil have a visual credibility problem — their websites look like 2005. Inovesa wanted to signal premium engineering through premium design: cinematic motion, smooth scroll, and an ombudsman that conveys seriousness. The challenge was delivering this with a lean bundle — Motion + Lenis + React 19 gets heavy if not controlled."
     ),
     approach: b(
-      "React 19 + Motion + Lenis com motion system centralizado (7 variantes, 3 springs, 2 easings — todos reutilizáveis). Lenis para scroll suave sincronizado com useScroll do Motion. Tailwind v4 CSS-first com @theme customizado. Cada animação respeita prefers-reduced-motion — motion é refinamento, não barreira.",
+      "React 19 + Motion + Lenis com motion system centralizado (7 variantes, 3 springs, 2 easings — todos reutilizáveis). Lenis para rolagem suave sincronizado com useScroll do Motion. Tailwind v4 CSS-first com @theme personalizado. Cada animação respeita prefers-reduced-motion — motion é refinamento, não barreira.",
       "React 19 + Motion + Lenis with centralized motion system (7 variants, 3 springs, 2 easings — all reusable). Lenis for smooth scroll synced with Motion's useScroll. Tailwind v4 CSS-first with custom @theme. Every animation respects prefers-reduced-motion — motion is enhancement, not barrier."
     ),
     results: [
@@ -1249,7 +1249,7 @@ model.trainer.fit(
       b("Parallax multi-camada com useScroll por seção", "Multi-layer parallax with per-section useScroll"),
       b("AnimatedText: reveal por palavras/linhas/caracteres com highlight", "AnimatedText: word/line/char reveal with highlight"),
       b("PageOverlay + AnimatePresence para transições de página", "PageOverlay + AnimatePresence for page transitions"),
-      b("Tailwind v4 CSS-first com @theme customizado", "Tailwind v4 CSS-first with custom @theme"),
+      b("Tailwind v4 CSS-first com @theme personalizado", "Tailwind v4 CSS-first with custom @theme"),
       b("prefers-reduced-motion: redução automática de motion para acessibilidade", "prefers-reduced-motion: automatic motion reduction for accessibility"),
     ],
     codeSnippets: [
@@ -1310,7 +1310,7 @@ export const variants = {
       "Online PDF tools (iLovePDF, Smallpdf) are aggressively freemium — file limits, watermarks, wait queues. Hosting a PDF backend requires cloud credit. The challenge: build a complete 15-tool PDF suite with a heavy Python backend (PyMuPDF, pytesseract, pikepdf) without spending anything on infra."
     ),
     approach: b(
-      "Frontend React 19 com hash routing (useSyncExternalStore) — grid de ferramentas por categoria + workspace individual por ferramenta. Backend FastAPI monolítico com lazy imports para deps pesadas (só carrega PyMuPDF quando alguém chama PDF→DOCX). StreamingResponse em tudo (zero temp files). Cloudflared para túnel serverless gratuito via Google Colab — zero conta, zero token, instante.",
+      "Frontend React 19 com hash routing (useSyncExternalStore) — grid de ferramentas por categoria + workspace individual por ferramenta. Backend FastAPI monolítico com lazy imports para dependências pesadas (só carrega PyMuPDF quando alguém chama PDF→DOCX). StreamingResponse em tudo (zero temp files). Cloudflared para túnel serverless gratuito via Google Colab — zero conta, zero token, instante.",
       "React 19 frontend with hash routing (useSyncExternalStore) — category-grouped tool grid + individual workspace per tool. Monolithic FastAPI backend with lazy imports for heavy deps (only loads PyMuPDF when someone calls PDF→DOCX). StreamingResponse everywhere (zero temp files). Cloudflared for free serverless tunneling via Google Colab — zero account, zero token, instant."
     ),
     results: [
@@ -1399,7 +1399,7 @@ async def api_merge(files: list[UploadFile] = File(...)):
   },
   kakapo: {
     challenge: b(
-      "Editores de imagem online (Canva, Pixlr) são pesados e exigem upload. Ferramentas de desktop são overkill para ajustes rápidos. O desafio: editor de imagens completo que roda 100% no browser — compressão, resize, crop, filtros — sem enviar nada para nenhum servidor.",
+      "Editores de imagem online (Canva, Pixlr) são pesados e exigem upload. Ferramentas de desktop são exageradas para ajustes rápidos. O desafio: editor de imagens completo que roda 100% no browser — compressão, resize, crop, filtros — sem enviar nada para nenhum servidor.",
       "Online image editors (Canva, Pixlr) are heavy and require uploads. Desktop tools are overkill for quick adjustments. The challenge: complete image editor that runs 100% in the browser — compress, resize, crop, filters — without sending anything to any server."
     ),
     approach: b(
@@ -1426,7 +1426,7 @@ async def api_merge(files: list[UploadFile] = File(...)):
       "Online Markdown→PDF converters insert watermarks or limit pages. Desktop tools (Pandoc) require installation. The challenge: converter with real-time preview, professional themes and quality PDF rendering — without infra cost."
     ),
     approach: b(
-      "Frontend React 19 com editor Markdown em textarea e preview live split-pane via conversão client-side. Backend FastAPI + WeasyPrint para renderização PDF com CSS Paged Media — suporte a @page, @bottom-center, string-set, page breaks e fontes DejaVu. Cloudflared para túnel serverless gratuito via Google Colab. Paleta ink/ivory com acentos dourados.",
+      "Frontend React 19 com editor Markdown em textarea e visualização em tempo real com painel dividido via conversão no lado do cliente. Backend FastAPI + WeasyPrint para renderização PDF com CSS Paged Media — suporte a @page, @bottom-center, string-set, page breaks e fontes DejaVu. Cloudflared para túnel serverless gratuito via Google Colab. Paleta ink/ivory com acentos dourados.",
       "React 19 frontend with textarea Markdown editor and live split-pane preview via client-side conversion. FastAPI + WeasyPrint backend for PDF rendering with CSS Paged Media — @page, @bottom-center, string-set, page breaks and DejaVu fonts. Cloudflared for free serverless tunneling via Google Colab. Ink/ivory palette with golden accents."
     ),
     results: [
@@ -1449,17 +1449,17 @@ async def api_merge(files: list[UploadFile] = File(...)):
       "Online resume generators (Canva, Novoresume) insert watermarks or limit sections. Word templates are inconsistent across versions. The challenge: generator with structured forms, multiple template styles and clean PDF export — no watermark, no limits."
     ),
     approach: b(
-      "React 19 com formulários estruturados para cada seção do currículo (dados pessoais, experiência, projetos, educação, skills). Backend FastAPI + reportlab para geração de PDF com 3 estilos de template (modern, classic, minimal). Paleta sage green — cada template é uma composição tipográfica, não um formulário genérico. Suporte bilíngue (pt/en).",
+      "React 19 com formulários estruturados para cada seção do currículo (dados pessoais, experiência, projetos, educação, habilidades). Backend FastAPI + reportlab para geração de PDF com 3 estilos de modelo (moderno, clássico, minimalista). Paleta verde-sálvia — cada modelo é uma composição tipográfica, não um formulário genérico. Suporte bilíngue (pt/en).",
       "React 19 with structured forms for each resume section (personal data, experience, projects, education, skills). FastAPI + reportlab backend for PDF generation with 3 template styles (modern, classic, minimal). Sage green palette — each template is a typographic composition, not a generic form. Bilingual support (pt/en)."
     ),
     results: [
       b("3 templates — modern, classic, minimal — cada um com composição tipográfica distinta", "3 templates — modern, classic, minimal — each with distinct typographic composition"),
       b("Exportação PDF server-side — FastAPI + reportlab, sem marca d'água, sem limites", "Server-side PDF export — FastAPI + reportlab, no watermark, no limits"),
-      b("Formulários estruturados — seções fixas cobrindo dados pessoais, experiência, projetos, educação e skills", "Structured forms — fixed sections covering personal data, experience, projects, education and skills"),
+      b("Formulários estruturados — seções fixas cobrindo dados pessoais, experiência, projetos, educação e habilidades", "Structured forms — fixed sections covering personal data, experience, projects, education and skills"),
       b("Suporte bilíngue — interface e templates em português e inglês", "Bilingual support — interface and templates in Portuguese and English"),
     ],
     keyFeatures: [
-      b("3 estilos de template — modern, classic, minimal com design editorial", "3 template styles — modern, classic, minimal with editorial design"),
+      b("3 estilos de modelo — moderno, clássico, minimalista com design editorial", "3 template styles — modern, classic, minimal with editorial design"),
       b("PDF via reportlab — canvas programático, tipografia DejaVu Sans, sem marca d'água", "PDF via reportlab — programmatic canvas, DejaVu Sans typography, no watermark"),
       b("Formulários estruturados — 13 campos cobrindo todas as seções de um currículo completo", "Structured forms — 13 fields covering all sections of a complete resume"),
       b("Sage green palette com editorial dividers e suporte bilíngue", "Sage green palette with editorial dividers and bilingual support"),
@@ -2131,7 +2131,7 @@ export const securityCaseStudies: Record<string, SecurityCaseStudy> = {
       "FNAS/MDS infrastructure exposed directory listing with SIAFI financial data — sensitive government transactions accessible without authentication by any citizen."
     ),
     approach: b(
-      "Verificação passiva confirmou acesso não autenticado. Documentação com screenshots e headers HTTP. Notificação via CERT.br + CTIR Gov simultaneamente. Acompanhamento pós-fix com verificação de 403/WAF.",
+      "Verificação passiva confirmou acesso não autenticado. Documentação com screenshots e headers HTTP. Notificação via CERT.br + CTIR Gov simultaneamente. Acompanhamento pós-correção com verificação de 403/WAF.",
       "Passive verification confirmed unauthenticated access. Documentation with screenshots and HTTP headers. Notification via CERT.br + CTIR Gov simultaneously. Post-fix follow-up verifying 403/WAF."
     ),
     timeline: [
