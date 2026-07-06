@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xangrybadger.github.io/isaac-vitae/sitemap.xml
