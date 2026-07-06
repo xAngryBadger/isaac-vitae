@@ -17,6 +17,7 @@ export type Experience = {
   role: Bilingual;
   period: Bilingual;
   current: boolean;
+  contract?: string;
   highlights: Bilingual[];
 };
 
@@ -98,6 +99,35 @@ export const experiences: Experience[] = [
       b(
         "Painéis administrativos React/TS com auth, relatórios e exportação multi-formato (XLSX, PDF, CSV).",
         "React/TS admin panels with auth, reports and multi-format export (XLSX, PDF, CSV)."
+      ),
+    ],
+  },
+  {
+    company: "Meritage Homes",
+    role: b("Engenheiro de Software", "Software Engineer"),
+    period: b("Nov 2025 — Dez 2025 · 2 meses · Remoto", "Nov 2025 — Dec 2025 · 2 months · Remote"),
+    current: false,
+    contract: "Freelance",
+    highlights: [
+      b(
+        "Migrei 500 GB de dados críticos para Azure Cosmos DB com zero downtime, garantindo alta disponibilidade e resiliência do sistema.",
+        "Migrated 500GB of critical data to Azure Cosmos DB with zero downtime, ensuring high availability and system resilience."
+      ),
+      b(
+        "Arquitetei pipelines de IA para geração de ativos criativos, orquestrando GPT-4.1, DALL-E 3 e Flux.",
+        "Architected AI-driven creative pipelines leveraging GPT-4.1, DALL-E 3, and Flux to automate creative asset generation."
+      ),
+      b(
+        "Construí infraestrutura de chatbot cross-platform (iOS/Android) com roteamento de intenção context-aware.",
+        "Developed cross-platform chatbot infrastructure optimized for iOS and Android, featuring context-aware intent routing."
+      ),
+      b(
+        "Engenhei pipelines de parsing de PDF otimizados para ingestão por LLM, com tradução/transcrição em espanhol e português.",
+        "Engineered PDF parsing pipelines optimized for LLM ingestion, enabling accurate translation and transcription into Spanish and Portuguese."
+      ),
+      b(
+        "Conduzi sondagens E2E e UAT simulando workflows de corretores para otimizar UX e estabilidade da plataforma.",
+        "Conducted E2E probing and UAT simulating realtors' workflows to optimize UX and platform stability."
       ),
     ],
   },

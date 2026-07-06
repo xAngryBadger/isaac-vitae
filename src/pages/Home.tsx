@@ -50,7 +50,7 @@ const onScroll = () => {
   }, []);
 
 return (
-    <section ref={containerRef} className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section ref={containerRef} className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       <div className="hero-bg-gradient absolute inset-0 blur-sharpen parallax-bg"
         data-speed="0.3"
         style={{
@@ -86,9 +86,9 @@ return (
 
       {/* Content */}
       <div className="hero-content parallax-fg relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
-        <div className="hero-avatar mx-auto mb-8">
+        <div className="hero-avatar mx-auto mb-6">
           <div
-            className="w-24 h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden mx-auto"
+            className="w-20 h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden mx-auto"
             style={{ border: "1px solid var(--color-border)" }}
           >
             <img
@@ -100,7 +100,7 @@ return (
         </div>
 
         {/* Split headline */}
-        <div className="flex flex-col items-center mb-6">
+        <div className="flex flex-col items-center mb-4">
           <SplitText 
             as="span" 
             className="block font-serif font-bold leading-h1 tracking-h1 text-h1 mb-2"
@@ -113,7 +113,7 @@ return (
           </SplitText>
           <span 
             className="block font-serif font-bold leading-h1 tracking-h1 text-h1 italic text-text-2"
-            style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
           >
             {t({ pt: "Engenharia & Segurança", en: "Engineering & Security" })}
           </span>
@@ -121,7 +121,7 @@ return (
 
         {/* Subtitle with SplitText */}
         <p
-          className="font-mono text-label tracking-eyebrow uppercase mb-8 text-text-2"
+          className="font-mono text-label tracking-eyebrow uppercase mb-6 text-text-2"
         >
           <SplitText
             as="span"
@@ -137,14 +137,14 @@ return (
 
         {/* Bio text */}
         <p
-          className="hero-bio text-body leading-body max-w-2xl mx-auto mb-12 text-text-2"
+          className="hero-bio text-body leading-body max-w-2xl mx-auto mb-8 text-text-2"
           data-selectable
         >
           {t(personal.bio)}
         </p>
 
 {/* CTA buttons */}
-<div className="hero-cta flex flex-wrap justify-center gap-4 mb-10">
+<div className="hero-cta flex flex-wrap justify-center gap-4 mb-8">
 <Link
   to="/projects"
   ref={magneticRef as React.RefObject<HTMLAnchorElement>}
