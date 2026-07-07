@@ -50,7 +50,7 @@ const onScroll = () => {
   }, []);
 
 return (
-    <section ref={containerRef} className="relative h-screen min-h-[600px] flex items-center justify-center">
+    <section ref={containerRef} className="relative min-h-screen flex items-center justify-center">
       <div className="hero-bg-gradient absolute inset-0 blur-sharpen parallax-bg"
         data-speed="0.3"
         style={{
