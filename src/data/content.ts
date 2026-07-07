@@ -165,6 +165,10 @@ export const experiences: Experience[] = [
         "Derrubada de infraestrutura de phishing Microsoft/OneDrive. Pipeline de engenharia reversa: decodificação Base91 personalizada (3 alfabetos, 176 cadeias de caracteres) → extração de IOCs → relatório para CERT.br/Cloudflare.",
         "Microsoft/OneDrive phishing infrastructure takedown. Reverse engineering pipeline: custom Base91 decoding (3 alphabets, 176 strings) → IOC extraction → CERT.br/Cloudflare report."
       ),
+      b(
+        "Julho 2026 — Disclosure direta: Barcelos Lex (setor privado). API de assistente jurídico premium sem autenticação — corrigido com autenticação JWT, rate limiting e trial. Fundador agradeceu publicamente.",
+        "July 2026 — Direct disclosure: Barcelos Lex (private sector). Premium legal assistant API without authentication — fixed with JWT auth, rate limiting, and trial. Founder publicly thanked."
+      ),
     ],
   },
   {
@@ -2122,9 +2126,54 @@ export const securityDisclosures: SecurityDisclosure[] = [
     hasCaseStudy: true,
     lgpdArticles: ["Art. 46", "Art. 48"],
   },
+  {
+    id: "barcelos-lex",
+    slug: "barcelos-lex",
+    title: "Barcelos Lex API Auth Bypass",
+    organization: b("Barcelos Lex (setor privado)", "Barcelos Lex (private sector)"),
+    vulnType: "Missing Authentication",
+    CWE: "CWE-306",
+    status: "fixed",
+    discoveryDate: "06/07/2026",
+    verifiedDate: "06/07/2026",
+    description: b(
+      "API do assistente jurídico premium Kelsen sem autenticação. Endpoint /api/assistente aceitava requisições POST sem token e retornava conteúdo premium (respostas do chatbot jurídico). Vendor corrigiu durante a janela de disclosure — implementou autenticação JWT, rate limiting via Redis e trial de 14 dias.",
+      "Kelsen premium legal assistant API without authentication. Endpoint /api/assistente accepted POST requests without any token and returned premium content (legal chatbot responses). Vendor fixed during the disclosure window — implemented JWT auth, Redis rate limiting, and a 14-day trial."
+    ),
+    category: "platform",
+    severity: "critical",
+    hasCaseStudy: true,
+    lgpdArticles: ["Art. 46"],
+  },
 ];
 
 export const securityCaseStudies: Record<string, SecurityCaseStudy> = {
+  "barcelos-lex": {
+    challenge: b(
+      "O endpoint /api/assistente do site Barcelos Prev (barcelosprev.com.br) não exigia qualquer autenticação para acessar o assistente jurídico premium Kelsen. Qualquer visitante que inspecionasse o JavaScript do frontend descobriria a rota e o schema da request.",
+      "The /api/assistente endpoint on Barcelos Prev (barcelosprev.com.br) required no authentication to access the premium Kelsen legal assistant. Any visitor inspecting the frontend JavaScript would discover the route and request schema."
+    ),
+    approach: b(
+      "Análise de bundles JavaScript do Next.js via DevTools → identificação do endpoint /api/assistente com schema {'pergunta': '...'} → requisição POST direta sem headers de auth → confirmação de resposta 200 com conteúdo premium → disclosure via LinkedIn → fix verification multi-IP.",
+      "Next.js bundle analysis via DevTools → identified /api/assistente endpoint with {'pergunta': '...'} schema → direct POST request without auth headers → confirmed 200 response with premium content → disclosure via LinkedIn → multi-IP fix verification."
+    ),
+    timeline: [
+      b("Descoberta: /api/assistente sem auth", "Discovery: /api/assistente without auth"),
+      b("Vendor contatado via LinkedIn", "Vendor contacted via LinkedIn"),
+      b("Correção implementada (autenticação + rate limit + trial)", "Fix implemented (auth + rate limit + trial)"),
+      b("Vendor confirmou e agradeceu", "Vendor confirmed and thanked"),
+    ],
+    impact: [
+      b("Acesso não autorizado ao assistente jurídico premium Kelsen — qualquer pessoa podia usar o serviço sem pagar assinatura.", "Unauthorized access to the premium Kelsen legal assistant — anyone could use the service without paying for a subscription."),
+      b("Exposição de 5 vulnerabilidades adicionais (headers de segurança, info de infraestrutura, rota administrativa fantasma, ausência de rate limiting).", "Exposure of 5 additional vulnerabilities (security headers, infrastructure info, ghost admin route, missing rate limiting)."),
+      b("Vendor implementou correções estruturais: autenticação JWT, rate limiting via Redis, trial controlado, revisão geral de rotas.", "Vendor implemented structural fixes: JWT auth, Redis rate limiting, controlled trial, general route review."),
+    ],
+    keyFindings: [
+      b("CWE-306: Missing Authentication para funcionalidade premium", "CWE-306: Missing Authentication for premium functionality"),
+      b("5/6 security headers ausentes", "5/6 missing security headers"),
+      b("Rota administrativa /acesso acessível", "Ghost admin route /acesso accessible"),
+    ],
+  },
   "fnas-mds-siafi": {
     challenge: b(
       "Infraestrutura FNAS/MDS expôs directory listing com dados financeiros SIAFI — transações governamentais sensíveis acessíveis sem autenticação por qualquer cidadão.",
