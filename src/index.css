@@ -1078,6 +1078,21 @@ html.dyslexia-font * { font-family: 'Literata', Georgia, serif !important; }
   padding-right: 0.1em;
   color: var(--color-accent);
 }
+
+/* Hero: reduced spacing for shorter viewports */
+@media (max-height: 920px) {
+  .hero-avatar { margin-bottom: 0.75rem; }
+  .hero-avatar .w-20,
+  .hero-avatar .lg\:w-24 { width: 3.5rem; height: 3.5rem; }
+  .hero-content .hero-bio { margin-bottom: 0.75rem !important; }
+  .hero-content .hero-cta { margin-bottom: 0.75rem !important; }
+}
+@media (max-height: 800px) {
+  .hero-avatar { margin-bottom: 0.5rem; }
+  .hero-avatar .w-20,
+  .hero-avatar .lg\:w-24 { width: 3rem; height: 3rem; }
+}
+
 @media print {
   .cv-summary {
     max-width: 70ch;
