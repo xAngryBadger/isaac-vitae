@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Globe, Volume2, VolumeX } from "lucide-react";
+import { Globe } from "lucide-react";
 import { useLang } from "../lib/LanguageContext";
-import { useSounds } from "../lib/useSounds";
 import { personal } from "../data/content";
 import { DyslexiaToggle } from "./DyslexiaToggle";
 
@@ -17,7 +16,6 @@ const menuLinks = [
   { label: { pt: "Currículo", en: "Resume" }, href: "/cv", num: "08" },
   { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "09" },
   { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "10" },
-  { label: { pt: "Segurança", en: "Security" }, href: "/security", num: "11" },
 ];
 
 export default function Nav() {
@@ -27,7 +25,6 @@ export default function Nav() {
   const menuBackdropRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const { t, lang, toggle } = useLang();
-  const { enabled: soundsEnabled, playMenuOpen, playMenuClose, toggleSounds } = useSounds();
   const location = useLocation();
 
   useEffect(() => {
@@ -50,34 +47,26 @@ export default function Nav() {
 
   useEffect(() => {
     if (menuOpen) {
-      playMenuOpen();
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
 
       if (menuBackdropRef.current) {
         menuBackdropRef.current.classList.add("clip-reveal-up");
       }
-
-      const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
-      lenis?.stop();
     } else {
-      playMenuClose();
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
 
       if (menuBackdropRef.current) {
         menuBackdropRef.current.classList.remove("clip-reveal-up");
       }
-
-      const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
-      lenis?.start();
       hamburgerRef.current?.focus();
     }
     return () => {
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
     };
-  }, [menuOpen, playMenuOpen, playMenuClose]);
+  }, [menuOpen]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -150,7 +139,7 @@ export default function Nav() {
         style={{
           visibility: menuOpen ? "visible" : "hidden",
           pointerEvents: menuOpen ? "auto" : "none",
-          transition: "visibility 0s " + (menuOpen ? "0s" : "0.8s"),
+          transition: "visibility 0s " + (menuOpen ? "0s" : "0.25s"),
         }}
         onClick={(e) => {
           if (e.target === e.currentTarget) setMenuOpen(false);
@@ -172,7 +161,7 @@ export default function Nav() {
           style={{
             backgroundColor: "var(--color-bg)",
             clipPath: "inset(0 0 100% 0)",
-            transition: "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+            transition: "clip-path 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         />
 
@@ -193,7 +182,7 @@ export default function Nav() {
                 display: "block",
                 opacity: menuOpen ? 1 : 0,
                 transform: menuOpen ? "translateY(0)" : "translateY(100%)",
-                transition: `opacity 0.6s var(--ease-project) ${0.05 * i + 0.2}s, transform 0.6s var(--ease-project) ${0.05 * i + 0.2}s`,
+                transition: `opacity 0.25s var(--ease-project) ${0.02 * i + 0.05}s, transform 0.25s var(--ease-project) ${0.02 * i + 0.05}s`,
               }}
             >
               <span
@@ -226,16 +215,6 @@ export default function Nav() {
           </button>
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
           <DyslexiaToggle />
-          <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
-          <button
-            onClick={toggleSounds}
-            tabIndex={menuOpen ? 0 : -1}
-            className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target flex items-center gap-1"
-            style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
-          >
-            {soundsEnabled ? <Volume2 className="w-3 h-3" /> : <VolumeX className="w-3 h-3" />}
-            {soundsEnabled ? "ON" : "OFF"}
-          </button>
         </div>
       </div>
     </>

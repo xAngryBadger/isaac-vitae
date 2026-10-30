@@ -31,18 +31,18 @@ export type Education = {
 export const personal = {
   name: "Isaac Nathan",
   fullName: "Isaac Nathan da Silva Barbosa",
-  title: b("Engenharia de Computação + IA · Security Researcher", "Computer Engineering + AI · Security Researcher"),
+  title: b("Engenharia de Software · IA Aplicada · Cloud · Full-Stack", "Software Engineering · Applied AI · Cloud · Full-Stack"),
   subtitle: b(
-    "Full-Stack · Python · React · Cloud · Threat Intel",
-    "Full-Stack · Python · React · Cloud · Threat Intel"
+    "Java · Spring Boot · Python · Angular · React · Azure",
+    "Java · Spring Boot · Python · Angular · React · Azure"
   ),
   bio: b(
-    `Estudante de Engenharia de Computação (${getCurrentSemesterInline().pt}) buscando vaga de Jovem Aprendiz/Trainee. Experiência em migração de dados Azure Cosmos DB, automação com IA (GPT-4.1) e full-stack (Python/React).`,
-    `Computer Engineering student (${getCurrentSemesterInline().en}) seeking Trainee/Jovem Aprendiz role. Experience in Azure Cosmos DB migration, AI automation (GPT-4.1), and full-stack (Python/React).`
+    `Engenheiro de Software (${getCurrentSemesterInline().pt} de Engenharia de Computação) na NTT Data (GDNE), no projeto Bradesco: Java e Spring Boot no backend, Angular no frontend e plataformas de IA multi-agente em produção. Migrei +500 GB de dados legados para Azure Cosmos DB com zero downtime e construo apps offline-first em Flutter e motores de planejamento em Python/FastAPI.`,
+    `Software Engineer (${getCurrentSemesterInline().en} of Computer Engineering) at NTT Data (GDNE) on the Bradesco project: Java and Spring Boot on the backend, Angular on the frontend, and multi-agent AI platforms in production. Migrated 500+ GB of legacy data to Azure Cosmos DB with zero downtime; build offline-first Flutter apps and planning engines in Python/FastAPI.`
   ),
   bioExtended: b(
-`Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde para continuar evoluindo. Depois de 2 anos em Engenharia Química na UFSJ, voltei para Mariana e mudei para Computação. Construí o ForestAI do zero com Thonny IDE, anotando manualmente imagens de drone da Fundação Renova. Na Paware, migrei bases para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines de IA para o HelloSocial. Atualmente no ${getCurrentSemesterInline().pt} de Engenharia de Computação, foco nos meus projetos pessoais: HarpIA, Orca e em breve ForestAI de novo.`,
-`My first Python contact was in 2022 at UFOP (Industrial Chemistry) — self-directed learning, extra afternoon classes to keep evolving. After 2 years in Chemical Engineering at UFSJ, I came home and pivoted to Computer Engineering. I built ForestAI from scratch with Thonny IDE, manually annotating drone images from Fundação Renova. At Paware, I migrated databases to Azure Cosmos DB (Meritage Homes, USA) and architected AI pipelines for HelloSocial. Currently in my ${getCurrentSemesterInline().en} of Computer Engineering, I focus on my personal projects: HarpIA, Orca, and soon ForestAI again.`
+`Primeiro contato com Python em 2022 na UFOP (Química Industrial) — aprendizado autônomo, aulas extras à tarde. Depois de 2 anos em Engenharia Química na UFSJ, mudei para Computação e construí o ForestAI do zero, anotando manualmente imagens de drone da Fundação Renova. Em 2025, como freelancer para a Meritage Homes (Orlando/EUA), migrei +500 GB de dados legados para Azure Cosmos DB com zero downtime; na Paware Softwares, arquitetei o pipeline de geração de mídia do HelloSocial (GPT-4.1, Flux, DALL-E 3). Em 2026 entrei na NTT Data (GDNE), no projeto Bradesco: microsserviço Java/Spring Boot expondo mainframe CICS/COBOL como API REST, testes e observabilidade na plataforma de IA multi-agente e frontend Angular. Paralelamente construí o HarpIA (motor de automação criativa multi-modelo), o Orca e mantenho relatórios de divulgação responsável via CERT.br/CTIR Gov.`,
+`First contact with Python in 2022 at UFOP (Industrial Chemistry) — self-directed learning, extra afternoon classes. After 2 years in Chemical Engineering at UFSJ, I pivoted to Computer Engineering and built ForestAI from scratch, manually annotating drone images from Fundação Renova. In 2025, freelancing for Meritage Homes (USA), I migrated 500+ GB of legacy data to Azure Cosmos DB with zero downtime; at Paware Softwares, I architected the HelloSocial media-generation pipeline (GPT-4.1, Flux, DALL-E 3). In 2026 I joined NTT Data (GDNE) on the Bradesco project: a Java/Spring Boot microservice exposing CICS/COBOL mainframe data as REST APIs, testing and observability on the multi-agent AI platform, and Angular frontend. In parallel I built HarpIA (multi-model creative automation engine) and Orca, and maintain responsible-disclosure reports filed through CERT.br/CTIR Gov.`
   ),
   bioHighlights: [
     b(
@@ -78,62 +78,86 @@ b(
 
 export const experiences: Experience[] = [
   {
-    company: "Security Researcher (Independent / Responsible Disclosure)",
-    role: b("Security Researcher & Threat Intelligence", "Security Researcher & Threat Intelligence"),
-    period: b("Mar 2026 — Presente", "Mar 2026 — Present"),
+    company: "NTT Data (GDNE)",
+    role: b("Engenheiro de Software — projeto Bradesco", "Software Engineer — Bradesco project"),
+    period: b("Ago 2026 — atual", "Aug 2026 — present"),
     current: true,
     highlights: [
       b(
-        "20+ vulnerabilidades em infraestrutura governamental/setorial brasileira — 5 correções confirmadas via CERT.br/CTIR Gov (Mar–Jun 2026). Três ondas de divulgação responsável: zero retenção, notificação multi-canal, verificação pós-fix.",
-        "20+ vulnerabilities in Brazilian government/sector infrastructure — 5 fixes confirmed via CERT.br/CTIR Gov (Mar–Jun 2026). Three responsible disclosure waves: zero retention, multi-channel notification, post-fix verification."
+        "Microsserviço em Java/Spring Boot expondo dados cadastrais de mainframe CICS/COBOL como API REST (OpenAPI/Swagger, JWT), em produção para o Bradesco.",
+        "Java/Spring Boot microservice exposing CICS/COBOL mainframe data as REST APIs (OpenAPI/Swagger, JWT), in production for Bradesco."
       ),
       b(
-        "Takedown de phishing Microsoft/OneDrive: derrubei origin server (procorereviews.com) via flood controlado de ~10k requests (HTTP 521 sustentado). Infra rotacionada (kochcnfvontainer.vu) mapeada, IOCs extraídos, reportada ao CERT.br/Cloudflare.",
-        "Microsoft/OneDrive phishing takedown: toppled origin server (procorereviews.com) via controlled ~10k-request flood (sustained HTTP 521). Rotated infra (kochcnfvontainer.vu) mapped, IOCs extracted, reported to CERT.br/Cloudflare."
+        "Plataforma de IA multi-agente (BIA Tech Chat): testou o fluxo ponta a ponta, documentou fluxos e criou diagramas técnicos, testou prompt injection e roteamento, e implementou testes automatizados de observabilidade das responses.",
+        "Multi-agent AI platform (BIA Tech Chat): tested the flow end-to-end, documented flows and created technical diagrams, tested prompt injection and routing, and implemented automated observability tests on the responses."
       ),
       b(
-        "Reversão de 3 JS ofuscados com Base91 customizado (3 alfabetos únicos, 176 strings). Pipeline: Browser → JS download → Custom Base91 decoder (Python) → IOC extraction → CERT.br/Cloudflare report.",
-        "Reversed 3 JS files obfuscated with custom Base91 (3 unique alphabets, 176 strings). Pipeline: Browser → JS download → Custom Base91 decoder (Python) → IOC extraction → CERT.br/Cloudflare report."
+        "Frontend Angular, automação de testes, geração de dados sintéticos e análise de performance com Dynatrace e Elasticsearch.",
+        "Angular frontend, test automation, synthetic data generation and performance analysis with Dynatrace and Elasticsearch."
+      ),
+    ],
+  },
+  {
+    company: "Meritage Homes",
+    role: b("Engenheiro de Software (Freelancer) — Orlando/EUA", "Software Engineer (Freelance) — Orlando, USA"),
+    period: b("Out 2025 — Mai 2026", "Oct 2025 — May 2026"),
+    current: false,
+    highlights: [
+      b(
+        "Migrou +500 GB de dados legados para Azure Cosmos DB — extração automatizada, validação de schema e rollback automático, sem interromper a operação.",
+        "Migrated 500+ GB of legacy data to Azure Cosmos DB — automated extraction, schema validation and automatic rollback, with zero downtime."
       ),
       b(
-        "Metodologia NIST CSF + LGPD: Passive Recon (Dorking, Shodan, CT logs) → Exposure Verification → Documentation → Secure Deletion (shred) → Notificação multi-canal → Follow-up pós-fix.",
-        "Methodology NIST CSF + LGPD: Passive Recon (Dorking, Shodan, CT logs) → Exposure Verification → Documentation → Secure Deletion (shred) → Multi-channel Notification → Post-fix Follow-up."
+        "Resolveu inconsistências cross-platform de MIME types (Android nativo vs iOS octet-stream) por camada de abstração própria.",
+        "Resolved cross-platform MIME type inconsistencies (native Android vs iOS octet-stream) with a custom abstraction layer."
+      ),
+      b(
+        "Construiu agente de geração de PDF multilíngue (PT/EN/ES) em tempo real com entrega por WhatsApp; reescreveu a estratégia de indexação/retrieval para entregar os documentos corretos.",
+        "Built a real-time multilingual (PT/EN/ES) PDF generation agent with WhatsApp delivery; rewrote the indexing/retrieval strategy to deliver the correct documents."
       ),
     ],
   },
   {
     company: "Paware Softwares",
-    role: b("Desenvolvedor Full-Stack com foco em IA", "Full-Stack Developer with AI focus"),
+    role: b("Engenheiro de Software Full-Stack", "Full-Stack Engineer"),
     period: b("Out 2025 — Mai 2026", "Oct 2025 — May 2026"),
     current: false,
-highlights: [
-b(
-"Migrei centenas de GB de datasets legados do Google Drive para Azure Cosmos DB destinados à Meritage Homes (EUA) — pipeline com extração automatizada por cookies, compressão, renomeação e injeção em painéis para embedding via agente WhatsApp com limites rígidos de tamanho de arquivo. Containerizei com Docker para ambientes reproduzíveis e escrevi camada de validação de schema com rollback automático.",
-"Migrated hundreds of GB of legacy datasets from Google Drive to Azure Cosmos DB for Meritage Homes (USA) — pipeline with automated cookie-based extraction, compression, renaming, and injection into panels for WhatsApp agent embedding with strict file size limits. Containerized with Docker for reproducible environments and wrote schema validation layer with automated rollback."
-),
+    highlights: [
       b(
-      "Resolvi problema cross-platform de MIME types (Android nativo vs iPhone exigindo octet-stream — com testes extensivos em dispositivos iOS). Essa validação virou o backbone da migração final para Azure Cosmos DB.",
-      "Resolved cross-platform MIME type issue (Android native vs iPhone requiring octet-stream — with extensive testing on iOS devices). This validation layer became the backbone of the final Azure Cosmos DB migration."
+        "Arquitetou pipeline assíncrono de geração de mídia (HelloSocial) — GPT-4.1, Flux Kontext Pro, DALL-E 3 e APIs de design, com fallback local para SQLite + PIL.",
+        "Architected the async media-generation pipeline (HelloSocial) — GPT-4.1, Flux Kontext Pro, DALL-E 3 and design APIs, with local SQLite + PIL fallback."
       ),
       b(
-"Arquitetei pipeline de geração de imagens para o HelloSocial — pipeline multi-etapa com GPT-4.1 (geração, curadoria, composição, validação), integração Flux Kontext Pro + DALL-E 3 + Placid/Canva. Fallback SQLite/PIL local quando API paga não era necessária.",
-  "Architected image-generation pipeline for HelloSocial — multi-step pipeline with GPT-4.1 (generation, curation, composition, validation), integrating Flux Kontext Pro + DALL-E 3 + Placid/Canva APIs. Fallback to SQLite/local PIL when paid APIs weren't needed."
+        "Implementou ambientes Docker para testes de funcionalidade e consistência de agentes de IA conversacionais.",
+        "Implemented Docker environments for testing the functionality and consistency of conversational AI agents."
       ),
     ],
   },
   {
-    company: "SuperNerds",
-    role: b("Instrutor de Robótica", "Robotics Instructor"),
-    period: b("Set 2025 — Out 2025", "Sep 2025 — Oct 2025"),
-    current: false,
+    company: "Inovesa Florestal",
+    role: b("Engenheiro Full-Stack & Mobile (Freelancer)", "Full-Stack & Mobile Engineer (Freelance)"),
+    period: b("Mai 2026 — atual", "May 2026 — present"),
+    current: true,
     highlights: [
       b(
-        "Aprendi Arduino e LEGO em <2 semanas e ministrei aulas de robótica para crianças/adolescentes, conectando teoria a aplicações reais.",
-        "Learned Arduino and LEGO in under 2 weeks and taught robotics to children/teens, connecting theory to real applications."
+        "Líder técnico de app Flutter offline-first para inventário florestal, com motor de sincronização próprio para áreas sem cobertura de rede.",
+        "Technical lead on an offline-first Flutter forest inventory app, with a custom sync engine for areas without network coverage."
       ),
       b(
-        "Conciliei manhãs aqui com trabalho noturno na Paware.",
-        "Balanced mornings here with evening work at Paware."
+        "Desenvolveu o motor de planejamento operacional em Python/FastAPI (Orca) e painéis administrativos em React/TypeScript.",
+        "Built the operational planning engine in Python/FastAPI (Orca) and admin panels in React/TypeScript."
+      ),
+    ],
+  },
+  {
+    company: "Divulgação Responsável",
+    role: b("Responsible Disclosure — CERT.br / CTIR Gov", "Responsible Disclosure — CERT.br / CTIR Gov"),
+    period: b("Mar 2026 — atual", "Mar 2026 — present"),
+    current: true,
+    highlights: [
+      b(
+        "Relatórios de vulnerabilidades em infraestrutura governamental/setorial via CERT.br/CTIR Gov, com 5 correções confirmadas. Documentação metodológica: github.com/xAngryBadger/security-disclosures",
+        "Vulnerability reports filed through CERT.br/CTIR Gov against government/sector infrastructure, with 5 confirmed fixes. Methodology documentation: github.com/xAngryBadger/security-disclosures"
       ),
     ],
   },
@@ -157,8 +181,15 @@ export const education: Education[] = [
   {
     degree: b("Engenharia de Computação", "Computer Engineering"),
     institution: "Cruzeiro do Sul",
-    period: "2024 — 2029",
+    period: "2024 — 2028",
     status: getCurrentSemesterPeriod(),
+    statusActive: true,
+  },
+  {
+    degree: b("Técnico em Análise de Sistemas", "Systems Analysis Technician"),
+    institution: "SENAC EAD",
+    period: "2024 — 2026",
+    status: b("Em andamento", "In progress"),
     statusActive: true,
   },
 ];
@@ -175,11 +206,11 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     label: "Frontend",
-    skills: ["React 19", "TypeScript", "JavaScript", "Tailwind CSS v4", "Flutter", "Vite", "React Native", "Expo"],
+    skills: ["Angular", "React 19", "TypeScript", "JavaScript", "Tailwind CSS v4", "Flutter/Dart", "Vite", "React Native", "Expo"],
     color: "#A8611A",
     storyProof: b(
-      "React 19 + TypeScript \u2192 HarpIA frontend, Flora Sensus admin panel, Inovesa site institucional, este portf\u00f3lio.",
-      "React 19 + TypeScript \u2192 HarpIA frontend, Flora Sensus admin panel, Inovesa institutional site, this very portfolio."
+      "Angular \u2192 frontend do projeto Bradesco (NTT Data). React 19 + TypeScript \u2192 HarpIA frontend, Flora Sensus admin panel, Inovesa site institucional, este portf\u00f3lio.",
+      "Angular \u2192 frontend on the Bradesco project (NTT Data). React 19 + TypeScript \u2192 HarpIA frontend, Flora Sensus admin panel, Inovesa institutional site, this very portfolio."
     ),
     storySnippet: {
       language: "tsx",
@@ -194,11 +225,11 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: "Backend",
-    skills: ["Python", "FastAPI", "Node.js", "Express", "Java", "SQL"],
+    skills: ["Java", "Spring Boot", "Python", "FastAPI", "Node.js", "Express", "SQL", "API REST", "OpenAPI/Swagger", "JWT"],
     color: "#456A4B",
     storyProof: b(
-"FastAPI + Azure Cosmos DB → HarpIA pipeline, AguaQuality IoT backend, HelloSocial (Paware). Python async como linguagem de produção.",
-"FastAPI + Azure Cosmos DB → HarpIA pipeline, AguaQuality IoT backend, HelloSocial (Paware). Python async as production language."
+"Java/Spring Boot + CICS/COBOL → microsserviço SARH na NTT Data (Bradesco). FastAPI + Azure Cosmos DB → HarpIA pipeline, HelloSocial (Paware). Python async como linguagem de produção.",
+"Java/Spring Boot + CICS/COBOL → SARH microservice at NTT Data (Bradesco). FastAPI + Azure Cosmos DB → HarpIA pipeline, HelloSocial (Paware). Python async as production language."
     ),
     storySnippet: {
       language: "python",
@@ -276,42 +307,22 @@ code: `class OllamaClient:
     storyProjectIds: ["aguaquality", "hellosocial", "harpia"],
   },
   {
-    label: b("Segurança Ofensiva", "Offensive Security"),
-    skills: [
-      "OSINT", "Google Dorking", "Shodan", "Certificate Transparency", "Passive DNS",
-      "Nmap", "Wireshark", "Burp Suite", "SNMP Enum", "WordPress Audit",
-      "Directory Listing", "Auth Bypass", "Base91 Decoder", "JS Deobfuscation",
-    ],
+    label: b("Integração & Legado", "Integration & Legacy"),
+    skills: ["Mainframe", "CICS", "COBOL", "API REST", "OpenAPI/Swagger", "JWT"],
+    color: "#4A5560",
+    storyProof: b(
+      "Microsserviço Java/Spring Boot na Azure expondo dados cadastrais de mainframe CICS/COBOL como API REST — em produção no projeto Bradesco (NTT Data).",
+      "Java/Spring Boot microservice on Azure exposing CICS/COBOL mainframe data as REST APIs — in production on the Bradesco project (NTT Data)."
+    ),
+    storyProjectIds: [],
+  },
+  {
+    label: b("Segurança Aplicada", "Applied Security"),
+    skills: ["OSINT", "Responsible Disclosure (CERT.br/CTIR Gov)", "NIST CSF", "OWASP Top 10", "Threat Intel"],
     color: "#8B3A3A",
     storyProof: b(
-      "Pipeline Threat Intel do zero — Browser → JS download → Base91 decoder custom (3 alfabetos, 176 strings) → IOC extraction (PageConfig, tokens, OneDrive redirect) → CERT.br/Cloudflare. Takedown de phishing Microsoft/OneDrive via flood controlado.",
-      "Threat Intel pipeline built from scratch — Browser → JS download → Custom Base91 decoder (3 unique alphabets, 176 strings) → IOC extraction (PageConfig, tokens, OneDrive redirect) → CERT.br/Cloudflare. Microsoft/OneDrive phishing takedown via controlled flood."
-    ),
-    storyProjectIds: ["security-disclosures"],
-  },
-  {
-    label: b("Segurança Defensiva", "Defensive Security"),
-    skills: [
-      "LGPD", "WAF Verification", "TLP Protocol", "Responsible Disclosure (CERT.br/CTIR Gov)",
-      "CVE Analysis", "Post-Fix Verification", "NIST CSF", "OWASP Top 10", "MITRE ATT&CK (awareness)",
-    ],
-    color: "#2E5C3A",
-    storyProof: b(
-      "20+ vulnerabilidades reportadas via CERT.br/CTIR Gov com verificação pós-fix — 3 ondas de divulgação responsável (Mar–Jun 2026), zero retenção, notificação multi-canal. Documentação com screenshots, headers HTTP, timeline e closure documentada.",
-      "20+ vulnerabilities reported via CERT.br/CTIR Gov with post-fix verification — 3 responsible disclosure waves (Mar–Jun 2026), zero retention, multi-channel notification. Documentation with screenshots, HTTP headers, timeline, and documented closure."
-    ),
-    storyProjectIds: ["security-disclosures"],
-  },
-  {
-    label: b("Threat Intelligence", "Threat Intelligence"),
-    skills: [
-      "IOC Extraction", "Base91/JS Deobfuscation", "IOC Sharing (AbuseIPDB, URLhaus)",
-      "Phishing Infra Takedown", "Pipeline (Browser → JS → Decoder → IOC → CERT.br)",
-    ],
-    color: "#6B4423",
-    storyProof: b(
-      "Infra de phishing rotacionada mapeada, IOCs compartilhados em AbuseIPDB/URLhaus, takedowns via Cloudflare. 5 fixes confirmados (Mar–Jun 2026). Metodologia transparente: passive verification only, não acessou dados sensíveis, sempre via canais apropriados.",
-      "Rotated phishing infrastructure mapped, IOCs shared on AbuseIPDB/URLhaus, takedowns via Cloudflare. 5 confirmed fixes (Mar–Jun 2026). Transparent methodology: passive verification only, never accessed sensitive data, always via appropriate channels."
+      "Relatórios de vulnerabilidades em infraestrutura governamental/setorial via CERT.br/CTIR Gov — 5 correções confirmadas, com verificação pós-fix documentada.",
+      "Vulnerability reports filed through CERT.br/CTIR Gov against government/sector infrastructure — 5 confirmed fixes, with documented post-fix verification."
     ),
     storyProjectIds: ["security-disclosures"],
   },
@@ -354,17 +365,17 @@ export const projects: Project[] = [
     id: "security-disclosures",
     title: "Security Disclosures & Threat Intel",
     year: "2026",
-    category: b("Segurança · Threat Intel · Responsible Disclosure", "Security · Threat Intel · Responsible Disclosure"),
+    category: b("Segurança · Responsible Disclosure", "Security · Responsible Disclosure"),
     description: b(
-      "20+ vulnerabilidades em infraestrutura governamental/setorial brasileira — 5 fixes confirmados via CERT.br/CTIR Gov (Mar–Jun 2026). 3 ondas de divulgação responsável: zero retenção, notificação multi-canal (CERT.br + CTIR Gov + direto), verificação pós-fix. Takedown de phishing Microsoft/OneDrive origin (procorereviews.com) via flood controlado, infra rotacionada mapeada. Pipeline Threat Intel custom: Browser → JS download → Custom Base91 decoder (3 alfabetos, 176 strings) → IOC extraction → CERT.br/Cloudflare report.",
-      "20+ vulnerabilities in Brazilian government/sector infrastructure — 5 fixes confirmed via CERT.br/CTIR Gov (Mar–Jun 2026). 3 responsible disclosure waves: zero retention, multi-channel notification (CERT.br + CTIR Gov + direct), post-fix verification. Microsoft/OneDrive phishing origin takedown (procorereviews.com) via controlled flood, rotated infrastructure mapped. Custom Threat Intel pipeline: Browser → JS download → Custom Base91 decoder (3 unique alphabets, 176 strings) → IOC extraction → CERT.br/Cloudflare report."
+      "Relatórios de vulnerabilidades em infraestrutura governamental/setorial brasileira via CERT.br/CTIR Gov — 5 correções confirmadas com verificação pós-fix. Documentação metodológica (passive recon → verificação → notificação multi-canal → follow-up), conformidade NIST CSF e LGPD.",
+      "Vulnerability reports filed through CERT.br/CTIR Gov against Brazilian government/sector infrastructure — 5 confirmed fixes with post-fix verification. Methodology documentation (passive recon → verification → multi-channel notification → follow-up), NIST CSF and LGPD compliance."
     ),
-    tech: ["OSINT", "Nmap", "Burp Suite", "Shodan", "Base91 Decoder", "CERT.br / CTIR Gov", "LGPD", "NIST CSF"],
+    tech: ["OSINT", "Responsible Disclosure", "CERT.br / CTIR Gov", "NIST CSF", "OWASP"],
     color: "#3d1f1f",
     icon: null,
     githubUrl: "https://github.com/xAngryBadger/security-disclosures",
-    featured: true,
-    inProgress: true,
+    featured: false,
+    inProgress: false,
     hasCaseStudy: false,
   },
   {
@@ -463,8 +474,8 @@ export const projects: Project[] = [
     year: "2026",
     category: b("IoT · Pagamentos · Full-Stack", "IoT · Payments · Full-Stack"),
     description: b(
-      "Sistema de gestão de posto de água com controle remoto de válvula via relé WiFi Refoss R11. Integração PIX iniciada (~80% completo). Projeto descontinuado por falta de pagamento do comitente.",
-      "Water station management system with remote valve control via Refoss R11 WiFi relay. PIX integration started (~80% complete). Project discontinued due to non-payment."
+      "Sistema de gestão de posto de água com controle remoto de válvula via relé WiFi Refoss R11 e integração PIX concluída. Backend FastAPI + Azure Cosmos DB e painel React.",
+      "Water station management system with remote valve control via Refoss R11 WiFi relay and completed PIX integration. FastAPI + Azure Cosmos DB backend and React dashboard."
     ),
     tech: ["Python", "FastAPI", "Azure Cosmos DB", "React", "TypeScript", "Docker"],
     color: "#1a3a4a",
@@ -766,21 +777,18 @@ export const courses: Course[] = [
   { name: b("Introdução à Cibersegurança", "Intro to Cybersecurity"), issuer: "Cisco Networking Academy", hours: "", category: "security", prominent: true, context: b("Base em segurança de redes e ameaças cibernéticas", "Foundation in network security and cyber threats") },
   { name: b("Segurança em TI", "IT Security"), issuer: b("Fundação Bradesco", "Bradesco Foundation"), hours: "", category: "security", prominent: true, context: b("Complemento em proteção de infraestrutura e dados corporativos", "Complement in corporate infrastructure and data protection") },
   { name: b("Inglês Fluente", "Fluent English"), issuer: "KUMON", hours: b("3 anos", "3 years"), category: "languages", prominent: true, context: b("Habilitação para documentação técnica e reuniões com equipes internacionais", "Enables technical documentation and meetings with international teams") },
-  { name: b("eJPTv2 / eCPPTv2 / OSCP", "eJPTv2 / eCPPTv2 / OSCP"), issuer: b("INE / eLearnSecurity", "INE / eLearnSecurity"), hours: "", category: "security", prominent: true, context: b("Em andamento / Planejado 2026 — Hands-on pentesting, AD, pivoting, evasion.", "In progress / Planned 2026 — Hands-on pentesting, AD, pivoting, evasion.") },
-  { name: b("eWPTX / eWPTXv2", "eWPTX / eWPTXv2"), issuer: b("eLearnSecurity", "eLearnSecurity"), hours: "", category: "security", prominent: true, context: b("Planejado 2026 — Web app pentesting avançado (WAF bypass, auth bypass, business logic).", "Planned 2026 — Advanced web app pentesting (WAF bypass, auth bypass, business logic).") },
-  { name: b("Cloud Security (AZ-500 / CCSP)", "Cloud Security (AZ-500 / CCSP)"), issuer: b("Microsoft / (ISC)²", "Microsoft / (ISC)²"), hours: "", category: "security", prominent: true, context: b("Planejado 2026 — Azure security, identity, data, governance.", "Planned 2026 — Azure security, identity, data, governance.") },
-  { name: b("MITRE ATT&CK Defender (MAD)", "MITRE ATT&CK Defender (MAD)"), issuer: "MITRE", hours: "", category: "security", prominent: true, context: b("Planejado 2026 — ATT&CK mapping, detection engineering, threat-informed defense.", "Planned 2026 — ATT&CK mapping, detection engineering, threat-informed defense.") },
+  { name: b("Google — IA Aplicada (9 certificados, set/out 2026)", "Google — Applied AI (9 certificates, Sep/Oct 2026)"), issuer: "Google", hours: "", category: "ai", prominent: true, context: b("AI Fundamentals, Technical Support, AI for Content Creation, Writing & Communicating, Data Analysis, App Building, App Deployment, Brainstorming & Planning, Research & Insights.", "AI Fundamentals, Technical Support, AI for Content Creation, Writing & Communicating, Data Analysis, App Building, App Deployment, Brainstorming & Planning, Research & Insights.") },
 ];
 
 export const stats = [
   { value: 20, suffix: "+", label: b("Projetos", "Projects") },
-  { value: 10, suffix: "mo+", label: b("Experiência Profissional", "Professional Experience") },
+  { value: 12, suffix: "mo+", label: b("Experiência Profissional", "Professional Experience") },
   { value: 7, suffix: "+", label: b("Modelos de IA", "AI Models") },
 ];
 
 export const cvSummary: Bilingual = b(
-"Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 meses de experiência profissional. De Química Industrial para Computação: construí o ForestAI do zero (Stack Overflow + Thonny, sem IA-assisted coding). Na Paware, migrei centenas de GB para Azure Cosmos DB (Meritage Homes, EUA) e arquitetei pipelines orquestrados por LLM para o HelloSocial (GPT-4.1, DALL-E 3, Flux). Aprendo resolvendo problemas reais — de MIME type cross-platform a agentes ReAct com schema enforcement.",
-  "Python · FastAPI · React 19 · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch — 10 months of professional experience. From Industrial Chemistry to Computer Engineering: built ForestAI from scratch (Stack Overflow + Thonny, no AI-assisted coding). At Paware, migrated hundreds of GB to Azure Cosmos DB (Meritage Homes, USA) and architected LLM-orchestrated pipelines for HelloSocial (GPT-4.1, DALL-E 3, Flux). I learn by solving real problems — from cross-platform MIME types to ReAct agents with schema enforcement."
+"Java · Spring Boot · Python · FastAPI · Angular · React · Azure · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch. Engenheiro de Software na NTT Data (GDNE), projeto Bradesco: microsserviço Java/Spring Boot expondo mainframe CICS/COBOL como API REST, testes e observabilidade em plataforma de IA multi-agente, frontend Angular. Como freelancer, migrou +500 GB de dados legados para Azure Cosmos DB com zero downtime (Meritage Homes, EUA) e construiu agente de PDF multilíngue com entrega por WhatsApp. Também mantém relatórios de divulgação responsável via CERT.br/CTIR Gov, com 5 correções confirmadas.",
+  "Java · Spring Boot · Python · FastAPI · Angular · React · Azure · Azure Cosmos DB · GPT-4.1 · Flutter · PyTorch. Software Engineer at NTT Data (GDNE), Bradesco project: Java/Spring Boot microservice exposing CICS/COBOL mainframe data as REST APIs, testing and observability on a multi-agent AI platform, Angular frontend. As a freelancer, migrated 500+ GB of legacy data to Azure Cosmos DB with zero downtime (Meritage Homes, USA) and built a multilingual PDF agent with WhatsApp delivery. Also maintains responsible-disclosure reports filed through CERT.br/CTIR Gov, with 5 confirmed fixes."
 );
 
 export type CvProject = {

@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import { personal } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import { ArrowDown, Github, Linkedin, FileDown } from "lucide-react";
-import { EASE_PRIMARY, EASE_SECONDARY } from "../lib/scroll-anim";
+import { EASE_SECONDARY } from "../lib/scroll-anim";
 import { SplitText } from "../components/SplitText";
-import { HeroCorners } from "../components/HeroCorners";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -14,37 +13,15 @@ export default function Home() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.1 });
+      const tl = gsap.timeline({ delay: 0.05 });
 
-      // Corner animations - we'll keep these as is for now, but they could be enhanced
-      tl.from(".corner-line-h", { scaleX: 0, duration: 0.8, ease: EASE_PRIMARY, stagger: 0.1 }, 0)
-        .from(".corner-line-v", { scaleY: 0, duration: 0.8, ease: EASE_PRIMARY, stagger: 0.1 }, 0.1)
-        .from(".corner-dot", { scale: 0, opacity: 0, duration: 0.3, stagger: 0.05 }, 0.4);
-
-      // Hero avatar - scale-materialize
-      tl.from(".hero-avatar", { opacity: 0, scale: 0.92, duration: 0.6, ease: EASE_SECONDARY }, 0.3);
-      
-      // Bio text - fade-up
-      tl.from(".hero-bio", { opacity: 0, y: 20, duration: 0.6, ease: EASE_SECONDARY }, 0.7);
-      
-      // CTA buttons - clip-reveal
-      tl.from(".hero-cta", { opacity: 0, y: 20, duration: 0.6, ease: EASE_SECONDARY }, 1.0);
-      
-      // Hero social - fade-up
-      tl.from(".hero-social", { opacity: 0, y: 10, duration: 0.45, stagger: 0.08 }, 1.15);
+      tl.from(".hero-avatar", { opacity: 0, scale: 0.96, duration: 0.35, ease: EASE_SECONDARY }, 0)
+        .from(".hero-bio", { opacity: 0, y: 12, duration: 0.35, ease: EASE_SECONDARY }, 0.1)
+        .from(".hero-cta", { opacity: 0, y: 12, duration: 0.35, ease: EASE_SECONDARY }, 0.2)
+        .from(".hero-social", { opacity: 0, duration: 0.25, stagger: 0.04 }, 0.3);
     }, containerRef);
 
-    const onScroll = () => {
-      const y = window.scrollY;
-      gsap.set(".hero-bg-gradient", { y: y * 0.3 });
-      gsap.set(".hero-content", { opacity: 1 - y / (window.innerHeight * 0.7) });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -77,9 +54,6 @@ export default function Home() {
         <div className="corner-line-h h-px w-16 lg:w-24 origin-right" style={{ backgroundColor: "var(--color-border-2)" }} />
         <div className="corner-line-v w-px h-16 lg:h-24 origin-bottom ml-auto" style={{ backgroundColor: "var(--color-border-2)" }} />
       </div>
-
-      {/* HeroCorners - animated SVG borders */}
-      <HeroCorners className="absolute inset-0 pointer-events-none" />
 
       {/* Content */}
       <div className="hero-content relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">

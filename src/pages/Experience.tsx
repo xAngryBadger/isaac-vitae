@@ -3,8 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { experiences } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
-import { EASE_PRIMARY, EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
-import { SplitText } from "../components/SplitText";
+import { EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,24 +13,9 @@ const { t } = useLang();
 
 useEffect(() => {
 const ctx = gsap.context(() => {
-gsap.from(".exp-label", {
-  opacity: 0, y: 24, clipPath: "inset(0 0 100% 0)", duration: 0.9, ease: EASE_PRIMARY,
-  scrollTrigger: { trigger: ".exp-label", start: SCROLL_START, once: true },
-});
-
-gsap.from(".timeline-line-fill", {
-scaleY: 0, transformOrigin: "top", duration: 1.5, ease: EASE_SECONDARY,
-scrollTrigger: { trigger: ".timeline-container", start: SCROLL_START, once: true },
-});
-
 gsap.from(".exp-card", {
-y: 40, opacity: 0, stagger: 0.25, duration: 0.9, ease: EASE_PRIMARY,
-scrollTrigger: { trigger: ".timeline-container", start: SCROLL_START, once: true },
-});
-
-gsap.from(".timeline-marker", {
-scale: 0, stagger: 0.25, duration: 0.5, ease: "back.out(1.7)",
-scrollTrigger: { trigger: ".timeline-container", start: SCROLL_START, once: true },
+  y: 16, opacity: 0, stagger: 0.06, duration: 0.4, ease: EASE_SECONDARY,
+  scrollTrigger: { trigger: ".timeline-container", start: SCROLL_START, once: true },
 });
 }, sectionRef);
 return () => ctx.revert();
@@ -46,9 +30,7 @@ return () => ctx.revert();
             className="exp-title font-serif font-bold leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--color-text)" }}
           >
-            <SplitText as="span" className="inline" splitType="words" stagger={0.08} delay={0.3}>
-              {t({ pt: "Onde construí ", en: "Where I built " })}
-            </SplitText>
+            {t({ pt: "Onde construí ", en: "Where I built " })}
             <span className="italic" style={{ color: "var(--color-text-2)" }}>
               {t({ pt: "expertise real.", en: "real expertise." })}
             </span>
@@ -75,9 +57,6 @@ return () => ctx.revert();
                   boxShadow: exp.current ? "0 0 0 4px var(--color-accent-15)" : "none",
                 }}
               >
-                {exp.current && (
-                  <span className="absolute inset-0 rounded-full animate-ping" style={{ backgroundColor: "var(--color-accent)", opacity: 0.3 }} />
-                )}
               </div>
 
               <div
@@ -105,7 +84,7 @@ return () => ctx.revert();
                         className="inline-flex items-center gap-1.5 px-2 py-0.5 text-xs font-mono"
                         style={{ color: "var(--color-accent)", border: "1px solid var(--color-accent-30)" }}
                       >
-                        <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "var(--color-accent)" }} />
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--color-accent)" }} />
                         {t({ pt: "Atual", en: "Current" })}
                       </span>
                     )}

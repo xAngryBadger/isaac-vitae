@@ -1,13 +1,9 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "motion/react";
-import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import CustomCursor from "./components/CustomCursor";
-import Preloader from "./components/Preloader";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Experience from "./pages/Experience";
@@ -23,7 +19,6 @@ import Security from "./pages/Security";
 import SecurityCaseStudy from "./pages/SecurityCaseStudy";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider, useLang } from "./lib/LanguageContext";
-import { useSounds } from "./lib/useSounds";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,45 +60,14 @@ function DocumentTitle() {
 }
 
 function AppContent() {
-  const [loaded, setLoaded] = useState(() => sessionStorage.getItem("preloader-done") === "true");
   const isFirstMount = useRef(true);
   const location = useLocation();
-  const { playRouteChange } = useSounds();
-
-  const handlePreloaderDone = useCallback(() => { sessionStorage.setItem("preloader-done", "true"); setLoaded(true); }, []);
 
   useEffect(() => {
-    const lenis = (window as unknown as { lenis?: { scrollTo: (pos: number, opts?: { immediate?: boolean }) => void } }).lenis;
-    if (lenis) lenis.scrollTo(0, { immediate: true });
-    else window.scrollTo(0, 0);
-    const timer = window.setTimeout(() => ScrollTrigger.refresh(), 500);
-    if (loaded && !isFirstMount.current) playRouteChange();
+    window.scrollTo(0, 0);
+    const timer = window.setTimeout(() => ScrollTrigger.refresh(), 300);
     return () => window.clearTimeout(timer);
-  }, [location.pathname, loaded, playRouteChange]);
-
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.4,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    (window as unknown as Record<string, unknown>).lenis = lenis;
-
-    lenis.on("scroll", ScrollTrigger.update);
-    const ticker = (time: number) => lenis.raf(time * 1000);
-    gsap.ticker.add(ticker);
-    gsap.ticker.lagSmoothing(0);
-
-    const refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 300);
-
-    return () => {
-      window.clearTimeout(refreshTimer);
-      delete (window as unknown as Record<string, unknown>).lenis;
-      lenis.destroy();
-      gsap.ticker.remove(ticker);
-    };
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -115,46 +79,31 @@ function AppContent() {
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  const firstRender = isFirstMount.current;
-  if (loaded && isFirstMount.current) isFirstMount.current = false;
+  if (isFirstMount.current) isFirstMount.current = false;
 
   return (
     <>
-      {!loaded && <Preloader onDone={handlePreloaderDone} />}
-      {loaded && (
-        <>
       <DocumentTitle />
-      <CustomCursor />
       <Nav />
-          <AnimatePresence mode="wait">
-            <motion.main
-              key={location.pathname}
-              initial={firstRender ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <Routes location={location}>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/experience" element={<Experience />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
-                <Route path="/security" element={<Security />} />
-                <Route path="/security/:slug" element={<SecurityCaseStudy />} />
-                <Route path="/skills" element={<Skills />} />
-                <Route path="/gallery" element={<Gallery />} />
-                <Route path="/certificates" element={<Certificates />} />
-                <Route path="/cv" element={<CV />} />
-                <Route path="/playground" element={<Playground />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </motion.main>
-          </AnimatePresence>
-          <Footer />
-        </>
-      )}
+      <main key={location.pathname} className="route-fade">
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
+          <Route path="/security" element={<Security />} />
+          <Route path="/security/:slug" element={<SecurityCaseStudy />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/certificates" element={<Certificates />} />
+          <Route path="/cv" element={<CV />} />
+          <Route path="/playground" element={<Playground />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      <Footer />
     </>
   );
 }

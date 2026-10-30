@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Literata:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
+/* === transicao de rota: fade curto, sem offset === */
+.route-fade {
+  animation: route-fade 0.18s ease-out both;
+}
+@keyframes route-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-fade { animation: none; }
+}
+
 @theme {
   /* === CATPPUCCIN MOCHA PALETTE === */
   --color-bg: #1e1e2e;           /* Base */
