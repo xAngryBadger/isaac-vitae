@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Globe } from "lucide-react";
+import { Globe, Sun, Moon } from "lucide-react";
 import { useLang } from "../lib/LanguageContext";
 import { personal } from "../data/content";
 import { DyslexiaToggle } from "./DyslexiaToggle";
@@ -21,11 +21,22 @@ const menuLinks = [
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("dark-mode-enabled") !== "false";
+    }
+    return true;
+  });
   const progressRef = useRef<HTMLDivElement>(null);
   const menuBackdropRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const { t, lang, toggle } = useLang();
   const location = useLocation();
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark-mode", darkMode);
+    localStorage.setItem("dark-mode-enabled", String(darkMode));
+  }, [darkMode]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -203,6 +214,17 @@ export default function Nav() {
           >
             {personal.email}
           </span>
+          <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            tabIndex={menuOpen ? 0 : -1}
+            className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target flex items-center gap-1"
+            style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
+            aria-label={darkMode ? t({ pt: "Tema claro", en: "Light theme" }) : t({ pt: "Tema escuro", en: "Dark theme" })}
+          >
+            {darkMode ? <Sun className="w-3 h-3" /> : <Moon className="w-3 h-3" />}
+            {darkMode ? (t({ pt: "CLARO", en: "LIGHT" })) : (t({ pt: "ESCURO", en: "DARK" }))}
+          </button>
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
           <button
             onClick={toggle}

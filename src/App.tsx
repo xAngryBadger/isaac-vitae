@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import CustomCursor from "./components/CustomCursor";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Experience from "./pages/Experience";
@@ -85,6 +86,7 @@ function AppContent() {
     <>
       <DocumentTitle />
       <Nav />
+      <CustomCursor />
       <main key={location.pathname} className="route-fade">
         <Routes location={location}>
           <Route path="/" element={<Home />} />
