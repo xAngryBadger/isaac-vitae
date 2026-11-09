@@ -21,20 +21,22 @@ import SecurityCaseStudy from "./pages/SecurityCaseStudy";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider, useLang } from "./lib/LanguageContext";
 
+const BASE_PATH = "/isaac-vitae";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const pageTitles: Record<string, { pt: string; en: string }> = {
-  "/": { pt: "Isaac Nathan — Portfólio", en: "Isaac Nathan — Portfolio" },
-  "/about": { pt: "Sobre — Isaac Nathan", en: "About — Isaac Nathan" },
-  "/experience": { pt: "Experiência — Isaac Nathan", en: "Experience — Isaac Nathan" },
-  "/projects": { pt: "Projetos — Isaac Nathan", en: "Projects — Isaac Nathan" },
-  "/skills": { pt: "Habilidades — Isaac Nathan", en: "Skills — Isaac Nathan" },
-  "/gallery": { pt: "Galeria — Isaac Nathan", en: "Gallery — Isaac Nathan" },
-  "/certificates": { pt: "Certificações — Isaac Nathan", en: "Certificates — Isaac Nathan" },
-  "/contact": { pt: "Contato — Isaac Nathan", en: "Contact — Isaac Nathan" },
-  "/cv": { pt: "Currículo — Isaac Nathan", en: "Resume — Isaac Nathan" },
-  "/playground": { pt: "Playground — Isaac Nathan", en: "Playground — Isaac Nathan" },
-  "/security": { pt: "Segurança — Isaac Nathan", en: "Security — Isaac Nathan" },
+  `${BASE_PATH}/`: { pt: "Isaac Nathan — Portfólio", en: "Isaac Nathan — Portfolio" },
+  `${BASE_PATH}/about`: { pt: "Sobre — Isaac Nathan", en: "About — Isaac Nathan" },
+  `${BASE_PATH}/experience`: { pt: "Experiência — Isaac Nathan", en: "Experience — Isaac Nathan" },
+  `${BASE_PATH}/projects`: { pt: "Projetos — Isaac Nathan", en: "Projects — Isaac Nathan" },
+  `${BASE_PATH}/skills`: { pt: "Habilidades — Isaac Nathan", en: "Skills — Isaac Nathan" },
+  `${BASE_PATH}/gallery`: { pt: "Galeria — Isaac Nathan", en: "Gallery — Isaac Nathan" },
+  `${BASE_PATH}/certificates`: { pt: "Certificações — Isaac Nathan", en: "Certificates — Isaac Nathan" },
+  `${BASE_PATH}/contact`: { pt: "Contato — Isaac Nathan", en: "Contact — Isaac Nathan" },
+  `${BASE_PATH}/cv`: { pt: "Currículo — Isaac Nathan", en: "Resume — Isaac Nathan" },
+  `${BASE_PATH}/playground`: { pt: "Playground — Isaac Nathan", en: "Playground — Isaac Nathan" },
+  `${BASE_PATH}/security`: { pt: "Segurança — Isaac Nathan", en: "Security — Isaac Nathan" },
 };
 
 function DocumentTitle() {
@@ -88,7 +90,7 @@ function AppContent() {
       <Nav />
       <CustomCursor />
       <main key={location.pathname} className="route-fade">
-        <Routes location={location}>
+        <Routes basename={BASE_PATH} location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/experience" element={<Experience />} />
