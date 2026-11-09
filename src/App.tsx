@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Nav from "./components/Nav";
@@ -63,17 +63,6 @@ function DocumentTitle() {
 function AppContent() {
   const isFirstMount = useRef(true);
   const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // Handle hash-based routing from 404.html redirect
-    if (isFirstMount.current && window.location.hash) {
-      const hashPath = window.location.hash.slice(1); // remove #
-      if (hashPath) {
-        navigate(hashPath, { replace: true });
-      }
-    }
-  }, [navigate]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
