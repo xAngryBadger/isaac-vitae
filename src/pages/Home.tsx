@@ -6,7 +6,7 @@ import { useLang } from "../lib/LanguageContext";
 import { ArrowDown, Github, Linkedin, FileDown } from "lucide-react";
 import { EASE_SECONDARY } from "../lib/scroll-anim";
 import { SplitText } from "../components/SplitText";
-import { ShaderHero } from "../components/ShaderHero";
+import ShaderHero from "../components/ShaderHero";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
