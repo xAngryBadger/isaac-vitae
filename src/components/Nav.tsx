@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Globe } from "lucide-react";
+import { Globe, Menu, X } from "lucide-react";
 import { useLang } from "../lib/LanguageContext";
-import { personal } from "../data/content";
 import { DyslexiaToggle } from "./DyslexiaToggle";
 import ThemeSwitcher from "./ThemeSwitcher";
+
+const BASE_PATH = "/isaac-vitae";
 
 const menuLinks = [
   { label: { pt: "Início", en: "Home" }, href: "/", num: "01" },
@@ -14,12 +15,15 @@ const menuLinks = [
   { label: { pt: "Habilidades", en: "Skills" }, href: "/skills", num: "05" },
   // Galeria desativada temporariamente (pedido do usuário) — reativar junto com a rota em App.tsx
   // { label: { pt: "Galeria", en: "Gallery" }, href: "/gallery", num: "06" },
-  { label: { pt: "Certificações", en: "Certificates" }, href: "/certificates", num: "07" },
-  { label: { pt: "Currículo", en: "Resume" }, href: "/cv", num: "08" },
-  { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "09" },
-  { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "10" },
-  { label: { pt: "Disclosures", en: "Disclosures" }, href: "/security", num: "11", muted: true },
+  { label: { pt: "Certificações", en: "Certificates" }, href: "/certificates", num: "06" },
+  { label: { pt: "Currículo", en: "Resume" }, href: "/cv", num: "07" },
+  { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "08" },
+  { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "09" },
+  { label: { pt: "Disclosures", en: "Disclosures" }, href: "/security", num: "10", muted: true },
 ];
+
+// links principais visíveis em desktop (lg+)
+const primaryLinks = ["/", "/about", "/experience", "/projects", "/skills", "/contact"];
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -52,17 +56,11 @@ export default function Nav() {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
-
-      if (menuBackdropRef.current) {
-        menuBackdropRef.current.classList.add("clip-reveal-up");
-      }
+      if (menuBackdropRef.current) menuBackdropRef.current.classList.add("clip-reveal-up");
     } else {
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
-
-      if (menuBackdropRef.current) {
-        menuBackdropRef.current.classList.remove("clip-reveal-up");
-      }
+      if (menuBackdropRef.current) menuBackdropRef.current.classList.remove("clip-reveal-up");
       hamburgerRef.current?.focus();
     }
     return () => {
@@ -80,62 +78,91 @@ export default function Nav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
+  const desktopLinks = menuLinks.filter((l) => primaryLinks.includes(l.href));
+  const isActive = (href: string) => location.pathname === href || location.pathname === href.replace(/\/$/, "");
+
   return (
     <>
       <div ref={progressRef} className="scroll-progress" style={{ transform: "scaleX(0)" }} />
 
       <header
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500`}
+        className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500"
         style={{
-          backgroundColor: scrolled ? "var(--color-bg-deep)" : "transparent",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
-          borderBottom: scrolled ? "1px solid var(--color-border)" : "1px solid transparent",
+          backgroundColor: scrolled || menuOpen ? "var(--color-bg-deep)" : "transparent",
+          backdropFilter: scrolled || menuOpen ? "blur(12px)" : "none",
+          borderBottom: scrolled || menuOpen ? "1px solid var(--color-border)" : "1px solid transparent",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            <button
-              ref={hamburgerRef}
-              onClick={() => setMenuOpen((v) => !v)}
-              aria-expanded={menuOpen}
-              aria-controls="primary-menu"
-              aria-label={menuOpen ? t({ pt: "Fechar menu", en: "Close menu" }) : t({ pt: "Abrir menu", en: "Open menu" })}
-              className="flex items-center gap-3 p-2 custom-cursor-target"
-              style={{ background: "none", border: "none" }}
-            >
-              <span
-                className="hidden lg:inline font-sans text-xs tracking-[0.15em] uppercase"
-                style={{ color: "var(--color-text-3)", transition: "opacity 0.3s", opacity: menuOpen ? 0 : 1 }}
+            {/* esquerda: hamburger (mobile) / logo */}
+            <div className="flex items-center gap-6">
+              <button
+                ref={hamburgerRef}
+                onClick={() => setMenuOpen((v) => !v)}
+                aria-expanded={menuOpen}
+                aria-controls="primary-menu"
+                aria-label={menuOpen ? t({ pt: "Fechar menu", en: "Close menu" }) : t({ pt: "Abrir menu", en: "Open menu" })}
+                className="lg:hidden flex items-center p-2 custom-cursor-target"
+                style={{ background: "none", border: "none", color: "var(--color-text)" }}
               >
-                Menu
-              </span>
-              <span
-                className="block w-6 h-px transition-all duration-300"
-                style={{ backgroundColor: "var(--color-text)", transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none" }}
-              />
-              <span
-                className="block w-4 h-px transition-all duration-300"
-                style={{ backgroundColor: "var(--color-text)", opacity: menuOpen ? 0 : 1 }}
-              />
-              <span
-                className="block w-6 h-px transition-all duration-300"
-                style={{ backgroundColor: "var(--color-text)", transform: menuOpen ? "translateY(-6px) rotate(-45deg)" : "none" }}
-              />
-            </button>
+                {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+              <Link
+                to="/"
+                className="font-sans text-sm tracking-[0.2em] uppercase custom-cursor-target"
+                style={{ color: "var(--color-text)", textDecoration: "none" }}
+              >
+                Isaac
+                <span style={{ color: "var(--color-text-3)" }}>.</span>
+              </Link>
+            </div>
 
-            <Link
-              to="/"
-              className="font-sans text-sm tracking-[0.2em] uppercase custom-cursor-target"
-              style={{ color: "var(--color-text)", textDecoration: "none" }}
-            >
-              Isaac
-              <span style={{ color: "var(--color-text-3)" }}>.</span>
-            </Link>
-            <ThemeSwitcher />
+            {/* centro: nav desktop */}
+            <nav className="hidden lg:flex items-center gap-7">
+              {desktopLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="font-mono text-[11px] tracking-[0.12em] uppercase custom-cursor-target relative"
+                  style={{
+                    color: isActive(link.href) ? "var(--color-accent)" : "var(--color-text-2)",
+                    textDecoration: "none",
+                    transition: "color 0.2s var(--ease-quart-out)",
+                  }}
+                >
+                  {t(link.label)}
+                  {isActive(link.href) && (
+                    <span
+                      className="absolute -bottom-1 left-0 right-0 h-px"
+                      style={{ backgroundColor: "var(--color-accent)" }}
+                    />
+                  )}
+                </Link>
+              ))}
+            </nav>
+
+            {/* direita: controles */}
+            <div className="flex items-center gap-3">
+              <ThemeSwitcher />
+              <span className="w-px h-4 hidden sm:block" style={{ backgroundColor: "var(--color-border-2)" }} />
+              <button
+                onClick={toggle}
+                className="font-mono text-[10px] tracking-[0.1em] uppercase custom-cursor-target items-center gap-1 hidden sm:flex"
+                style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
+                aria-label={t({ pt: "Alternar idioma", en: "Switch language" })}
+              >
+                <Globe className="w-3 h-3" />
+                {lang === "pt" ? "EN" : "PT"}
+              </button>
+              <span className="w-px h-4 hidden sm:block" style={{ backgroundColor: "var(--color-border-2)" }} />
+              <DyslexiaToggle />
+            </div>
           </div>
         </div>
       </header>
 
+      {/* menu fullscreen (mobile + itens completos) */}
       <div
         id="primary-menu"
         ref={menuBackdropRef}
@@ -152,14 +179,7 @@ export default function Nav() {
         aria-modal={menuOpen}
         aria-label={t({ pt: "Menu principal", en: "Primary menu" })}
       >
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundColor: "var(--color-bg-deep)",
-            opacity: 0,
-            transition: "opacity 0s",
-          }}
-        />
+        <div className="absolute inset-0" style={{ backgroundColor: "var(--color-bg-deep)", opacity: 0 }} />
         <div
           className="absolute inset-0"
           style={{
@@ -169,7 +189,7 @@ export default function Nav() {
           }}
         />
 
-        <nav className="relative z-10 flex flex-col gap-4 lg:gap-6">
+        <nav className="relative z-10 flex flex-col gap-3 lg:gap-4">
           {menuLinks.map((link, i) => (
             <Link
               key={link.href}
@@ -178,20 +198,20 @@ export default function Nav() {
               className="text-left custom-cursor-target group"
               style={{
                 fontFamily: "var(--font-serif)",
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                color: "var(--color-text)",
+                fontSize: "clamp(1.75rem, 4vw, 3rem)",
+                color: isActive(link.href) ? "var(--color-accent)" : "var(--color-text)",
                 background: "none",
                 border: "none",
                 textDecoration: "none",
                 display: "block",
                 opacity: menuOpen ? 1 : 0,
                 transform: menuOpen ? "translateY(0)" : "translateY(100%)",
-                transition: `opacity 0.25s var(--ease-project) ${0.02 * i + 0.05}s, transform 0.25s var(--ease-project) ${0.02 * i + 0.05}s`,
+                transition: `opacity 0.25s var(--ease-project) ${0.02 * i + 0.05}s, transform 0.25s var(--ease-project) ${0.02 * i + 0.05}s, color 0.2s`,
               }}
             >
               <span
-                className="font-mono text-xs tracking-[0.15em] mr-4"
-                style={{ color: "var(--color-text-3)", fontVariantNumeric: "tabular-nums" }}
+                className="font-mono text-[10px] tracking-[0.15em] mr-4"
+                style={{ color: "var(--color-text-3)" }}
               >
                 {link.num} —
               </span>
@@ -200,25 +220,14 @@ export default function Nav() {
           ))}
         </nav>
 
-        <div className="absolute bottom-10 left-10 lg:left-20 flex items-center gap-6">
-          <span
-            className="font-mono text-xs"
-            style={{ color: "var(--color-text-3)", letterSpacing: "0.15em" }}
-          >
+        <div className="absolute bottom-10 left-10 lg:left-20 flex items-center gap-4 flex-wrap">
+          <span className="font-mono text-[11px]" style={{ color: "var(--color-text-3)", letterSpacing: "0.12em" }}>
             {personal.email}
           </span>
           <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
-          <button
-            onClick={toggle}
-            tabIndex={menuOpen ? 0 : -1}
-            className="font-mono text-xs tracking-[0.1em] uppercase custom-cursor-target flex items-center gap-1"
-            style={{ color: "var(--color-text-3)", background: "none", border: "none" }}
-          >
-            <Globe className="w-3 h-3" />
-            {lang === "pt" ? "EN" : "PT"}
-          </button>
-          <span className="w-px h-3" style={{ backgroundColor: "var(--color-border-2)" }} />
-          <DyslexiaToggle />
+          <span className="font-mono text-[11px]" style={{ color: "var(--color-text-3)" }}>
+            {t(personal.location)}
+          </span>
         </div>
       </div>
     </>
