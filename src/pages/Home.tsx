@@ -6,6 +6,7 @@ import { useLang } from "../lib/LanguageContext";
 import { ArrowDown, Github, Linkedin, FileDown } from "lucide-react";
 import { EASE_SECONDARY } from "../lib/scroll-anim";
 import { SplitText } from "../components/SplitText";
+import { ShaderHero } from "../components/ShaderHero";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -32,6 +33,9 @@ export default function Home() {
           "radial-gradient(ellipse at 70% 20%, var(--color-bg-elevated) 0%, transparent 50%)",
         }}
       />
+
+      {/* Shader WebGL — nebulosa viva; fallback é o gradiente acima */}
+      <ShaderHero />
 
       {/* Corner decorations */}
       <div className="absolute top-8 left-8 lg:top-12 lg:left-12 pointer-events-none">
