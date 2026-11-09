@@ -8,8 +8,6 @@ import ThemeSwitcher from "./ThemeSwitcher";
 
 const BASE_PATH = "/isaac-vitae";
 
-const BASE_PATH = "/isaac-vitae";
-
 const menuLinks = [
   { label: { pt: "Início", en: "Home" }, href: `${BASE_PATH}/`, num: "01" },
   { label: { pt: "Sobre", en: "About" }, href: `${BASE_PATH}/about`, num: "02" },
