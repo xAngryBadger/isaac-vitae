@@ -21,8 +21,6 @@ import SecurityCaseStudy from "./pages/SecurityCaseStudy";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider, useLang } from "./lib/LanguageContext";
 
-const BASE_PATH = "/isaac-vitae";
-
 gsap.registerPlugin(ScrollTrigger);
 
 const pageTitles: Record<string, { pt: string; en: string }> = {
