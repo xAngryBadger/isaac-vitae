@@ -5,7 +5,13 @@
   <title>Redirecting...</title>
   <script>
     var path = window.location.pathname + window.location.search;
-    window.location.href = "/isaac-vitae/" + path;
+    var base = "/isaac-vitae/";
+    // Only prepend base if not already present
+    if (path.startsWith(base)) {
+      window.location.href = path;
+    } else {
+      window.location.href = base + path.replace(/^\//, '');
+    }
   </script>
 </head>
 <body>
