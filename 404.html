@@ -6,9 +6,9 @@
   <script>
     var path = window.location.pathname + window.location.search;
     var base = "/isaac-vitae/";
-    // Only prepend base if not already present
-    if (path.startsWith(base)) {
-      window.location.href = path;
+    // If path is already under base, serve index.html (SPA will handle routing)
+    if (path.startsWith(base) && path.length > base.length) {
+      window.location.href = base + "index.html" + window.location.search + window.location.hash;
     } else {
       window.location.href = base + path.replace(/^\//, '');
     }
