@@ -6,19 +6,17 @@ import { personal } from "../data/content";
 import { DyslexiaToggle } from "./DyslexiaToggle";
 import ThemeSwitcher from "./ThemeSwitcher";
 
-const BASE_PATH = "/isaac-vitae";
-
 const menuLinks = [
-  { label: { pt: "Início", en: "Home" }, href: `${BASE_PATH}/`, num: "01" },
-  { label: { pt: "Sobre", en: "About" }, href: `${BASE_PATH}/about`, num: "02" },
-  { label: { pt: "Experiência", en: "Experience" }, href: `${BASE_PATH}/experience`, num: "03" },
-  { label: { pt: "Projetos", en: "Projects" }, href: `${BASE_PATH}/projects`, num: "04" },
-  { label: { pt: "Habilidades", en: "Skills" }, href: `${BASE_PATH}/skills`, num: "05" },
-  { label: { pt: "Galeria", en: "Gallery" }, href: `${BASE_PATH}/gallery`, num: "06" },
-  { label: { pt: "Certificações", en: "Certificates" }, href: `${BASE_PATH}/certificates`, num: "07" },
-  { label: { pt: "Currículo", en: "Resume" }, href: `${BASE_PATH}/cv`, num: "08" },
-  { label: { pt: "Playground", en: "Playground" }, href: `${BASE_PATH}/playground`, num: "09" },
-  { label: { pt: "Disclosures", en: "Disclosures" }, href: `${BASE_PATH}/security`, num: "10", muted: true },
+  { label: { pt: "Início", en: "Home" }, href: "/", num: "01" },
+  { label: { pt: "Sobre", en: "About" }, href: "/about", num: "02" },
+  { label: { pt: "Experiência", en: "Experience" }, href: "/experience", num: "03" },
+  { label: { pt: "Projetos", en: "Projects" }, href: "/projects", num: "04" },
+  { label: { pt: "Habilidades", en: "Skills" }, href: "/skills", num: "05" },
+  { label: { pt: "Galeria", en: "Gallery" }, href: "/gallery", num: "06" },
+  { label: { pt: "Certificações", en: "Certificates" }, href: "/certificates", num: "07" },
+  { label: { pt: "Currículo", en: "Resume" }, href: "/cv", num: "08" },
+  { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "09" },
+  { label: { pt: "Disclosures", en: "Disclosures" }, href: "/security", num: "10", muted: true },
 ];
 
 export default function Nav() {
@@ -124,7 +122,7 @@ export default function Nav() {
             </button>
 
             <Link
-              to={`${BASE_PATH}/`}
+              to="/"
               className="font-sans text-sm tracking-[0.2em] uppercase custom-cursor-target"
               style={{ color: "var(--color-text)", textDecoration: "none" }}
             >
