@@ -7,9 +7,10 @@
     var path = window.location.pathname + window.location.search;
     var base = "/isaac-vitae/";
     // If path is already under base, preserve it in hash for SPA routing
+    // HashRouter with basename expects hash like #/isaac-vitae/experience
     if (path.startsWith(base) && path.length > base.length) {
       var spaPath = path.substring(base.length);
-      window.location.href = base + "index.html#" + spaPath + window.location.search + window.location.hash;
+      window.location.href = base + "index.html#" + base + spaPath + window.location.search + window.location.hash;
     } else {
       window.location.href = base + path.replace(/^\//, '');
     }
