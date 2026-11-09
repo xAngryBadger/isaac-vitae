@@ -12,7 +12,7 @@ import Projects from "./pages/Projects";
 import ProjectCaseStudy from "./pages/ProjectCaseStudy";
 import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
-import Gallery from "./pages/Gallery";
+// import Gallery from "./pages/Gallery"; // desativada temporariamente
 import Certificates from "./pages/Certificates";
 import CV from "./pages/CV";
 import Playground from "./pages/Playground";
@@ -97,7 +97,8 @@ function AppContent() {
           <Route path="/security" element={<Security />} />
           <Route path="/security/:slug" element={<SecurityCaseStudy />} />
           <Route path="/skills" element={<Skills />} />
-          <Route path="/gallery" element={<Gallery />} />
+          {/* Galeria desativada temporariamente (pedido do usuário) — reativar esta rota e o link no Nav */}
+          {/* <Route path="/gallery" element={<Gallery />} /> */}
           <Route path="/certificates" element={<Certificates />} />
           <Route path="/cv" element={<CV />} />
           <Route path="/playground" element={<Playground />} />

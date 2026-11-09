@@ -6,23 +6,15 @@ import { projects, type Project } from "../data/content";
 import { useLang } from "../lib/LanguageContext";
 import { ArrowUpRight, Github } from "lucide-react";
 import { EASE_SECONDARY, SCROLL_START } from "../lib/scroll-anim";
-import { projectWidgets } from "../components/ProjectWidgets";
 import { TagFilter } from "../components/TagFilter";
 import { SplitText } from "../components/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function ProjectIcon({ project, className }: { project: Project; className?: string }) {
-  const initials = project.title.replace(/[^A-Za-z]/g, "").slice(0, 2).toUpperCase();
-  return (
-    <svg viewBox="0 0 48 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="48" height="48" rx="10" fill={`${project.color}15`} />
-      <text x="24" y="28" textAnchor="middle" dominantBaseline="central" fontSize="16" fontFamily="'Playfair Display', serif" fontWeight="700" fill={project.color}>{initials}</text>
-    </svg>
-  );
-}
+const pad = (n: number) => String(n).padStart(2, "0");
 
-function Tier1Card({ proj }: { proj: Project }) {
+/* ---------- TIER 1: DESTAQUES — card editorial, sem ícone de iniciais ---------- */
+function Tier1Card({ proj, index }: { proj: Project; index: number }) {
   const { t } = useLang();
   const [hovered, setHovered] = useState(false);
 
@@ -33,295 +25,163 @@ function Tier1Card({ proj }: { proj: Project }) {
       style={{
         borderColor: hovered ? "var(--color-border-accent)" : "var(--color-border)",
         backgroundColor: "var(--color-bg-card)",
-        transition: "border-color 0.3s var(--ease-project), box-shadow 0.3s var(--ease-project), transform 0.4s var(--ease-spring-soft)",
-        transformStyle: "preserve-3d",
-        perspective: "800px",
-        willChange: "transform",
+        transition: "border-color 0.3s var(--ease-project), box-shadow 0.3s var(--ease-project)",
+        boxShadow: hovered ? "0 2px 24px rgba(0,0,0,0.18)" : "0 0 0 0 transparent",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `radial-gradient(circle at 25% 30%, var(--color-bg-elevated) 0%, transparent 65%)`,
-          opacity: hovered ? 0.8 : 0.4,
-          transition: "opacity 0.5s var(--ease-project)",
-        }}
-      />
-
-      <div className="relative z-10 p-8 flex flex-col md:flex-row items-center gap-6 lg:p-10">
-        <div className="shrink-0 w-28 h-28 lg:w-36 lg:h-36 flex items-center justify-center rounded-lg">
-          <ProjectIcon project={proj} className="w-20 h-20 lg:w-28 lg:h-28" />
-        </div>
-
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap mb-2">
-            <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: proj.color }}>
-              {proj.year}
-            </span>
-            {proj.inProgress && (
-              <span
-                className="font-mono text-[9px] tracking-[0.1em] uppercase px-1.5 py-0.5"
-                style={{ border: `1px solid rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.3)`, color: proj.color, backgroundColor: `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.06)` }}
-              >
-                {t({ pt: "Em andamento", en: "WIP" })}
-              </span>
-            )}
-          </div>
-
-          <h3
-            className="font-serif font-bold text-xl lg:text-2xl leading-snug mb-2"
-            style={{ color: "var(--color-text)" }}
-          >
-            {proj.title}
-          </h3>
-
-          <p className="text-[10px] font-mono uppercase tracking-wider mb-2" style={{ color: "var(--color-text-3)" }}>
-            {t(proj.category)}
-          </p>
-
-          <p
-            className="text-sm leading-relaxed mb-4"
-            style={{ color: "var(--color-text-2)" }}
-            data-selectable
-          >
-            {t(proj.description)}
-          </p>
-
-          <div className="flex flex-wrap gap-1.5 mb-4">
-            {proj.tech.slice(0, 5).map((tech) => (
-              <span
-                key={tech}
-                className="px-2 py-0.5 text-[10px] font-mono"
-                style={{ border: `1px solid rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.12)`, color: "var(--color-text-3)", backgroundColor: `rgba(${parseInt(proj.color.slice(1,3),16)},${parseInt(proj.color.slice(3,5),16)},${parseInt(proj.color.slice(5,7),16)},0.02)` }}
-              >
-                {tech}
-              </span>
-            ))}
-            {proj.tech.length > 5 && (
-              <span className="px-2 py-0.5 text-[10px] font-mono" style={{ color: "var(--color-text-3)" }}>
-                +{proj.tech.length - 5}
-              </span>
-            )}
-          </div>
-
+      <div className="relative z-10 p-7 lg:p-8 flex flex-col h-full">
+        <div className="flex items-baseline justify-between gap-4 mb-6">
           <span
-            className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.08em] uppercase"
-            style={{ color: proj.color, opacity: hovered ? 1 : 0.6, transition: "opacity 0.3s var(--ease-project)" }}
+            className="font-serif font-bold text-4xl lg:text-5xl leading-none"
+            style={{ color: "var(--color-text-3)", opacity: hovered ? 0.9 : 0.45, transition: "opacity 0.3s var(--ease-project)" }}
           >
-            {t({ pt: "Ver case study", en: "View case study" })} <ArrowUpRight className="w-3 h-3" />
+            {pad(index)}
           </span>
-        </div>
-      </div>
-    </Link>
-  );
-}
-
-function Tier2Card({ proj }: { proj: Project }) {
-  const { t } = useLang();
-  const [hovered, setHovered] = useState(false);
-  const hasDemo = !!proj.demoUrl;
-
-  const cardStyle: React.CSSProperties = {
-    borderColor: hovered ? "rgba(69,106,75,0.5)" : "var(--color-border)",
-    borderLeft: `4px solid ${hovered ? "var(--color-sage)" : "rgba(69,106,75,0.3)"}`,
-    backgroundColor: "var(--color-bg-card)",
-    transition: "border-color 0.3s var(--ease-project), border-left-color 0.3s var(--ease-project), box-shadow 0.3s var(--ease-project)",
-    boxShadow: hovered ? "0 4px 20px rgba(69,106,75,0.08)" : "0 0 0 0 transparent",
-  };
-
-  const cls = "proj-card group relative overflow-hidden custom-cursor-target border";
-  const hoverProps = { onMouseEnter: () => setHovered(true), onMouseLeave: () => setHovered(false) };
-
-  const inner = (
-    <>
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `radial-gradient(circle at 80% 20%, rgba(69,106,75,0.1) 0%, transparent 60%)`,
-          opacity: hovered ? 0.8 : 0.3,
-          transition: "opacity 0.5s var(--ease-project)",
-        }}
-      />
-
-      <div className="relative z-10 p-8 flex flex-col">
-        <div className="flex items-center gap-2 flex-wrap mb-2">
-          <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "var(--color-sage)" }}>
+          <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "var(--color-text-3)" }}>
             {proj.year}
+            {proj.inProgress && (
+              <span style={{ color: "var(--color-accent)" }}> · {t({ pt: "em andamento", en: "wip" })}</span>
+            )}
           </span>
         </div>
 
-        <h3
-          className="font-serif font-bold text-lg leading-snug mb-2"
-          style={{ color: "var(--color-text)" }}
-        >
+        <h3 className="font-serif font-bold text-xl lg:text-[1.6rem] leading-snug mb-2" style={{ color: "var(--color-text)" }}>
           {proj.title}
         </h3>
 
-        <p className="text-[10px] font-mono uppercase tracking-wider mb-2" style={{ color: "var(--color-text-3)" }}>
+        <p className="font-mono text-[10px] uppercase tracking-wider mb-4" style={{ color: "var(--color-text-3)" }}>
           {t(proj.category)}
         </p>
 
-        <p
-          className="text-sm leading-relaxed mb-4"
-          style={{ color: "var(--color-text-2)" }}
-          data-selectable
-        >
+        <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--color-text-2)" }} data-selectable>
           {t(proj.description)}
         </p>
 
-        <div className="flex flex-wrap gap-1.5 mt-auto">
-          {proj.tech.slice(0, 4).map((tech) => (
+        <div className="flex flex-wrap gap-1.5 mb-6 mt-auto">
+          {proj.tech.slice(0, 5).map((tech) => (
             <span
               key={tech}
               className="px-2 py-0.5 text-[10px] font-mono"
-              style={{ border: "1px solid rgba(69,106,75,0.2)", color: "var(--color-text-3)", backgroundColor: "rgba(69,106,75,0.04)" }}
+              style={{ border: "1px solid var(--color-border)", color: "var(--color-text-3)" }}
             >
               {tech}
             </span>
           ))}
-          {proj.tech.length > 4 && (
+          {proj.tech.length > 5 && (
             <span className="px-2 py-0.5 text-[10px] font-mono" style={{ color: "var(--color-text-3)" }}>
-              +{proj.tech.length - 4}
+              +{proj.tech.length - 5}
             </span>
           )}
         </div>
 
         <span
-          className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.08em] uppercase mt-4"
-          style={{ color: "var(--color-sage)", opacity: hovered ? 1 : 0.5, transition: "opacity 0.3s var(--ease-project)" }}
+          className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.08em] uppercase self-start"
+          style={{ color: hovered ? "var(--color-accent)" : "var(--color-text-3)", transition: "color 0.3s var(--ease-project)" }}
         >
-          {hasDemo
-            ? t({ pt: "Abrir ferramenta", en: "Open tool" })
-            : t({ pt: "Ver case study", en: "View case study" })
-          } <ArrowUpRight className="w-3 h-3" />
+          {t({ pt: "Ver case study", en: "View case study" })} <ArrowUpRight className="w-3 h-3" />
         </span>
       </div>
+    </Link>
+  );
+}
+
+/* ---------- TIER 2: ESTUDOS DE CASO — linha de arquivo numerada ---------- */
+function Tier2Row({ proj, index }: { proj: Project; index: number }) {
+  const { t } = useLang();
+  const [hovered, setHovered] = useState(false);
+  const hasDemo = !!proj.demoUrl;
+
+  const inner = (
+    <>
+      <span
+        className="font-mono text-xs tabular-nums shrink-0 w-8"
+        style={{ color: hovered ? "var(--color-accent)" : "var(--color-text-3)", transition: "color 0.25s var(--ease-project)" }}
+      >
+        {pad(index)}
+      </span>
+      <span className="flex-1 min-w-0">
+        <span className="flex items-baseline gap-3 flex-wrap">
+          <span className="font-serif font-bold text-lg leading-snug" style={{ color: "var(--color-text)" }}>
+            {proj.title}
+          </span>
+          <span className="font-mono text-[10px] uppercase tracking-wider" style={{ color: "var(--color-text-3)" }}>
+            {t(proj.category)}
+          </span>
+        </span>
+        <span className="block text-sm leading-relaxed mt-1" style={{ color: "var(--color-text-2)" }} data-selectable>
+          {t(proj.description)}
+        </span>
+      </span>
+      <span className="flex items-center gap-3 shrink-0">
+        <span className="font-mono text-[10px] tracking-[0.15em] uppercase hidden sm:inline" style={{ color: "var(--color-text-3)" }}>
+          {proj.year}
+        </span>
+        <ArrowUpRight
+          className="w-4 h-4"
+          style={{ color: hovered ? "var(--color-accent)" : "var(--color-text-3)", transition: "color 0.25s var(--ease-project), transform 0.25s var(--ease-project)", transform: hovered ? "translate(2px,-2px)" : "none" }}
+        />
+      </span>
     </>
   );
 
+  const cls = "proj-card w-full flex items-start gap-4 lg:gap-6 py-5 text-left custom-cursor-target";
+  const style = { borderBottom: "1px solid var(--color-border)", transition: "border-color 0.25s var(--ease-project)" } as React.CSSProperties;
+  const hoverProps = { onMouseEnter: () => setHovered(true), onMouseLeave: () => setHovered(false) };
+
   if (hasDemo) {
     return (
-      <a
-        href={proj.demoUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={cls}
-        style={cardStyle}
-        {...hoverProps}
-      >
+      <a href={proj.demoUrl} target="_blank" rel="noopener noreferrer" className={cls} style={style} {...hoverProps}>
         {inner}
       </a>
     );
   }
-
   return (
-    <Link
-      to={`/projects/${proj.caseStudySlug}`}
-      className={cls}
-      style={cardStyle}
-      {...hoverProps}
-    >
+    <Link to={`/projects/${proj.caseStudySlug}`} className={cls} style={style} {...hoverProps}>
       {inner}
     </Link>
   );
 }
 
-function Tier3Card({ proj }: { proj: Project }) {
+/* ---------- TIER 3: OUTROS — linha compacta ---------- */
+function Tier3Row({ proj, index }: { proj: Project; index: number }) {
   const { t } = useLang();
   const [hovered, setHovered] = useState(false);
-  const hasIcon = !!projectWidgets[proj.id];
 
   return (
     <div
-      className="proj-card relative z-10 p-6 overflow-hidden border"
-      style={{
-        borderColor: hovered ? "var(--color-border-accent)" : "var(--color-border)",
-        backgroundColor: "var(--color-bg-card)",
-        transition: "border-color 0.3s var(--ease-project), transform 0.4s var(--ease-spring-soft)",
-        transformStyle: "preserve-3d",
-        perspective: "800px",
-        willChange: "transform",
-      }}
+      className="proj-card w-full flex items-center gap-4 py-3.5"
+      style={{ borderBottom: "1px solid var(--color-border)", transition: "border-color 0.25s var(--ease-project)" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `radial-gradient(circle at 50% 20%, var(--color-bg-elevated) 0%, transparent 60%)`,
-          opacity: hovered ? 0.6 : 0.3,
-          transition: "opacity 0.4s var(--ease-project)",
-        }}
-      />
-
-      {hasIcon && (
-        <div className="w-16 h-16 mb-4 flex items-center justify-center rounded">
-          <ProjectIcon project={proj} className="w-12 h-12" />
-        </div>
-      )}
-
-      <div className="flex items-center gap-2 flex-wrap mb-1">
-        <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "var(--color-text-2)" }}>
-          {proj.year}
-        </span>
-        {proj.inProgress && (
-          <span
-            className="font-mono text-[9px] tracking-[0.1em] uppercase px-1.5 py-0.5"
-            style={{ border: "1px solid var(--color-accent-50)", color: "var(--color-accent)", backgroundColor: "var(--color-accent-08)" }}
-          >
-            {t({ pt: "Em andamento", en: "WIP" })}
-          </span>
-        )}
-      </div>
-
-      <h3
-        className="font-serif font-bold text-base leading-snug mb-1"
-        style={{ color: "var(--color-text)" }}
-      >
+      <span className="font-mono text-xs tabular-nums shrink-0 w-8" style={{ color: "var(--color-text-3)" }}>
+        {pad(index)}
+      </span>
+      <span className="font-serif font-bold text-base leading-snug shrink-0" style={{ color: "var(--color-text)" }}>
         {proj.title}
-      </h3>
-
-      <p className="text-[10px] font-mono uppercase tracking-wider mb-2" style={{ color: "var(--color-text-3)" }}>
+      </span>
+      <span className="font-mono text-[10px] uppercase tracking-wider truncate hidden md:inline" style={{ color: "var(--color-text-3)" }}>
         {t(proj.category)}
-      </p>
-
-      <p
-        className="text-xs leading-relaxed mb-3"
-        style={{ color: "var(--color-text-2)" }}
-        data-selectable
-      >
-        {t(proj.description)}
-      </p>
-
-      <div className="flex flex-wrap gap-1 mb-2">
-        {proj.tech.slice(0, 3).map((tech) => (
-          <span
-            key={tech}
-            className="px-1.5 py-0.5 text-[9px] font-mono"
-            style={{ border: "1px solid var(--color-accent-15)", color: "var(--color-text-3)", backgroundColor: "var(--color-accent-03)" }}
-          >
-            {tech}
-          </span>
-        ))}
-        {proj.tech.length > 3 && (
-          <span className="px-1.5 py-0.5 text-[9px] font-mono" style={{ color: "var(--color-text-3)" }}>
-            +{proj.tech.length - 3}
-          </span>
-        )}
-      </div>
-
-      {proj.githubUrl && (
+      </span>
+      <span className="flex-1" />
+      <span className="font-mono text-[10px] tracking-[0.15em] uppercase shrink-0" style={{ color: "var(--color-text-3)" }}>
+        {proj.year}
+      </span>
+      {proj.githubUrl ? (
         <a
           href={proj.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.08em] uppercase self-start"
-          style={{ color: "var(--color-text-3)", opacity: hovered ? 1 : 0.5, transition: "opacity 0.3s var(--ease-project)" }}
+          className="inline-flex items-center shrink-0"
+          style={{ color: hovered ? "var(--color-accent)" : "var(--color-text-3)", transition: "color 0.25s var(--ease-project)" }}
+          aria-label={`GitHub — ${proj.title}`}
         >
-          <Github className="w-3 h-3" /> GitHub <ArrowUpRight className="w-2.5 h-2.5" />
+          <Github className="w-3.5 h-3.5" />
         </a>
+      ) : (
+        <span className="w-3.5 shrink-0" />
       )}
     </div>
   );
@@ -332,11 +192,10 @@ export default function Projects() {
   const { t } = useLang();
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const allTags = Array.from(new Set(projects.flatMap(p => p.tech.slice(0, 3)))).slice(0, 12);
+  const allTags = Array.from(new Set(projects.flatMap((p) => p.tech.slice(0, 3)))).slice(0, 12);
 
-  const filteredProjects = selectedTags.length > 0
-    ? projects.filter(p => selectedTags.every(tag => p.tech.includes(tag)))
-    : projects;
+  const filteredProjects =
+    selectedTags.length > 0 ? projects.filter((p) => selectedTags.every((tag) => p.tech.includes(tag))) : projects;
 
   const featured = filteredProjects.filter((p) => p.featured);
   const caseStudies = filteredProjects.filter((p) => !p.featured && p.hasCaseStudy);
@@ -344,34 +203,13 @@ export default function Projects() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Section label and title - clip-reveal
       gsap.from(".proj-label", {
-        opacity: 0, y: 20, duration: 0.6, ease: EASE_SECONDARY,
+        opacity: 0, y: 16, duration: 0.5, ease: EASE_SECONDARY,
         scrollTrigger: { trigger: ".proj-label", start: SCROLL_START, once: true },
       });
-      
-      gsap.from(".proj-title", {
-        opacity: 0, y: 20, duration: 0.8, ease: EASE_SECONDARY,
-        scrollTrigger: { trigger: ".proj-title", start: SCROLL_START, once: true },
-        onComplete: () => {
-          // Trigger SplitText animation for the title
-          const titleElement = document.querySelector(".proj-title");
-          if (titleElement) {
-            // SplitText will handle its own animation
-          }
-        }
-      });
-
-      // Tier sections - fade-up
       gsap.from(".tier-section", {
-        opacity: 0, y: 30, stagger: 0.15, duration: 0.7, ease: EASE_SECONDARY,
+        opacity: 0, y: 20, stagger: 0.08, duration: 0.5, ease: EASE_SECONDARY,
         scrollTrigger: { trigger: sectionRef.current, start: SCROLL_START, once: true },
-      });
-
-      // Project cards - scale-materialize stagger
-      gsap.from(".proj-card", {
-        opacity: 0, y: 30, stagger: 0.06, duration: 0.6, ease: EASE_SECONDARY,
-        scrollTrigger: { trigger: sectionRef.current?.querySelector(".proj-grid-1") ?? sectionRef.current, start: SCROLL_START, once: true },
       });
     }, sectionRef);
     return () => ctx.revert();
@@ -382,49 +220,29 @@ export default function Projects() {
       <div className="section-container">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
           <div>
-            {/* Section label with clip-reveal */}
-            <span className="proj-label section-label clip-reveal-up">
-              {t({ pt: "Projetos", en: "Projects" })}
-            </span>
-            
-            {/* Title with SplitText */}
-            <h2 className="proj-title font-serif font-bold leading-tight text-h2">
-              <SplitText
-                as="span"
-                className="block"
-                delay={0.3}
-                duration={1.0}
-                stagger={0.08}
-                splitType="words"
-              >
+            <span className="proj-label section-label">{t({ pt: "Projetos", en: "Projects" })}</span>
+            <h2 className="proj-title font-serif font-bold leading-tight text-h2 mt-1">
+              <SplitText as="span" className="block" delay={0.2} duration={0.8} stagger={0.08} splitType="words">
                 {t({ pt: "Sistemas que ", en: "Systems that " })}
               </SplitText>
-              <span className="italic text-text-2">
-                {t({ pt: "resolvem problemas reais.", en: "solve real problems." })}
-              </span>
+              <span className="italic text-text-2">{t({ pt: "resolvem problemas reais.", en: "solve real problems." })}</span>
             </h2>
           </div>
           <p className="max-w-xs text-sm text-text-2">
-            {t({ pt: "Clique nos destaques para ver o case study completo.", en: "Click featured projects for full case studies." })}
+            {t({ pt: "Destaques abrem o case study completo.", en: "Featured projects open the full case study." })}
           </p>
         </div>
 
-        <TagFilter
-          tags={allTags}
-          selectedTags={selectedTags}
-          onTagChange={setSelectedTags}
-        />
+        <TagFilter tags={allTags} selectedTags={selectedTags} onTagChange={setSelectedTags} />
 
         {featured.length > 0 && (
           <section className="tier-section mb-16">
-            <h3
-              className="font-mono text-[11px] tracking-[0.2em] uppercase mb-8 text-label"
-            >
+            <h3 className="font-mono text-[11px] tracking-[0.2em] uppercase mb-6 text-label" style={{ color: "var(--color-text-3)" }}>
               {t({ pt: "Destaques", en: "Featured" })}
             </h3>
-            <div className="proj-grid-1 grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {featured.map((proj) => (
-                <Tier1Card key={proj.id} proj={proj} />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+              {featured.map((proj, i) => (
+                <Tier1Card key={proj.id} proj={proj} index={i + 1} />
               ))}
             </div>
           </section>
@@ -432,29 +250,25 @@ export default function Projects() {
 
         {caseStudies.length > 0 && (
           <section className="tier-section mb-16">
-            <h3
-              className="font-mono text-[11px] tracking-[0.2em] uppercase mb-8 text-label"
-            >
+            <h3 className="font-mono text-[11px] tracking-[0.2em] uppercase mb-6 text-label" style={{ color: "var(--color-text-3)" }}>
               {t({ pt: "Estudos de Caso", en: "Case Studies" })}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {caseStudies.map((proj) => (
-                <Tier2Card key={proj.id} proj={proj} />
+            <div className="border-t" style={{ borderColor: "var(--color-border)" }}>
+              {caseStudies.map((proj, i) => (
+                <Tier2Row key={proj.id} proj={proj} index={i + 1} />
               ))}
             </div>
           </section>
         )}
 
         {others.length > 0 && (
-          <section className="tier-section mb-16">
-            <h3
-              className="font-mono text-[11px] tracking-[0.2em] uppercase mb-8 text-label"
-            >
+          <section className="tier-section">
+            <h3 className="font-mono text-[11px] tracking-[0.2em] uppercase mb-6 text-label" style={{ color: "var(--color-text-3)" }}>
               {t({ pt: "Outros Projetos", en: "Other Projects" })}
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {others.map((proj) => (
-                <Tier3Card key={proj.id} proj={proj} />
+            <div className="border-t" style={{ borderColor: "var(--color-border)" }}>
+              {others.map((proj, i) => (
+                <Tier3Row key={proj.id} proj={proj} index={i + 1} />
               ))}
             </div>
           </section>

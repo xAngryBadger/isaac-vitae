@@ -12,11 +12,13 @@ const menuLinks = [
   { label: { pt: "Experiência", en: "Experience" }, href: "/experience", num: "03" },
   { label: { pt: "Projetos", en: "Projects" }, href: "/projects", num: "04" },
   { label: { pt: "Habilidades", en: "Skills" }, href: "/skills", num: "05" },
-  { label: { pt: "Galeria", en: "Gallery" }, href: "/gallery", num: "06" },
+  // Galeria desativada temporariamente (pedido do usuário) — reativar junto com a rota em App.tsx
+  // { label: { pt: "Galeria", en: "Gallery" }, href: "/gallery", num: "06" },
   { label: { pt: "Certificações", en: "Certificates" }, href: "/certificates", num: "07" },
   { label: { pt: "Currículo", en: "Resume" }, href: "/cv", num: "08" },
-  { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "09" },
-  { label: { pt: "Disclosures", en: "Disclosures" }, href: "/security", num: "10", muted: true },
+  { label: { pt: "Contato", en: "Contact" }, href: "/contact", num: "09" },
+  { label: { pt: "Playground", en: "Playground" }, href: "/playground", num: "10" },
+  { label: { pt: "Disclosures", en: "Disclosures" }, href: "/security", num: "11", muted: true },
 ];
 
 export default function Nav() {
