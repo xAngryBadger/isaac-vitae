@@ -2,10 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Globe, Menu, X } from "lucide-react";
 import { useLang } from "../lib/LanguageContext";
+import { personal } from "../data/content";
 import { DyslexiaToggle } from "./DyslexiaToggle";
 import ThemeSwitcher from "./ThemeSwitcher";
-
-const BASE_PATH = "/isaac-vitae";
 
 const menuLinks = [
   { label: { pt: "Início", en: "Home" }, href: "/", num: "01" },
