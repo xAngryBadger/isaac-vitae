@@ -161,11 +161,11 @@ export default function Nav() {
         </div>
       </header>
 
-      {/* menu fullscreen (mobile + itens completos) */}
+      {/* menu fullscreen — MOBILE ONLY (desktop usa a nav inline acima) */}
       <div
         id="primary-menu"
         ref={menuBackdropRef}
-        className="fixed inset-0 z-[99] flex flex-col justify-center px-10 lg:px-20"
+        className="lg:hidden fixed inset-0 z-[99] flex flex-col justify-center px-10"
         style={{
           visibility: menuOpen ? "visible" : "hidden",
           pointerEvents: menuOpen ? "auto" : "none",
