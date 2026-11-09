@@ -1,5 +1,5 @@
 import type { Bilingual } from "../lib/LanguageContext";
-import { getCurrentSemesterPeriod, getCurrentSemesterInline } from "../lib/semester";
+import { getCurrentSemesterPeriod } from "../lib/semester";
 
 const b = (pt: string, en: string): Bilingual => ({ pt, en });
 
